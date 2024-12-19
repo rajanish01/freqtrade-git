@@ -2129,279 +2129,233 @@ All endpoints in the below table need to be prefixed with the base URL of the AP
 <thead>
 <tr>
 <th>Endpoint</th>
-<th>Params (type)</th>
 <th>Method</th>
-<th>Description</th>
+<th>Description / Parameters</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/ping</code></td>
-<td></td>
 <td>GET</td>
 <td>Simple command testing the API Readiness - requires no authentication.</td>
 </tr>
 <tr>
 <td><code>/start</code></td>
-<td></td>
 <td>POST</td>
 <td>Starts the trader.</td>
 </tr>
 <tr>
 <td><code>/stop</code></td>
-<td></td>
 <td>POST</td>
 <td>Stops the trader.</td>
 </tr>
 <tr>
 <td><code>/stopbuy</code></td>
-<td></td>
 <td>POST</td>
 <td>Stops the trader from opening new trades. Gracefully closes open trades according to their rules.</td>
 </tr>
 <tr>
 <td><code>/reload_config</code></td>
-<td></td>
 <td>POST</td>
 <td>Reloads the configuration file.</td>
 </tr>
 <tr>
 <td><code>/trades</code></td>
-<td></td>
 <td>GET</td>
 <td>List last trades. Limited to 500 trades per call.</td>
 </tr>
 <tr>
 <td><code>/trade/&lt;tradeid&gt;</code></td>
-<td><code>tradeid</code> (<code>int</code>)</td>
 <td>GET</td>
-<td>Get specific trade.</td>
+<td>Get specific trade.<br/><em>Params:</em><br/>- <code>tradeid</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/trades/&lt;tradeid&gt;</code></td>
-<td><code>tradeid</code> (<code>int</code>)</td>
 <td>DELETE</td>
-<td>Remove trade from the database. Tries to close open orders. Requires manual handling of this trade on the exchange.</td>
+<td>Remove trade from the database. Tries to close open orders. Requires manual handling of this trade on the exchange.<br/><em>Params:</em><br/>- <code>tradeid</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/trades/&lt;tradeid&gt;/open-order</code></td>
-<td><code>tradeid</code> (<code>int</code>)</td>
 <td>DELETE</td>
-<td>Cancel open order for this trade.</td>
+<td>Cancel open order for this trade.<br/><em>Params:</em><br/>- <code>tradeid</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/trades/&lt;tradeid&gt;/reload</code></td>
-<td><code>tradeid</code> (<code>int</code>)</td>
 <td>POST</td>
-<td>Reload a trade from the Exchange. Only works in live, and can potentially help recover a trade that was manually sold on the exchange.</td>
+<td>Reload a trade from the Exchange. Only works in live, and can potentially help recover a trade that was manually sold on the exchange.<br/><em>Params:</em><br/>- <code>tradeid</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/show_config</code></td>
-<td></td>
 <td>GET</td>
 <td>Shows part of the current configuration with relevant settings to operation.</td>
 </tr>
 <tr>
 <td><code>/logs</code></td>
-<td></td>
 <td>GET</td>
 <td>Shows last log messages.</td>
 </tr>
 <tr>
 <td><code>/status</code></td>
-<td></td>
 <td>GET</td>
 <td>Lists all open trades.</td>
 </tr>
 <tr>
 <td><code>/count</code></td>
-<td></td>
 <td>GET</td>
 <td>Displays number of trades used and available.</td>
 </tr>
 <tr>
 <td><code>/entries</code></td>
-<td><code>pair</code> (<code>str</code>)</td>
 <td>GET</td>
-<td>Shows profit statistics for each enter tags for given pair (or all pairs if pair isn't given). Pair is optional.</td>
+<td>Shows profit statistics for each enter tags for given pair (or all pairs if pair isn't given). Pair is optional.<br/><em>Params:</em><br/>- <code>pair</code> (<code>str</code>)</td>
 </tr>
 <tr>
 <td><code>/exits</code></td>
-<td><code>pair</code> (<code>str</code>)</td>
 <td>GET</td>
-<td>Shows profit statistics for each exit reasons for given pair (or all pairs if pair isn't given). Pair is optional.</td>
+<td>Shows profit statistics for each exit reasons for given pair (or all pairs if pair isn't given). Pair is optional.<br/><em>Params:</em><br/>- <code>pair</code> (<code>str</code>)</td>
 </tr>
 <tr>
 <td><code>/mix_tags</code></td>
-<td><code>pair</code> (<code>str</code>)</td>
 <td>GET</td>
-<td>Shows profit statistics for each combinations of enter tag + exit reasons for given pair (or all pairs if pair isn't given). Pair is optional.</td>
+<td>Shows profit statistics for each combinations of enter tag + exit reasons for given pair (or all pairs if pair isn't given). Pair is optional.<br/><em>Params:</em><br/>- <code>pair</code> (<code>str</code>)</td>
 </tr>
 <tr>
 <td><code>/locks</code></td>
-<td></td>
 <td>GET</td>
 <td>Displays currently locked pairs.</td>
 </tr>
 <tr>
 <td><code>/locks</code></td>
-<td><code>&lt;pair&gt;</code> (<code>str</code>)<br/> <code>&lt;until&gt;</code> (<code>datetime</code>)<br/> <code>[side]</code> (<code>str</code>)<br/> <code>[reason]</code> (<code>str</code>)</td>
 <td>POST</td>
-<td>Locks a pair until "until". (Until will be rounded up to the nearest timeframe). Side is optional and is either <code>long</code> or <code>short</code> (default is <code>long</code>). Reason is optional.</td>
+<td>Locks a pair until "until". (Until will be rounded up to the nearest timeframe). Side is optional and is either <code>long</code> or <code>short</code> (default is <code>long</code>). Reason is optional.<br/><em>Params:</em><br/>- <code>&lt;pair&gt;</code> (<code>str</code>)<br/>- <code>&lt;until&gt;</code> (<code>datetime</code>)<br/>- <code>[side]</code> (<code>str</code>)<br/>- <code>[reason]</code> (<code>str</code>)</td>
 </tr>
 <tr>
 <td><code>/locks/&lt;lockid&gt;</code></td>
-<td><code>lockid</code> (<code>int</code>)</td>
 <td>DELETE</td>
-<td>Deletes (disables) the lock by id.</td>
+<td>Deletes (disables) the lock by id.<br/><em>Params:</em><br/>- <code>lockid</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/profit</code></td>
-<td></td>
 <td>GET</td>
 <td>Display a summary of your profit/loss from close trades and some stats about your performance.</td>
 </tr>
 <tr>
 <td><code>/forceexit</code></td>
-<td><code>&lt;tradeid&gt;</code> (<code>int</code> or <code>str</code>)<br/> <code>&lt;ordertype&gt;</code> (<code>str</code>)<br/> <code>[amount]</code> (<code>float</code>)</td>
 <td>POST</td>
-<td>Instantly exits the given trade (ignoring <code>minimum_roi</code>), using the given order type ("market" or "limit", uses your config setting if not specified), and the chosen amount (full sell if not specified). If <code>all</code> is supplied as the <code>tradeid</code>, then all currently open trades will be forced to exit.</td>
+<td>Instantly exits the given trade (ignoring <code>minimum_roi</code>), using the given order type ("market" or "limit", uses your config setting if not specified), and the chosen amount (full sell if not specified). If <code>all</code> is supplied as the <code>tradeid</code>, then all currently open trades will be forced to exit.<br/><em>Params:</em><br/>- <code>&lt;tradeid&gt;</code> (<code>int</code> or <code>str</code>)<br/>- <code>&lt;ordertype&gt;</code> (<code>str</code>)<br/>- <code>[amount]</code> (<code>float</code>)</td>
 </tr>
 <tr>
 <td><code>/forceenter</code></td>
-<td><code>&lt;pair&gt;</code> (<code>str</code>)<br/> <code>&lt;side&gt;</code> (<code>str</code>)<br/> <code>[rate]</code> (<code>float</code>)</td>
 <td>POST</td>
-<td>Instantly enters the given pair. Side is optional and is either <code>long</code> or <code>short</code> (default is <code>long</code>). Rate is optional. (<code>force_entry_enable</code> must be set to True)</td>
+<td>Instantly enters the given pair. Side is optional and is either <code>long</code> or <code>short</code> (default is <code>long</code>). Rate is optional. (<code>force_entry_enable</code> must be set to True)<br/><em>Params:</em><br/>- <code>&lt;pair&gt;</code> (<code>str</code>)<br/>- <code>&lt;side&gt;</code> (<code>str</code>)<br/>- <code>[rate]</code> (<code>float</code>)</td>
 </tr>
 <tr>
 <td><code>/performance</code></td>
-<td></td>
 <td>GET</td>
 <td>Show performance of each finished trade grouped by pair.</td>
 </tr>
 <tr>
 <td><code>/balance</code></td>
-<td></td>
 <td>GET</td>
 <td>Show account balance per currency.</td>
 </tr>
 <tr>
 <td><code>/daily</code></td>
-<td><code>&lt;n&gt;</code> (<code>int</code>)</td>
 <td>GET</td>
-<td>Shows profit or loss per day, over the last n days (n defaults to 7).</td>
+<td>Shows profit or loss per day, over the last n days (n defaults to 7).<br/><em>Params:</em><br/>- <code>&lt;n&gt;</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/weekly</code></td>
-<td><code>&lt;n&gt;</code> (<code>int</code>)</td>
 <td>GET</td>
-<td>Shows profit or loss per week, over the last n days (n defaults to 4).</td>
+<td>Shows profit or loss per week, over the last n days (n defaults to 4).<br/><em>Params:</em><br/>- <code>&lt;n&gt;</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/monthly</code></td>
-<td><code>&lt;n&gt;</code> (<code>int</code>)</td>
 <td>GET</td>
-<td>Shows profit or loss per month, over the last n days (n defaults to 3).</td>
+<td>Shows profit or loss per month, over the last n days (n defaults to 3).<br/><em>Params:</em><br/>- <code>&lt;n&gt;</code> (<code>int</code>)</td>
 </tr>
 <tr>
 <td><code>/stats</code></td>
-<td></td>
 <td>GET</td>
 <td>Display a summary of profit / loss reasons as well as average holding times.</td>
 </tr>
 <tr>
 <td><code>/whitelist</code></td>
-<td></td>
 <td>GET</td>
 <td>Show the current whitelist.</td>
 </tr>
 <tr>
 <td><code>/blacklist</code></td>
-<td></td>
 <td>GET</td>
 <td>Show the current blacklist.</td>
 </tr>
 <tr>
 <td><code>/blacklist</code></td>
-<td><code>pair</code> (<code>str</code>)</td>
 <td>POST</td>
-<td>Adds the specified pair to the blacklist.</td>
+<td>Adds the specified pair to the blacklist.<br/><em>Params:</em><br/>- <code>pair</code> (<code>str</code>)</td>
 </tr>
 <tr>
 <td><code>/blacklist</code></td>
-<td><code>[pair,pair]</code> (<code>list[str]</code>)</td>
 <td>DELETE</td>
-<td>Deletes the specified list of pairs from the blacklist.</td>
+<td>Deletes the specified list of pairs from the blacklist.<br/><em>Params:</em><br/>- <code>[pair,pair]</code> (<code>list[str]</code>)</td>
 </tr>
 <tr>
 <td><code>/edge</code></td>
-<td></td>
 <td>GET</td>
 <td>Show validated pairs by Edge if it is enabled.</td>
 </tr>
 <tr>
 <td><code>/pair_candles</code></td>
-<td></td>
 <td>GET</td>
 <td>Returns dataframe for a pair / timeframe combination while the bot is running. <strong>Alpha</strong></td>
 </tr>
 <tr>
 <td><code>/pair_candles</code></td>
-<td><code>&lt;column_list&gt;</code> (<code>list[str]</code>)</td>
 <td>POST</td>
-<td>Returns dataframe for a pair / timeframe combination while the bot is running, filtered by a provided list of columns to return. <strong>Alpha</strong></td>
+<td>Returns dataframe for a pair / timeframe combination while the bot is running, filtered by a provided list of columns to return. <strong>Alpha</strong><br/><em>Params:</em><br/>- <code>&lt;column_list&gt;</code> (<code>list[str]</code>)</td>
 </tr>
 <tr>
 <td><code>/pair_history</code></td>
-<td></td>
 <td>GET</td>
 <td>Returns an analyzed dataframe for a given timerange, analyzed by a given strategy. <strong>Alpha</strong></td>
 </tr>
 <tr>
 <td><code>/pair_history</code></td>
-<td><code>&lt;column_list&gt;</code> (<code>list[str]</code>)</td>
 <td>POST</td>
-<td>Returns an analyzed dataframe for a given timerange, analyzed by a given strategy, filtered by a provided list of columns to return. <strong>Alpha</strong></td>
+<td>Returns an analyzed dataframe for a given timerange, analyzed by a given strategy, filtered by a provided list of columns to return. <strong>Alpha</strong><br/><em>Params:</em><br/>- <code>&lt;column_list&gt;</code> (<code>list[str]</code>)</td>
 </tr>
 <tr>
 <td><code>/plot_config</code></td>
-<td></td>
 <td>GET</td>
 <td>Get plot config from the strategy (or nothing if not configured). <strong>Alpha</strong></td>
 </tr>
 <tr>
 <td><code>/strategies</code></td>
-<td></td>
 <td>GET</td>
 <td>List strategies in strategy directory. <strong>Alpha</strong></td>
 </tr>
 <tr>
 <td><code>/strategy/&lt;strategy&gt;</code></td>
-<td><code>&lt;strategy&gt;</code> (<code>str</code>)</td>
 <td>GET</td>
-<td>Get specific Strategy content by strategy class name. <strong>Alpha</strong></td>
+<td>Get specific Strategy content by strategy class name. <strong>Alpha</strong><br/><em>Params:</em><br/>- <code>&lt;strategy&gt;</code> (<code>str</code>)</td>
 </tr>
 <tr>
 <td><code>/available_pairs</code></td>
-<td></td>
 <td>GET</td>
 <td>List available backtest data. <strong>Alpha</strong></td>
 </tr>
 <tr>
 <td><code>/version</code></td>
-<td></td>
 <td>GET</td>
 <td>Show version.</td>
 </tr>
 <tr>
 <td><code>/sysinfo</code></td>
-<td></td>
 <td>GET</td>
 <td>Show information about the system load.</td>
 </tr>
 <tr>
 <td><code>/health</code></td>
-<td></td>
 <td>GET</td>
 <td>Show bot health (last bot loop).</td>
 </tr>
