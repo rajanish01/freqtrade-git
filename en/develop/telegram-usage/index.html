@@ -687,6 +687,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Use Group id">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-topic-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Topic ID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1865,6 +1880,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Use Group id">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-topic-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Topic ID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2153,18 +2183,31 @@ Telegram user id.</p>
 <p>Talk to the <a href="https://telegram.me/userinfobot">userinfobot</a></p>
 <p>Get your "Id", you will use it for the config parameter <code>chat_id</code>.</p>
 <h4 id="use-group-id">Use Group id<a class="headerlink" href="#use-group-id" title="Permanent link">&para;</a></h4>
-<p>You can use bots in telegram groups by just adding them to the group. You can find the group id by first adding a <a href="https://telegram.me/rawdatabot">RawDataBot</a> to your group. The Group id is shown as id in the <code>"chat"</code> section, which the RawDataBot will send to you:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;chat&quot;</span><span class="p">:{</span>
-<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">-1001332619709</span>
+<p>To get the group ID, you can add the bot to the group, start freqtrade, and issue a <code>/tg_info</code> command.
+This will return the group id to you, without having to use some random bot.
+While "chat_id" is still required, it doesn't need to be set to this particular group id for this command.</p>
+<p>The response will also contain the "topic_id" if necessary - both in a format ready to copy/paste into your configuration.</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;********&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;chat_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1001332619709&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;topic_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;122&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For the Freqtrade configuration, you can then use the full value (including <code>-</code> if it's there) as string:</p>
+<p>For the Freqtrade configuration, you can then use the full value (including <code>-</code> ) as string:</p>
 <div class="highlight"><pre><span></span><code><span class="w">   </span><span class="nt">&quot;chat_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1001332619709&quot;</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Using telegram groups</p>
 <p>When using telegram groups, you're giving every member of the telegram group access to your freqtrade bot and to all commands possible via telegram. Please make sure that you can trust everyone in the telegram group to avoid unpleasant surprises.</p>
 </div>
+<h5 id="group-topic-id">Group Topic ID<a class="headerlink" href="#group-topic-id" title="Permanent link">&para;</a></h5>
+<p>To use a specific topic in a group, you can use the <code>topic_id</code> parameter in the configuration. This will allow you to use the bot in a specific topic in a group.<br />
+Without this, the bot will always respond to the general channel in the group if topics are enabled for a group chat.</p>
+<div class="highlight"><pre><span></span><code><span class="w">   </span><span class="nt">&quot;chat_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1001332619709&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;topic_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
+</code></pre></div>
+<p>Similar to the group-id - you can use <code>/tg_info</code> from the topic/thread to get the correct topic-id.</p>
 <h2 id="control-telegram-noise">Control telegram noise<a class="headerlink" href="#control-telegram-noise" title="Permanent link">&para;</a></h2>
 <p>Freqtrade provides means to control the verbosity of your telegram bot.
 Each setting has the following possible values:</p>
