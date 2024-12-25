@@ -1630,6 +1630,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hdf5-data-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      hdf5 data storage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1839,6 +1848,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hdf5-data-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      hdf5 data storage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1909,6 +1927,9 @@ We will keep a compatibility layer for 1-2 versions (so both <code>buy_tag</code
 <p>version 2023.3 saw the removal of <code>populate_any_indicators</code> in favor of split methods for feature engineering and targets. Please read the <a href="../strategy_migration/#freqai-strategy">migration document</a> for full details.</p>
 <h2 id="removal-of-protections-from-configuration">Removal of <code>protections</code> from configuration<a class="headerlink" href="#removal-of-protections-from-configuration" title="Permanent link">&para;</a></h2>
 <p>Setting protections from the configuration via <code>"protections": [],</code> has been removed in 2024.10, after having raised deprecation warnings for over 3 years.</p>
+<h2 id="hdf5-data-storage">hdf5 data storage<a class="headerlink" href="#hdf5-data-storage" title="Permanent link">&para;</a></h2>
+<p>Using hdf5 as data storage has been deprecated in 2024.12 and will be removed in 2025.1. We recommend switching to the feather data format.</p>
+<p>Please use the <a href="../data-download/#sub-command-convert-data"><code>convert-data</code> subcommand</a> to convert your existing data to one of the supported formats.</p>
 
 
 
