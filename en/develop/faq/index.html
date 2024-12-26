@@ -1596,6 +1596,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#i-want-to-reset-the-bots-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      I want to reset the bot's database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#im-getting-outdated-history-for-pair-xxx-in-the-log" class="md-nav__link">
     <span class="md-ellipsis">
       I'm getting "Outdated history for pair xxx" in the log
@@ -2015,6 +2024,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#i-want-to-reset-the-bots-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      I want to reset the bot's database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#im-getting-outdated-history-for-pair-xxx-in-the-log" class="md-nav__link">
     <span class="md-ellipsis">
       I'm getting "Outdated history for pair xxx" in the log
@@ -2254,6 +2272,8 @@ On low volume pairs, this is a rather common occurrence.</p>
 <p>This message is a warning that the candles had a price jump of &gt; 30%.
 This might be a sign that the pair stopped trading, and some token exchange took place (e.g. COCOS in 2021 - where price jumped from 0.0000154 to 0.01621).
 This message is often accompanied by <a href="#im-getting-missing-data-fillup-messages-in-the-log">"Missing data fillup"</a> - as trading on such pairs is often stopped for some time.</p>
+<h3 id="i-want-to-reset-the-bots-database">I want to reset the bot's database<a class="headerlink" href="#i-want-to-reset-the-bots-database" title="Permanent link">&para;</a></h3>
+<p>To reset the bot's database, you can either delete the database (by default <code>tradesv3.sqlite</code> or <code>tradesv3.dryrun.sqlite</code>), or use a different database url via <code>--db-url</code> (e.g. <code>sqlite:///mynewdatabase.sqlite</code>).</p>
 <h3 id="im-getting-outdated-history-for-pair-xxx-in-the-log">I'm getting "Outdated history for pair xxx" in the log<a class="headerlink" href="#im-getting-outdated-history-for-pair-xxx-in-the-log" title="Permanent link">&para;</a></h3>
 <p>The bot is trying to tell you that it got an outdated last candle (not the last complete candle).
 As a consequence, Freqtrade will not enter a trade for this pair - as trading on old information is usually not what is desired.</p>
