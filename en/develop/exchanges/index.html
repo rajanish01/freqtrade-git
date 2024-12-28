@@ -1197,18 +1197,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#htx-formerly-huobi" class="md-nav__link">
+  <a href="#htx" class="md-nav__link">
     <span class="md-ellipsis">
-      HTX (formerly Huobi)
+      HTX
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#okx-former-okex" class="md-nav__link">
+  <a href="#okx" class="md-nav__link">
     <span class="md-ellipsis">
-      OKX (former OKEX)
+      OKX
     </span>
   </a>
   
@@ -1942,18 +1942,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#htx-formerly-huobi" class="md-nav__link">
+  <a href="#htx" class="md-nav__link">
     <span class="md-ellipsis">
-      HTX (formerly Huobi)
+      HTX
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#okx-former-okex" class="md-nav__link">
+  <a href="#okx" class="md-nav__link">
     <span class="md-ellipsis">
-      OKX (former OKEX)
+      OKX
     </span>
   </a>
   
@@ -2220,12 +2220,12 @@ You can use either <code>"limit"</code> or <code>"market"</code> in the <code>or
 <h3 id="kucoin-blacklists">Kucoin Blacklists<a class="headerlink" href="#kucoin-blacklists" title="Permanent link">&para;</a></h3>
 <p>For Kucoin, it is suggested to add <code>"KCS/&lt;STAKE&gt;"</code> to your blacklist to avoid issues, unless you are willing to maintain enough extra <code>KCS</code> on the account or unless you're willing to disable using <code>KCS</code> for fees. 
 Kucoin accounts may use <code>KCS</code> for fees, and if a trade happens to be on <code>KCS</code>, further trades may consume this position and make the initial <code>KCS</code> trade unsellable as the expected amount is not there anymore.</p>
-<h2 id="htx-formerly-huobi">HTX (formerly Huobi)<a class="headerlink" href="#htx-formerly-huobi" title="Permanent link">&para;</a></h2>
+<h2 id="htx">HTX<a class="headerlink" href="#htx" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Stoploss on Exchange</p>
 <p>HTX supports <code>stoploss_on_exchange</code> and uses <code>stop-limit</code> orders. It provides great advantages, so we recommend to benefit from it by enabling stoploss on exchange.</p>
 </div>
-<h2 id="okx-former-okex">OKX (former OKEX)<a class="headerlink" href="#okx-former-okex" title="Permanent link">&para;</a></h2>
+<h2 id="okx">OKX<a class="headerlink" href="#okx" title="Permanent link">&para;</a></h2>
 <p>OKX requires a passphrase for each api key, you will therefore need to add this key into the configuration so your exchange section looks as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;exchange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;okx&quot;</span><span class="p">,</span>
@@ -2235,6 +2235,8 @@ Kucoin accounts may use <code>KCS</code> for fees, and if a trade happens to be 
 <span class="w">    </span><span class="c1">// ...</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>If you've registered with OKX on the host my.okx.com (OKX EAA)- you will need to use <code>"myokx"</code> as the exchange name.
+Using the wrong exchange will result in the error "OKX Error 50119: API key doesn't exist" - as the 2 are separate entities.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>OKX only provides 100 candles per api call. Therefore, the strategy will only have a pretty low amount of data available in backtesting mode.</p>
