@@ -1121,9 +1121,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#binance-futures-settings" class="md-nav__link">
+  <a href="#binance-isolated-futures-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Binance futures settings
+      Binance isolated futures settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binance-bnfcr-futures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binance BNFCR futures
     </span>
   </a>
   
@@ -1866,9 +1875,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#binance-futures-settings" class="md-nav__link">
+  <a href="#binance-isolated-futures-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Binance futures settings
+      Binance isolated futures settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binance-bnfcr-futures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binance BNFCR futures
     </span>
   </a>
   
@@ -2144,11 +2162,26 @@ Violating these rules will result in a trading restriction.</p>
       &quot;order_book_top&quot;: 1
   },
 </code></pre></div>
-<h4 id="binance-futures-settings">Binance futures settings<a class="headerlink" href="#binance-futures-settings" title="Permanent link">&para;</a></h4>
+<h4 id="binance-isolated-futures-settings">Binance isolated futures settings<a class="headerlink" href="#binance-isolated-futures-settings" title="Permanent link">&para;</a></h4>
 <p>Users will also have to have the futures-setting "Position Mode" set to "One-way Mode", and "Asset Mode" set to "Single-Asset Mode".
 These settings will be checked on startup, and freqtrade will show an error if this setting is wrong.</p>
 <p><img alt="Binance futures settings" src="../assets/binance_futures_settings.png" /></p>
 <p>Freqtrade will not attempt to change these settings.</p>
+<h4 id="binance-bnfcr-futures">Binance BNFCR futures<a class="headerlink" href="#binance-bnfcr-futures" title="Permanent link">&para;</a></h4>
+<p>BNFCR mode are a special type of futures mode on Binance to work around regulatory issues in Europe.<br />
+To use BNFCR futures, you will have to have the following combination of settings:</p>
+<div class="highlight"><pre><span></span><code>{
+    // ...
+    &quot;trading_mode&quot;: &quot;futures&quot;,
+    &quot;margin_mode&quot;: &quot;cross&quot;,
+    &quot;proxy_coin&quot;: &quot;BNFCR&quot;,
+    &quot;stake_currency&quot;: &quot;USDT&quot; // or &quot;USDC&quot;
+    // ...
+}
+</code></pre></div>
+<p>The <code>stake_currency</code> setting defines the markets the bot will be operating in. This choice is really arbitrary.</p>
+<p>On the exchange, you'll have to use "Multi-asset Mode" - and "Position Mode set to "One-way Mode".
+Freqtrade will check these settings on startup, but won't attempt to change them.</p>
 <h2 id="bingx">Bingx<a class="headerlink" href="#bingx" title="Permanent link">&para;</a></h2>
 <p>BingX supports <a href="../configuration/#understand-order_time_in_force">time_in_force</a> with settings "GTC" (good till cancelled), "IOC" (immediate-or-cancel) and "PO" (Post only) settings.</p>
 <div class="admonition tip">
