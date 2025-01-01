@@ -2927,6 +2927,7 @@ For performance reasons, it's disabled by default and freqtrade will show a warn
 <p>Position adjustments will always be applied in the direction of the trade, so a positive value will always increase your position (negative values will decrease your position), no matter if it's a long or short trade.
 Adjustment orders can be assigned with a tag by returning a 2 element Tuple, with the first element being the adjustment amount, and the 2<sup>nd</sup> element the tag (e.g. <code>return 250, "increase_favorable_conditions"</code>).</p>
 <p>Modifications to leverage are not possible, and the stake-amount returned is assumed to be before applying leverage.</p>
+<p>The combined stake currently allocated to the position is held in <code>trade.stake_amount</code>. Therefore <code>trade.stake_amount</code> will always be updated on every additional entry and partial exit made through <code>adjust_trade_position()</code>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Loose Logic</p>
 <p>On dry and live run, this function will be called every <code>throttle_process_secs</code> (default to 5s). If you have a loose logic, for example your logic for extra entry is only to check RSI of last candle is below 30, then when such condition fulfilled, your bot will do extra re-entry every 5 secs until either it run out of money, it hit the <code>max_position_adjustment</code> limit, or a new candle with RSI more than 30 arrived.</p>
