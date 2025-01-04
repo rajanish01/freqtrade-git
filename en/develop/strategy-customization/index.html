@@ -3047,7 +3047,7 @@ It will also include a "status" field, highlighting potential problems.</p>
             <span class="p">(</span><span class="s2">&quot;BTC/TUSD&quot;</span><span class="p">,</span> <span class="s2">&quot;15m&quot;</span><span class="p">),</span>
             <span class="p">]</span>
 </code></pre></div>
-<p>A full sample can be found <a href="#complete-data-provider-sample">in the DataProvider section</a>.</p>
+<p>A full sample can be found <a href="#complete-dataprovider-sample">in the DataProvider section</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>As these pairs will be refreshed as part of the regular whitelist refresh, it's best to keep this list short.
@@ -3076,7 +3076,7 @@ Details about this may vary, if they do, this can be found in the exchange docum
 and do not have access to data from other informative pairs. However, all informative dataframes for each pair are merged and passed to main <code>populate_indicators()</code> method.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Do not use the <code>@informative</code> decorator if you need to use data from one informative pair when generating another informative pair. Instead, define informative pairs manually as described <a href="#complete-data-provider-sample">in the DataProvider section</a>.</p>
+<p>Do not use the <code>@informative</code> decorator if you need to use data from one informative pair when generating another informative pair. Instead, define informative pairs manually as described <a href="#complete-dataprovider-sample">in the DataProvider section</a>.</p>
 </div>
 <p>When hyperopting, use of the hyperoptable parameter <code>.value</code> attribute is not supported. Please use the <code>.range</code> attribute. See <a href="../hyperopt/#optimizing-an-indicator-parameter">optimizing an indicator parameter</a> for more information.</p>
 <details class="info">
@@ -3202,7 +3202,7 @@ and do not have access to data from other informative pairs. However, all inform
 <li>Merge the dataframe without lookahead bias</li>
 <li>Forward-fill (optional)</li>
 </ul>
-<p>For a full sample, please refer to the <a href="#complete-data-provider-sample">complete data provider example</a> below.</p>
+<p>For a full sample, please refer to the <a href="#complete-dataprovider-sample">complete data provider example</a> below.</p>
 <p>All columns of the informative dataframe will be available on the returning dataframe in a renamed fashion:</p>
 <div class="admonition example">
 <p class="admonition-title">Column renaming</p>
