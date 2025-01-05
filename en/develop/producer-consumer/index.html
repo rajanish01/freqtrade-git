@@ -1736,9 +1736,9 @@
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <h3 id="example-producer-strategy">Example - Producer Strategy<a class="headerlink" href="#example-producer-strategy" title="Permanent link">&para;</a></h3>
 <p>A simple strategy with multiple indicators. No special considerations are required in the strategy itself.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ProducerStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ProducerStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="c1">#...</span>
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate indicators in the standard freqtrade way which can then be broadcast to other instances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1751,7 +1751,7 @@
 
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Populates the entry signal for the given dataframe</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1772,13 +1772,13 @@
 </div>
 <h3 id="example-consumer-strategy">Example - Consumer Strategy<a class="headerlink" href="#example-consumer-strategy" title="Permanent link">&para;</a></h3>
 <p>A logically equivalent strategy which calculates no indicators itself, but will have the same analyzed dataframes available to make trading decisions based on the indicators calculated in the producer. In this example the consumer has the same entry criteria, however this is not necessary. The consumer may use different logic to enter/exit trades, and only use the indicators as specified.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ConsumerStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ConsumerStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="c1">#...</span>
     <span class="n">process_only_new_candles</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># required for consumers</span>
 
     <span class="n">_columns_to_expect</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rsi_default&#39;</span><span class="p">,</span> <span class="s1">&#39;tema_default&#39;</span><span class="p">,</span> <span class="s1">&#39;bb_middleband_default&#39;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Use the websocket api to get pre-populated indicators from another freqtrade instance.</span>
 <span class="sd">        Use `self.dp.get_producer_df(pair)` to get the dataframe</span>
@@ -1813,7 +1813,7 @@
 
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Populates the entry signal for the given dataframe</span>
 <span class="sd">        &quot;&quot;&quot;</span>

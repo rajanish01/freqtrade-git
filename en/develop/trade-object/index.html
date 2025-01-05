@@ -1896,8 +1896,8 @@ During backtesting, it's limited to usage in <a href="../strategy-callbacks/">st
 <h3 id="get_trades_proxy">get_trades_proxy<a class="headerlink" href="#get_trades_proxy" title="Permanent link">&para;</a></h3>
 <p>When your strategy needs some information on existing (open or close) trades - it's best to use <code>Trade.get_trades_proxy()</code>.</p>
 <p>Usage:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">freqtrade.persistence</span> <span class="kn">import</span> <span class="n">Trade</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
 
 <span class="c1"># ...</span>
 <span class="n">trade_hist</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">get_trades_proxy</span><span class="p">(</span><span class="n">pair</span><span class="o">=</span><span class="s1">&#39;ETH/USDT&#39;</span><span class="p">,</span> <span class="n">is_open</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">open_date</span><span class="o">=</span><span class="n">current_date</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
@@ -1911,28 +1911,28 @@ During backtesting, it's limited to usage in <a href="../strategy-callbacks/">st
 </ul>
 <h3 id="get_open_trade_count">get_open_trade_count<a class="headerlink" href="#get_open_trade_count" title="Permanent link">&para;</a></h3>
 <p>Get the number of currently open trades</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">freqtrade.persistence</span> <span class="kn">import</span> <span class="n">Trade</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
 <span class="c1"># ...</span>
 <span class="n">open_trades</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">get_open_trade_count</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="get_total_closed_profit">get_total_closed_profit<a class="headerlink" href="#get_total_closed_profit" title="Permanent link">&para;</a></h3>
 <p>Retrieve the total profit the bot has generated so far.
 Aggregates <code>close_profit_abs</code> for all closed trades.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">freqtrade.persistence</span> <span class="kn">import</span> <span class="n">Trade</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
 
 <span class="c1"># ...</span>
 <span class="n">profit</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">get_total_closed_profit</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="total_open_trades_stakes">total_open_trades_stakes<a class="headerlink" href="#total_open_trades_stakes" title="Permanent link">&para;</a></h3>
 <p>Retrieve the total stake_amount that's currently in trades.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">freqtrade.persistence</span> <span class="kn">import</span> <span class="n">Trade</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
 
 <span class="c1"># ...</span>
 <span class="n">profit</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">total_open_trades_stakes</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="get_overall_performance">get_overall_performance<a class="headerlink" href="#get_overall_performance" title="Permanent link">&para;</a></h3>
 <p>Retrieve the overall performance - similar to the <code>/performance</code> telegram command.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">freqtrade.persistence</span> <span class="kn">import</span> <span class="n">Trade</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
 
 <span class="c1"># ...</span>
 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;runmode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;live&#39;</span><span class="p">,</span> <span class="s1">&#39;dry_run&#39;</span><span class="p">):</span>

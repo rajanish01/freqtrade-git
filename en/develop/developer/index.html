@@ -2400,9 +2400,9 @@ If necessary, the Freqtrade team can assist and give guidance with writing good 
 <p>Freqtrade uses 2 main methods to check log content in tests, <code>log_has()</code> and <code>log_has_re()</code> (to check using regex, in case of dynamic log-messages).
 These are available from <code>conftest.py</code> and can be imported in any test module.</p>
 <p>A sample check looks as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">tests.conftest</span> <span class="kn">import</span> <span class="n">log_has</span><span class="p">,</span> <span class="n">log_has_re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">tests.conftest</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_has</span><span class="p">,</span> <span class="n">log_has_re</span>
 
-<span class="k">def</span> <span class="nf">test_method_to_test</span><span class="p">(</span><span class="n">caplog</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_method_to_test</span><span class="p">(</span><span class="n">caplog</span><span class="p">):</span>
     <span class="n">method_to_test</span><span class="p">()</span>
 
     <span class="k">assert</span> <span class="n">log_has</span><span class="p">(</span><span class="s2">&quot;This event happened&quot;</span><span class="p">,</span> <span class="n">caplog</span><span class="p">)</span>
@@ -2514,7 +2514,7 @@ Hopefully you also want to contribute this back upstream.</p>
 <p>Validations are optional, the parent class exposes a <code>verify_blacklist(pairlist)</code> and <code>_whitelist_for_active_markets(pairlist)</code> to do default filters. Use this if you limit your result to a certain number of pairs - so the end result is not shorter than expected.</p>
 <p>In <code>VolumePairList</code>, this implements different methods of sorting, does early validation so only the expected number of pairs is returned.</p>
 <h5 id="sample">sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">filter_pairlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pairlist</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">tickers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">filter_pairlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pairlist</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">tickers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="c1"># Generate dynamic whitelist</span>
         <span class="n">pairs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_pairlist</span><span class="p">(</span><span class="n">pairlist</span><span class="p">,</span> <span class="n">tickers</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pairs</span>
@@ -2604,9 +2604,9 @@ The below are "extras", which will make an exchange better (feature-complete) - 
 To demonstrate this, we'll use daily candles (<code>"1d"</code>) to keep things simple.
 We query the api (<code>ct.fetch_ohlcv()</code>) for the timeframe and look at the date of the last entry. If this entry changes or shows the date of a "incomplete" candle, then we should drop this since having incomplete candles is problematic because indicators assume that only complete candles are passed to them, and will generate a lot of false buy signals. By default, we're therefore removing the last candle assuming it's incomplete.</p>
 <p>To check how the new exchange behaves, you can use the following snippet:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ccxt</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
-<span class="kn">from</span> <span class="nn">freqtrade.data.converter</span> <span class="kn">import</span> <span class="n">ohlcv_to_dataframe</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ccxt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">ohlcv_to_dataframe</span>
 <span class="n">ct</span> <span class="o">=</span> <span class="n">ccxt</span><span class="o">.</span><span class="n">binance</span><span class="p">()</span>  <span class="c1"># Use the exchange you&#39;re testing</span>
 <span class="n">timeframe</span> <span class="o">=</span> <span class="s2">&quot;1d&quot;</span>
 <span class="n">pair</span> <span class="o">=</span> <span class="s2">&quot;BTC/USDT&quot;</span>  <span class="c1"># Make sure to use a pair that exists on that exchange!</span>
@@ -2627,9 +2627,9 @@ If the day shows the same day, then the last candle can be assumed as incomplete
 Another way is to run this command multiple times in a row and observe if the volume is changing (while the date remains the same).</p>
 <h3 id="update-binance-cached-leverage-tiers">Update binance cached leverage tiers<a class="headerlink" href="#update-binance-cached-leverage-tiers" title="Permanent link">&para;</a></h3>
 <p>Updating leveraged tiers should be done regularly - and requires an authenticated account with futures enabled.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ccxt</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ccxt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="n">exchange</span> <span class="o">=</span> <span class="n">ccxt</span><span class="o">.</span><span class="n">binance</span><span class="p">({</span>
     <span class="s1">&#39;apiKey&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;apikey&gt;&#39;</span><span class="p">,</span>

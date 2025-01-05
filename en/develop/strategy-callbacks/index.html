@@ -2261,13 +2261,13 @@ Obviously you can add more imports as needed for your strategy.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># flake8: noqa: F401</span>
 <span class="c1"># isort: skip_file</span>
 <span class="c1"># --- Do not remove these imports ---</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">timezone</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span>
 
-<span class="kn">from</span> <span class="nn">freqtrade.strategy</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">IStrategy</span><span class="p">,</span>
     <span class="n">Trade</span><span class="p">,</span> 
     <span class="n">Order</span><span class="p">,</span>
@@ -2291,19 +2291,19 @@ Obviously you can add more imports as needed for your strategy.</p>
 
 <span class="c1"># --------------------------------</span>
 <span class="c1"># Add your lib to import here</span>
-<span class="kn">import</span> <span class="nn">talib.abstract</span> <span class="k">as</span> <span class="nn">ta</span>
-<span class="kn">from</span> <span class="nn">technical</span> <span class="kn">import</span> <span class="n">qtpylib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">technical</span><span class="w"> </span><span class="kn">import</span> <span class="n">qtpylib</span>
 </code></pre></div>
 <h2 id="bot-start">Bot start<a class="headerlink" href="#bot-start" title="Permanent link">&para;</a></h2>
 <p>A simple callback which is called once when the strategy is loaded.
 This can be used to perform actions that must only be performed once and runs after dataprovider and wallet are set</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
-    <span class="k">def</span> <span class="nf">bot_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bot_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called only once after bot instantiation.</span>
 <span class="sd">        :param **kwargs: Ensure to keep this here so updates to this won&#39;t break your strategy.</span>
@@ -2319,13 +2319,13 @@ This can be used to perform actions that must only be performed once and runs af
 seconds, unless configured differently) or once per candle in backtest/hyperopt mode.
 This can be used to perform calculations which are pair independent (apply to all pairs), loading of external data, etc.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
-    <span class="k">def</span> <span class="nf">bot_loop_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bot_loop_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called at the start of the bot iteration (one loop).</span>
 <span class="sd">        Might be used to perform pair-independent tasks</span>
@@ -2342,8 +2342,8 @@ This can be used to perform calculations which are pair independent (apply to al
 <p>Called before entering a trade, makes it possible to manage your position size when placing a new trade.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">custom_stake_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stake_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                             <span class="n">proposed_stake</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">min_stake</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_stake</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                             <span class="n">leverage</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">entry_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                             <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -2384,8 +2384,8 @@ This can be used to perform calculations which are pair independent (apply to al
 <p>An example of how we can use different indicators depending on the current profit and also exit trades that were open longer than one day:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">custom_exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                     <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">dataframe</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">get_analyzed_dataframe</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeframe</span><span class="p">)</span>
         <span class="n">last_candle</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
@@ -2440,13 +2440,13 @@ Of course, many more things are possible, and all examples can be combined at wi
 <p>To simulate a regular trailing stoploss of 4% (trailing 4% behind the maximum reached price) you would use the following very simple method:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> 
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2474,13 +2474,13 @@ Of course, many more things are possible, and all examples can be combined at wi
 <p>Use the initial stoploss for the first 60 minutes, after this change to 10% trailing stoploss, and after 2 hours (120 minutes) we use a 5% trailing stoploss.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> 
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -2496,13 +2496,13 @@ Of course, many more things are possible, and all examples can be combined at wi
 If an additional order fills, set stoploss to -10% below the new <code>open_rate</code> (<a href="#position-adjust-calculations">Averaged across all entries</a>).</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> 
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -2521,13 +2521,13 @@ If an additional order fills, set stoploss to -10% below the new <code>open_rate
 In this example, we'll trail the highest price with 10% trailing stoploss for <code>ETH/BTC</code> and <code>XRP/BTC</code>, with 5% trailing stoploss for <code>LTC/BTC</code> and with 15% for all other pairs.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -2542,13 +2542,13 @@ In this example, we'll trail the highest price with 10% trailing stoploss for <c
 <p>Please note that the stoploss can only increase, values lower than the current stoploss are ignored.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -2571,13 +2571,13 @@ In this example, we'll trail the highest price with 10% trailing stoploss for <c
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -2596,15 +2596,15 @@ In this example, we'll trail the highest price with 10% trailing stoploss for <c
 <p>Absolute stoploss value may be derived from indicators stored in dataframe. Example uses parabolic SAR below the price as stoploss.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="c1"># &lt;...&gt;</span>
         <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;sar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="n">SAR</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -2633,13 +2633,13 @@ In this example, we'll trail the highest price with 10% trailing stoploss for <c
 <p>This function will consider leverage - so at 10x leverage, the actual stoploss would be 0.7% above $100 (0.7% * 10x = 7%).</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -2668,15 +2668,15 @@ is blocked by <code>confirm_trade_exit()</code> method. Warnings can be solved b
 For futures, we need to adjust the direction (up or down), as well as adjust for leverage, since the <a href="./#custom-stoploss"><code>custom_stoploss</code></a> callback  returns the <a href="../stoploss/#stoploss-and-leverage">"risk for this trade"</a> - not the relative price movement.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="n">use_custom_stoploss</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;atr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="n">ATR</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">timeperiod</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stoploss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                         <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">after_fill</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">dataframe</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">get_analyzed_dataframe</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeframe</span><span class="p">)</span>
@@ -2705,11 +2705,11 @@ For futures, we need to adjust the direction (up or down), as well as adjust for
 <h3 id="custom-order-entry-and-exit-price-example">Custom order entry and exit price example<a class="headerlink" href="#custom-order-entry-and-exit-price-example" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
-    <span class="k">def</span> <span class="nf">custom_entry_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">proposed_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_entry_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">proposed_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                            <span class="n">entry_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 
         <span class="n">dataframe</span><span class="p">,</span> <span class="n">last_updated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">get_analyzed_dataframe</span><span class="p">(</span><span class="n">pair</span><span class="o">=</span><span class="n">pair</span><span class="p">,</span>
@@ -2718,7 +2718,7 @@ For futures, we need to adjust the direction (up or down), as well as adjust for
 
         <span class="k">return</span> <span class="n">new_entryprice</span>
 
-    <span class="k">def</span> <span class="nf">custom_exit_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_exit_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span>
                           <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">proposed_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                           <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">exit_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 
@@ -2756,7 +2756,7 @@ It applies a tight timeout for higher priced assets, while allowing more time to
 <p>The function must return either <code>True</code> (cancel order) or <code>False</code> (keep order alive).</p>
 <div class="highlight"><pre><span></span><code>    <span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
@@ -2766,7 +2766,7 @@ It applies a tight timeout for higher priced assets, while allowing more time to
         <span class="s2">&quot;exit&quot;</span><span class="p">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">25</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">check_entry_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_entry_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
                             <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_rate</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_date_utc</span> <span class="o">&lt;</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -2777,7 +2777,7 @@ It applies a tight timeout for higher priced assets, while allowing more time to
         <span class="k">return</span> <span class="kc">False</span>
 
 
-    <span class="k">def</span> <span class="nf">check_exit_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_exit_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
                            <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_rate</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_date_utc</span> <span class="o">&lt;</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -2794,7 +2794,7 @@ It applies a tight timeout for higher priced assets, while allowing more time to
 <h3 id="custom-order-timeout-example-using-additional-data">Custom order timeout example (using additional data)<a class="headerlink" href="#custom-order-timeout-example-using-additional-data" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>    <span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
@@ -2804,7 +2804,7 @@ It applies a tight timeout for higher priced assets, while allowing more time to
         <span class="s2">&quot;exit&quot;</span><span class="p">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">25</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">check_entry_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_entry_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
                             <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="n">ob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">orderbook</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">current_price</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;bids&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -2814,7 +2814,7 @@ It applies a tight timeout for higher priced assets, while allowing more time to
         <span class="k">return</span> <span class="kc">False</span>
 
 
-    <span class="k">def</span> <span class="nf">check_exit_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_exit_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span>
                            <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="n">ob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">orderbook</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">current_price</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;asks&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -2831,11 +2831,11 @@ This are the last methods that will be called before an order is placed.</p>
 <p><code>confirm_trade_entry()</code> can be used to abort a trade entry at the latest second (maybe because the price is not what we expect).</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
-    <span class="k">def</span> <span class="nf">confirm_trade_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">confirm_trade_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                             <span class="n">time_in_force</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">entry_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
                             <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2874,11 +2874,11 @@ The exit-reasons (if applicable) will be in the following sequence:</p>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
-    <span class="k">def</span> <span class="nf">confirm_trade_exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">confirm_trade_exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                            <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">time_in_force</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exit_reason</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                            <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2970,7 +2970,7 @@ Trades with long duration and 10s or even 100ds of position adjustments are ther
 </div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">DigDeeperStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DigDeeperStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="n">position_adjustment_enable</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -2985,7 +2985,7 @@ Trades with long duration and 10s or even 100ds of position adjustments are ther
     <span class="n">max_dca_multiplier</span> <span class="o">=</span> <span class="mf">5.5</span>
 
     <span class="c1"># This is called when placing the initial order (opening trade)</span>
-    <span class="k">def</span> <span class="nf">custom_stake_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_stake_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                             <span class="n">proposed_stake</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">min_stake</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_stake</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                             <span class="n">leverage</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">entry_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                             <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -2994,7 +2994,7 @@ Trades with long duration and 10s or even 100ds of position adjustments are ther
         <span class="c1"># This also applies to fixed stakes</span>
         <span class="k">return</span> <span class="n">proposed_stake</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_dca_multiplier</span>
 
-    <span class="k">def</span> <span class="nf">adjust_trade_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjust_trade_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
                               <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                               <span class="n">min_stake</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_stake</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                               <span class="n">current_entry_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_exit_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -3103,11 +3103,11 @@ Entry Orders that are cancelled via the above methods will not have this callbac
 </div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># ... populate_* methods</span>
 
-    <span class="k">def</span> <span class="nf">adjust_entry_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjust_entry_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                            <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">proposed_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">current_order_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                            <span class="n">entry_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3156,8 +3156,8 @@ Entry Orders that are cancelled via the above methods will not have this callbac
 For markets / exchanges that don't support leverage, this method is ignored.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">leverage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">leverage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">current_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                  <span class="n">proposed_leverage</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_leverage</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">entry_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3182,8 +3182,8 @@ It will be called independent of the order type (entry, exit, stoploss or positi
 <p>Assuming that your strategy needs to store the high value of the candle at trade entry, this is possible with this callback as the following example show.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default imports</span>
 
-<span class="k">class</span> <span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">order_filled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">order_filled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trade</span><span class="p">:</span> <span class="n">Trade</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">,</span> <span class="n">current_time</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called right after an order fills. </span>
 <span class="sd">        Will be called for all order types (entry, exit, stoploss, position adjustment).</span>

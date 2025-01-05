@@ -1887,11 +1887,11 @@ how to integrate it into your strategy. You can also check the <a href="https://
 </details>
 <h2 id="a-simple-strategy">A simple strategy<a class="headerlink" href="#a-simple-strategy" title="Permanent link">&para;</a></h2>
 <p>Here is a minimal example of a Freqtrade strategy:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">freqtrade.strategy</span> <span class="kn">import</span> <span class="n">IStrategy</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">import</span> <span class="nn">talib.abstract</span> <span class="k">as</span> <span class="nn">ta</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">IStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
 
-<span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="c1"># set the initial stoploss to -10%</span>
     <span class="n">stoploss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.10</span>
@@ -1899,13 +1899,13 @@ how to integrate it into your strategy. You can also check the <a href="https://
     <span class="c1"># exit profitable positions at any time when the profit is greater than 1%</span>
     <span class="n">minimal_roi</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="c1"># generate values for technical analysis indicators</span>
         <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="n">RSI</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">timeperiod</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="c1"># generate entry signals based on indicator values</span>
         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
             <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">),</span>
@@ -1913,7 +1913,7 @@ how to integrate it into your strategy. You can also check the <a href="https://
 
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">populate_exit_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_exit_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="c1"># generate exit signals based on indicator values</span>
         <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
             <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">),</span>

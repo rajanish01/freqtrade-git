@@ -1801,8 +1801,8 @@ ipython<span class="w"> </span>kernel<span class="w"> </span>install<span class=
 <h2 id="example-utility-snippets">Example utility snippets<a class="headerlink" href="#example-utility-snippets" title="Permanent link">&para;</a></h2>
 <h3 id="change-directory-to-root">Change directory to root<a class="headerlink" href="#change-directory-to-root" title="Permanent link">&para;</a></h3>
 <p>Jupyter notebooks execute from the notebook directory. The following snippet searches for the project root, so relative paths remain consistent.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="c1"># Change directory</span>
 <span class="c1"># Modify this cell to insure that the output shows the correct path.</span>
@@ -1822,8 +1822,8 @@ ipython<span class="w"> </span>kernel<span class="w"> </span>install<span class=
 <h3 id="load-multiple-configuration-files">Load multiple configuration files<a class="headerlink" href="#load-multiple-configuration-files" title="Permanent link">&para;</a></h3>
 <p>This option can be useful to inspect the results of passing in multiple configs.
 This will also run through the whole Configuration initialization, so the configuration is completely initialized to be passed to other methods.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">freqtrade.configuration</span> <span class="kn">import</span> <span class="n">Configuration</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.configuration</span><span class="w"> </span><span class="kn">import</span> <span class="n">Configuration</span>
 
 <span class="c1"># Load config from multiple files</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">from_files</span><span class="p">([</span><span class="s2">&quot;config1.json&quot;</span><span class="p">,</span> <span class="s2">&quot;config2.json&quot;</span><span class="p">])</span>

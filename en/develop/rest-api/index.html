@@ -1889,7 +1889,7 @@ This should return the response:</p>
 <p>All other endpoints return sensitive info and require authentication and are therefore not available through a web browser.</p>
 <h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
 <p>To generate a secure password, best use a password manager, or use the below code.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">secrets</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
 <span class="n">secrets</span><span class="o">.</span><span class="n">token_hex</span><span class="p">()</span>
 </code></pre></div>
 <div class="admonition hint">
@@ -1951,7 +1951,7 @@ This <strong>may</strong> be safe if you're running the bot in a secure environm
 <summary>Programmatic use</summary>
 <p>The <code>freqtrade-client</code> package (installable independent of freqtrade) can be used in your own scripts to interact with the freqtrade API.
 to do so, please use the following:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">freqtrade_client</span> <span class="kn">import</span> <span class="n">FtRestClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">FtRestClient</span>
 
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">FtRestClient</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
@@ -2372,7 +2372,7 @@ This can be used to consume real-time data from your bot, such as entry/exit fil
 <p>Assuming your rest API is set to <code>127.0.0.1</code> on port <code>8080</code>, the endpoint is available at <code>http://localhost:8080/api/v1/message/ws</code>.</p>
 <p>To access the websocket endpoint, the <code>ws_token</code> is required as a query parameter in the endpoint URL.</p>
 <p>To generate a safe <code>ws_token</code> you can run the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">secrets</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_urlsafe</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
 <span class="s1">&#39;hZ-y58LXyX_HZ8O1cJzVyN6ePWrLpNQv4Q&#39;</span>
 </code></pre></div>

@@ -1836,7 +1836,7 @@
 </table>
 <p>Meanwhile, high level feature engineering is handled within <code>"feature_parameters":{}</code> in the FreqAI config. Within this file, it is possible to decide large scale feature expansions on top of the <code>base_features</code> such as "including correlated pairs" or "including informative timeframes" or even "including recent candles."</p>
 <p>It is advisable to start from the template <code>feature_engineering_*</code> functions in the source provided example strategy (found in <code>templates/FreqaiExampleStrategy.py</code>) to ensure that the feature definitions are following the correct conventions. Here is an example of how to set the indicators and labels in the strategy:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">feature_engineering_expand_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">feature_engineering_expand_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        *Only functional with FreqAI enabled strategies*</span>
 <span class="sd">        This function will automatically expand the defined features on the config defined</span>
@@ -1887,7 +1887,7 @@
 
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">feature_engineering_expand_basic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">feature_engineering_expand_basic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        *Only functional with FreqAI enabled strategies*</span>
 <span class="sd">        This function will automatically expand the defined features on the config defined</span>
@@ -1916,7 +1916,7 @@
         <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%-r</span><span class="s2">aw_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;close&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">feature_engineering_standard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">feature_engineering_standard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        *Only functional with FreqAI enabled strategies*</span>
 <span class="sd">        This optional function will be called once with the dataframe of the base timeframe.</span>
@@ -1942,7 +1942,7 @@
         <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%-ho</span><span class="s2">ur_of_day&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">25</span>
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">set_freqai_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_freqai_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        *Only functional with FreqAI enabled strategies*</span>
 <span class="sd">        Required function to set the targets for the model.</span>
@@ -1996,7 +1996,7 @@ model for training/prediction and has therefore prepended it with <code>%</code>
     Check out our <a href="https://emergentmethods.medium.com/freqai-from-price-to-prediction-6fadac18b665">medium article</a> geared toward helping users learn how to creatively engineer features.</p>
 <h3 id="gain-finer-control-over-feature_engineering_-functions-with-metadata">Gain finer control over <code>feature_engineering_*</code> functions with <code>metadata</code><a class="headerlink" href="#gain-finer-control-over-feature_engineering_-functions-with-metadata" title="Permanent link">&para;</a></h3>
 <p>All <code>feature_engineering_*</code> and <code>set_freqai_targets()</code> functions are passed a <code>metadata</code> dictionary which contains information about the <code>pair</code>, <code>tf</code> (timeframe), and <code>period</code> that FreqAI is automating for feature building. As such, a user can use <code>metadata</code> inside <code>feature_engineering_*</code> functions as criteria for blocking/reserving features for certain timeframes, periods, pairs etc.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">feature_engineering_expand_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">feature_engineering_expand_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;tf&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1h&quot;</span><span class="p">:</span>
         <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%-r</span><span class="s2">oc-period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="n">ROC</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">timeperiod</span><span class="o">=</span><span class="n">period</span><span class="p">)</span>
 </code></pre></div>
@@ -2027,24 +2027,24 @@ model for training/prediction and has therefore prepended it with <code>%</code>
 <p class="admonition-title">More information available</p>
 <p>FreqAI uses the <a href="https://github.com/emergentmethods/datasieve"><code>DataSieve</code></a> pipeline, which follows the SKlearn pipeline API, but adds, among other features, coherence between the X, y, and sample_weight vector point removals, feature removal, feature name following. </p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datasieve.transforms</span> <span class="kn">import</span> <span class="n">SKLearnWrapper</span><span class="p">,</span> <span class="n">DissimilarityIndex</span>
-<span class="kn">from</span> <span class="nn">datasieve.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">QuantileTransformer</span><span class="p">,</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">freqai.base_models</span> <span class="kn">import</span> <span class="n">BaseRegressionModel</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datasieve.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">SKLearnWrapper</span><span class="p">,</span> <span class="n">DissimilarityIndex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datasieve.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantileTransformer</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqai.base_models</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRegressionModel</span>
 
 
-<span class="k">class</span> <span class="nc">MyFreqaiModel</span><span class="p">(</span><span class="n">BaseRegressionModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyFreqaiModel</span><span class="p">(</span><span class="n">BaseRegressionModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Some cool custom model</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_dictionary</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">dk</span><span class="p">:</span> <span class="n">FreqaiDataKitchen</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_dictionary</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">dk</span><span class="p">:</span> <span class="n">FreqaiDataKitchen</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        My custom fit function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">cool_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">model</span>
 
-    <span class="k">def</span> <span class="nf">define_data_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipeline</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">define_data_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipeline</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        User defines their custom feature pipeline here (if they wish)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2055,7 +2055,7 @@ model for training/prediction and has therefore prepended it with <code>%</code>
 
         <span class="k">return</span> <span class="n">feature_pipeline</span>
 
-    <span class="k">def</span> <span class="nf">define_label_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipeline</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">define_label_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipeline</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        User defines their custom label pipeline here (if they wish)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2067,23 +2067,23 @@ model for training/prediction and has therefore prepended it with <code>%</code>
 </code></pre></div>
 <p>Here, you are defining the exact pipeline that will be used for your feature set during training and prediction. You can use <em>most</em> SKLearn transformation steps by wrapping them in the <code>SKLearnWrapper</code> class as shown above. In addition, you can use any of the transformations available in the <a href="https://github.com/emergentmethods/datasieve"><code>DataSieve</code> library</a>. </p>
 <p>You can easily add your own transformation by creating a class that inherits from the datasieve <code>BaseTransform</code> and implementing your <code>fit()</code>, <code>transform()</code> and <code>inverse_transform()</code> methods:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datasieve.transforms.base_transform</span> <span class="kn">import</span> <span class="n">BaseTransform</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datasieve.transforms.base_transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseTransform</span>
 <span class="c1"># import whatever else you need</span>
 
-<span class="k">class</span> <span class="nc">MyCoolTransform</span><span class="p">(</span><span class="n">BaseTransform</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyCoolTransform</span><span class="p">(</span><span class="n">BaseTransform</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">param1</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;param1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># do something with X, y, sample_weight, or/and feature_list</span>
         <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">feature_list</span>
 
-    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">feature_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">outlier_check</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># do something with X, y, sample_weight, or/and feature_list</span>
         <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">feature_list</span>
 
-    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># do/dont do something with X, y, sample_weight, or/and feature_list</span>
         <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">feature_list</span>
 </code></pre></div>

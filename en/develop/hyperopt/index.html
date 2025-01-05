@@ -2610,9 +2610,9 @@ If you decide to use RSI or ADX, which values should I use for them?</p>
 <p>So let's use hyperparameter optimization to solve this mystery.</p>
 <h3 id="defining-indicators-to-be-used">Defining indicators to be used<a class="headerlink" href="#defining-indicators-to-be-used" title="Permanent link">&para;</a></h3>
 <p>We start by calculating the indicators our strategy is going to use.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate all indicators used by the strategy</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2631,7 +2631,7 @@ If you decide to use RSI or ADX, which values should I use for them?</p>
 </code></pre></div>
 <h3 id="hyperoptable-parameters">Hyperoptable parameters<a class="headerlink" href="#hyperoptable-parameters" title="Permanent link">&para;</a></h3>
 <p>We continue to define hyperoptable parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="n">buy_adx</span> <span class="o">=</span> <span class="n">DecimalParameter</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">30.1</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;buy&quot;</span><span class="p">)</span>
     <span class="n">buy_rsi</span> <span class="o">=</span> <span class="n">IntParameter</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;buy&quot;</span><span class="p">)</span>
     <span class="n">buy_adx_enabled</span> <span class="o">=</span> <span class="n">BooleanParameter</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;buy&quot;</span><span class="p">)</span>
@@ -2651,7 +2651,7 @@ If no parameter is available for a space, you'll receive the error that no space
 Parameters with unclear space (e.g. <code>adx_period = IntParameter(4, 24, default=14)</code> - no explicit nor implicit space) will not be detected and will therefore be ignored.</p>
 </div>
 <p>So let's write the buy strategy using these values:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">conditions</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># GUARDS AND TRENDS</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">buy_adx_enabled</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
@@ -2712,16 +2712,16 @@ add it to the <code>populate_indicators()</code> method in your strategy or hype
 <h2 id="optimizing-an-indicator-parameter">Optimizing an indicator parameter<a class="headerlink" href="#optimizing-an-indicator-parameter" title="Permanent link">&para;</a></h2>
 <p>Assuming you have a simple strategy in mind - a EMA cross strategy (2 Moving averages crossing) - and you'd like to find the ideal parameters for this strategy.
 By default, we assume a stoploss of 5% - and a take-profit (<code>minimal_roi</code>) of 10% - which means freqtrade will sell the trade once 10% profit has been reached.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
 
-<span class="kn">import</span> <span class="nn">talib.abstract</span> <span class="k">as</span> <span class="nn">ta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
 
-<span class="kn">from</span> <span class="nn">freqtrade.strategy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BooleanParameter</span><span class="p">,</span> <span class="n">CategoricalParameter</span><span class="p">,</span> <span class="n">DecimalParameter</span><span class="p">,</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">BooleanParameter</span><span class="p">,</span> <span class="n">CategoricalParameter</span><span class="p">,</span> <span class="n">DecimalParameter</span><span class="p">,</span> 
                                 <span class="n">IStrategy</span><span class="p">,</span> <span class="n">IntParameter</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">freqtrade.vendor.qtpylib.indicators</span> <span class="k">as</span> <span class="nn">qtpylib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">freqtrade.vendor.qtpylib.indicators</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qtpylib</span>
 
-<span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="n">stoploss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span>
     <span class="n">timeframe</span> <span class="o">=</span> <span class="s1">&#39;15m&#39;</span>
     <span class="n">minimal_roi</span> <span class="o">=</span> <span class="p">{</span>
@@ -2732,7 +2732,7 @@ By default, we assume a stoploss of 5% - and a take-profit (<code>minimal_roi</c
     <span class="n">buy_ema_long</span> <span class="o">=</span> <span class="n">IntParameter</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate all indicators used by the strategy&quot;&quot;&quot;</span>
 
         <span class="c1"># Calculate all ema_short values</span>
@@ -2745,7 +2745,7 @@ By default, we assume a stoploss of 5% - and a take-profit (<code>minimal_roi</c
 
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">conditions</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">qtpylib</span><span class="o">.</span><span class="n">crossed_above</span><span class="p">(</span>
                 <span class="n">dataframe</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;ema_short_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">buy_ema_short</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">dataframe</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;ema_long_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">buy_ema_long</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
@@ -2760,7 +2760,7 @@ By default, we assume a stoploss of 5% - and a take-profit (<code>minimal_roi</c
                 <span class="s1">&#39;enter_long&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">dataframe</span>
 
-    <span class="k">def</span> <span class="nf">populate_exit_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_exit_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">conditions</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">qtpylib</span><span class="o">.</span><span class="n">crossed_above</span><span class="p">(</span>
                 <span class="n">dataframe</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;ema_long_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">buy_ema_long</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> <span class="n">dataframe</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;ema_short_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">buy_ema_short</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
@@ -2802,16 +2802,16 @@ By using this in a loop, hyperopt will generate 48 new columns (<code>['buy_ema_
 <h2 id="optimizing-protections">Optimizing protections<a class="headerlink" href="#optimizing-protections" title="Permanent link">&para;</a></h2>
 <p>Freqtrade can also optimize protections. How you optimize protections is up to you, and the following should be considered as example only.</p>
 <p>The strategy will simply need to define the "protections" entry as property returning a list of protection configurations.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
 
-<span class="kn">import</span> <span class="nn">talib.abstract</span> <span class="k">as</span> <span class="nn">ta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
 
-<span class="kn">from</span> <span class="nn">freqtrade.strategy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BooleanParameter</span><span class="p">,</span> <span class="n">CategoricalParameter</span><span class="p">,</span> <span class="n">DecimalParameter</span><span class="p">,</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">BooleanParameter</span><span class="p">,</span> <span class="n">CategoricalParameter</span><span class="p">,</span> <span class="n">DecimalParameter</span><span class="p">,</span> 
                                 <span class="n">IStrategy</span><span class="p">,</span> <span class="n">IntParameter</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">freqtrade.vendor.qtpylib.indicators</span> <span class="k">as</span> <span class="nn">qtpylib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">freqtrade.vendor.qtpylib.indicators</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qtpylib</span>
 
-<span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="n">stoploss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span>
     <span class="n">timeframe</span> <span class="o">=</span> <span class="s1">&#39;15m&#39;</span>
     <span class="c1"># Define the parameter spaces</span>
@@ -2821,7 +2821,7 @@ By using this in a loop, hyperopt will generate 48 new columns (<code>['buy_ema_
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">prot</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">prot</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
@@ -2839,7 +2839,7 @@ By using this in a loop, hyperopt will generate 48 new columns (<code>['buy_ema_
 
         <span class="k">return</span> <span class="n">prot</span>
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="c1"># ...</span>
 </code></pre></div>
 <p>You can then run hyperopt as follows:
@@ -2857,7 +2857,7 @@ It is therefore recommended to not define protections in the configuration.</p>
 <h3 id="migrating-from-previous-property-setups">Migrating from previous property setups<a class="headerlink" href="#migrating-from-previous-property-setups" title="Permanent link">&para;</a></h3>
 <p>A migration from a previous setup is pretty simple, and can be accomplished by converting the protections entry to a property.
 In simple terms, the following configuration will be converted to the below.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="n">protections</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;CooldownPeriod&quot;</span><span class="p">,</span>
@@ -2866,10 +2866,10 @@ In simple terms, the following configuration will be converted to the below.</p>
     <span class="p">]</span>
 </code></pre></div>
 <p>Result</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;CooldownPeriod&quot;</span><span class="p">,</span>
@@ -2880,16 +2880,16 @@ In simple terms, the following configuration will be converted to the below.</p>
 <p>You will then obviously also change potential interesting entries to parameters to allow hyper-optimization.</p>
 <h3 id="optimizing-max_entry_position_adjustment">Optimizing <code>max_entry_position_adjustment</code><a class="headerlink" href="#optimizing-max_entry_position_adjustment" title="Permanent link">&para;</a></h3>
 <p>While <code>max_entry_position_adjustment</code> is not a separate space, it can still be used in hyperopt by using the property approach shown above.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
 
-<span class="kn">import</span> <span class="nn">talib.abstract</span> <span class="k">as</span> <span class="nn">ta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
 
-<span class="kn">from</span> <span class="nn">freqtrade.strategy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BooleanParameter</span><span class="p">,</span> <span class="n">CategoricalParameter</span><span class="p">,</span> <span class="n">DecimalParameter</span><span class="p">,</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">BooleanParameter</span><span class="p">,</span> <span class="n">CategoricalParameter</span><span class="p">,</span> <span class="n">DecimalParameter</span><span class="p">,</span> 
                                 <span class="n">IStrategy</span><span class="p">,</span> <span class="n">IntParameter</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">freqtrade.vendor.qtpylib.indicators</span> <span class="k">as</span> <span class="nn">qtpylib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">freqtrade.vendor.qtpylib.indicators</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qtpylib</span>
 
-<span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="n">stoploss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span>
     <span class="n">timeframe</span> <span class="o">=</span> <span class="s1">&#39;15m&#39;</span>
 
@@ -2897,11 +2897,11 @@ In simple terms, the following configuration will be converted to the below.</p>
     <span class="n">max_epa</span> <span class="o">=</span> <span class="n">CategoricalParameter</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;buy&quot;</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">max_entry_position_adjustment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max_entry_position_adjustment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_epa</span><span class="o">.</span><span class="n">value</span>
 
 
-    <span class="k">def</span> <span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="c1"># ...</span>
 </code></pre></div>
 <details class="tip">
@@ -2910,7 +2910,7 @@ In simple terms, the following configuration will be converted to the below.</p>
 <div class="highlight"><pre><span></span><code><span class="n">max_epa</span> <span class="o">=</span> <span class="n">IntParameter</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;buy&quot;</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="nd">@property</span>
-<span class="k">def</span> <span class="nf">max_entry_position_adjustment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">max_entry_position_adjustment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_epa</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 </code></pre></div></p>
 </details>
@@ -3003,7 +3003,7 @@ Given the following result from hyperopt:</p>
 This file is also updated when using the <code>hyperopt-show</code> sub-command, unless <code>--disable-param-export</code> is provided to either of the 2 commands.</p>
 <p>Your strategy class can also contain these results explicitly. Simply copy hyperopt results block and paste them at class level, replacing old parameters (if any). New parameters will automatically be loaded next time strategy is executed.</p>
 <p>Transferring your whole hyperopt result to your strategy would then look like:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="c1"># Buy hyperspace params:</span>
     <span class="n">buy_params</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;buy_adx&#39;</span><span class="p">:</span> <span class="mi">44</span><span class="p">,</span>
@@ -3224,16 +3224,16 @@ Your epochs should therefore be aligned to the possible values - or you should b
 <p>After you run Hyperopt for the desired amount of epochs, you can later list all results for analysis, select only best or profitable once, and show the details for any of the epochs previously evaluated. This can be done with the <code>hyperopt-list</code> and <code>hyperopt-show</code> sub-commands. The usage of these sub-commands is described in the <a href="../utils/#list-hyperopt-results">Utils</a> chapter.</p>
 <h2 id="output-debug-messages-from-your-strategy">Output debug messages from your strategy<a class="headerlink" href="#output-debug-messages-from-your-strategy" title="Permanent link">&para;</a></h2>
 <p>If you want to output debug messages from your strategy, you can use the <code>logging</code> module. By default, Freqtrade will output all messages with a level of <code>INFO</code> or higher. </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="o">...</span>
 
-    <span class="k">def</span> <span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is a debug message&quot;</span><span class="p">)</span>
         <span class="o">...</span>
 </code></pre></div>
