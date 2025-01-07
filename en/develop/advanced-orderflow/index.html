@@ -1808,8 +1808,8 @@ It's also currently not been tested with freqAI - and combining these two featur
 <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;min_delta&quot;</span><span class="p">]</span> <span class="c1"># Minimum delta within the candle</span>
 <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;max_delta&quot;</span><span class="p">]</span> <span class="c1"># Maximum delta within the candle</span>
 <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;total_trades&quot;</span><span class="p">]</span> <span class="c1"># Total number of trades</span>
-<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_bid&quot;</span><span class="p">]</span> <span class="c1"># Price level of stacked bid imbalance </span>
-<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_ask&quot;</span><span class="p">]</span> <span class="c1"># Price level of stacked ask imbalance  </span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_bid&quot;</span><span class="p">]</span> <span class="c1"># List of price levels of stacked bid imbalance range beginnings</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_ask&quot;</span><span class="p">]</span> <span class="c1"># List of price levels of stacked ask imbalance range beginnings</span>
 </code></pre></div>
 <p>You can access these columns in your strategy code for further analysis. Here's an example:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
