@@ -1960,16 +1960,16 @@ Without provided configuration, <code>--exchange</code> becomes mandatory.</p>
 If you are updating existing data after inserting new pairs that you have no data for, use the <code>--new-pairs-days xx</code> parameter. Specified number of days will be downloaded for new pairs while old pairs will be updated with missing data only.  </p>
 </div>
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>usage: freqtrade download-data [-h] [-v] [--logfile FILE] [-V] [-c PATH]
-                               [-d PATH] [--userdir PATH]
+<div class="highlight"><pre><span></span><code>usage: freqtrade download-data [-h] [-v] [--no-color] [--logfile FILE] [-V]
+                               [-c PATH] [-d PATH] [--userdir PATH]
                                [-p PAIRS [PAIRS ...]] [--pairs-file FILE]
                                [--days INT] [--new-pairs-days INT]
                                [--include-inactive-pairs]
                                [--timerange TIMERANGE] [--dl-trades]
                                [--convert] [--exchange EXCHANGE]
                                [-t TIMEFRAMES [TIMEFRAMES ...]] [--erase]
-                               [--data-format-ohlcv {json,jsongz,hdf5,feather,parquet}]
-                               [--data-format-trades {json,jsongz,hdf5,feather,parquet}]
+                               [--data-format-ohlcv {json,jsongz,feather,parquet}]
+                               [--data-format-trades {json,jsongz,feather,parquet}]
                                [--trading-mode {spot,margin,futures}]
                                [--prepend]
 
@@ -1987,9 +1987,7 @@ options:
                         Also download data from inactive pairs.
   --timerange TIMERANGE
                         Specify what timerange of data to use.
-  --dl-trades           Download trades instead of OHLCV data. The bot will
-                        resample trades to the desired timeframe as specified
-                        as --timeframes/-t.
+  --dl-trades           Download trades instead of OHLCV data.
   --convert             Convert downloaded trades to OHLCV data. Only
                         applicable in combination with `--dl-trades`. Will be
                         automatic for exchanges which don&#39;t have historic
@@ -2001,10 +1999,10 @@ options:
                         list. Default: `1m 5m`.
   --erase               Clean all existing data for the selected
                         exchange/pairs/timeframes.
-  --data-format-ohlcv {json,jsongz,hdf5,feather,parquet}
+  --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
                         (default: `feather`).
-  --data-format-trades {json,jsongz,hdf5,feather,parquet}
+  --data-format-trades {json,jsongz,feather,parquet}
                         Storage format for downloaded trades data. (default:
                         `feather`).
   --trading-mode {spot,margin,futures}, --tradingmode {spot,margin,futures}
@@ -2013,6 +2011,8 @@ options:
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
@@ -2085,15 +2085,14 @@ You can do so by using the <code>--prepend</code> flag, combined with <code>--ti
 <li><code>feather</code> - a dataformat based on Apache Arrow</li>
 <li><code>json</code> -  plain "text" json files</li>
 <li><code>jsongz</code> - a gzip-zipped version of json files</li>
-<li><code>hdf5</code> - a high performance datastore (deprecated)</li>
 <li><code>parquet</code> - columnar datastore (OHLCV only)</li>
 </ul>
 <p>By default, both OHLCV data and trades data are stored in the <code>feather</code> format.</p>
 <p>This can be changed via the <code>--data-format-ohlcv</code> and <code>--data-format-trades</code> command line arguments respectively.
 To persist this change, you should also add the following snippet to your configuration, so you don't have to insert the above arguments each time:</p>
 <div class="highlight"><pre><span></span><code>    // ...
-    &quot;dataformat_ohlcv&quot;: &quot;hdf5&quot;,
-    &quot;dataformat_trades&quot;: &quot;hdf5&quot;,
+    &quot;dataformat_ohlcv&quot;: &quot;feather&quot;,
+    &quot;dataformat_trades&quot;: &quot;feather&quot;,
     // ...
 </code></pre></div>
 <p>If the default data-format has been changed during download, then the keys <code>dataformat_ohlcv</code> and <code>dataformat_trades</code> in the configuration file need to be adjusted to the selected dataformat as well.</p>
@@ -2143,11 +2142,6 @@ To persist this change, you should also add the following snippet to your config
 <td>27s</td>
 </tr>
 <tr>
-<td><code>hdf5</code></td>
-<td>145Mb</td>
-<td>3.9s</td>
-</tr>
-<tr>
 <td><code>parquet</code></td>
 <td>83Mb</td>
 <td>3.8s</td>
@@ -2181,11 +2175,11 @@ Mixing different stake-currencies is allowed for this file, since it's only used
 You can force the usage of this file via <code>--pairs-file pairs.json</code> - however we recommend to use the pairlist from within the configuration, either via <code>exchange.pair_whitelist</code> or <code>pairs</code> setting in the configuration.</p>
 </div>
 <h2 id="sub-command-convert-data">Sub-command convert data<a class="headerlink" href="#sub-command-convert-data" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>usage: freqtrade convert-data [-h] [-v] [--logfile FILE] [-V] [-c PATH]
-                              [-d PATH] [--userdir PATH]
+<div class="highlight"><pre><span></span><code>usage: freqtrade convert-data [-h] [-v] [--no-color] [--logfile FILE] [-V]
+                              [-c PATH] [-d PATH] [--userdir PATH]
                               [-p PAIRS [PAIRS ...]] --format-from
-                              {json,jsongz,hdf5,feather,parquet} --format-to
-                              {json,jsongz,hdf5,feather,parquet} [--erase]
+                              {json,jsongz,feather,parquet} --format-to
+                              {json,jsongz,feather,parquet} [--erase]
                               [--exchange EXCHANGE]
                               [-t TIMEFRAMES [TIMEFRAMES ...]]
                               [--trading-mode {spot,margin,futures}]
@@ -2196,9 +2190,9 @@ options:
   -p PAIRS [PAIRS ...], --pairs PAIRS [PAIRS ...]
                         Limit command to these pairs. Pairs are space-
                         separated.
-  --format-from {json,jsongz,hdf5,feather,parquet}
+  --format-from {json,jsongz,feather,parquet}
                         Source format for data conversion.
-  --format-to {json,jsongz,hdf5,feather,parquet}
+  --format-to {json,jsongz,feather,parquet}
                         Destination format for data conversion.
   --erase               Clean all existing data for the selected
                         exchange/pairs/timeframes.
@@ -2214,6 +2208,8 @@ options:
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
@@ -2235,12 +2231,11 @@ It'll also remove original json data files (<code>--erase</code> parameter).</p>
 <div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>convert-data<span class="w"> </span>--format-from<span class="w"> </span>json<span class="w"> </span>--format-to<span class="w"> </span>jsongz<span class="w"> </span>--datadir<span class="w"> </span>~/.freqtrade/data/binance<span class="w"> </span>-t<span class="w"> </span>5m<span class="w"> </span>15m<span class="w"> </span>--erase
 </code></pre></div>
 <h2 id="sub-command-convert-trade-data">Sub-command convert trade data<a class="headerlink" href="#sub-command-convert-trade-data" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>usage: freqtrade convert-trade-data [-h] [-v] [--logfile FILE] [-V] [-c PATH]
-                                    [-d PATH] [--userdir PATH]
+<div class="highlight"><pre><span></span><code>usage: freqtrade convert-trade-data [-h] [-v] [--no-color] [--logfile FILE]
+                                    [-V] [-c PATH] [-d PATH] [--userdir PATH]
                                     [-p PAIRS [PAIRS ...]] --format-from
-                                    {json,jsongz,hdf5,feather,parquet}
-                                    --format-to
-                                    {json,jsongz,hdf5,feather,parquet}
+                                    {json,jsongz,feather,parquet,kraken_csv}
+                                    --format-to {json,jsongz,feather,parquet}
                                     [--erase] [--exchange EXCHANGE]
 
 options:
@@ -2248,9 +2243,9 @@ options:
   -p PAIRS [PAIRS ...], --pairs PAIRS [PAIRS ...]
                         Limit command to these pairs. Pairs are space-
                         separated.
-  --format-from {json,jsongz,hdf5,feather,parquet}
+  --format-from {json,jsongz,feather,parquet,kraken_csv}
                         Source format for data conversion.
-  --format-to {json,jsongz,hdf5,feather,parquet}
+  --format-to {json,jsongz,feather,parquet}
                         Destination format for data conversion.
   --erase               Clean all existing data for the selected
                         exchange/pairs/timeframes.
@@ -2258,6 +2253,8 @@ options:
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
@@ -2281,13 +2278,14 @@ It'll also remove original jsongz data files (<code>--erase</code> parameter).</
 <h2 id="sub-command-trades-to-ohlcv">Sub-command trades to ohlcv<a class="headerlink" href="#sub-command-trades-to-ohlcv" title="Permanent link">&para;</a></h2>
 <p>When you need to use <code>--dl-trades</code> (kraken only) to download data, conversion of trades data to ohlcv data is the last step.
 This command will allow you to repeat this last step for additional timeframes without re-downloading the data.</p>
-<div class="highlight"><pre><span></span><code>usage: freqtrade trades-to-ohlcv [-h] [-v] [--logfile FILE] [-V] [-c PATH]
-                                 [-d PATH] [--userdir PATH]
+<div class="highlight"><pre><span></span><code>usage: freqtrade trades-to-ohlcv [-h] [-v] [--no-color] [--logfile FILE] [-V]
+                                 [-c PATH] [-d PATH] [--userdir PATH]
                                  [-p PAIRS [PAIRS ...]]
                                  [-t TIMEFRAMES [TIMEFRAMES ...]]
                                  [--exchange EXCHANGE]
-                                 [--data-format-ohlcv {json,jsongz,hdf5,feather,parquet}]
-                                 [--data-format-trades {json,jsongz,hdf5,feather}]
+                                 [--data-format-ohlcv {json,jsongz,feather,parquet}]
+                                 [--data-format-trades {json,jsongz,feather,parquet}]
+                                 [--trading-mode {spot,margin,futures}]
 
 options:
   -h, --help            show this help message and exit
@@ -2298,15 +2296,19 @@ options:
                         Specify which tickers to download. Space-separated
                         list. Default: `1m 5m`.
   --exchange EXCHANGE   Exchange name. Only valid if no config is provided.
-  --data-format-ohlcv {json,jsongz,hdf5,feather,parquet}
+  --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
                         (default: `feather`).
-  --data-format-trades {json,jsongz,hdf5,feather}
+  --data-format-trades {json,jsongz,feather,parquet}
                         Storage format for downloaded trades data. (default:
                         `feather`).
+  --trading-mode {spot,margin,futures}, --tradingmode {spot,margin,futures}
+                        Select Trading mode
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
@@ -2327,10 +2329,11 @@ Common arguments:
 </code></pre></div>
 <h2 id="sub-command-list-data">Sub-command list-data<a class="headerlink" href="#sub-command-list-data" title="Permanent link">&para;</a></h2>
 <p>You can get a list of downloaded data using the <code>list-data</code> sub-command.</p>
-<div class="highlight"><pre><span></span><code>usage: freqtrade list-data [-h] [-v] [--logfile FILE] [-V] [-c PATH] [-d PATH]
-                           [--userdir PATH] [--exchange EXCHANGE]
-                           [--data-format-ohlcv {json,jsongz,hdf5,feather,parquet}]
-                           [--data-format-trades {json,jsongz,hdf5,feather,parquet}]
+<div class="highlight"><pre><span></span><code>usage: freqtrade list-data [-h] [-v] [--no-color] [--logfile FILE] [-V]
+                           [-c PATH] [-d PATH] [--userdir PATH]
+                           [--exchange EXCHANGE]
+                           [--data-format-ohlcv {json,jsongz,feather,parquet}]
+                           [--data-format-trades {json,jsongz,feather,parquet}]
                            [--trades] [-p PAIRS [PAIRS ...]]
                            [--trading-mode {spot,margin,futures}]
                            [--show-timerange]
@@ -2338,10 +2341,10 @@ Common arguments:
 options:
   -h, --help            show this help message and exit
   --exchange EXCHANGE   Exchange name. Only valid if no config is provided.
-  --data-format-ohlcv {json,jsongz,hdf5,feather,parquet}
+  --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
                         (default: `feather`).
-  --data-format-trades {json,jsongz,hdf5,feather,parquet}
+  --data-format-trades {json,jsongz,feather,parquet}
                         Storage format for downloaded trades data. (default:
                         `feather`).
   --trades              Work on trades data instead of OHLCV data.
@@ -2355,6 +2358,8 @@ options:
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more

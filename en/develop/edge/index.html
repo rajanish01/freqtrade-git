@@ -2031,23 +2031,25 @@ We calculate the risk reward ratio as follows:<br>
 <li><strong>Trade 4</strong> The strategy detects a new buy signal int the <strong>XLM/ETH</strong> market. <code>Edge Positioning</code> calculates the stoploss of <span class="arithmatex">\(2\%\)</span>, and the position size of <span class="arithmatex">\(0.055 / 0.02 = 2.75\)</span> <strong>ETH</strong>.</li>
 </ul>
 <h2 id="edge-command-reference">Edge command reference<a class="headerlink" href="#edge-command-reference" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>usage: freqtrade edge [-h] [-v] [--logfile FILE] [-V] [-c PATH] [-d PATH]
-                      [--userdir PATH] [-s NAME] [--strategy-path PATH]
+<div class="highlight"><pre><span></span><code>usage: freqtrade edge [-h] [-v] [--no-color] [--logfile FILE] [-V] [-c PATH]
+                      [-d PATH] [--userdir PATH] [-s NAME]
+                      [--strategy-path PATH] [--recursive-strategy-search]
+                      [--freqaimodel NAME] [--freqaimodel-path PATH]
                       [-i TIMEFRAME] [--timerange TIMERANGE]
-                      [--data-format-ohlcv {json,jsongz,hdf5}]
+                      [--data-format-ohlcv {json,jsongz,feather,parquet}]
                       [--max-open-trades INT] [--stake-amount STAKE_AMOUNT]
                       [--fee FLOAT] [-p PAIRS [PAIRS ...]]
                       [--stoplosses STOPLOSS_RANGE]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -i TIMEFRAME, --timeframe TIMEFRAME
                         Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
   --timerange TIMERANGE
                         Specify what timerange of data to use.
-  --data-format-ohlcv {json,jsongz,hdf5}
+  --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
-                        (default: `None`).
+                        (default: `feather`).
   --max-open-trades INT
                         Override the value of the `max_open_trades`
                         configuration setting.
@@ -2067,7 +2069,10 @@ optional arguments:
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
-  --logfile FILE        Log to the file specified. Special values are:
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
+  --logfile FILE, --log-file FILE
+                        Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
                         details.
   -V, --version         show program&#39;s version number and exit
@@ -2076,7 +2081,7 @@ Common arguments:
                         `userdir/config.json` or `config.json` whichever
                         exists). Multiple --config options may be used. Can be
                         set to `-` to read config from stdin.
-  -d PATH, --datadir PATH
+  -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
                         Path to userdata directory.
@@ -2086,6 +2091,12 @@ Strategy arguments:
                         Specify strategy class name which will be used by the
                         bot.
   --strategy-path PATH  Specify additional strategy lookup path.
+  --recursive-strategy-search
+                        Recursively search for a strategy in the strategies
+                        folder.
+  --freqaimodel NAME    Specify a custom freqaimodels.
+  --freqaimodel-path PATH
+                        Specify additional lookup path for freqaimodels.
 </code></pre></div>
 <h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
 <p>Edge module has following configuration options:</p>

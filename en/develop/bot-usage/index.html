@@ -1767,13 +1767,13 @@
 </div>
 <h2 id="bot-commands">Bot commands<a class="headerlink" href="#bot-commands" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>usage: freqtrade [-h] [-V]
-                 {trade,create-userdir,new-config,show-config,new-strategy,download-data,convert-data,convert-trade-data,trades-to-ohlcv,list-data,backtesting,backtesting-show,backtesting-analysis,edge,hyperopt,hyperopt-list,hyperopt-show,list-exchanges,list-markets,list-pairs,list-strategies,list-freqaimodels,list-timeframes,show-trades,test-pairlist,convert-db,install-ui,plot-dataframe,plot-profit,webserver,strategy-updater,lookahead-analysis,recursive-analysis}
+                 {trade,create-userdir,new-config,show-config,new-strategy,download-data,convert-data,convert-trade-data,trades-to-ohlcv,list-data,backtesting,backtesting-show,backtesting-analysis,edge,hyperopt,hyperopt-list,hyperopt-show,list-exchanges,list-markets,list-pairs,list-strategies,list-hyperoptloss,list-freqaimodels,list-timeframes,show-trades,test-pairlist,convert-db,install-ui,plot-dataframe,plot-profit,webserver,strategy-updater,lookahead-analysis,recursive-analysis}
                  ...
 
 Free, open source crypto trading bot
 
 positional arguments:
-  {trade,create-userdir,new-config,show-config,new-strategy,download-data,convert-data,convert-trade-data,trades-to-ohlcv,list-data,backtesting,backtesting-show,backtesting-analysis,edge,hyperopt,hyperopt-list,hyperopt-show,list-exchanges,list-markets,list-pairs,list-strategies,list-freqaimodels,list-timeframes,show-trades,test-pairlist,convert-db,install-ui,plot-dataframe,plot-profit,webserver,strategy-updater,lookahead-analysis,recursive-analysis}
+  {trade,create-userdir,new-config,show-config,new-strategy,download-data,convert-data,convert-trade-data,trades-to-ohlcv,list-data,backtesting,backtesting-show,backtesting-analysis,edge,hyperopt,hyperopt-list,hyperopt-show,list-exchanges,list-markets,list-pairs,list-strategies,list-hyperoptloss,list-freqaimodels,list-timeframes,show-trades,test-pairlist,convert-db,install-ui,plot-dataframe,plot-profit,webserver,strategy-updater,lookahead-analysis,recursive-analysis}
     trade               Trade module.
     create-userdir      Create user-data directory.
     new-config          Create new config
@@ -1797,6 +1797,7 @@ positional arguments:
     list-markets        Print markets on exchange.
     list-pairs          Print pairs on exchange.
     list-strategies     Print available strategies.
+    list-hyperoptloss   Print available hyperopt loss functions.
     list-freqaimodels   Print available freqAI models.
     list-timeframes     Print available timeframes for the exchange.
     show-trades         Show trades.
@@ -1815,12 +1816,14 @@ options:
   -V, --version         show program&#39;s version number and exit
 </code></pre></div>
 <h3 id="bot-trading-commands">Bot trading commands<a class="headerlink" href="#bot-trading-commands" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>usage: freqtrade trade [-h] [-v] [--logfile FILE] [-V] [-c PATH] [-d PATH]
-                       [--userdir PATH] [-s NAME] [--strategy-path PATH]
+<div class="highlight"><pre><span></span><code>usage: freqtrade trade [-h] [-v] [--no-color] [--logfile FILE] [-V] [-c PATH]
+                       [-d PATH] [--userdir PATH] [-s NAME]
+                       [--strategy-path PATH] [--recursive-strategy-search]
+                       [--freqaimodel NAME] [--freqaimodel-path PATH]
                        [--db-url PATH] [--sd-notify] [--dry-run]
-                       [--dry-run-wallet DRY_RUN_WALLET]
+                       [--dry-run-wallet DRY_RUN_WALLET] [--fee FLOAT]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   --db-url PATH         Override trades database URL, this is useful in custom
                         deployments (default: `sqlite:///tradesv3.sqlite` for
@@ -1832,10 +1835,15 @@ optional arguments:
   --dry-run-wallet DRY_RUN_WALLET, --starting-balance DRY_RUN_WALLET
                         Starting balance, used for backtesting / hyperopt and
                         dry-runs.
+  --fee FLOAT           Specify fee ratio. Will be applied twice (on trade
+                        entry and exit).
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
-  --logfile FILE        Log to the file specified. Special values are:
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
+  --logfile FILE, --log-file FILE
+                        Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
                         details.
   -V, --version         show program&#39;s version number and exit
@@ -1844,7 +1852,7 @@ Common arguments:
                         `userdir/config.json` or `config.json` whichever
                         exists). Multiple --config options may be used. Can be
                         set to `-` to read config from stdin.
-  -d PATH, --datadir PATH
+  -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
                         Path to userdata directory.
@@ -1854,6 +1862,12 @@ Strategy arguments:
                         Specify strategy class name which will be used by the
                         bot.
   --strategy-path PATH  Specify additional strategy lookup path.
+  --recursive-strategy-search
+                        Recursively search for a strategy in the strategies
+                        folder.
+  --freqaimodel NAME    Specify a custom freqaimodels.
+  --freqaimodel-path PATH
+                        Specify additional lookup path for freqaimodels.
 </code></pre></div>
 <h3 id="how-to-specify-which-configuration-file-be-used">How to specify which configuration file be used?<a class="headerlink" href="#how-to-specify-which-configuration-file-be-used" title="Permanent link">&para;</a></h3>
 <p>The bot allows you to select which configuration file you want to use by means of

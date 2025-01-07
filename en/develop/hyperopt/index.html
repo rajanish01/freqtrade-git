@@ -2426,12 +2426,12 @@ The legacy method was supported up to 2021.8 and has been removed in 2021.9.</p>
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-hyperopt.txt
 </code></pre></div>
 <h2 id="hyperopt-command-reference">Hyperopt command reference<a class="headerlink" href="#hyperopt-command-reference" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>usage: freqtrade hyperopt [-h] [-v] [--logfile FILE] [-V] [-c PATH] [-d PATH]
-                          [--userdir PATH] [-s NAME] [--strategy-path PATH]
-                          [--recursive-strategy-search] [--freqaimodel NAME]
-                          [--freqaimodel-path PATH] [-i TIMEFRAME]
-                          [--timerange TIMERANGE]
-                          [--data-format-ohlcv {json,jsongz,hdf5,feather,parquet}]
+<div class="highlight"><pre><span></span><code>usage: freqtrade hyperopt [-h] [-v] [--no-color] [--logfile FILE] [-V]
+                          [-c PATH] [-d PATH] [--userdir PATH] [-s NAME]
+                          [--strategy-path PATH] [--recursive-strategy-search]
+                          [--freqaimodel NAME] [--freqaimodel-path PATH]
+                          [-i TIMEFRAME] [--timerange TIMERANGE]
+                          [--data-format-ohlcv {json,jsongz,feather,parquet}]
                           [--max-open-trades INT]
                           [--stake-amount STAKE_AMOUNT] [--fee FLOAT]
                           [-p PAIRS [PAIRS ...]] [--hyperopt-path PATH]
@@ -2439,7 +2439,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
                           [--dry-run-wallet DRY_RUN_WALLET]
                           [--timeframe-detail TIMEFRAME_DETAIL] [-e INT]
                           [--spaces {all,buy,sell,roi,stoploss,trailing,protection,trades,default} [{all,buy,sell,roi,stoploss,trailing,protection,trades,default} ...]]
-                          [--print-all] [--no-color] [--print-json] [-j JOBS]
+                          [--print-all] [--print-json] [-j JOBS]
                           [--random-state INT] [--min-trades INT]
                           [--hyperopt-loss NAME] [--disable-param-export]
                           [--ignore-missing-spaces] [--analyze-per-epoch]
@@ -2450,7 +2450,7 @@ options:
                         Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
   --timerange TIMERANGE
                         Specify what timerange of data to use.
-  --data-format-ohlcv {json,jsongz,hdf5,feather,parquet}
+  --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
                         (default: `feather`).
   --max-open-trades INT
@@ -2484,8 +2484,6 @@ options:
                         Specify which parameters to hyperopt. Space-separated
                         list.
   --print-all           Print all results, not only the best ones.
-  --no-color            Disable colorization of hyperopt results. May be
-                        useful if you are redirecting output to a file.
   --print-json          Print output in JSON format.
   -j JOBS, --job-workers JOBS
                         The number of concurrently running jobs for
@@ -2508,7 +2506,7 @@ options:
                         SortinoHyperOptLoss, SortinoHyperOptLossDaily,
                         CalmarHyperOptLoss, MaxDrawDownHyperOptLoss,
                         MaxDrawDownRelativeHyperOptLoss,
-                        ProfitDrawDownHyperOptLoss
+                        ProfitDrawDownHyperOptLoss, MultiMetricHyperOptLoss
   --disable-param-export
                         Disable automatic hyperopt parameter export.
   --ignore-missing-spaces, --ignore-unparameterized-spaces
@@ -2518,6 +2516,8 @@ options:
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
                         &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
