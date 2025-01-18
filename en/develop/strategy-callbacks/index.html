@@ -2922,7 +2922,7 @@ The exit-reasons (if applicable) will be in the following sequence:</p>
 For performance reasons, it's disabled by default and freqtrade will show a warning message on startup if enabled.
 <code>adjust_trade_position()</code> can be used to perform additional orders, for example to manage risk with DCA (Dollar Cost Averaging) or to increase or decrease positions.</p>
 <p>Additional orders also result in additional fees and those orders don't count towards <code>max_open_trades</code>.</p>
-<p>This callback is <strong>not</strong> called when there is an open order (either buy or sell) waiting for execution.</p>
+<p>This callback is also called when there is an open order (either buy or sell) waiting for execution - and will cancel the existing open order to place a new order if the amount, price or direction is different.</p>
 <p><code>adjust_trade_position()</code> is called very frequently for the duration of a trade, so you must keep your implementation as performant as possible.</p>
 <p>Position adjustments will always be applied in the direction of the trade, so a positive value will always increase your position (negative values will decrease your position), no matter if it's a long or short trade.
 Adjustment orders can be assigned with a tag by returning a 2 element Tuple, with the first element being the adjustment amount, and the 2<sup>nd</sup> element the tag (e.g. <code>return 250, "increase_favorable_conditions"</code>).</p>
