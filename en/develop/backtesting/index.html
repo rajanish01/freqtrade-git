@@ -2447,7 +2447,11 @@ To mitigate this, freqtrade can use a lower (faster) timeframe to simulate intra
 <p>To utilize this, you can append <code>--timeframe-detail 5m</code> to your regular backtesting command.</p>
 <div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy<span class="w"> </span>--timeframe<span class="w"> </span>1h<span class="w"> </span>--timeframe-detail<span class="w"> </span>5m
 </code></pre></div>
-<p>This will load 1h data as well as 5m data for the timeframe. The strategy will be analyzed with the 1h timeframe, and Entry orders will only be placed at the main timeframe, however Order fills and exit signals will be evaluated at the 5m candle, simulating intra-candle movements.</p>
+<p>This will load 1h data (the main timeframe) as well as 5m data (detail timeframe) for the selected timerange.
+The strategy will be analyzed with the 1h timeframe.
+Candles where activity may take place (there's an active signal, the pair is in a trade) are  evaluated at the 5m timeframe.
+This will allow for a more accurate simulation of intra-candle movements - and can lead to different results, especially on higher timeframes.</p>
+<p>Entries will generally still happen at the main candle's open, however freed trade slots may be freed earlier (if the exit signal is triggered on the 5m candle), which can then be used for a new trade of a different pair.</p>
 <p>All callback functions (<code>custom_exit()</code>, <code>custom_stoploss()</code>, ... ) will be running for each 5m candle once the trade is opened (so 12 times in the above example of 1h timeframe, and 5m detailed timeframe).</p>
 <p><code>--timeframe-detail</code> must be smaller than the original timeframe, otherwise backtesting will fail to start.</p>
 <p>Obviously this will require more memory (5m data is bigger than 1h data), and will also impact runtime (depending on the amount of trades and trade durations).
@@ -2456,6 +2460,78 @@ Also, data must be available / downloaded already.</p>
 <p class="admonition-title">Tip</p>
 <p>You can use this function as the last part of strategy development, to ensure your strategy is not exploiting one of the <a href="#assumptions-made-by-backtesting">backtesting assumptions</a>. Strategies that perform similarly well with this mode have a good chance to perform well in dry/live modes too (although only forward-testing (dry-mode) can really confirm a strategy).</p>
 </div>
+<details class="sample">
+<summary>Extreme Difference Example</summary>
+<p>Using <code>--timeframe-detail</code> on an extreme example (all below pairs have the 10:00 candle with an entry signal) may lead to the following backtesting Trade sequence with 1 max_open_trades:</p>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>Entry Time</th>
+<th>Exit Time</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC/USDT</td>
+<td>2024-01-01 10:00:00</td>
+<td>2021-01-01 10:05:00</td>
+<td>5m</td>
+</tr>
+<tr>
+<td>ETH/USDT</td>
+<td>2024-01-01 10:05:00</td>
+<td>2021-01-01 10:15:00</td>
+<td>10m</td>
+</tr>
+<tr>
+<td>XRP/USDT</td>
+<td>2024-01-01 10:15:00</td>
+<td>2021-01-01 10:30:00</td>
+<td>15m</td>
+</tr>
+<tr>
+<td>SOL/USDT</td>
+<td>2024-01-01 10:15:00</td>
+<td>2021-01-01 11:05:00</td>
+<td>50m</td>
+</tr>
+<tr>
+<td>BTC/USDT</td>
+<td>2024-01-01 11:05:00</td>
+<td>2021-01-01 12:00:00</td>
+<td>55m</td>
+</tr>
+</tbody>
+</table>
+<p>Without timeframe-detail, this would look like:</p>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>Entry Time</th>
+<th>Exit Time</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC/USDT</td>
+<td>2024-01-01 10:00:00</td>
+<td>2021-01-01 11:00:00</td>
+<td>1h</td>
+</tr>
+<tr>
+<td>BTC/USDT</td>
+<td>2024-01-01 11:00:00</td>
+<td>2021-01-01 12:00:00</td>
+<td>1h</td>
+</tr>
+</tbody>
+</table>
+<p>The difference is significant, as without detail data, only the first <code>max_open_trades</code> signals per candle are evaluated, and the trade slots are only freed at the end of the candle, allowing for a new trade to be opened at the next candle.</p>
+</details>
 <h2 id="backtesting-multiple-strategies">Backtesting multiple strategies<a class="headerlink" href="#backtesting-multiple-strategies" title="Permanent link">&para;</a></h2>
 <p>To compare multiple strategies, a list of Strategies can be provided to backtesting.</p>
 <p>This is limited to 1 timeframe value per run. However, data is only loaded once from disk so if you have multiple
