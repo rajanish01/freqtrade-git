@@ -655,9 +655,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#trailing-stop-loss-custom-positive-loss" class="md-nav__link">
+  <a href="#trailing-stop-loss-different-positive-loss" class="md-nav__link">
     <span class="md-ellipsis">
-      Trailing stop loss, custom positive loss
+      Trailing stop loss, different positive loss
     </span>
   </a>
   
@@ -1838,9 +1838,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#trailing-stop-loss-custom-positive-loss" class="md-nav__link">
+  <a href="#trailing-stop-loss-different-positive-loss" class="md-nav__link">
     <span class="md-ellipsis">
-      Trailing stop loss, custom positive loss
+      Trailing stop loss, different positive loss
     </span>
   </a>
   
@@ -2066,9 +2066,9 @@ To enable trailing stoploss:</p>
 <li>now the asset drops in value to 101$, the stop loss will still be 91.8$ and would trigger at 91.8$.</li>
 </ul>
 <p>In summary: The stoploss will be adjusted to be always be -10% of the highest observed price.</p>
-<h3 id="trailing-stop-loss-custom-positive-loss">Trailing stop loss, custom positive loss<a class="headerlink" href="#trailing-stop-loss-custom-positive-loss" title="Permanent link">&para;</a></h3>
-<p>You could also have a default stop loss when you are in the red with your buy (buy - fee), but once you hit a positive result (or an offset you define) the system will utilize a new stop loss, which can have a different value.
-For example, your default stop loss is -10%, but once you have more than 0% profit (example 0.1%) a different trailing stoploss will be used.</p>
+<h3 id="trailing-stop-loss-different-positive-loss">Trailing stop loss, different positive loss<a class="headerlink" href="#trailing-stop-loss-different-positive-loss" title="Permanent link">&para;</a></h3>
+<p>You could also have a default stop loss when you are in the red with your buy (buy - fee), but once you hit a positive result (or an offset you define) the system will utilize a new stop loss, with a different value.
+For example, your default stop loss is -10%, but once you have reached profitability (example 0.1%) a different trailing stoploss will be used.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you want the stoploss to only be changed when you break even of making a profit (what most users want) please refer to next section with <a href="#trailing-stop-loss-only-once-the-trade-has-reached-a-certain-offset">offset enabled</a>.</p>
@@ -2112,8 +2112,9 @@ Before this, <code>stoploss</code> is used for the trailing stoploss.</p>
 </div>
 <h3 id="trailing-stop-loss-only-once-the-trade-has-reached-a-certain-offset">Trailing stop loss only once the trade has reached a certain offset<a class="headerlink" href="#trailing-stop-loss-only-once-the-trade-has-reached-a-certain-offset" title="Permanent link">&para;</a></h3>
 <p>You can also keep a static stoploss until the offset is reached, and then trail the trade to take profits once the market turns.</p>
-<p>If <code>trailing_only_offset_is_reached = True</code> then the trailing stoploss is only activated once the offset is reached. Until then, the stoploss remains at the configured <code>stoploss</code>.
-This option can be used with or without <code>trailing_stop_positive</code>, but uses <code>trailing_stop_positive_offset</code> as offset.</p>
+<p>If <code>trailing_only_offset_is_reached = True</code> then the trailing stoploss is only activated once the offset is reached. Until then, the stoploss remains at the configured <code>stoploss</code> and is not trailing.
+Leaving this value as <code>trailing_only_offset_is_reached=False</code> will allow the trailing stoploss to start trailing as soon as the asset price increases above the initial entry price.</p>
+<p>This option can be used with or without <code>trailing_stop_positive</code>, but uses <code>trailing_stop_positive_offset</code> as offset.</p>
 <p>Configuration (offset is buy-price + 3%):</p>
 <div class="highlight"><pre><span></span><code>    <span class="n">stoploss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.10</span>
     <span class="n">trailing_stop</span> <span class="o">=</span> <span class="kc">True</span>
