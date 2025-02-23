@@ -3081,7 +3081,7 @@ Obviously you can add more imports as needed for your strategy.</p>
 <h2 id="strategy-file-loading">Strategy file loading<a class="headerlink" href="#strategy-file-loading" title="Permanent link">&para;</a></h2>
 <p>By default, freqtrade will attempt to load strategies from all <code>.py</code> files within the <code>userdir</code> (default <code>user_data/strategies</code>).</p>
 <p>Assuming your strategy is called <code>AwesomeStrategy</code>, stored in the file <code>user_data/strategies/AwesomeStrategy.py</code>, then you can start freqtrade in dry (or live, depending on your configuration) mode with:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>freqtrade<span class="w"> </span>trade<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy<span class="sb">`</span>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>trade<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy
 </code></pre></div>
 <p>Note that we're using the class name, not the file name.</p>
 <p>You can use <code>freqtrade list-strategies</code> to see a list of all strategies Freqtrade is able to load (all strategies in the correct folder).
