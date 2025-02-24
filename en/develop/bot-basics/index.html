@@ -1790,7 +1790,11 @@ This will also run the <code>bot_start()</code> callback.</p>
 <li>Check timeouts for open orders.<ul>
 <li>Calls <code>check_entry_timeout()</code> strategy callback for open entry orders.</li>
 <li>Calls <code>check_exit_timeout()</code> strategy callback for open exit orders.</li>
-<li>Calls <code>adjust_entry_price()</code> strategy callback for open entry orders.</li>
+<li>Calls <code>adjust_order_price()</code> strategy callback for open orders.<ul>
+<li>Calls <code>adjust_entry_price()</code> strategy callback for open entry orders. <em>only called when <code>adjust_order_price()</code> is not implemented</em></li>
+<li>Calls <code>adjust_exit_price()</code> strategy callback for open exit orders. <em>only called when <code>adjust_order_price()</code> is not implemented</em></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1798,7 +1802,7 @@ This will also run the <code>bot_start()</code> callback.</p>
 <li>Verifies existing positions and eventually places exit orders.<ul>
 <li>Considers stoploss, ROI and exit-signal, <code>custom_exit()</code> and <code>custom_stoploss()</code>.</li>
 <li>Determine exit-price based on <code>exit_pricing</code> configuration setting or by using the <code>custom_exit_price()</code> callback.</li>
-<li>Before a exit order is placed, <code>confirm_trade_exit()</code> strategy callback is called.</li>
+<li>Before an exit order is placed, <code>confirm_trade_exit()</code> strategy callback is called.</li>
 </ul>
 </li>
 <li>Check position adjustments for open trades if enabled by calling <code>adjust_trade_position()</code> and place additional order if required.</li>
@@ -1822,7 +1826,11 @@ This will also run the <code>bot_start()</code> callback.</p>
 <li>Loops per candle simulating entry and exit points.<ul>
 <li>Calls <code>bot_loop_start()</code> strategy callback.</li>
 <li>Check for Order timeouts, either via the <code>unfilledtimeout</code> configuration, or via <code>check_entry_timeout()</code> / <code>check_exit_timeout()</code> strategy callbacks.</li>
-<li>Calls <code>adjust_entry_price()</code> strategy callback for open entry orders.</li>
+<li>Calls <code>adjust_order_price()</code> strategy callback for open orders.<ul>
+<li>Calls <code>adjust_entry_price()</code> strategy callback for open entry orders. <em>only called when <code>adjust_order_price()</code> is not implemented!</em></li>
+<li>Calls <code>adjust_exit_price()</code> strategy callback for open exit orders. <em>only called when <code>adjust_order_price()</code> is not implemented!</em></li>
+</ul>
+</li>
 <li>Check for trade entry signals (<code>enter_long</code> / <code>enter_short</code> columns).</li>
 <li>Confirm trade entry / exits (calls <code>confirm_trade_entry()</code> and <code>confirm_trade_exit()</code> if implemented in the strategy).</li>
 <li>Call <code>custom_entry_price()</code> (if implemented in the strategy) to determine entry price (Prices are moved to be within the opening candle).</li>
