@@ -3595,6 +3595,7 @@ You may also want to print the pair so it's clear what data is currently shown.<
 <li>don't use <code>.iloc[-1]</code> or any other absolute position in the dataframe within <code>populate_</code> functions, as this will be different between dry-run and backtesting. Absolute <code>iloc</code> indexing is safe to use in callbacks however - see <a href="../strategy-callbacks/">Strategy Callbacks</a>.</li>
 <li>don't use functions that use all dataframe or column values, e.g. <code>dataframe['mean_volume'] = dataframe['volume'].mean()</code>. As backtesting uses the full dataframe, at any point in the dataframe, the <code>'mean_volume'</code> series would include data from the future. Use rolling() calculations instead, e.g. <code>dataframe['volume'].rolling(&lt;window&gt;).mean()</code>.</li>
 <li>don't use <code>.resample('1h')</code>. This uses the left border of the period interval, so moves data from an hour boundary to the start of the hour. Use <code>.resample('1h', label='right')</code> instead.</li>
+<li>don't use <code>.merge()</code> to combine longer timeframes onto shorter ones. Instead, use the <a href="#informative-pairs">informative pair</a> helpers. (A plain merge can implicitly cause a lookahead bias as date refers to open date, not close date).</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Identifying problems</p>
