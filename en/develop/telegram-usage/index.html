@@ -720,6 +720,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#authorized-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorized users
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1951,6 +1960,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#authorized-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorized users
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2263,6 +2281,14 @@ Without this, the bot will always respond to the general channel in the group if
 <span class="w">   </span><span class="nt">&quot;topic_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
 </code></pre></div>
 <p>Similar to the group-id - you can use <code>/tg_info</code> from the topic/thread to get the correct topic-id.</p>
+<h4 id="authorized-users">Authorized users<a class="headerlink" href="#authorized-users" title="Permanent link">&para;</a></h4>
+<p>For groups, it can be useful to limit who can send commands to the bot.</p>
+<p>If <code>"authorized_users": []</code> is present and empty, no user will be allowed to control the bot.
+In the below example, only the user with the id "1234567" is allowed to control the bot - all other users will only be able to receive messages.</p>
+<div class="highlight"><pre><span></span><code><span class="w">   </span><span class="nt">&quot;chat_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1001332619709&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;topic_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;authorized_users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;1234567&quot;</span><span class="p">]</span>
+</code></pre></div>
 <h2 id="control-telegram-noise">Control telegram noise<a class="headerlink" href="#control-telegram-noise" title="Permanent link">&para;</a></h2>
 <p>Freqtrade provides means to control the verbosity of your telegram bot.
 Each setting has the following possible values:</p>
