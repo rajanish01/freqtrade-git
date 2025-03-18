@@ -1343,12 +1343,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Logging to syslog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syslog-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syslog usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syslog-addressing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syslog addressing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#logging-to-journald" class="md-nav__link">
     <span class="md-ellipsis">
       Logging to journald
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-format-as-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log format as JSON
     </span>
   </a>
   
@@ -1807,12 +1840,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Logging to syslog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syslog-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syslog usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syslog-addressing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syslog addressing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#logging-to-journald" class="md-nav__link">
     <span class="md-ellipsis">
       Logging to journald
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-format-as-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log format as JSON
     </span>
   </a>
   
@@ -1987,27 +2053,99 @@ as the watchdog.</p>
 <p>The sd_notify communication between the bot and the systemd service manager will not work if the bot runs in a Docker container.</p>
 </div>
 <h2 id="advanced-logging">Advanced Logging<a class="headerlink" href="#advanced-logging" title="Permanent link">&para;</a></h2>
+<p>Freqtrade uses the default logging module provided by python.
+Python allows for extensive <a href="https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig">logging configuration</a> in this regards - way more than what can be covered here.</p>
+<p>Default logging (Colored terminal output) is setup by default if no <code>log_config</code> is provided.
+Using <code>--logfile logfile.log</code> will enable the RotatingFileHandler.
+If you're not content with the log format - or with the default settings provided for the RotatingFileHandler, you can customize logging to your liking.</p>
+<p>The default configuration looks roughly like the below - with the file handler being provided - but not enabled.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;log_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;formatters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">          </span><span class="nt">&quot;basic&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">              </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%(message)s&quot;</span>
+</span><span class="hll"><span class="w">          </span><span class="p">},</span>
+</span><span class="w">          </span><span class="nt">&quot;standard&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%(asctime)s - %(name)s - %(levelname)s - %(message)s&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">          </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">              </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;freqtrade.loggers.ft_rich_handler.FtRichHandler&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">              </span><span class="nt">&quot;formatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;basic&quot;</span>
+</span><span class="hll"><span class="w">          </span><span class="p">},</span>
+</span><span class="w">          </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;logging.handlers.RotatingFileHandler&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;formatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="c1">// &quot;filename&quot;: &quot;someRandomLogFile.log&quot;,</span>
+<span class="w">              </span><span class="nt">&quot;maxBytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10485760</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;backupCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;root&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="hll"><span class="w">              </span><span class="s2">&quot;console&quot;</span><span class="p">,</span>
+</span><span class="w">              </span><span class="c1">// &quot;file&quot;</span>
+<span class="w">          </span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">highlighted lines</p>
+<p>Highlighted lines in the above code-block define the Rich handler and belong together.
+The formatter "standard" and "file" will belong to the FileHandler.</p>
+</div>
+<p>Each handler must use one of the defined formatters (by name) - and it's class must be available and a valid logging class.
+To actually use a handler - it must be in the "handlers" section inside the "root" segment.
+If this section is left out, freqtrade will provide no output (in the non-configured handler, anyway).</p>
+<div class="admonition tip">
+<p class="admonition-title">Explicit log configuration</p>
+<p>We recommend to extract the logging configuration from your main configuration, and provide it to your bot via <a href="../configuration/#multiple-configuration-files">multiple configuration files</a> functionality. This will avoid unnecessary code duplication.</p>
+</div>
+<hr />
 <p>On many Linux systems the bot can be configured to send its log messages to <code>syslog</code> or <code>journald</code> system services. Logging to a remote <code>syslog</code> server is also available on Windows. The special values for the <code>--logfile</code> command line option can be used for this.</p>
 <h3 id="logging-to-syslog">Logging to syslog<a class="headerlink" href="#logging-to-syslog" title="Permanent link">&para;</a></h3>
-<p>To send Freqtrade log messages to a local or remote <code>syslog</code> service use the <code>--logfile</code> command line option with the value in the following format:</p>
-<ul>
-<li><code>--logfile syslog:&lt;syslog_address&gt;</code> -- send log messages to <code>syslog</code> service using the <code>&lt;syslog_address&gt;</code> as the syslog address.</li>
-</ul>
-<p>The syslog address can be either a Unix domain socket (socket filename) or a UDP socket specification, consisting of IP address and UDP port, separated by the <code>:</code> character.</p>
-<p>So, the following are the examples of possible usages:</p>
-<ul>
-<li><code>--logfile syslog:/dev/log</code> -- log to syslog (rsyslog) using the <code>/dev/log</code> socket, suitable for most systems.</li>
-<li><code>--logfile syslog</code> -- same as above, the shortcut for <code>/dev/log</code>.</li>
-<li><code>--logfile syslog:/var/run/syslog</code> -- log to syslog (rsyslog) using the <code>/var/run/syslog</code> socket. Use this on MacOS.</li>
-<li><code>--logfile syslog:localhost:514</code> -- log to local syslog using UDP socket, if it listens on port 514.</li>
-<li><code>--logfile syslog:&lt;ip&gt;:514</code> -- log to remote syslog at IP address and port 514. This may be used on Windows for remote logging to an external syslog server.</li>
-</ul>
+<p>To send Freqtrade log messages to a local or remote <code>syslog</code> service use the <code>"log_config"</code> setup option to configure logging.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;log_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;formatters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;syslog_fmt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%(name)s - %(levelname)s - %(message)s&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Other handlers? </span>
+<span class="w">      </span><span class="nt">&quot;syslog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;logging.handlers.SysLogHandler&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;formatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;syslog_fmt&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="c1">// Use one of the other options above as address instead? </span>
+<span class="w">          </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/dev/log&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;root&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// other handlers</span>
+<span class="w">        </span><span class="s2">&quot;syslog&quot;</span><span class="p">,</span>
+
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#advanced-logging">Additional log-handlers</a> may need to be configured to for example also have log output in the console.</p>
+<h4 id="syslog-usage">Syslog usage<a class="headerlink" href="#syslog-usage" title="Permanent link">&para;</a></h4>
 <p>Log messages are send to <code>syslog</code> with the <code>user</code> facility. So you can see them with the following commands:</p>
 <ul>
-<li><code>tail -f /var/log/user</code>, or </li>
+<li><code>tail -f /var/log/user</code>, or</li>
 <li>install a comprehensive graphical viewer (for instance, 'Log File Viewer' for Ubuntu).</li>
 </ul>
-<p>On many systems <code>syslog</code> (<code>rsyslog</code>) fetches data from <code>journald</code> (and vice versa), so both <code>--logfile syslog</code> or <code>--logfile journald</code> can be used and the messages be viewed with both <code>journalctl</code> and a syslog viewer utility. You can combine this in any way which suites you better.</p>
+<p>On many systems <code>syslog</code> (<code>rsyslog</code>) fetches data from <code>journald</code> (and vice versa), so both syslog or journald can be used and the messages be viewed with both <code>journalctl</code> and a syslog viewer utility. You can combine this in any way which suites you better.</p>
 <p>For <code>rsyslog</code> the messages from the bot can be redirected into a separate dedicated log file. To achieve this, add</p>
 <div class="highlight"><pre><span></span><code>if $programname startswith &quot;freqtrade&quot; then -/var/log/freqtrade.log
 </code></pre></div>
@@ -2016,12 +2154,57 @@ as the watchdog.</p>
 <div class="highlight"><pre><span></span><code># Filter duplicated messages
 $RepeatedMsgReduction on
 </code></pre></div>
+<h4 id="syslog-addressing">Syslog addressing<a class="headerlink" href="#syslog-addressing" title="Permanent link">&para;</a></h4>
+<p>The syslog address can be either a Unix domain socket (socket filename) or a UDP socket specification, consisting of IP address and UDP port, separated by the <code>:</code> character.</p>
+<p>So, the following are the examples of possible addresses:</p>
+<ul>
+<li><code>"address": "/dev/log"</code> -- log to syslog (rsyslog) using the <code>/dev/log</code> socket, suitable for most systems.</li>
+<li><code>"address": "/var/run/syslog"</code> -- log to syslog (rsyslog) using the <code>/var/run/syslog</code> socket. Use this on MacOS.</li>
+<li><code>"address": "localhost:514"</code> -- log to local syslog using UDP socket, if it listens on port 514.</li>
+<li><code>"address": "&lt;ip&gt;:514"</code> -- log to remote syslog at IP address and port 514. This may be used on Windows for remote logging to an external syslog server.</li>
+</ul>
+<details class="info">
+<summary>Deprecated - configure syslog via command line</summary>
+</details>
+<p><code>--logfile syslog:&lt;syslog_address&gt;</code> -- send log messages to <code>syslog</code> service using the <code>&lt;syslog_address&gt;</code> as the syslog address.</p>
+<p>The syslog address can be either a Unix domain socket (socket filename) or a UDP socket specification, consisting of IP address and UDP port, separated by the <code>:</code> character.</p>
+<p>So, the following are the examples of possible usages:</p>
+<p>* <code>--logfile syslog:/dev/log</code> -- log to syslog (rsyslog) using the <code>/dev/log</code> socket, suitable for most systems.
+  * <code>--logfile syslog</code> -- same as above, the shortcut for <code>/dev/log</code>.
+  * <code>--logfile syslog:/var/run/syslog</code> -- log to syslog (rsyslog) using the <code>/var/run/syslog</code> socket. Use this on MacOS.
+  * <code>--logfile syslog:localhost:514</code> -- log to local syslog using UDP socket, if it listens on port 514.
+  * <code>--logfile syslog:&lt;ip&gt;:514</code> -- log to remote syslog at IP address and port 514. This may be used on Windows for remote logging to an external syslog server.</p>
 <h3 id="logging-to-journald">Logging to journald<a class="headerlink" href="#logging-to-journald" title="Permanent link">&para;</a></h3>
 <p>This needs the <code>cysystemd</code> python package installed as dependency (<code>pip install cysystemd</code>), which is not available on Windows. Hence, the whole journald logging functionality is not available for a bot running on Windows.</p>
-<p>To send Freqtrade log messages to <code>journald</code> system service use the <code>--logfile</code> command line option with the value in the following format:</p>
-<ul>
-<li><code>--logfile journald</code> -- send log messages to <code>journald</code>.</li>
-</ul>
+<p>To send Freqtrade log messages to <code>journald</code> system service, add the following configuration snippet to your configuration.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;log_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;formatters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;journald_fmt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%(name)s - %(levelname)s - %(message)s&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Other handlers? </span>
+<span class="w">      </span><span class="nt">&quot;journald&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cysystemd.journal.JournaldLogHandler&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;formatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;journald_fmt&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;root&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// .. </span>
+<span class="w">        </span><span class="s2">&quot;journald&quot;</span><span class="p">,</span>
+
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#advanced-logging">Additional log-handlers</a> may need to be configured to for example also have log output in the console.</p>
 <p>Log messages are send to <code>journald</code> with the <code>user</code> facility. So you can see them with the following commands:</p>
 <ul>
 <li><code>journalctl -f</code> -- shows Freqtrade log messages sent to <code>journald</code> along with other log messages fetched by <code>journald</code>.</li>
@@ -2029,6 +2212,49 @@ $RepeatedMsgReduction on
 </ul>
 <p>There are many other options in the <code>journalctl</code> utility to filter the messages, see manual pages for this utility.</p>
 <p>On many systems <code>syslog</code> (<code>rsyslog</code>) fetches data from <code>journald</code> (and vice versa), so both <code>--logfile syslog</code> or <code>--logfile journald</code> can be used and the messages be viewed with both <code>journalctl</code> and a syslog viewer utility. You can combine this in any way which suites you better.</p>
+<details class="info">
+<summary>Deprecated - configure journald via command line</summary>
+<p>To send Freqtrade log messages to <code>journald</code> system service use the <code>--logfile</code> command line option with the value in the following format:</p>
+<p><code>--logfile journald</code> -- send log messages to <code>journald</code>.</p>
+</details>
+<h3 id="log-format-as-json">Log format as JSON<a class="headerlink" href="#log-format-as-json" title="Permanent link">&para;</a></h3>
+<p>You can also configure the default output stream to use JSON format instead.
+The "fmt_dict" attribute defines the keys for the json output - as well as the <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">python logging LogRecord attributes</a>.</p>
+<p>The below configuration will change the default output to JSON. The same formatter could however also be used in combination with the <code>RotatingFileHandler</code>.
+We recommend to keep one format in human readable form.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;log_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;formatters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;()&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;freqtrade.loggers.json_formatter.JsonFormatter&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;fmt_dict&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;asctime&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;levelname&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;logger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Other handlers? </span>
+<span class="w">      </span><span class="nt">&quot;jsonStream&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;logging.StreamHandler&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;formatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;root&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// .. </span>
+<span class="w">        </span><span class="s2">&quot;jsonStream&quot;</span><span class="p">,</span>
+
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
