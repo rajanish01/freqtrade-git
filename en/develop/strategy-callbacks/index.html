@@ -3025,7 +3025,7 @@ The exit-reasons (if applicable) will be in the following sequence:</p>
 For performance reasons, it's disabled by default and freqtrade will show a warning message on startup if enabled.
 <code>adjust_trade_position()</code> can be used to perform additional orders, for example to manage risk with DCA (Dollar Cost Averaging) or to increase or decrease positions.</p>
 <p>Additional orders also result in additional fees and those orders don't count towards <code>max_open_trades</code>.</p>
-<p>This callback is also called when there is an open order (either buy or sell) waiting for execution - and will cancel the existing open order to place a new order if the amount, price or direction is different.</p>
+<p>This callback is also called when there is an open order (either buy or sell) waiting for execution - and will cancel the existing open order to place a new order if the amount, price or direction is different. Also partially filled orders will be canceled, and will be replaced with the new amount as returned by the callback.</p>
 <p><code>adjust_trade_position()</code> is called very frequently for the duration of a trade, so you must keep your implementation as performant as possible.</p>
 <p>Position adjustments will always be applied in the direction of the trade, so a positive value will always increase your position (negative values will decrease your position), no matter if it's a long or short trade.
 Adjustment orders can be assigned with a tag by returning a 2 element Tuple, with the first element being the adjustment amount, and the 2<sup>nd</sup> element the tag (e.g. <code>return 250, "increase_favorable_conditions"</code>).</p>
@@ -3033,8 +3033,8 @@ Adjustment orders can be assigned with a tag by returning a 2 element Tuple, wit
 <p>The combined stake currently allocated to the position is held in <code>trade.stake_amount</code>. Therefore <code>trade.stake_amount</code> will always be updated on every additional entry and partial exit made through <code>adjust_trade_position()</code>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Loose Logic</p>
-<p>On dry and live run, this function will be called every <code>throttle_process_secs</code> (default to 5s). If you have a loose logic, for example your logic for extra entry is only to check RSI of last candle is below 30, then when such condition fulfilled, your bot will do extra re-entry every 5 secs until either it run out of money, it hit the <code>max_position_adjustment</code> limit, or a new candle with RSI more than 30 arrived.</p>
-<p>Same thing also can happen with partial exit. So be sure to have a strict logic and/or check for the last filled order.</p>
+<p>On dry and live run, this function will be called every <code>throttle_process_secs</code> (default to 5s). If you have a loose logic, (e.g. increase position if RSI of the last candle is below 30), your bot will do extra re-entry every 5 secs until you either it run out of money, hit the <code>max_position_adjustment</code> limit, or a new candle with RSI more than 30 arrived.</p>
+<p>Same thing also can happen with partial exit. So be sure to have a strict logic and/or check for the last filled order and if an order is already open.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Performance with many position adjustments</p>
