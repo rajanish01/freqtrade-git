@@ -3034,7 +3034,8 @@ Adjustment orders can be assigned with a tag by returning a 2 element Tuple, wit
 <div class="admonition danger">
 <p class="admonition-title">Loose Logic</p>
 <p>On dry and live run, this function will be called every <code>throttle_process_secs</code> (default to 5s). If you have a loose logic, (e.g. increase position if RSI of the last candle is below 30), your bot will do extra re-entry every 5 secs until you either it run out of money, hit the <code>max_position_adjustment</code> limit, or a new candle with RSI more than 30 arrived.</p>
-<p>Same thing also can happen with partial exit. So be sure to have a strict logic and/or check for the last filled order and if an order is already open.</p>
+<p>Same thing also can happen with partial exit.<br />
+So be sure to have a strict logic and/or check for the last filled order and if an order is already open.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Performance with many position adjustments</p>
