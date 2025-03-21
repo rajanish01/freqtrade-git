@@ -3224,7 +3224,7 @@ Orders that are cancelled via the above methods will not have this callback call
         <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">is_entry</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Exit and entry order price re-adjustment logic, returning the user desired limit price.</span>
 <span class="sd">        This only executes when a order was already placed, still open (unfilled fully or partially)</span>
@@ -3246,7 +3246,7 @@ Orders that are cancelled via the above methods will not have this callback call
 <span class="sd">        :param side: &#39;long&#39; or &#39;short&#39; - indicating the direction of the proposed trade</span>
 <span class="sd">        :param is_entry: True if the order is an entry order, False if it&#39;s an exit order.</span>
 <span class="sd">        :param **kwargs: Ensure to keep this here so updates to this won&#39;t break your strategy.</span>
-<span class="sd">        :return float: New entry price value if provided</span>
+<span class="sd">        :return float or None: New entry price value if provided</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Limit entry orders to use and follow SMA200 as price target for the first 10 minutes since entry trigger for BTC/USDT pair.</span>
