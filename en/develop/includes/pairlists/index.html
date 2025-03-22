@@ -1804,8 +1804,22 @@ You may also use something like <code>.*DOWN/BTC</code> or <code>.*UP/BTC</code>
 </div>
 <h4 id="static-pair-list">Static Pair List<a class="headerlink" href="#static-pair-list" title="Permanent link">&para;</a></h4>
 <p>By default, the <code>StaticPairList</code> method is used, which uses a statically defined pair whitelist from the configuration. The pairlist also supports wildcards (in regex-style) - so <code>.*/BTC</code> will include all pairs with BTC as a stake.</p>
-<p>It uses configuration from <code>exchange.pair_whitelist</code> and <code>exchange.pair_blacklist</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;pairlists&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<p>It uses configuration from <code>exchange.pair_whitelist</code> and <code>exchange.pair_blacklist</code>, which in the below example, will trade BTC/USDT and ETH/USDT - and will prevent BNB/USDT trading.</p>
+<p>Both <code>pair_*list</code> parameters support regex - so values like  <code>.*/USDT</code> would enable trading all pairs that are not in the blacklist.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;exchange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// ... </span>
+<span class="w">    </span><span class="nt">&quot;pair_whitelist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;BTC/USDT&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;ETH/USDT&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;pair_blacklist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;BNB/USDT&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">},</span>
+<span class="nt">&quot;pairlists&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;StaticPairList&quot;</span><span class="p">}</span>
 <span class="p">],</span>
 </code></pre></div>
