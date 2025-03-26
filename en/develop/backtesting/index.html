@@ -896,6 +896,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#backtest-output-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtest output file
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1906,6 +1915,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#backtest-output-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtest output file
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2442,6 +2460,17 @@ In this instance, please use <code>--cache none</code> once to force a fresh bac
 <h3 id="further-backtest-result-analysis">Further backtest-result analysis<a class="headerlink" href="#further-backtest-result-analysis" title="Permanent link">&para;</a></h3>
 <p>To further analyze your backtest results, freqtrade will export the trades to file by default.
 You can then load the trades to perform further analysis as shown in the <a href="../strategy_analysis_example/#load-backtest-results-to-pandas-dataframe">data analysis</a> backtesting section.</p>
+<h3 id="backtest-output-file">Backtest output file<a class="headerlink" href="#backtest-output-file" title="Permanent link">&para;</a></h3>
+<p>The output file freqtrade produces is a zip file containing the following files:</p>
+<ul>
+<li>The backtest report in json format</li>
+<li>the market change data in feather format</li>
+<li>a copy of the strategy file</li>
+<li>a copy of the strategy parameters (if a parameter file was used)</li>
+<li>a sanitized copy of the config file</li>
+</ul>
+<p>This will ensure results are reproducible - under the assumption that the same data is available.</p>
+<p>Only the strategy file and the config file are included in the zip file, eventual dependencies are not included.</p>
 <h2 id="assumptions-made-by-backtesting">Assumptions made by backtesting<a class="headerlink" href="#assumptions-made-by-backtesting" title="Permanent link">&para;</a></h2>
 <p>Since backtesting lacks some detailed information about what happens within a candle, it needs to take a few assumptions:</p>
 <ul>
