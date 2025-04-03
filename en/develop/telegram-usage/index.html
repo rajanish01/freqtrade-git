@@ -819,6 +819,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pause" class="md-nav__link">
+    <span class="md-ellipsis">
+      /pause
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stop" class="md-nav__link">
     <span class="md-ellipsis">
       /stop
@@ -2100,6 +2109,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pause" class="md-nav__link">
+    <span class="md-ellipsis">
+      /pause
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stop" class="md-nav__link">
     <span class="md-ellipsis">
       /stop
@@ -2431,7 +2449,7 @@ The default custom keyboard looks like this.</p>
 <div class="admonition note">
 <p class="admonition-title">Supported Commands</p>
 <p>Only the following commands are allowed. Command arguments are not supported!</p>
-<p><code>/start</code>, <code>/stop</code>, <code>/status</code>, <code>/status table</code>, <code>/trades</code>, <code>/profit</code>, <code>/performance</code>, <code>/daily</code>, <code>/stats</code>, <code>/count</code>, <code>/locks</code>, <code>/balance</code>, <code>/stopentry</code>, <code>/reload_config</code>, <code>/show_config</code>, <code>/logs</code>, <code>/whitelist</code>, <code>/blacklist</code>, <code>/edge</code>, <code>/help</code>, <code>/version</code>, <code>/marketdir</code></p>
+<p><code>/start</code>, <code>/pause</code>, <code>/stop</code>, <code>/status</code>, <code>/status table</code>, <code>/trades</code>, <code>/profit</code>, <code>/performance</code>, <code>/daily</code>, <code>/stats</code>, <code>/count</code>, <code>/locks</code>, <code>/balance</code>, <code>/stopentry</code>, <code>/reload_config</code>, <code>/show_config</code>, <code>/logs</code>, <code>/whitelist</code>, <code>/blacklist</code>, <code>/edge</code>, <code>/help</code>, <code>/version</code>, <code>/marketdir</code></p>
 </div>
 <h2 id="telegram-commands">Telegram commands<a class="headerlink" href="#telegram-commands" title="Permanent link">&para;</a></h2>
 <p>Per default, the Telegram bot shows predefined commands. Some commands
@@ -2452,6 +2470,10 @@ official commands. You can ask at any moment for help with <code>/help</code>.</
 <tr>
 <td><code>/start</code></td>
 <td>Starts the trader</td>
+</tr>
+<tr>
+<td><code>/pause</code></td>
+<td>Pause the trader. Gracefully handle open trades according to their rules. Do not enter new positions.</td>
 </tr>
 <tr>
 <td><code>/stop</code></td>
@@ -2624,6 +2646,10 @@ official commands. You can ask at any moment for help with <code>/help</code>.</
 <h3 id="start">/start<a class="headerlink" href="#start" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>Status:</strong> <code>running</code></p>
+</blockquote>
+<h3 id="pause">/pause<a class="headerlink" href="#pause" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Status:</strong> <code>paused</code></p>
 </blockquote>
 <h3 id="stop">/stop<a class="headerlink" href="#stop" title="Permanent link">&para;</a></h3>
 <blockquote>

@@ -2196,6 +2196,9 @@ to do so, please use the following:</p>
 <span class="go">start</span>
 <span class="go">    Start the bot if it&#39;s in the stopped state.</span>
 
+<span class="go">pause</span>
+<span class="go">    Pause the bot if it&#39;s in the running state. If triggered on stopped state will handle open positions.</span>
+
 <span class="go">stats</span>
 <span class="go">    Return the stats report (durations, sell-reasons).</span>
 
@@ -2270,6 +2273,11 @@ All endpoints in the below table need to be prefixed with the base URL of the AP
 <td><code>/start</code></td>
 <td>POST</td>
 <td>Starts the trader.</td>
+</tr>
+<tr>
+<td><code>/pause</code></td>
+<td>POST</td>
+<td>Pause the trader. Gracefully handle open trades according to their rules. Do not enter new positions.</td>
 </tr>
 <tr>
 <td><code>/stop</code></td>
