@@ -822,9 +822,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pause" class="md-nav__link">
+  <a href="#pause-stopentry-stopbuy" class="md-nav__link">
     <span class="md-ellipsis">
-      /pause
+      /pause | /stopentry | /stopbuy
     </span>
   </a>
   
@@ -834,15 +834,6 @@
   <a href="#stop" class="md-nav__link">
     <span class="md-ellipsis">
       /stop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stopbuy" class="md-nav__link">
-    <span class="md-ellipsis">
-      /stopbuy
     </span>
   </a>
   
@@ -2112,9 +2103,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pause" class="md-nav__link">
+  <a href="#pause-stopentry-stopbuy" class="md-nav__link">
     <span class="md-ellipsis">
-      /pause
+      /pause | /stopentry | /stopbuy
     </span>
   </a>
   
@@ -2124,15 +2115,6 @@
   <a href="#stop" class="md-nav__link">
     <span class="md-ellipsis">
       /stop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stopbuy" class="md-nav__link">
-    <span class="md-ellipsis">
-      /stopbuy
     </span>
   </a>
   
@@ -2475,16 +2457,12 @@ official commands. You can ask at any moment for help with <code>/help</code>.</
 <td>Starts the trader</td>
 </tr>
 <tr>
-<td><code>/pause</code></td>
+<td><code>/pause | /stopentry | /stopbuy</code></td>
 <td>Pause the trader. Gracefully handle open trades according to their rules. Do not enter new positions.</td>
 </tr>
 <tr>
 <td><code>/stop</code></td>
 <td>Stops the trader</td>
-</tr>
-<tr>
-<td><code>/stopbuy | /stopentry</code></td>
-<td>Stops the trader from opening new trades. Gracefully closes open trades according to their rules.</td>
 </tr>
 <tr>
 <td><code>/reload_config</code></td>
@@ -2650,27 +2628,25 @@ official commands. You can ask at any moment for help with <code>/help</code>.</
 <blockquote>
 <p><strong>Status:</strong> <code>running</code></p>
 </blockquote>
-<h3 id="pause">/pause<a class="headerlink" href="#pause" title="Permanent link">&para;</a></h3>
+<h3 id="pause-stopentry-stopbuy">/pause | /stopentry | /stopbuy<a class="headerlink" href="#pause-stopentry-stopbuy" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><strong>Status:</strong> <code>paused</code></p>
+<p><strong>Status:</strong> <code>paused, no more entries will occur from now. Run /start to enable entries.</code></p>
 </blockquote>
+<p>Prevents the bot from opening new trades by changing the state to <code>paused</code>.
+Open trades will continue to be managed according to their regular rules (ROI/exit signals, stop-loss, etc.).
+Note that position adjustment remains active, but only on the exit side — meaning that when the bot is <code>paused</code>, it can only reduce the position size of open trades.</p>
+<p>After this, give the bot time to close off open trades (can be checked via <code>/status table</code>).
+Once all positions are closed, run <code>/stop</code> to completely stop the bot.</p>
+<p>Use <code>/start</code> to resume the bot to the <code>running</code> state, allowing it to open new positions.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The pause/stopentry signal is ONLY active while the bot is running, and is not persisted anyway, so restarting the bot will cause this to reset.</p>
+</div>
 <h3 id="stop">/stop<a class="headerlink" href="#stop" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><code>Stopping trader ...</code>
 <strong>Status:</strong> <code>stopped</code></p>
 </blockquote>
-<h3 id="stopbuy">/stopbuy<a class="headerlink" href="#stopbuy" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>status:</strong> <code>Setting max_open_trades to 0. Run /reload_config to reset.</code></p>
-</blockquote>
-<p>Prevents the bot from opening new trades by temporarily setting "max_open_trades" to 0. Open trades will be handled via their regular rules (ROI / Sell-signal, stoploss, ...).</p>
-<p>After this, give the bot time to close off open trades (can be checked via <code>/status table</code>).
-Once all positions are sold, run <code>/stop</code> to completely stop the bot.</p>
-<p><code>/reload_config</code> resets "max_open_trades" to the value set in the configuration and resets this command.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The stop-buy signal is ONLY active while the bot is running, and is not persisted anyway, so restarting the bot will cause this to reset.</p>
-</div>
 <h3 id="status">/status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h3>
 <p>For each open trade, the bot will send you the following message.
 Enter Tag is configurable via Strategy.</p>
