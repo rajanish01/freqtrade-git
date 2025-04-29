@@ -2085,16 +2085,19 @@ Some websites that list and rank Freqtrade strategies show impressive backtest r
   of pairs you have in your pairlist within a reasonable time. Freqtrade will warn you in the logs if there are significant data processing delays.</li>
 </ul>
 <h2 id="controlling-or-monitoring-a-running-bot">Controlling or monitoring a running bot<a class="headerlink" href="#controlling-or-monitoring-a-running-bot" title="Permanent link">&para;</a></h2>
-<p>Once your bot is running in dry or live mode, Freqtrade has five mechanisms to control or monitor a running bot:</p>
+<p>Once your bot is running in dry or live mode, Freqtrade has six mechanisms to control or monitor a running bot:</p>
 <ul>
 <li><strong><a href="../freq-ui/">FreqUI</a></strong>: The easiest to get started with, FreqUI is a web interface to see and control current activity of your bot.</li>
 <li><strong><a href="../telegram-usage/">Telegram</a></strong>: On mobile devices, Telegram integration is available to get alerts about your bot activity and to control certain aspects.</li>
 <li><strong><a href="https://github.com/freqtrade/ftui">FTUI</a></strong>: FTUI is a terminal (command line) interface to Freqtrade, and allows monitoring of a running bot only.</li>
-<li><strong><a href="../rest-api/">REST API</a></strong>: The REST API allows programmers to develop their own tools to interact with a Freqtrade bot.</li>
+<li><strong><a href="../rest-api/#consuming-the-api">freqtrade-client</a></strong>: A python implementation of the REST API, making it easy to make requests and consume bot responses from your python apps or the command line.</li>
+<li><strong><a href="../rest-api/#available-endpoints">REST API endpoints</a></strong>: The REST API allows programmers to develop their own tools to interact with a Freqtrade bot.</li>
 <li><strong><a href="../webhook-config/">Webhooks</a></strong>: Freqtrade can send information to other services, e.g. discord, by webhooks.</li>
 </ul>
 <h3 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">&para;</a></h3>
 <p>Freqtrade generates extensive debugging logs to help you understand what's happening. Please familiarise yourself with the information and error messages you might see in your bot logs.</p>
+<p>Logging by default occurs on standard out (the command line). If you want to write out to a file instead, many freqtrade commands, including the <code>trade</code> command, accept the <code>--logfile</code> option to write to a file.</p>
+<p>Check the <a href="../faq/#how-do-i-search-the-bot-logs-for-something">FAQ</a> for examples.</p>
 <h2 id="final-thoughts">Final Thoughts<a class="headerlink" href="#final-thoughts" title="Permanent link">&para;</a></h2>
 <p>Algo trading is difficult, and most public strategies are not good performers due to the time and effort to make a strategy work profitably in multiple scenarios.</p>
 <p>Therefore, taking public strategies and using backtests as a way to assess performance is often problematic. However, Freqtrade provides useful ways to help you make decisions and do your due diligence.</p>

@@ -2116,11 +2116,12 @@ as the watchdog.</p>
 </div>
 <h2 id="advanced-logging">Advanced Logging<a class="headerlink" href="#advanced-logging" title="Permanent link">&para;</a></h2>
 <p>Freqtrade uses the default logging module provided by python.
-Python allows for extensive <a href="https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig">logging configuration</a> in this regards - way more than what can be covered here.</p>
-<p>Default logging (Colored terminal output) is setup by default if no <code>log_config</code> is provided.
-Using <code>--logfile logfile.log</code> will enable the RotatingFileHandler.
-If you're not content with the log format - or with the default settings provided for the RotatingFileHandler, you can customize logging to your liking.</p>
-<p>The default configuration looks roughly like the below - with the file handler being provided - but not enabled.</p>
+Python allows for extensive <a href="https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig">logging configuration</a> in this regard - way more than what can be covered here.</p>
+<p>Default logging format (coloured terminal output) is set up by default if no <code>log_config</code> is provided in your freqtrade configuration.
+Using <code>--logfile logfile.log</code> will enable the RotatingFileHandler.</p>
+<p>If you're not content with the log format, or with the default settings provided for the RotatingFileHandler, you can customize logging to your liking by adding the <code>log_config</code> configuration to your freqtrade configuration file(s).</p>
+<p>The default configuration looks roughly like the below, with the file handler being provided but not enabled as the <code>filename</code> is commented out.
+Uncomment this line and supply a valid path/filename to enable it.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;log_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -2160,12 +2161,12 @@ If you're not content with the log format - or with the default settings provide
 <p>Highlighted lines in the above code-block define the Rich handler and belong together.
 The formatter "standard" and "file" will belong to the FileHandler.</p>
 </div>
-<p>Each handler must use one of the defined formatters (by name) - and it's class must be available and a valid logging class.
-To actually use a handler - it must be in the "handlers" section inside the "root" segment.
+<p>Each handler must use one of the defined formatters (by name), its class must be available, and must be a valid logging class.
+To actually use a handler, it must be in the "handlers" section inside the "root" segment.
 If this section is left out, freqtrade will provide no output (in the non-configured handler, anyway).</p>
 <div class="admonition tip">
 <p class="admonition-title">Explicit log configuration</p>
-<p>We recommend to extract the logging configuration from your main configuration, and provide it to your bot via <a href="../configuration/#multiple-configuration-files">multiple configuration files</a> functionality. This will avoid unnecessary code duplication.</p>
+<p>We recommend to extract the logging configuration from your main freqtrade configuration file, and provide it to your bot via <a href="../configuration/#multiple-configuration-files">multiple configuration files</a> functionality. This will avoid unnecessary code duplication.</p>
 </div>
 <hr />
 <p>On many Linux systems the bot can be configured to send its log messages to <code>syslog</code> or <code>journald</code> system services. Logging to a remote <code>syslog</code> server is also available on Windows. The special values for the <code>--logfile</code> command line option can be used for this.</p>
