@@ -1347,15 +1347,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       Introduction
@@ -1368,6 +1359,33 @@
   <a href="#how-does-the-command-work" class="md-nav__link">
     <span class="md-ellipsis">
       How does the command work?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-find-and-remove-bias-how-can-i-salvage-a-biased-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to find and remove bias? How can I salvage a biased strategy?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-lookahead-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of lookahead-bias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-do-the-columns-in-the-results-table-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      What do the columns in the results table mean?
     </span>
   </a>
   
@@ -1713,15 +1731,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       Introduction
@@ -1734,6 +1743,33 @@
   <a href="#how-does-the-command-work" class="md-nav__link">
     <span class="md-ellipsis">
       How does the command work?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-find-and-remove-bias-how-can-i-salvage-a-biased-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to find and remove bias? How can I salvage a biased strategy?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-lookahead-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of lookahead-bias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-do-the-columns-in-the-results-table-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      What do the columns in the results table mean?
     </span>
   </a>
   
@@ -1773,19 +1809,17 @@
 
 
 <h1 id="lookahead-analysis">Lookahead analysis<a class="headerlink" href="#lookahead-analysis" title="Permanent link">&para;</a></h1>
-<p>This page explains how to validate your strategy in terms of look ahead bias.</p>
-<p>Checking look ahead bias is the bane of any strategy since it is sometimes very easy to introduce backtest bias -
-but very hard to detect.</p>
-<p>Backtesting initializes all timestamps at once and calculates all indicators in the beginning.
-This means that if your indicators or entry/exit signals could look into future candles and falsify your backtest.</p>
-<p>Lookahead-analysis requires historic data to be available.
+<p>This page explains how to validate your strategy in terms of lookahead bias.</p>
+<p>Lookahead bias is the bane of any strategy since it is sometimes very easy to introduce this bias, but can be very hard to detect.</p>
+<p>Backtesting initializes all timestamps (loads the whole dataframe into memory) and calculates all indicators at once.
+This means that if your indicators or entry/exit signals look into future candles, this will falsify your backtest.</p>
+<p>The <code>lookahead-analysis</code> command requires historic data to be available.
 To learn how to get data for the pairs and exchange you're interested in,
-head over to the <a href="../data-download/">Data Downloading</a> section of the documentation.</p>
-<p>This command is built upon backtesting since it internally chains backtests and pokes at the strategy to provoke it to show look ahead bias.
-This is done by not looking at the strategy itself - but at the results it returned.
-The results are things like changed indicator-values and moved entries/exits compared to the full backtest.</p>
-<p>You can use commands of <a href="../backtesting/">Backtesting</a>.
-It also supports the lookahead-analysis of freqai strategies.</p>
+head over to the <a href="../data-download/">Data Downloading</a> section of the documentation.
+<code>lookahead-analysis</code> also supports freqai strategies.</p>
+<p>This command internally chains backtests and pokes at the strategy to provoke it to show lookahead bias.
+This is done by not looking at the strategy code itself, but at changed indicator values and moved entries/exits compared to the full backtest.</p>
+<p><code>lookahead-analysis</code> can use the typical options of <a href="../backtesting/">Backtesting</a>, but forces the following options:</p>
 <ul>
 <li><code>--cache</code> is forced to "none".</li>
 <li><code>--max-open-trades</code> is forced to be at least equal to the number of pairs.</li>
@@ -1793,7 +1827,7 @@ It also supports the lookahead-analysis of freqai strategies.</p>
 <li><code>--stake-amount</code> is forced to be a static 10000 (10k).</li>
 <li><code>--enable-protections</code> is forced to be off.</li>
 </ul>
-<p>Those are set to avoid users accidentally generating false positives.</p>
+<p>These are set to avoid users accidentally generating false positives.</p>
 <h2 id="lookahead-analysis-command-reference">Lookahead-analysis command reference<a class="headerlink" href="#lookahead-analysis-command-reference" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>usage: freqtrade lookahead-analysis [-h] [-v] [--no-color] [--logfile FILE]
                                     [-V] [-c PATH] [-d PATH] [--userdir PATH]
@@ -1904,35 +1938,69 @@ Strategy arguments:
                         Specify additional lookup path for freqaimodels.
 </code></pre></div>
 <div class="admonition note">
-<p>The above Output was reduced to options <code>lookahead-analysis</code> adds on top of regular backtesting commands.</p>
+<p class="admonition-title">Note</p>
+<p>The above output was reduced to options that <code>lookahead-analysis</code> adds on top of regular backtesting commands.</p>
 </div>
-<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>Checks a given strategy for look ahead bias via lookahead-analysis
-Look ahead bias means that the backtest uses data from future candles thereby not making it viable beyond backtesting
-and producing false hopes for the one backtesting.</p>
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
-<p>Many strategies - without the programmer knowing - have fallen prey to look ahead bias.</p>
-<p>Any backtest will populate the full dataframe including all time stamps at the beginning.
-If the programmer is not careful or oblivious how things work internally
-(which sometimes can be really hard to find out) then it will just look into the future making the strategy amazing
-but not realistic.</p>
-<p>This command is made to try to verify the validity in the form of the aforementioned look ahead bias.</p>
+<p>Many strategies, without the programmer knowing, have fallen prey to lookahead bias.
+This typically makes the strategy backtest look profitable, sometimes to extremes,  but this is not realistic as the strategy is "cheating" by looking at data it would not have in dry or live modes.</p>
+<p>The reason why strategies can "cheat" is because the freqtrade backtesting process populates the full dataframe including all candle timestamps at the outset.
+If the programmer is not careful or oblivious how things work internally 
+(which sometimes can be really hard to find out) then the strategy will look into the future.</p>
+<p>This command is made to try to verify the validity in the form of the aforementioned lookahead bias.</p>
 <h3 id="how-does-the-command-work">How does the command work?<a class="headerlink" href="#how-does-the-command-work" title="Permanent link">&para;</a></h3>
 <p>It will start with a backtest of all pairs to generate a baseline for indicators and entries/exits.
-After the backtest ran, it will look if the <code>minimum-trade-amount</code> is met
-and if not cancel the lookahead-analysis for this strategy.</p>
-<p>After setting the baseline it will then do additional runs for every entry and exit separately.
-When a verification-backtest is done, it will compare the indicators as the signal (either entry or exit) and report the bias.
-After all signals have been verified or falsified a result-table will be generated for the user to see.</p>
+After this initial backtest runs, it will look if the <code>minimum-trade-amount</code> is met and if not cancel the lookahead-analysis for this strategy.<br />
+If this happens, use a wider timerange to get more trades for the analysis, or use a timerange where more trades occur.</p>
+<p>After setting the baseline it will then do additional backtest runs for every entry and exit separately.<br />
+When these verification backtests complete, it will compare the indicators at the signal candles (both entry or exit)
+and report the bias.<br />
+After all signals have been verified or falsified a result table will be generated for the user to see.</p>
+<h3 id="how-to-find-and-remove-bias-how-can-i-salvage-a-biased-strategy">How to find and remove bias? How can I salvage a biased strategy?<a class="headerlink" href="#how-to-find-and-remove-bias-how-can-i-salvage-a-biased-strategy" title="Permanent link">&para;</a></h3>
+<p>If you found a biased strategy online and want to have the same results, just without bias,
+then you will be out of luck most of the time.
+Usually the bias in the strategy is THE driving factor for "too good to be true" profits.
+Removing conditions or indicators that push the profits up from bias will usually make the strategy significantly worse.
+You might be able to salvage it partially if the biased indicators or conditions are not the core of the strategy, or there
+are other entry and exit signals that are not biased.</p>
+<h3 id="examples-of-lookahead-bias">Examples of lookahead-bias<a class="headerlink" href="#examples-of-lookahead-bias" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>shift(-10)</code> looks 10 candles into the future.</li>
+<li>Using <code>iloc[]</code> in populate_* functions to access a specific row in the dataframe.</li>
+<li>For-loops are prone to introduce lookahead bias if you don't tightly control which numbers are looped through.</li>
+<li>Aggregation functions like <code>.mean()</code>, <code>.min()</code> and <code>.max()</code>, without a rolling window,
+  will calculate the value over the <strong>whole</strong> dataframe, so the signal candle will "see" a value including future candles.
+  A non-biased example would be to look back candles using <code>rolling()</code> instead:
+  e.g. <code>dataframe['volume_mean_12'] = dataframe['volume'].rolling(12).mean()</code></li>
+<li><code>ta.MACD(dataframe, 12, 26, 1)</code> will introduce bias with a signalperiod of 1.</li>
+</ul>
+<h3 id="what-do-the-columns-in-the-results-table-mean">What do the columns in the results table mean?<a class="headerlink" href="#what-do-the-columns-in-the-results-table-mean" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>filename</code>: name of the checked strategy file</li>
+<li><code>strategy</code>: checked strategy class name</li>
+<li><code>has_bias</code>: result of the lookahead-analysis. <code>No</code> would be good, <code>Yes</code> would be bad.</li>
+<li><code>total_signals</code>: number of checked signals (default is 20)</li>
+<li><code>biased_entry_signals</code>: found bias in that many entries</li>
+<li><code>biased_exit_signals</code>: found bias in that many exits</li>
+<li><code>biased_indicators</code>: shows you the indicators themselves that are defined in populate_indicators</li>
+</ul>
+<p>You might get false positives in the <code>biased_exit_signals</code> if you have biased entry signals paired with those exits.
+However, a biased entry will usually result in a biased exit too,
+even if the exit itself does not produce the bias -
+especially if your entry and exit conditions use the same biased indicator.</p>
+<p><strong>Address the bias in the entries first, then address the exits.</strong></p>
 <h3 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>lookahead-analysis</code> can only verify / falsify the trades it calculated and verified.
-If the strategy has many different signals / signal types, it's up to you to select appropriate parameters to ensure that all signals have triggered at least once. Not triggered signals will not have been verified.
-This could lead to a false-negative (the strategy will then be reported as non-biased).</li>
-<li><code>lookahead-analysis</code> has access to everything that backtesting has too.
-Please don't provoke any configs like enabling position stacking.
-If you decide to do so, then make doubly sure that you won't ever run out of <code>max_open_trades</code> amount and neither leftover money in your wallet.</li>
-<li>In the results table, the <code>biased_indicators</code> column will falsely flag FreqAI target indicators defined in <code>set_freqai_targets()</code> as biased. These are not biased and can safely be ignored.</li>
+If the strategy has many different signals / signal types, it's up to you to select appropriate parameters to ensure that all signals have triggered at least once. Signals that are not triggered will not have been verified.<br />
+This would lead to a false-negative, i.e. the strategy will be reported as non-biased.</li>
+<li><code>lookahead-analysis</code> has access to the same backtesting options and this can introduce problems.
+Please don't use any options like enabling position stacking as this will distort the number of checked signals.
+If you decide to do so, then make doubly sure that you won't ever run out of <code>max_open_trades</code> slots, 
+and that you have enough capital in the backtest wallet configuration.</li>
+<li>In the results table, the <code>biased_indicators</code> column 
+will falsely flag FreqAI target indicators defined in <code>set_freqai_targets()</code> as biased.<br />
+<strong>These are not biased and can safely be ignored.</strong></li>
 </ul>
 
 
