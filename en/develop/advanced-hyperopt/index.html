@@ -1921,45 +1921,42 @@ For the sample below, you then need to add the command line parameter <code>--hy
 <p>Parameters created this way will not show up in the <code>list-strategies</code> parameter count.</p>
 </div>
 <h3 id="overriding-base-estimator">Overriding Base estimator<a class="headerlink" href="#overriding-base-estimator" title="Permanent link">&para;</a></h3>
-<p>You can define your own estimator for Hyperopt by implementing <code>generate_estimator()</code> in the Hyperopt subclass.</p>
+<p>You can define your own optuna sampler for Hyperopt by implementing <code>generate_estimator()</code> in the Hyperopt subclass.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
     <span class="k">class</span><span class="w"> </span><span class="nc">HyperOpt</span><span class="p">:</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">generate_estimator</span><span class="p">(</span><span class="n">dimensions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s1">&#39;Dimension&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s2">&quot;RF&quot;</span>
+            <span class="k">return</span> <span class="s2">&quot;NSGAIIISampler&quot;</span>
 </code></pre></div>
-<p>Possible values are either one of "GP", "RF", "ET", "GBRT" (Details can be found in the <a href="https://scikit-optimize.github.io/">scikit-optimize documentation</a>), or "an instance of a class that inherits from <code>RegressorMixin</code> (from sklearn) and where the <code>predict</code> method has an optional <code>return_std</code> argument, which returns <code>std(Y | x)</code> along with <code>E[Y | x]</code>".</p>
-<p>Some research will be necessary to find additional Regressors.</p>
-<p>Example for <code>ExtraTreesRegressor</code> ("ET") with additional parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
-    <span class="k">class</span><span class="w"> </span><span class="nc">HyperOpt</span><span class="p">:</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">generate_estimator</span><span class="p">(</span><span class="n">dimensions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s1">&#39;Dimension&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="kn">from</span><span class="w"> </span><span class="nn">skopt.learning</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtraTreesRegressor</span>
-            <span class="c1"># Corresponds to &quot;ET&quot; - but allows additional parameters.</span>
-            <span class="k">return</span> <span class="n">ExtraTreesRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</code></pre></div>
-<p>The <code>dimensions</code> parameter is the list of <code>skopt.space.Dimension</code> objects corresponding to the parameters to be optimized. It can be used to create isotropic kernels for the <code>skopt.learning.GaussianProcessRegressor</code> estimator. Here's an example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
-    <span class="k">class</span><span class="w"> </span><span class="nc">HyperOpt</span><span class="p">:</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">generate_estimator</span><span class="p">(</span><span class="n">dimensions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s1">&#39;Dimension&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="kn">from</span><span class="w"> </span><span class="nn">skopt.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">cook_estimator</span>
-            <span class="kn">from</span><span class="w"> </span><span class="nn">skopt.learning.gaussian_process.kernels</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">Matern</span><span class="p">,</span> <span class="n">ConstantKernel</span><span class="p">)</span>
-            <span class="n">kernel_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
-            <span class="n">kernel</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">ConstantKernel</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">kernel_bounds</span><span class="p">)</span> <span class="o">*</span> 
-                <span class="n">Matern</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)),</span> <span class="n">length_scale_bounds</span><span class="o">=</span><span class="p">[</span><span class="n">kernel_bounds</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dimensions</span><span class="p">],</span> <span class="n">nu</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
-            <span class="p">)</span>
-            <span class="n">kernel</span> <span class="o">+=</span> <span class="p">(</span>
-                <span class="n">ConstantKernel</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">kernel_bounds</span><span class="p">)</span> <span class="o">*</span> 
-                <span class="n">Matern</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)),</span> <span class="n">length_scale_bounds</span><span class="o">=</span><span class="p">[</span><span class="n">kernel_bounds</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dimensions</span><span class="p">],</span> <span class="n">nu</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-            <span class="p">)</span>
-
-            <span class="k">return</span> <span class="n">cook_estimator</span><span class="p">(</span><span class="s2">&quot;GP&quot;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">n_restarts_optimizer</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
+<p>Possible values are either one of "NSGAIISampler", "TPESampler", "GPSampler", "CmaEsSampler", "NSGAIIISampler", "QMCSampler" (Details can be found in the <a href="https://optuna.readthedocs.io/en/stable/reference/samplers/index.html">optuna-samplers documentation</a>), or "an instance of a class that inherits from <code>optuna.samplers.BaseSampler</code>".</p>
+<p>Some research will be necessary to find additional Samplers (from optunahub) for example.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>While custom estimators can be provided, it's up to you as User to do research on possible parameters and analyze / understand which ones should be used.
-If you're unsure about this, best use one of the Defaults (<code>"ET"</code> has proven to be the most versatile) without further parameters.</p>
+If you're unsure about this, best use one of the Defaults (<code>"NSGAIIISampler"</code> has proven to be the most versatile) without further parameters.</p>
 </div>
+<details class="example">
+<summary>Using <code>AutoSampler</code> from Optunahub</summary>
+<p><a href="https://hub.optuna.org/samplers/auto_sampler/">AutoSampler docs</a></p>
+<p>Install the necessary dependencies 
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>optunahub<span class="w"> </span>cmaes<span class="w"> </span>torch<span class="w"> </span>scipy
+</code></pre></div>
+Implement <code>generate_estimator()</code>  in your strategy</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy.interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">IStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">optunahub</span>
+<span class="c1"># ... </span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">my_strategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">HyperOpt</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">generate_estimator</span><span class="p">(</span><span class="n">dimensions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Dimension&quot;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;random_state&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">optunahub</span><span class="o">.</span><span class="n">load_module</span><span class="p">(</span><span class="s2">&quot;samplers/auto_sampler&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">AutoSampler</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;random_state&quot;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">optunahub</span><span class="o">.</span><span class="n">load_module</span><span class="p">(</span><span class="s2">&quot;samplers/auto_sampler&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">AutoSampler</span><span class="p">()</span>
+</code></pre></div>
+<p>Obviously the same approach will work for all other Samplers optuna supports.</p>
+</details>
 <h2 id="space-options">Space options<a class="headerlink" href="#space-options" title="Permanent link">&para;</a></h2>
 <p>For the additional spaces, scikit-optimize (in combination with Freqtrade) provides the following space types:</p>
 <ul>

@@ -2454,9 +2454,7 @@ from a separate terminal window.</li>
 <h3 id="why-does-freqtrade-not-have-gpu-support">Why does freqtrade not have GPU support?<a class="headerlink" href="#why-does-freqtrade-not-have-gpu-support" title="Permanent link">&para;</a></h3>
 <p>First of all, most indicator libraries don't have GPU support - as such, there would be little benefit for indicator calculations.
 The GPU improvements would only apply to pandas-native calculations - or ones written by yourself.</p>
-<p>For hyperopt, freqtrade is using scikit-optimize, which is built on top of scikit-learn.
-Their statement about GPU support is <a href="https://scikit-learn.org/stable/faq.html#will-you-add-gpu-support">pretty clear</a>.</p>
-<p>GPU's also are only good at crunching numbers (floating point operations).
+<p>GPU's are only good at crunching numbers (floating point operations).
 For hyperopt, we need both number-crunching (find next parameters) and running python code (running backtesting).
 As such, GPU's are not too well suited for most parts of hyperopt.</p>
 <p>The benefit of using GPU would therefore be pretty slim - and will not justify the complexity introduced by trying to add GPU support.</p>
