@@ -2096,7 +2096,7 @@ Most properties here can be None as they are dependent on the exchange response.
 <tr>
 <td><code>ft_is_open</code></td>
 <td>boolean</td>
-<td>is the order filled?</td>
+<td>is the order still open?</td>
 </tr>
 <tr>
 <td><code>order_type</code></td>
@@ -2106,12 +2106,12 @@ Most properties here can be None as they are dependent on the exchange response.
 <tr>
 <td><code>status</code></td>
 <td>string</td>
-<td>Status as defined by ccxt. Usually open, closed, expired or canceled</td>
+<td>Status as defined by <a href="https://docs.ccxt.com/#/README?id=order-structure">ccxt's order structure</a>. Usually open, closed, expired, canceled or rejected</td>
 </tr>
 <tr>
 <td><code>side</code></td>
 <td>string</td>
-<td>Buy or Sell</td>
+<td>buy or sell</td>
 </tr>
 <tr>
 <td><code>price</code></td>
@@ -2131,12 +2131,22 @@ Most properties here can be None as they are dependent on the exchange response.
 <tr>
 <td><code>filled</code></td>
 <td>float</td>
-<td>Filled amount (in base currency)</td>
+<td>Filled amount (in base currency) (use <code>safe_filled</code> instead)</td>
+</tr>
+<tr>
+<td><code>safe_filled</code></td>
+<td>float</td>
+<td>Filled amount (in base currency) - guaranteed to not be None</td>
 </tr>
 <tr>
 <td><code>remaining</code></td>
 <td>float</td>
-<td>Remaining amount</td>
+<td>Remaining amount (use <code>safe_remaining</code> instead)</td>
+</tr>
+<tr>
+<td><code>safe_remaining</code></td>
+<td>float</td>
+<td>Remaining amount - either taken from the exchange or calculated.</td>
 </tr>
 <tr>
 <td><code>cost</code></td>
