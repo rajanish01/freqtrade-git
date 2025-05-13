@@ -2630,6 +2630,7 @@ During backtesting, <code>current_rate</code> (and <code>current_profit</code>) 
 Returning <code>None</code> will be interpreted as "no desire to change", and is the only safe way to return when you'd like to not modify the stoploss.
 <code>NaN</code> and <code>inf</code> values are considered invalid and will be ignored (identical to <code>None</code>).</p>
 <p>Stoploss on exchange works similar to <code>trailing_stop</code>, and the stoploss on exchange is updated as configured in <code>stoploss_on_exchange_interval</code> (<a href="../stoploss/#stop-loss-on-exchangefreqtrade">More details about stoploss on exchange</a>).</p>
+<p>If you're on futures markets, please take note of the <a href="../stoploss/#stoploss-and-leverage">stoploss and leverage</a> section, as the stoploss value returned from <code>custom_stoploss</code> is the risk for this trade - not the relative price movement.</p>
 <div class="admonition note">
 <p class="admonition-title">Use of dates</p>
 <p>All time-based calculations should be done based on <code>current_time</code> - using <code>datetime.now()</code> or <code>datetime.utcnow()</code> is discouraged, as this will break backtesting support.</p>
@@ -2681,7 +2682,7 @@ Of course, many more things are possible, and all examples can be combined at wi
 <span class="sd">        :param **kwargs: Ensure to keep this here so updates to this won&#39;t break your strategy.</span>
 <span class="sd">        :return float: New stoploss value, relative to the current_rate</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mf">0.04</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mf">0.04</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
 </code></pre></div>
 <h4 id="time-based-trailing-stop">Time based trailing stop<a class="headerlink" href="#time-based-trailing-stop" title="Permanent link">&para;</a></h4>
 <p>Use the initial stoploss for the first 60 minutes, after this change to 10% trailing stoploss, and after 2 hours (120 minutes) we use a 5% trailing stoploss.</p>
@@ -2699,9 +2700,9 @@ Of course, many more things are possible, and all examples can be combined at wi
 
         <span class="c1"># Make sure you have the longest interval first - these conditions are evaluated from top to bottom.</span>
         <span class="k">if</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_date_utc</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mf">0.05</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
         <span class="k">elif</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_date_utc</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mf">0.10</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">0.10</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
         <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div>
 <h4 id="time-based-trailing-stop-with-after-fill-adjustments">Time based trailing stop with after-fill adjustments<a class="headerlink" href="#time-based-trailing-stop-with-after-fill-adjustments" title="Permanent link">&para;</a></h4>
@@ -2724,9 +2725,9 @@ If an additional order fills, set stoploss to -10% below the new <code>open_rate
             <span class="k">return</span> <span class="n">stoploss_from_open</span><span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">current_profit</span><span class="p">,</span> <span class="n">is_short</span><span class="o">=</span><span class="n">trade</span><span class="o">.</span><span class="n">is_short</span><span class="p">,</span> <span class="n">leverage</span><span class="o">=</span><span class="n">trade</span><span class="o">.</span><span class="n">leverage</span><span class="p">)</span>
         <span class="c1"># Make sure you have the longest interval first - these conditions are evaluated from top to bottom.</span>
         <span class="k">if</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_date_utc</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mf">0.05</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
         <span class="k">elif</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">trade</span><span class="o">.</span><span class="n">open_date_utc</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mf">0.10</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">0.10</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
         <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div>
 <h4 id="different-stoploss-per-pair">Different stoploss per pair<a class="headerlink" href="#different-stoploss-per-pair" title="Permanent link">&para;</a></h4>
@@ -2745,10 +2746,10 @@ In this example, we'll trail the highest price with 10% trailing stoploss for <c
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 
         <span class="k">if</span> <span class="n">pair</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;ETH/BTC&quot;</span><span class="p">,</span> <span class="s2">&quot;XRP/BTC&quot;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mf">0.10</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">0.10</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
         <span class="k">elif</span> <span class="n">pair</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;LTC/BTC&quot;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mf">0.05</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mf">0.15</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mf">0.15</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
 </code></pre></div>
 <h4 id="trailing-stoploss-with-positive-offset">Trailing stoploss with positive offset<a class="headerlink" href="#trailing-stoploss-with-positive-offset" title="Permanent link">&para;</a></h4>
 <p>Use the initial stoploss until the profit is above 4%, then use a trailing stoploss of 50% of the current profit with a minimum of 2.5% and a maximum of 5%.</p>
@@ -2772,7 +2773,7 @@ In this example, we'll trail the highest price with 10% trailing stoploss for <c
         <span class="n">desired_stoploss</span> <span class="o">=</span> <span class="n">current_profit</span> <span class="o">/</span> <span class="mi">2</span>
 
         <span class="c1"># Use a minimum of 2.5% and a maximum of 5%</span>
-        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">desired_stoploss</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="mf">0.025</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">desired_stoploss</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="mf">0.025</span><span class="p">)</span> <span class="o">*</span> <span class="n">trade</span><span class="o">.</span><span class="n">leverage</span>
 </code></pre></div>
 <h4 id="stepped-stoploss">Stepped stoploss<a class="headerlink" href="#stepped-stoploss" title="Permanent link">&para;</a></h4>
 <p>Instead of continuously trailing behind the current price, this example sets fixed stoploss price levels based on the current profit.</p>
