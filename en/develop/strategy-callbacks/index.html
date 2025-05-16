@@ -2586,7 +2586,7 @@ This can be used to perform calculations which are pair independent (apply to al
 </div>
 <h2 id="custom-exit-signal">Custom exit signal<a class="headerlink" href="#custom-exit-signal" title="Permanent link">&para;</a></h2>
 <p>Called for open trade every throttling iteration (roughly every 5 seconds) until a trade is closed.</p>
-<p>Allows to define custom exit signals, indicating that specified position should be sold. This is very useful when we need to customize exit conditions for each individual trade, or if you need trade data to make an exit decision.</p>
+<p>Allows to define custom exit signals, indicating that specified position should be closed (full exit). This is very useful when we need to customize exit conditions for each individual trade, or if you need trade data to make an exit decision.</p>
 <p>For example you could implement a 1:2 risk-reward ROI with <code>custom_exit()</code>.</p>
 <p>Using <code>custom_exit()</code> signals in place of stoploss though <em>is not recommended</em>. It is a inferior method to using <code>custom_stoploss()</code> in this regard - which also allows you to keep the stoploss on exchange.</p>
 <div class="admonition note">
