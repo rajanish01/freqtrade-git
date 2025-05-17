@@ -2228,15 +2228,17 @@ $RepeatedMsgReduction on
 </ul>
 <details class="info">
 <summary>Deprecated - configure syslog via command line</summary>
-</details>
 <p><code>--logfile syslog:&lt;syslog_address&gt;</code> -- send log messages to <code>syslog</code> service using the <code>&lt;syslog_address&gt;</code> as the syslog address.</p>
 <p>The syslog address can be either a Unix domain socket (socket filename) or a UDP socket specification, consisting of IP address and UDP port, separated by the <code>:</code> character.</p>
 <p>So, the following are the examples of possible usages:</p>
-<p>* <code>--logfile syslog:/dev/log</code> -- log to syslog (rsyslog) using the <code>/dev/log</code> socket, suitable for most systems.
-  * <code>--logfile syslog</code> -- same as above, the shortcut for <code>/dev/log</code>.
-  * <code>--logfile syslog:/var/run/syslog</code> -- log to syslog (rsyslog) using the <code>/var/run/syslog</code> socket. Use this on MacOS.
-  * <code>--logfile syslog:localhost:514</code> -- log to local syslog using UDP socket, if it listens on port 514.
-  * <code>--logfile syslog:&lt;ip&gt;:514</code> -- log to remote syslog at IP address and port 514. This may be used on Windows for remote logging to an external syslog server.</p>
+<ul>
+<li><code>--logfile syslog:/dev/log</code> -- log to syslog (rsyslog) using the <code>/dev/log</code> socket, suitable for most systems.</li>
+<li><code>--logfile syslog</code> -- same as above, the shortcut for <code>/dev/log</code>.</li>
+<li><code>--logfile syslog:/var/run/syslog</code> -- log to syslog (rsyslog) using the <code>/var/run/syslog</code> socket. Use this on MacOS.</li>
+<li><code>--logfile syslog:localhost:514</code> -- log to local syslog using UDP socket, if it listens on port 514.</li>
+<li><code>--logfile syslog:&lt;ip&gt;:514</code> -- log to remote syslog at IP address and port 514. This may be used on Windows for remote logging to an external syslog server.</li>
+</ul>
+</details>
 <h3 id="logging-to-journald">Logging to journald<a class="headerlink" href="#logging-to-journald" title="Permanent link">&para;</a></h3>
 <p>This needs the <code>cysystemd</code> python package installed as dependency (<code>pip install cysystemd</code>), which is not available on Windows. Hence, the whole journald logging functionality is not available for a bot running on Windows.</p>
 <p>To send Freqtrade log messages to <code>journald</code> system service, add the following configuration snippet to your configuration.</p>
