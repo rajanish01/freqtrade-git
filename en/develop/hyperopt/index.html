@@ -3093,7 +3093,7 @@ Or maybe you just want to optimize your stoploss or roi table for that awesome n
 <li><code>trailing</code>: search for the best trailing stop values</li>
 <li><code>trades</code>: search for the best max open trades values</li>
 <li><code>protection</code>: search for the best protection parameters (read the <a href="#optimizing-protections">protections section</a> on how to properly define these)</li>
-<li><code>default</code>: <code>all</code> except <code>trailing</code> and <code>protection</code></li>
+<li><code>default</code>: <code>all</code> except <code>trailing</code>, <code>trades</code> and <code>protection</code></li>
 <li>space-separated list of any of the above values for example <code>--spaces roi stoploss</code></li>
 </ul>
 <p>The default Hyperopt Search Space, used when no <code>--space</code> command line option is specified, does not include the <code>trailing</code> hyperspace. We recommend you to run optimization for the <code>trailing</code> hyperspace separately, when the best parameters for other hyperspaces were found, validated and pasted into your custom strategy.</p>
