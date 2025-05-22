@@ -2212,7 +2212,7 @@ model for training/prediction and has therefore prepended it with <code>%</code>
 </div>
 <h3 id="migrating-a-custom-ifreqaimodel-to-the-new-pipeline">Migrating a custom <code>IFreqaiModel</code> to the new Pipeline<a class="headerlink" href="#migrating-a-custom-ifreqaimodel-to-the-new-pipeline" title="Permanent link">&para;</a></h3>
 <p>If you have created your own custom <code>IFreqaiModel</code> with a custom <code>train()</code>/<code>predict()</code> function, <em>and</em> you still rely on <code>data_cleaning_train/predict()</code>, then you will need to migrate to the new pipeline. If your model does <em>not</em> rely on <code>data_cleaning_train/predict()</code>, then you do not need to worry about this migration.</p>
-<p>More details about the migration can be found <a href="../strategy_migration/#freqai---new-data-pipeline">here</a>.</p>
+<p>More details about the migration can be found <a href="../strategy_migration/#freqai-new-data-pipeline">here</a>.</p>
 <h2 id="outlier-detection">Outlier detection<a class="headerlink" href="#outlier-detection" title="Permanent link">&para;</a></h2>
 <p>Equity and crypto markets suffer from a high level of non-patterned noise in the form of outlier data points. FreqAI implements a variety of methods to identify such outliers and hence mitigate risk.</p>
 <h3 id="identifying-outliers-with-the-dissimilarity-index-di">Identifying outliers with the Dissimilarity Index (DI)<a class="headerlink" href="#identifying-outliers-with-the-dissimilarity-index-di" title="Permanent link">&para;</a></h3>

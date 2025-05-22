@@ -1668,6 +1668,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#i-sold-the-bots-capital-and-now-theres-errors-in-the-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      I sold the bot's capital and now there's errors in the log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#i-want-to-run-multiple-bots-on-the-same-machine" class="md-nav__link">
     <span class="md-ellipsis">
       I want to run multiple bots on the same machine
@@ -2104,6 +2113,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#i-sold-the-bots-capital-and-now-theres-errors-in-the-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      I sold the bot's capital and now there's errors in the log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#i-want-to-run-multiple-bots-on-the-same-machine" class="md-nav__link">
     <span class="md-ellipsis">
       I want to run multiple bots on the same machine
@@ -2369,6 +2387,11 @@ To force an immediate update, you can use <code>/reload_config</code> - which wi
 <p>You can use "current" market data by using the <a href="../strategy-customization/#orderbookpair-maximum">dataprovider</a>'s orderbook or ticker methods - which however cannot be used during backtesting.</p>
 <h3 id="is-there-a-setting-to-only-exit-the-trades-being-held-and-not-perform-any-new-entries">Is there a setting to only Exit the trades being held and not perform any new Entries?<a class="headerlink" href="#is-there-a-setting-to-only-exit-the-trades-being-held-and-not-perform-any-new-entries" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>/stopentry</code> command in Telegram to prevent future trade entry, followed by <code>/forceexit all</code> (sell all open trades).</p>
+<h3 id="i-sold-the-bots-capital-and-now-theres-errors-in-the-log">I sold the bot's capital and now there's errors in the log<a class="headerlink" href="#i-sold-the-bots-capital-and-now-theres-errors-in-the-log" title="Permanent link">&para;</a></h3>
+<p>Freqtrade assumes that the trades it opens are managed only though the bot.<br />
+If you happen to (accidentally) sell the bot's capital, freqtrade will try to recover by trying to re-find on-exchange orders.</p>
+<p>This is a best-effort approach, and will not work in all cases, especially when using order types that are not supported by freqtrade (OCO, iceberg, etc.), or when working with older trades (where the exchange no longer provides full order information).
+The exact limits will vary between exchanges - with the details usually being documented in the exchange's API documentation.</p>
 <h3 id="i-want-to-run-multiple-bots-on-the-same-machine">I want to run multiple bots on the same machine<a class="headerlink" href="#i-want-to-run-multiple-bots-on-the-same-machine" title="Permanent link">&para;</a></h3>
 <p>Please look at the <a href="../advanced-setup/#running-multiple-instances-of-freqtrade">advanced setup documentation Page</a>.</p>
 <h3 id="im-getting-impossible-to-load-strategy-when-starting-the-bot">I'm getting "Impossible to load Strategy" when starting the bot<a class="headerlink" href="#im-getting-impossible-to-load-strategy-when-starting-the-bot" title="Permanent link">&para;</a></h3>
