@@ -561,6 +561,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#exit-logic-comparisons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit logic comparisons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bot-start" class="md-nav__link">
     <span class="md-ellipsis">
       Bot start
@@ -2112,6 +2121,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#exit-logic-comparisons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit logic comparisons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bot-start" class="md-nav__link">
     <span class="md-ellipsis">
       Bot start
@@ -2640,6 +2658,24 @@ Obviously you can add more imports as needed for your strategy.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">technical</span><span class="w"> </span><span class="kn">import</span> <span class="n">qtpylib</span>
 </code></pre></div>
+<h2 id="exit-logic-comparisons">Exit logic comparisons<a class="headerlink" href="#exit-logic-comparisons" title="Permanent link">&para;</a></h2>
+<p>Freqtrade allows your strategy to implement different exit logic using signal-based or callback-based functions.
+This section aims to compare each different function, helping you to choose the one that best fits your needs.</p>
+<ul>
+<li><strong><code>populate_exit_trend()</code></strong> - Vectorized signal-based exit logic using indicators in the main dataframe
+  ✅ <strong>Use</strong> to define exit signals based on indicators or other data that can be calculated in a vectorized manner.
+  🚫 <strong>Don't use</strong> to customize exit conditions for each individual trade, or if trade data is necessary to make an exit decision.</li>
+<li><strong><code>custom_exit()</code></strong> - Custom exit logic that will fully exit a trade immediately, called for every open trade at every bot loop iteration until a trade is closed.
+  ✅ <strong>Use</strong> to specify exit conditions for each individual trade (including any additional adjusted orders using <code>adjust_trade_position()</code>), or if trade data is necessary to make an exit decision, e.g. using profit data to exit.
+  🚫 <strong>Don't use</strong> when you want to exit using vectorised indicator-based data (use a <code>populate_exit_trend()</code> signal instead), or as a proxy for <code>custom_stoploss()</code>, and be aware that rate-based exits in backtesting can be inaccurate.</li>
+<li><strong><code>custom_stoploss()</code></strong> - Custom trailing stoploss, called for every open trade every iteration until a trade is closed. The value returned here is also used for <a href="../stoploss/#stop-loss-on-exchangefreqtrade">stoploss on exchange</a>.<br />
+  ✅ <strong>Use</strong> to customize the stoploss logic to set a dynamic stoploss based on trade data or other conditions.
+  🚫 <strong>Don't use</strong> to exit a trade immediately based on a specific condition. Use <code>custom_exit()</code> for that purpose.</li>
+<li><strong><code>custom_roi()</code></strong> - Custom ROI, called for every open trade every iteration until a trade is closed.
+  ✅ <strong>Use</strong> to specify a minimum ROI threshold ("take-profit") to exit a trade at this ROI level at some point within the trade duration, based on profit or other conditions.
+  🚫 <strong>Don't use</strong> to exit a trade immediately based on a specific condition. Use <code>custom_exit()</code>.
+  🚫 <strong>Don't use</strong> for static ROI. Use <code>minimal_roi</code>.</li>
+</ul>
 <h2 id="bot-start">Bot start<a class="headerlink" href="#bot-start" title="Permanent link">&para;</a></h2>
 <p>A simple callback which is called once when the strategy is loaded.
 This can be used to perform actions that must only be performed once and runs after dataprovider and wallet are set</p>
