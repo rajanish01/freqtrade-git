@@ -1349,6 +1349,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#bitvavo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitvavo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#all-exchanges" class="md-nav__link">
     <span class="md-ellipsis">
       All exchanges
@@ -2160,6 +2169,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#bitvavo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitvavo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#all-exchanges" class="md-nav__link">
     <span class="md-ellipsis">
       All exchanges
@@ -2516,6 +2534,20 @@ Unfortunately, hyperliquid only offers 5000 historic candles, so backtesting wil
 </div>
 <h3 id="historic-hyperliquid-data">Historic Hyperliquid data<a class="headerlink" href="#historic-hyperliquid-data" title="Permanent link">&para;</a></h3>
 <p>The Hyperliquid API does not provide historic data beyond the single call to fetch current data, so downloading data is not possible, as the downloaded data would not constitute proper historic data.</p>
+<h2 id="bitvavo">Bitvavo<a class="headerlink" href="#bitvavo" title="Permanent link">&para;</a></h2>
+<p>If your account is required to use an operatorId, you can set it in the configuration file as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;exchange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bitvavo&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;secret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ccxt_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;operatorId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123567&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">   </span><span class="p">}</span>
+</code></pre></div>
+<p>Bitvavo expects the <code>operatorId</code> to be an integer.</p>
 <h2 id="all-exchanges">All exchanges<a class="headerlink" href="#all-exchanges" title="Permanent link">&para;</a></h2>
 <p>Should you experience constant errors with Nonce (like <code>InvalidNonce</code>), it is best to regenerate the API keys. Resetting Nonce is difficult and it's usually easier to regenerate the API keys.</p>
 <h2 id="random-notes-for-other-exchanges">Random notes for other exchanges<a class="headerlink" href="#random-notes-for-other-exchanges" title="Permanent link">&para;</a></h2>
