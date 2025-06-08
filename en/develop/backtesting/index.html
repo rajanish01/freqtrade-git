@@ -2080,6 +2080,7 @@
 <p>This page explains how to validate your strategy performance by using Backtesting.</p>
 <p>Backtesting requires historic data to be available.
 To learn how to get data for the pairs and exchange you're interested in, head over to the <a href="../data-download/">Data Downloading</a> section of the documentation.</p>
+<p>Backtesting is also available in <a href="../freq-ui/#backtesting">webserver mode</a>, which allows you to run backtests via the web interface.</p>
 <h2 id="backtesting-command-reference">Backtesting command reference<a class="headerlink" href="#backtesting-command-reference" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>usage: freqtrade backtesting [-h] [-v] [--no-color] [--logfile FILE] [-V]
                              [-c PATH] [-d PATH] [--userdir PATH] [-s NAME]
@@ -2099,7 +2100,7 @@ To learn how to get data for the pairs and exchange you're interested in, head o
                              [--export-filename PATH]
                              [--breakdown {day,week,month,year} [{day,week,month,year} ...]]
                              [--cache {none,day,week,month}]
-                             [--freqai-backtest-live-models]
+                             [--freqai-backtest-live-models] [--notes TEXT]
 
 options:
   -h, --help            show this help message and exit
@@ -2155,6 +2156,7 @@ options:
                         age (default: day).
   --freqai-backtest-live-models
                         Run backtest with ready models.
+  --notes TEXT          Add notes to the backtest results.
 
 Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
@@ -2524,6 +2526,9 @@ In this instance, please use <code>--cache none</code> once to force a fresh bac
 <h3 id="further-backtest-result-analysis">Further backtest-result analysis<a class="headerlink" href="#further-backtest-result-analysis" title="Permanent link">&para;</a></h3>
 <p>To further analyze your backtest results, freqtrade will export the trades to file by default.
 You can then load the trades to perform further analysis as shown in the <a href="../strategy_analysis_example/#load-backtest-results-to-pandas-dataframe">data analysis</a> backtesting section.</p>
+<p>Also, you can use freqtrade in <a href="../freq-ui/#backtesting">webserver mode</a> to visualize the backtest results in a web interface.
+This mode also allows you to load existing backtest results, so you can analyze them without running the backtest again.<br />
+For this mode - <code>--notes "&lt;notes&gt;"</code> can be used to add notes to the backtest results, which will be shown in the web interface.</p>
 <h3 id="backtest-output-file">Backtest output file<a class="headerlink" href="#backtest-output-file" title="Permanent link">&para;</a></h3>
 <p>The output file freqtrade produces is a zip file containing the following files:</p>
 <ul>
