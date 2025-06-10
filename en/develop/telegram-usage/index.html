@@ -957,15 +957,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#edge" class="md-nav__link">
-    <span class="md-ellipsis">
-      /edge
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#version" class="md-nav__link">
     <span class="md-ellipsis">
       /version
@@ -1792,29 +1783,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../edge/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Edge Positioning
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2238,15 +2206,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#edge" class="md-nav__link">
-    <span class="md-ellipsis">
-      /edge
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#version" class="md-nav__link">
     <span class="md-ellipsis">
       /version
@@ -2434,7 +2393,7 @@ The default custom keyboard looks like this.</p>
 <div class="admonition note">
 <p class="admonition-title">Supported Commands</p>
 <p>Only the following commands are allowed. Command arguments are not supported!</p>
-<p><code>/start</code>, <code>/pause</code>, <code>/stop</code>, <code>/status</code>, <code>/status table</code>, <code>/trades</code>, <code>/profit</code>, <code>/performance</code>, <code>/daily</code>, <code>/stats</code>, <code>/count</code>, <code>/locks</code>, <code>/balance</code>, <code>/stopentry</code>, <code>/reload_config</code>, <code>/show_config</code>, <code>/logs</code>, <code>/whitelist</code>, <code>/blacklist</code>, <code>/edge</code>, <code>/help</code>, <code>/version</code>, <code>/marketdir</code></p>
+<p><code>/start</code>, <code>/pause</code>, <code>/stop</code>, <code>/status</code>, <code>/status table</code>, <code>/trades</code>, <code>/profit</code>, <code>/performance</code>, <code>/daily</code>, <code>/stats</code>, <code>/count</code>, <code>/locks</code>, <code>/balance</code>, <code>/stopentry</code>, <code>/reload_config</code>, <code>/show_config</code>, <code>/logs</code>, <code>/whitelist</code>, <code>/blacklist</code>, <code>/help</code>, <code>/version</code>, <code>/marketdir</code></p>
 </div>
 <h2 id="telegram-commands">Telegram commands<a class="headerlink" href="#telegram-commands" title="Permanent link">&para;</a></h2>
 <p>Per default, the Telegram bot shows predefined commands. Some commands
@@ -2616,10 +2575,6 @@ official commands. You can ask at any moment for help with <code>/help</code>.</
 <td><code>/blacklist [pair]</code></td>
 <td>Show the current blacklist, or adds a pair to the blacklist.</td>
 </tr>
-<tr>
-<td><code>/edge</code></td>
-<td>Show validated pairs by Edge if it is enabled.</td>
-</tr>
 </tbody>
 </table>
 <h2 id="telegram-commands-in-action">Telegram commands in action<a class="headerlink" href="#telegram-commands-in-action" title="Permanent link">&para;</a></h2>
@@ -2797,19 +2752,6 @@ Use <code>/reload_config</code> to reset the blacklist.</p>
 <blockquote>
 <p>Using blacklist <code>StaticPairList</code> with 2 pairs<br />
 <code>DODGE/BTC</code>, <code>HOT/BTC</code>.  </p>
-</blockquote>
-<h3 id="edge">/edge<a class="headerlink" href="#edge" title="Permanent link">&para;</a></h3>
-<p>Shows pairs validated by Edge along with their corresponding win-rate, expectancy and stoploss values.</p>
-<blockquote>
-<p><strong>Edge only validated following pairs:</strong>
-<div class="highlight"><pre><span></span><code>Pair        Winrate    Expectancy    Stoploss
---------  ---------  ------------  ----------
-DOCK/ETH   0.522727      0.881821       -0.03
-PHX/ETH    0.677419      0.560488       -0.03
-HOT/ETH    0.733333      0.490492       -0.03
-HC/ETH     0.588235      0.280988       -0.02
-ARDR/ETH   0.366667      0.143059       -0.01
-</code></pre></div></p>
 </blockquote>
 <h3 id="version">/version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h3>
 <blockquote>
