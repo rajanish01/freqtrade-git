@@ -2670,6 +2670,13 @@ You can get the latest version of ccxt by running <code>pip install -U ccxt</cod
 Native docker is not supported for these tests, however the available dev-container will support all required actions and eventually necessary changes.</p>
 </div>
 <p>Most exchanges supported by CCXT should work out of the box.</p>
+<p>If you need to implement a specific exchange class, these are found in the <code>freqtrade/exchange</code> source folder. You'll also need to add the import to <code>freqtrade/exchange/__init__.py</code> to make the loading logic aware of the new exchange.<br />
+We recommend looking at existing exchange implementations to get an idea of what might be required.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Implementing and testing an exchange can be a lot of trial and error, so please bear this in mind.
+You should also have some development experience, as this is not a beginner task.</p>
+</div>
 <p>To quickly test the public endpoints of an exchange, add a configuration for your exchange to <code>tests/exchange_online/conftest.py</code> and run these tests with <code>pytest --longrun tests/exchange_online/test_ccxt_compat.py</code>.
 Completing these tests successfully a good basis point (it's a requirement, actually), however these won't guarantee correct exchange functioning, as this only tests public endpoints, but no private endpoint (like generate order or similar).</p>
 <p>Also try to use <code>freqtrade download-data</code> for an extended timerange (multiple months) and verify that the data downloaded correctly (no holes, the specified timerange was actually downloaded).</p>
