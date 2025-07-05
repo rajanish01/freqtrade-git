@@ -2009,15 +2009,25 @@ Also, this will only work starting with version 2021.5.</p>
 </div>
 <hr />
 <h2 id="enter-tag">Enter Tag<a class="headerlink" href="#enter-tag" title="Permanent link">&para;</a></h2>
-<p>When your strategy has multiple buy signals, you can name the signal that triggered.
-Then you can access your buy signal on <code>custom_exit</code></p>
+<p>When your strategy has multiple entry signals, you can name the signal that triggered.
+Then you can access your entry signal on <code>custom_exit</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;enter_tag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">signal_rsi</span> <span class="o">=</span> <span class="p">(</span><span class="n">qtpylib</span><span class="o">.</span><span class="n">crossed_above</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;rsi&quot;</span><span class="p">],</span> <span class="mi">35</span><span class="p">))</span>
+    <span class="n">signal_bblower</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;bb_lowerband&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;close&quot;</span><span class="p">])</span>
+    <span class="c1"># Additional conditions</span>
     <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
         <span class="p">(</span>
-            <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">)</span> <span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;volume&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="p">),</span>
-        <span class="p">[</span><span class="s1">&#39;enter_long&#39;</span><span class="p">,</span> <span class="s1">&#39;enter_tag&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;buy_signal_rsi&#39;</span><span class="p">)</span>
+            <span class="n">signal_rsi</span>
+            <span class="o">|</span> <span class="n">signal_bblower</span>
+            <span class="c1"># ... additional signals to enter a long position</span>
+        <span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">,</span> <span class="s2">&quot;enter_long&quot;</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># Concatenate the tags so all signals are kept</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">signal_rsi</span><span class="p">,</span> <span class="s2">&quot;enter_tag&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;long_signal_rsi &quot;</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">signal_bblower</span><span class="p">,</span> <span class="s2">&quot;enter_tag&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;long_signal_bblower &quot;</span>
 
     <span class="k">return</span> <span class="n">dataframe</span>
 
@@ -2025,13 +2035,16 @@ Then you can access your buy signal on <code>custom_exit</code></p>
                 <span class="n">current_profit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">dataframe</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp</span><span class="o">.</span><span class="n">get_analyzed_dataframe</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeframe</span><span class="p">)</span>
     <span class="n">last_candle</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">trade</span><span class="o">.</span><span class="n">enter_tag</span> <span class="o">==</span> <span class="s1">&#39;buy_signal_rsi&#39;</span> <span class="ow">and</span> <span class="n">last_candle</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;sell_signal_rsi&#39;</span>
+    <span class="k">if</span> <span class="s2">&quot;long_signal_rsi&quot;</span> <span class="ow">in</span> <span class="n">trade</span><span class="o">.</span><span class="n">enter_tag</span> <span class="ow">and</span> <span class="n">last_candle</span><span class="p">[</span><span class="s2">&quot;rsi&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;exit_signal_rsi&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;long_signal_bblower&quot;</span> <span class="ow">in</span> <span class="n">trade</span><span class="o">.</span><span class="n">enter_tag</span> <span class="ow">and</span> <span class="n">last_candle</span><span class="p">[</span><span class="s2">&quot;high&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">last_candle</span><span class="p">[</span><span class="s2">&quot;bb_upperband&quot;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s2">&quot;exit_signal_bblower&quot;</span>
+    <span class="c1"># ...</span>
     <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>enter_tag</code> is limited to 100 characters, remaining data will be truncated.</p>
+<p><code>enter_tag</code> is limited to 255 characters, remaining data will be truncated.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2043,16 +2056,26 @@ These results are a consequence of the strategy overwriting prior tags - where t
 <h2 id="exit-tag">Exit tag<a class="headerlink" href="#exit-tag" title="Permanent link">&para;</a></h2>
 <p>Similar to <a href="#enter-tag">Entry Tagging</a>, you can also specify an exit tag.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">populate_exit_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;exit_tag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">rsi_exit_signal</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;rsi&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">)</span>
+    <span class="n">ema_exit_signal</span>  <span class="o">=</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;ema20&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;ema50&quot;</span><span class="p">])</span>
+    <span class="c1"># Additional conditions</span>
     <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
         <span class="p">(</span>
-            <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">)</span> <span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;volume&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="p">),</span>
-        <span class="p">[</span><span class="s1">&#39;exit_long&#39;</span><span class="p">,</span> <span class="s1">&#39;exit_tag&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;exit_rsi&#39;</span><span class="p">)</span>
+            <span class="n">rsi_exit_signal</span>
+            <span class="o">|</span> <span class="n">ema_exit_signal</span>
+            <span class="c1"># ... additional signals to exit a long position</span>
+        <span class="p">)</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">,</span>
+    <span class="s2">&quot;exit_long&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># Concatenate the tags so all signals are kept</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rsi_exit_signal</span><span class="p">,</span> <span class="s2">&quot;exit_tag&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;exit_signal_rsi &quot;</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rsi_exit_signal2</span><span class="p">,</span> <span class="s2">&quot;exit_tag&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;exit_signal_rsi &quot;</span>
 
     <span class="k">return</span> <span class="n">dataframe</span>
 </code></pre></div>
-<p>The provided exit-tag is then used as sell-reason - and shown as such in backtest results.</p>
+<p>The provided exit-tag is then used as exit-reason - and shown as such in backtest results.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>exit_reason</code> is limited to 100 characters, remaining data will be truncated.</p>
