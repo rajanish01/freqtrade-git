@@ -777,9 +777,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#entry" class="md-nav__link">
+  <a href="#entry-entry-fill" class="md-nav__link">
     <span class="md-ellipsis">
-      Entry
+      Entry / Entry fill
     </span>
   </a>
   
@@ -795,27 +795,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#entry-fill" class="md-nav__link">
+  <a href="#exit-exit-fill" class="md-nav__link">
     <span class="md-ellipsis">
-      Entry fill
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exit-fill" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit fill
+      Exit / Exit fill
     </span>
   </a>
   
@@ -1762,9 +1744,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#entry" class="md-nav__link">
+  <a href="#entry-entry-fill" class="md-nav__link">
     <span class="md-ellipsis">
-      Entry
+      Entry / Entry fill
     </span>
   </a>
   
@@ -1780,27 +1762,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#entry-fill" class="md-nav__link">
+  <a href="#exit-exit-fill" class="md-nav__link">
     <span class="md-ellipsis">
-      Entry fill
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exit-fill" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit fill
+      Exit / Exit fill
     </span>
   </a>
   
@@ -1956,8 +1920,8 @@ You can also specify <code>webhook.timeout</code> - which defines how long the b
 </code></pre></div>
 <p>Different payloads can be configured for different events. Not all fields are necessary, but you should configure at least one of the dicts, otherwise the webhook will never be called.</p>
 <h2 id="webhook-message-types">Webhook Message types<a class="headerlink" href="#webhook-message-types" title="Permanent link">&para;</a></h2>
-<h3 id="entry">Entry<a class="headerlink" href="#entry" title="Permanent link">&para;</a></h3>
-<p>The fields in <code>webhook.entry</code> are filled when the bot executes a long/short. Parameters are filled using string.format.
+<h3 id="entry-entry-fill">Entry / Entry fill<a class="headerlink" href="#entry-entry-fill" title="Permanent link">&para;</a></h3>
+<p>The fields in <code>webhook.entry</code> and <code>webhook.entry_fill</code> are filled when the bot places a long/short Order to increase a position, or when that order fills respectively. Parameters are filled using string.format.
 Possible parameters are:</p>
 <ul>
 <li><code>trade_id</code></li>
@@ -1999,29 +1963,8 @@ Possible parameters are:</p>
 <li><code>current_rate</code></li>
 <li><code>enter_tag</code></li>
 </ul>
-<h3 id="entry-fill">Entry fill<a class="headerlink" href="#entry-fill" title="Permanent link">&para;</a></h3>
-<p>The fields in <code>webhook.entry_fill</code> are filled when the bot filled a long/short order. Parameters are filled using string.format.
-Possible parameters are:</p>
-<ul>
-<li><code>trade_id</code></li>
-<li><code>exchange</code></li>
-<li><code>pair</code></li>
-<li><code>direction</code></li>
-<li><code>leverage</code></li>
-<li><code>open_rate</code></li>
-<li><code>amount</code></li>
-<li><code>open_date</code></li>
-<li><code>stake_amount</code></li>
-<li><code>stake_currency</code></li>
-<li><code>base_currency</code></li>
-<li><code>quote_currency</code></li>
-<li><code>fiat_currency</code></li>
-<li><code>order_type</code></li>
-<li><code>current_rate</code></li>
-<li><code>enter_tag</code></li>
-</ul>
-<h3 id="exit">Exit<a class="headerlink" href="#exit" title="Permanent link">&para;</a></h3>
-<p>The fields in <code>webhook.exit</code> are filled when the bot exits a trade. Parameters are filled using string.format.
+<h3 id="exit-exit-fill">Exit / Exit fill<a class="headerlink" href="#exit-exit-fill" title="Permanent link">&para;</a></h3>
+<p>The fields in <code>webhook.exit</code> and <code>webhook.exit_fill</code> are filled when the bot places an exit order, or when that exit order fills respectively. Parameters are filled using string.format.
 Possible parameters are:</p>
 <ul>
 <li><code>trade_id</code></li>
@@ -2030,33 +1973,9 @@ Possible parameters are:</p>
 <li><code>direction</code></li>
 <li><code>leverage</code></li>
 <li><code>gain</code></li>
-<li><code>limit</code></li>
 <li><code>amount</code></li>
 <li><code>open_rate</code></li>
-<li><code>profit_amount</code></li>
-<li><code>profit_ratio</code></li>
-<li><code>stake_currency</code></li>
-<li><code>base_currency</code></li>
-<li><code>quote_currency</code></li>
-<li><code>fiat_currency</code></li>
-<li><code>exit_reason</code></li>
-<li><code>order_type</code></li>
-<li><code>open_date</code></li>
-<li><code>close_date</code></li>
-</ul>
-<h3 id="exit-fill">Exit fill<a class="headerlink" href="#exit-fill" title="Permanent link">&para;</a></h3>
-<p>The fields in <code>webhook.exit_fill</code> are filled when the bot fills a exit order (closes a Trade). Parameters are filled using string.format.
-Possible parameters are:</p>
-<ul>
-<li><code>trade_id</code></li>
-<li><code>exchange</code></li>
-<li><code>pair</code></li>
-<li><code>direction</code></li>
-<li><code>leverage</code></li>
-<li><code>gain</code></li>
 <li><code>close_rate</code></li>
-<li><code>amount</code></li>
-<li><code>open_rate</code></li>
 <li><code>current_rate</code></li>
 <li><code>profit_amount</code></li>
 <li><code>profit_ratio</code></li>
@@ -2064,10 +1983,13 @@ Possible parameters are:</p>
 <li><code>base_currency</code></li>
 <li><code>quote_currency</code></li>
 <li><code>fiat_currency</code></li>
+<li><code>enter_tag</code></li>
 <li><code>exit_reason</code></li>
 <li><code>order_type</code></li>
 <li><code>open_date</code></li>
 <li><code>close_date</code></li>
+<li><code>sub_trade</code></li>
+<li><code>is_final_exit</code></li>
 </ul>
 <h3 id="exit-cancel">Exit cancel<a class="headerlink" href="#exit-cancel" title="Permanent link">&para;</a></h3>
 <p>The fields in <code>webhook.exit_cancel</code> are filled when the bot cancels a exit order. Parameters are filled using string.format.
@@ -2079,7 +2001,7 @@ Possible parameters are:</p>
 <li><code>direction</code></li>
 <li><code>leverage</code></li>
 <li><code>gain</code></li>
-<li><code>limit</code></li>
+<li><code>order_rate</code></li>
 <li><code>amount</code></li>
 <li><code>open_rate</code></li>
 <li><code>current_rate</code></li>
