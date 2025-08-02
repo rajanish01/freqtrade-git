@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://www.freqtrade.io/en/stable/index.html">
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/strategy-101.html">
       
       
+        <link rel="prev" href="configuration.html">
       
-        <link rel="next" href="docker_quickstart.html">
+      
+        <link rel="next" href="strategy-customization.html">
       
       
       <link rel="icon" href="images/logo.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Freqtrade</title>
+        <title>Strategy Quickstart - Freqtrade</title>
       
     
     
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#freqtrade-strategies-101-a-quick-start-for-strategy-development" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Strategy Quickstart
             
           </span>
         </div>
@@ -274,30 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -308,150 +290,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community tested
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -617,10 +455,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="strategy-101.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Strategy Quickstart
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="strategy-101.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -631,6 +491,170 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#required-knowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Knowledge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-a-basic-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure of a Basic Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure of a Basic Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main dataframe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#populate-indicator-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populate indicator values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#populate-entry-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populate entry signals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#populate-exit-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populate exit signals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-simple-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      A simple strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-trades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making trades
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backtesting-and-forward-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtesting and forward testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backtesting and forward testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessing-backtesting-and-dry-run-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessing backtesting and dry run results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-or-monitoring-a-running-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling or monitoring a running bot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling or monitoring a running bot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Thoughts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1737,6 +1761,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1745,46 +1771,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#required-knowledge" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Required Knowledge
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#structure-of-a-basic-strategy" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+      Structure of a Basic Strategy
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
+    <nav class="md-nav" aria-label="Structure of a Basic Strategy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
+  <a href="#main-dataframe" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
+      Main dataframe
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
+  <a href="#populate-indicator-values" class="md-nav__link">
     <span class="md-ellipsis">
-      Community tested
+      Populate indicator values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#populate-entry-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populate entry signals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#populate-exit-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populate exit signals
     </span>
   </a>
   
@@ -1796,37 +1831,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
+  <a href="#a-simple-strategy" class="md-nav__link">
     <span class="md-ellipsis">
-      Community showcase
+      A simple strategy
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#making-trades" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
+      Making trades
     </span>
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#backtesting-and-forward-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtesting and forward testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backtesting and forward testing">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
+  <a href="#assessing-backtesting-and-dry-run-results" class="md-nav__link">
     <span class="md-ellipsis">
-      Software requirements
+      Assessing backtesting and dry run results
     </span>
   </a>
   
@@ -1838,19 +1873,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#controlling-or-monitoring-a-running-bot" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Controlling or monitoring a running bot
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Support">
+    <nav class="md-nav" aria-label="Controlling or monitoring a running bot">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
+  <a href="#logs" class="md-nav__link">
     <span class="md-ellipsis">
-      Help / Discord
+      Logs
     </span>
   </a>
   
@@ -1862,9 +1897,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
+  <a href="#final-thoughts" class="md-nav__link">
     <span class="md-ellipsis">
-      Ready to try?
+      Final Thoughts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
     </span>
   </a>
   
@@ -1886,7 +1930,7 @@
 
 
   
-    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/strategy-101.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1894,107 +1938,158 @@
   
 
 
-  <h1>Home</h1>
+<h1 id="freqtrade-strategies-101-a-quick-start-for-strategy-development">Freqtrade Strategies 101: A Quick Start for Strategy Development<a class="headerlink" href="#freqtrade-strategies-101-a-quick-start-for-strategy-development" title="Permanent link">&para;</a></h1>
+<p>For the purposes of this quick start, we are assuming you are familiar with the basics of trading, and have read the 
+<a href="bot-basics.html">Freqtrade basics</a> page.</p>
+<h2 id="required-knowledge">Required Knowledge<a class="headerlink" href="#required-knowledge" title="Permanent link">&para;</a></h2>
+<p>A strategy in Freqtrade is a Python class that defines the logic for buying and selling cryptocurrency <code>assets</code>.</p>
+<p>Assets are defined as <code>pairs</code>, which represent the <code>coin</code> and the <code>stake</code>. The coin is the asset you are trading using another currency as the stake.</p>
+<p>Data is supplied by the exchange in the form of <code>candles</code>, which are made up of a six values: <code>date</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code> and <code>volume</code>.</p>
+<p><code>Technical analysis</code> functions analyse the candle data using various computational and statistical formulae, and produce secondary values called <code>indicators</code>.</p>
+<p>Indicators are analysed on the asset pair candles to generate <code>signals</code>.</p>
+<p>Signals are turned into <code>orders</code> on a cryptocurrency <code>exchange</code>, i.e. <code>trades</code>.</p>
+<p>We use the terms <code>entry</code> and <code>exit</code> instead of <code>buying</code> and <code>selling</code> because Freqtrade supports both <code>long</code> and <code>short</code> trades.</p>
+<ul>
+<li><strong>long</strong>: You buy the coin based on a stake, e.g. buying the coin BTC using USDT as your stake, and you make a profit by selling the coin at a higher rate than you paid for. In long trades, profits are made by the coin value going up versus the stake.</li>
+<li><strong>short</strong>: You borrow capital from the exchange in the form of the coin, and you pay back the stake value of the coin later. In short trades profits are made by the coin value going down versus the stake (you pay the loan off at a lower rate).</li>
+</ul>
+<p>Whilst Freqtrade supports spot and futures markets for certain exchanges, for simplicity we will focus on spot (long) trades only.</p>
+<h2 id="structure-of-a-basic-strategy">Structure of a Basic Strategy<a class="headerlink" href="#structure-of-a-basic-strategy" title="Permanent link">&para;</a></h2>
+<h3 id="main-dataframe">Main dataframe<a class="headerlink" href="#main-dataframe" title="Permanent link">&para;</a></h3>
+<p>Freqtrade strategies use a tabular data structure with rows and columns known as a <code>dataframe</code> to generate signals to enter and exit trades.</p>
+<p>Each pair in your configured pairlist has its own dataframe. Dataframes are indexed by the <code>date</code> column, e.g. <code>2024-06-31 12:00</code>.</p>
+<p>The next 5 columns represent the <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code> and <code>volume</code> (OHLCV) data.</p>
+<h3 id="populate-indicator-values">Populate indicator values<a class="headerlink" href="#populate-indicator-values" title="Permanent link">&para;</a></h3>
+<p>The <code>populate_indicators</code> function adds columns to the dataframe that represent the technical analysis indicator values.</p>
+<p>Examples of common indicators include Relative Strength Index, Bollinger Bands, Money Flow Index, Moving Average, and Average True Range.</p>
+<p>Columns are added to the dataframe by calling technical analysis functions, e.g. ta-lib's RSI function <code>ta.RSI()</code>, and assigning them to a column name, e.g. <code>rsi</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="n">RSI</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+</code></pre></div>
+<details class="hint">
+<summary>Technical Analysis libraries</summary>
+<p>Different libraries work in different ways to generate indicator values. Please check the documentation of each library to understand
+how to integrate it into your strategy. You can also check the <a href="https://github.com/freqtrade/freqtrade-strategies">Freqtrade example strategies</a> to give you ideas.</p>
+</details>
+<h3 id="populate-entry-signals">Populate entry signals<a class="headerlink" href="#populate-entry-signals" title="Permanent link">&para;</a></h3>
+<p>The <code>populate_entry_trend</code> function defines conditions for an entry signal.</p>
+<p>The dataframe column <code>enter_long</code> is added to the dataframe, and when a value of <code>1</code> is in this column, Freqtrade sees an entry signal.</p>
+<details class="hint">
+<summary>Shorting</summary>
+<p>To enter short trades, use the <code>enter_short</code> column.</p>
+</details>
+<h3 id="populate-exit-signals">Populate exit signals<a class="headerlink" href="#populate-exit-signals" title="Permanent link">&para;</a></h3>
+<p>The <code>populate_exit_trend</code> function defines conditions for an exit signal.</p>
+<p>The dataframe column <code>exit_long</code> is added to the dataframe, and when a value of <code>1</code> is in this column, Freqtrade sees an exit signal.</p>
+<details class="hint">
+<summary>Shorting</summary>
+<p>To exit short trades, use the <code>exit_short</code> column.</p>
+</details>
+<h2 id="a-simple-strategy">A simple strategy<a class="headerlink" href="#a-simple-strategy" title="Permanent link">&para;</a></h2>
+<p>Here is a minimal example of a Freqtrade strategy:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">IStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
 
-<p><img alt="freqtrade" src="assets/freqtrade_poweredby.svg" /></p>
-<p><a href="https://github.com/freqtrade/freqtrade/actions/"><img alt="Freqtrade CI" src="https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
-<a href="https://doi.org/10.21105/joss.04864"><img alt="DOI" src="https://joss.theoj.org/papers/10.21105/joss.04864/status.svg" /></a>
-<a href="https://coveralls.io/github/freqtrade/freqtrade?branch=develop"><img alt="Coverage Status" src="https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&amp;service=github" /></a>
-<a href="https://codeclimate.com/github/freqtrade/freqtrade/maintainability"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability" /></a></p>
-<!-- GitHub action buttons -->
-<p><a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25m0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41z"/></svg></span> Star</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/fork"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5m-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg></span> Fork</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/archive/stable.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Download</a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.</p>
-<div class="admonition danger">
-<p class="admonition-title">DISCLAIMER</p>
-<p>This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.</p>
-<p>Always start by running a trading bot in Dry-run and do not engage money before you understand how it works and what profit/loss you should expect.</p>
-<p>We strongly recommend you to have basic coding skills and Python knowledge. Do not hesitate to read the source code and understand the mechanisms of this bot, algorithms and techniques implemented in it.</p>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">):</span>
+
+    <span class="n">timeframe</span> <span class="o">=</span> <span class="s1">&#39;15m&#39;</span>
+
+    <span class="c1"># set the initial stoploss to -10%</span>
+    <span class="n">stoploss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.10</span>
+
+    <span class="c1"># exit profitable positions at any time when the profit is greater than 1%</span>
+    <span class="n">minimal_roi</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+        <span class="c1"># generate values for technical analysis indicators</span>
+        <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="n">RSI</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">timeperiod</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_entry_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+        <span class="c1"># generate entry signals based on indicator values</span>
+        <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">),</span>
+            <span class="s1">&#39;enter_long&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_exit_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+        <span class="c1"># generate exit signals based on indicator values</span>
+        <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;rsi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">),</span>
+            <span class="s1">&#39;exit_long&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span>
+</code></pre></div>
+<h2 id="making-trades">Making trades<a class="headerlink" href="#making-trades" title="Permanent link">&para;</a></h2>
+<p>When a signal is found (a <code>1</code> in an entry or exit column), Freqtrade will attempt to make an order, i.e. a <code>trade</code> or <code>position</code>.</p>
+<p>Each new trade position takes up a <code>slot</code>. Slots represent the maximum number of concurrent new trades that can be opened.</p>
+<p>The number of slots is defined by the <code>max_open_trades</code> <a href="configuration.html">configuration</a> option.</p>
+<p>However, there can be a range of scenarios where generating a signal does not always create a trade order. These include:</p>
+<ul>
+<li>not enough remaining stake to buy an asset, or funds in your wallet to sell an asset (including any fees)</li>
+<li>not enough remaining free slots for a new trade to be opened (the number of positions you have open equals the <code>max_open_trades</code> option)</li>
+<li>there is already an open trade for a pair (Freqtrade cannot stack positions - however it can <a href="strategy-callbacks.html#adjust-trade-position">adjust existing positions</a>)</li>
+<li>if an entry and exit signal is present on the same candle, they are considered as <a href="strategy-customization.html#colliding-signals">colliding</a>, and no order will be raised</li>
+<li>the strategy actively rejects the trade order due to logic you specify by using one of the relevant <a href="strategy-callbacks.html#trade-entry-buy-order-confirmation">entry</a> or <a href="strategy-callbacks.html#trade-exit-sell-order-confirmation">exit</a> callbacks</li>
+</ul>
+<p>Read through the <a href="strategy-customization.html">strategy customization</a> documentation for more details.</p>
+<h2 id="backtesting-and-forward-testing">Backtesting and forward testing<a class="headerlink" href="#backtesting-and-forward-testing" title="Permanent link">&para;</a></h2>
+<p>Strategy development can be a long and frustrating process, as turning our human "gut instincts" into a working computer-controlled
+("algo") strategy is not always straightforward.</p>
+<p>Therefore a strategy should be tested to verify that it is going to work as intended.</p>
+<p>Freqtrade has two testing modes:</p>
+<ul>
+<li><strong>backtesting</strong>: using historical data that you <a href="data-download.html">download from an exchange</a>, backtesting is a quick way to assess performance of a strategy. However, it can be very easy to distort results so a strategy will look a lot more profitable than it really is. Check the <a href="backtesting.html">backtesting documentation</a> for more information.</li>
+<li><strong>dry run</strong>: often referred to as <em>forward testing</em>, dry runs use real time data from the exchange. However, any signals that would result in trades are tracked as normal by Freqtrade, but do not have any trades opened on the exchange itself. Forward testing runs in real time, so whilst it takes longer to get results it is a much more reliable indicator of <strong>potential</strong> performance than backtesting.</li>
+</ul>
+<p>Dry runs are enabled by setting <code>dry_run</code> to true in your <a href="configuration.html#using-dry-run-mode">configuration</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Backtests can be very inaccurate</p>
+<p>There are many reasons why backtest results may not match reality. Please check the <a href="backtesting.html#assumptions-made-by-backtesting">backtesting assumptions</a> and <a href="strategy-customization.html#common-mistakes-when-developing-strategies">common strategy mistakes</a> documentation.
+Some websites that list and rank Freqtrade strategies show impressive backtest results. Do not assume these results are achieveable or realistic.</p>
 </div>
-<p><img alt="freqtrade screenshot" src="assets/freqtrade-screenshot.png" /></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<details class="hint">
+<summary>Useful commands</summary>
+<p>Freqtrade includes two useful commands to check for basic flaws in strategies: <a href="lookahead-analysis.html">lookahead-analysis</a> and <a href="recursive-analysis.html">recursive-analysis</a>.</p>
+</details>
+<h3 id="assessing-backtesting-and-dry-run-results">Assessing backtesting and dry run results<a class="headerlink" href="#assessing-backtesting-and-dry-run-results" title="Permanent link">&para;</a></h3>
+<p>Always dry run your strategy after backtesting it to see if backtesting and dry run results are sufficiently similar.</p>
+<p>If there is any significant difference, verify that your entry and exit signals are consistent and appear on the same candles between the two modes. However, there will always be differences between dry runs and backtests:</p>
 <ul>
-<li>Develop your Strategy: Write your strategy in python, using <a href="https://pandas.pydata.org/">pandas</a>. Example strategies to inspire you are available in the <a href="https://github.com/freqtrade/freqtrade-strategies">strategy repository</a>.</li>
-<li>Download market data: Download historical data of the exchange and the markets your may want to trade with.</li>
-<li>Backtest: Test your strategy on downloaded historical data.</li>
-<li>Optimize: Find the best parameters for your strategy using hyperoptimization which employs machine learning methods. You can optimize buy, sell, take profit (ROI), stop-loss and trailing stop-loss parameters for your strategy.</li>
-<li>Select markets: Create your static list or use an automatic one based on top traded volumes and/or prices (not available during backtesting). You can also explicitly blacklist markets you don't want to trade.</li>
-<li>Run: Test your strategy with simulated money (Dry-Run mode) or deploy it with real money (Live-Trade mode).</li>
-<li>Control/Monitor: Use Telegram or a WebUI (start/stop the bot, show profit/loss, daily summary, current open trades results, etc.).</li>
-<li>Analyze: Further analysis can be performed on either Backtesting data or Freqtrade trading history (SQL database), including automated standard plots, and methods to load the data into <a href="data-analysis.html">interactive environments</a>.</li>
+<li>Backtesting assumes all orders fill. In dry runs this might not be the case if using limit orders or there is no volume on the exchange.</li>
+<li>Following an entry signal on candle close, backtesting assumes trades enter at the next candle's open price (unless you have custom pricing callbacks in your strategy). In dry runs, there is often a delay between signals and trades opening.
+  This is because when new candles come in on your main timeframe, e.g. every 5 minutes, it takes time for Freqtrade to analyse all pair dataframes. Therefore, Freqtrade will attempt to open trades a few seconds (ideally a small a delay as possible)
+  after candle open.</li>
+<li>As entry rates in dry runs might not match backtesting, this means profit calculations will also differ. Therefore, it is normal if ROI, stoploss, trailing stoploss and callback exits are not identical.</li>
+<li>The more computational "lag" you have between new candles coming in and your signals being raised and trades being opened will result in greater price unpredictability. Make sure your computer is powerful enough to process the data for the number 
+  of pairs you have in your pairlist within a reasonable time. Freqtrade will warn you in the logs if there are significant data processing delays.</li>
 </ul>
-<h2 id="supported-exchange-marketplaces">Supported exchange marketplaces<a class="headerlink" href="#supported-exchange-marketplaces" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="exchanges.html">exchange specific notes</a> to learn about eventual, special configurations needed for each exchange.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bingx.com/invite/0EM9RX">BingX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitmart.com/">Bitmart</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.htx.com/">HTX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://kraken.com/">Kraken</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">MyOKX</a> (OKX EEA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/ccxt/ccxt/">potentially many others through <img alt="ccxt" width="30px" src="assets/ccxt-logo.svg" /></a>. <em>(We cannot guarantee they will work)</em></li>
-</ul>
-<h3 id="supported-futures-exchanges-experimental">Supported Futures Exchanges (experimental)<a class="headerlink" href="#supported-futures-exchanges-experimental" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-</ul>
-<p>Please make sure to read the <a href="exchanges.html">exchange specific notes</a>, as well as the <a href="leverage.html">trading with leverage</a> documentation before diving in.</p>
-<h3 id="community-tested">Community tested<a class="headerlink" href="#community-tested" title="Permanent link">&para;</a></h3>
-<p>Exchanges confirmed working by the community:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitvavo.com/">Bitvavo</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.kucoin.com/">Kucoin</a></li>
-</ul>
-<h2 id="community-showcase">Community showcase<a class="headerlink" href="#community-showcase" title="Permanent link">&para;</a></h2>
-<p>This section will highlight a few projects from members of the community.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The projects below are for the most part not maintained by the freqtrade , therefore use your own caution before using them.</p>
-</div>
+<h2 id="controlling-or-monitoring-a-running-bot">Controlling or monitoring a running bot<a class="headerlink" href="#controlling-or-monitoring-a-running-bot" title="Permanent link">&para;</a></h2>
+<p>Once your bot is running in dry or live mode, Freqtrade has six mechanisms to control or monitor a running bot:</p>
 <ul>
-<li><a href="https://github.com/freqtrade/freqtrade-strategies/">Example freqtrade strategies</a></li>
-<li><a href="http://frequenthippo.ddns.net">FrequentHippo - Statistics of dry/live runs and backtests</a> (by hippocritical).</li>
-<li><a href="https://remotepairlist.com/">Online pairlist generator</a> (by Blood4rc).</li>
-<li><a href="https://strat.ninja/">Freqtrade Backtesting Project</a> (by Blood4rc).</li>
-<li><a href="https://github.com/froggleston/freqtrade_analysis_notebook">Freqtrade analysis notebook</a> (by Froggleston).</li>
-<li><a href="https://github.com/froggleston/freqtrade-frogtrade9000">TUI for freqtrade</a> (by Froggleston).</li>
-<li><a href="https://botacademy.ddns.net/">Bot Academy</a> (by stash86) - Blog about crypto bot projects.</li>
+<li><strong><a href="freq-ui.html">FreqUI</a></strong>: The easiest to get started with, FreqUI is a web interface to see and control current activity of your bot.</li>
+<li><strong><a href="telegram-usage.html">Telegram</a></strong>: On mobile devices, Telegram integration is available to get alerts about your bot activity and to control certain aspects.</li>
+<li><strong><a href="https://github.com/freqtrade/ftui">FTUI</a></strong>: FTUI is a terminal (command line) interface to Freqtrade, and allows monitoring of a running bot only.</li>
+<li><strong><a href="rest-api.html#consuming-the-api">freqtrade-client</a></strong>: A python implementation of the REST API, making it easy to make requests and consume bot responses from your python apps or the command line.</li>
+<li><strong><a href="rest-api.html#available-endpoints">REST API endpoints</a></strong>: The REST API allows programmers to develop their own tools to interact with a Freqtrade bot.</li>
+<li><strong><a href="webhook-config.html">Webhooks</a></strong>: Freqtrade can send information to other services, e.g. discord, by webhooks.</li>
 </ul>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-requirements">Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h3>
-<p>To run this bot we recommend you a linux cloud instance with a minimum of:</p>
-<ul>
-<li>2GB RAM</li>
-<li>1GB disk space</li>
-<li>2vCPU</li>
-</ul>
-<h3 id="software-requirements">Software requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Docker (Recommended)</li>
-</ul>
-<p>Alternatively</p>
-<ul>
-<li>Python 3.11+</li>
-<li>pip (pip3)</li>
-<li>git</li>
-<li>TA-Lib</li>
-<li>virtualenv (Recommended)</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<h3 id="help-discord">Help / Discord<a class="headerlink" href="#help-discord" title="Permanent link">&para;</a></h3>
-<p>For any questions not covered by the documentation or for further information about the bot, or to simply engage with like-minded individuals, we encourage you to join the Freqtrade <a href="https://discord.gg/p7nuUNVfP7">discord server</a>.</p>
-<h2 id="ready-to-try">Ready to try?<a class="headerlink" href="#ready-to-try" title="Permanent link">&para;</a></h2>
-<p>Begin by reading the installation guide <a href="docker_quickstart.html">for docker</a> (recommended), or for <a href="installation.html">installation without docker</a>.</p>
+<h3 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">&para;</a></h3>
+<p>Freqtrade generates extensive debugging logs to help you understand what's happening. Please familiarise yourself with the information and error messages you might see in your bot logs.</p>
+<p>Logging by default occurs on standard out (the command line). If you want to write out to a file instead, many freqtrade commands, including the <code>trade</code> command, accept the <code>--logfile</code> option to write to a file.</p>
+<p>Check the <a href="faq.html#how-do-i-search-the-bot-logs-for-something">FAQ</a> for examples.</p>
+<h2 id="final-thoughts">Final Thoughts<a class="headerlink" href="#final-thoughts" title="Permanent link">&para;</a></h2>
+<p>Algo trading is difficult, and most public strategies are not good performers due to the time and effort to make a strategy work profitably in multiple scenarios.</p>
+<p>Therefore, taking public strategies and using backtests as a way to assess performance is often problematic. However, Freqtrade provides useful ways to help you make decisions and do your due diligence.</p>
+<p>There are many different ways to achieve profitability, and there is no one single tip, trick or config option that will fix a poorly performing strategy.</p>
+<p>Freqtrade is an open source platform with a large and helpful community - make sure to visit our <a href="https://discord.gg/p7nuUNVfP7">discord channel</a> to discuss your strategy with others!</p>
+<p>As always, only invest what you are willing to lose.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Developing a strategy in Freqtrade involves defining entry and exit signals based on technical indicators. By following the structure and methods outlined above, you can create and test your own trading strategies.</p>
+<p>Common questions and answers are available on our <a href="faq.html">FAQ</a>.</p>
+<p>To continue, refer to the more in-depth <a href="strategy-customization.html">Freqtrade strategy customization documentation</a>.</p>
 
 
 
@@ -2032,15 +2127,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="configuration.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configuration
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="docker_quickstart.html" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart with Docker">
+          <a href="strategy-customization.html" class="md-footer__link md-footer__link--next" aria-label="Next: Strategy Customization">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart with Docker
+                Strategy Customization
               </div>
             </div>
             <div class="md-footer__button md-icon">

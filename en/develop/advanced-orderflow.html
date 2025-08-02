@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://www.freqtrade.io/en/stable/index.html">
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/advanced-orderflow.html">
       
       
+        <link rel="prev" href="advanced-hyperopt.html">
       
-        <link rel="next" href="docker_quickstart.html">
+      
+        <link rel="next" href="producer-consumer.html">
       
       
       <link rel="icon" href="images/logo.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Freqtrade</title>
+        <title>Orderflow - Freqtrade</title>
       
     
     
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#orderflow-data" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Orderflow
             
           </span>
         </div>
@@ -274,30 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -308,150 +290,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community tested
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1360,18 +1198,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" checked>
         
           
           <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="0">
@@ -1387,7 +1227,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_22">
             <span class="md-nav__icon md-icon"></span>
             Advanced Topics
@@ -1536,10 +1376,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="advanced-orderflow.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Orderflow
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="advanced-orderflow.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1550,6 +1412,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-public-trades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Public Trades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-orderflow-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Orderflow Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-trade-data-for-backtesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading Trade Data for Backtesting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-orderflow-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Orderflow Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Orderflow Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#footprint-chart-dataframeorderflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Footprint chart (dataframe["orderflow"])
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Footprint chart (dataframe[&#34;orderflow&#34;])">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orderflow-column-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orderflow column explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-trades-data-dataframetrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw trades data (dataframe["trades"])
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imbalances-dataframeimbalances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imbalances (dataframe["imbalances"])
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1737,6 +1718,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1745,46 +1728,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Getting Started
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
+    <nav class="md-nav" aria-label="Getting Started">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
+  <a href="#enable-public-trades" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
+      Enable Public Trades
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
+  <a href="#configure-orderflow-processing" class="md-nav__link">
     <span class="md-ellipsis">
-      Community tested
+      Configure Orderflow Processing
     </span>
   </a>
   
@@ -1796,37 +1761,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
+  <a href="#downloading-trade-data-for-backtesting" class="md-nav__link">
     <span class="md-ellipsis">
-      Community showcase
+      Downloading Trade Data for Backtesting
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#accessing-orderflow-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
+      Accessing Orderflow Data
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirements">
+    <nav class="md-nav" aria-label="Accessing Orderflow Data">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#footprint-chart-dataframeorderflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Hardware requirements
+      Footprint chart (dataframe["orderflow"])
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Footprint chart (dataframe[&#34;orderflow&#34;])">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
+  <a href="#orderflow-column-explanation" class="md-nav__link">
     <span class="md-ellipsis">
-      Software requirements
+      Orderflow column explanation
     </span>
   </a>
   
@@ -1836,21 +1802,20 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#raw-trades-data-dataframetrades" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Raw trades data (dataframe["trades"])
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
+  <a href="#imbalances-dataframeimbalances" class="md-nav__link">
     <span class="md-ellipsis">
-      Help / Discord
+      Imbalances (dataframe["imbalances"])
     </span>
   </a>
   
@@ -1858,15 +1823,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
   
 </li>
       
@@ -1886,7 +1842,7 @@
 
 
   
-    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/advanced-orderflow.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1894,107 +1850,127 @@
   
 
 
-  <h1>Home</h1>
+<h1 id="orderflow-data">Orderflow data<a class="headerlink" href="#orderflow-data" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through utilizing public trade data for advanced orderflow analysis in Freqtrade.</p>
+<div class="admonition warning">
+<p class="admonition-title">Experimental Feature</p>
+<p>The orderflow feature is currently in beta and may be subject to changes in future releases. Please report any issues or feedback on the <a href="https://github.com/freqtrade/freqtrade/issues">Freqtrade GitHub repository</a>.
+It's also currently not been tested with freqAI - and combining these two features is considered out of scope at this point.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Performance</p>
+<p>Orderflow requires raw trades data. This data is rather large, and can cause a slow initial startup, when freqtrade needs to download the trades data for the last X candles. Additionally, enabling this feature will cause increased memory usage. Please ensure to have sufficient resources available.</p>
+</div>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="enable-public-trades">Enable Public Trades<a class="headerlink" href="#enable-public-trades" title="Permanent link">&para;</a></h3>
+<p>In your <code>config.json</code> file, set the <code>use_public_trades</code> option to true under the <code>exchange</code> section.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;exchange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="err">...</span>
+<span class="w">   </span><span class="nt">&quot;use_public_trades&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="configure-orderflow-processing">Configure Orderflow Processing<a class="headerlink" href="#configure-orderflow-processing" title="Permanent link">&para;</a></h3>
+<p>Define your desired settings for orderflow processing within the orderflow section of config.json. Here, you can adjust factors like:</p>
+<ul>
+<li><code>cache_size</code>: How many previous orderflow candles are saved into cache instead of calculated every new candle</li>
+<li><code>max_candles</code>: Filter how many candles would you like to get trades data for.</li>
+<li><code>scale</code>: This controls the price bin size for the footprint chart.</li>
+<li><code>stacked_imbalance_range</code>: Defines the minimum consecutive imbalanced price levels required for consideration.</li>
+<li><code>imbalance_volume</code>: Filters out imbalances with volume below this threshold.</li>
+<li><code>imbalance_ratio</code>: Filters out imbalances with a ratio (difference between ask and bid volume) lower than this value.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;orderflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;cache_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;max_candles&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;scale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;stacked_imbalance_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">//  needs at least this amount of imbalance next to each other</span>
+<span class="w">    </span><span class="nt">&quot;imbalance_volume&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//  filters out below</span>
+<span class="w">    </span><span class="nt">&quot;imbalance_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1">//  filters out ratio lower than</span>
+<span class="w">  </span><span class="p">},</span>
+</code></pre></div>
+<h2 id="downloading-trade-data-for-backtesting">Downloading Trade Data for Backtesting<a class="headerlink" href="#downloading-trade-data-for-backtesting" title="Permanent link">&para;</a></h2>
+<p>To download historical trade data for backtesting, use the --dl-trades flag with the freqtrade download-data command.</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>download-data<span class="w"> </span>-p<span class="w"> </span>BTC/USDT:USDT<span class="w"> </span>--timerange<span class="w"> </span><span class="m">20230101</span>-<span class="w"> </span>--trading-mode<span class="w"> </span>futures<span class="w"> </span>--timeframes<span class="w"> </span>5m<span class="w"> </span>--dl-trades
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Data availability</p>
+<p>Not all exchanges provide public trade data. For supported exchanges, freqtrade will warn you if public trade data is not available if you start downloading data with the <code>--dl-trades</code> flag.</p>
+</div>
+<h2 id="accessing-orderflow-data">Accessing Orderflow Data<a class="headerlink" href="#accessing-orderflow-data" title="Permanent link">&para;</a></h2>
+<p>Once activated, several new columns become available in your dataframe:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;trades&quot;</span><span class="p">]</span> <span class="c1"># Contains information about each individual trade.</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;orderflow&quot;</span><span class="p">]</span> <span class="c1"># Represents a footprint chart dict (see below)</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;imbalances&quot;</span><span class="p">]</span> <span class="c1"># Contains information about imbalances in the order flow.</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;bid&quot;</span><span class="p">]</span> <span class="c1"># Total bid volume </span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;ask&quot;</span><span class="p">]</span> <span class="c1"># Total ask volume</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">]</span> <span class="c1"># Difference between ask and bid volume.</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;min_delta&quot;</span><span class="p">]</span> <span class="c1"># Minimum delta within the candle</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;max_delta&quot;</span><span class="p">]</span> <span class="c1"># Maximum delta within the candle</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;total_trades&quot;</span><span class="p">]</span> <span class="c1"># Total number of trades</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_bid&quot;</span><span class="p">]</span> <span class="c1"># List of price levels of stacked bid imbalance range beginnings</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_ask&quot;</span><span class="p">]</span> <span class="c1"># List of price levels of stacked ask imbalance range beginnings</span>
+</code></pre></div>
+<p>You can access these columns in your strategy code for further analysis. Here's an example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="c1"># Calculating cumulative delta</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;cum_delta&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumulative_delta</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">])</span>
+    <span class="c1"># Accessing total trades</span>
+    <span class="n">total_trades</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;total_trades&quot;</span><span class="p">]</span>
+    <span class="o">...</span>
 
-<p><img alt="freqtrade" src="assets/freqtrade_poweredby.svg" /></p>
-<p><a href="https://github.com/freqtrade/freqtrade/actions/"><img alt="Freqtrade CI" src="https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
-<a href="https://doi.org/10.21105/joss.04864"><img alt="DOI" src="https://joss.theoj.org/papers/10.21105/joss.04864/status.svg" /></a>
-<a href="https://coveralls.io/github/freqtrade/freqtrade?branch=develop"><img alt="Coverage Status" src="https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&amp;service=github" /></a>
-<a href="https://codeclimate.com/github/freqtrade/freqtrade/maintainability"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability" /></a></p>
-<!-- GitHub action buttons -->
-<p><a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25m0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41z"/></svg></span> Star</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/fork"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5m-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg></span> Fork</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/archive/stable.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Download</a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.</p>
-<div class="admonition danger">
-<p class="admonition-title">DISCLAIMER</p>
-<p>This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.</p>
-<p>Always start by running a trading bot in Dry-run and do not engage money before you understand how it works and what profit/loss you should expect.</p>
-<p>We strongly recommend you to have basic coding skills and Python knowledge. Do not hesitate to read the source code and understand the mechanisms of this bot, algorithms and techniques implemented in it.</p>
-</div>
-<p><img alt="freqtrade screenshot" src="assets/freqtrade-screenshot.png" /></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<span class="k">def</span><span class="w"> </span><span class="nf">cumulative_delta</span><span class="p">(</span><span class="n">delta</span><span class="p">:</span> <span class="n">Series</span><span class="p">):</span>
+    <span class="n">cumdelta</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cumdelta</span>
+</code></pre></div>
+<h3 id="footprint-chart-dataframeorderflow">Footprint chart (<code>dataframe["orderflow"]</code>)<a class="headerlink" href="#footprint-chart-dataframeorderflow" title="Permanent link">&para;</a></h3>
+<p>This column provides a detailed breakdown of buy and sell orders at different price levels, offering valuable insights into order flow dynamics. The <code>scale</code> parameter in your configuration determines the price bin size for this representation</p>
+<p>The <code>orderflow</code> column contains a dict with the following structure:</p>
+<div class="highlight"><pre><span></span><code><span class="go">{</span>
+<span class="go">    &quot;price&quot;: {</span>
+<span class="go">        &quot;bid_amount&quot;: 0.0,</span>
+<span class="go">        &quot;ask_amount&quot;: 0.0,</span>
+<span class="go">        &quot;bid&quot;: 0,</span>
+<span class="go">        &quot;ask&quot;: 0,</span>
+<span class="go">        &quot;delta&quot;: 0.0,</span>
+<span class="go">        &quot;total_volume&quot;: 0.0,</span>
+<span class="go">        &quot;total_trades&quot;: 0</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</code></pre></div>
+<h4 id="orderflow-column-explanation">Orderflow column explanation<a class="headerlink" href="#orderflow-column-explanation" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Develop your Strategy: Write your strategy in python, using <a href="https://pandas.pydata.org/">pandas</a>. Example strategies to inspire you are available in the <a href="https://github.com/freqtrade/freqtrade-strategies">strategy repository</a>.</li>
-<li>Download market data: Download historical data of the exchange and the markets your may want to trade with.</li>
-<li>Backtest: Test your strategy on downloaded historical data.</li>
-<li>Optimize: Find the best parameters for your strategy using hyperoptimization which employs machine learning methods. You can optimize buy, sell, take profit (ROI), stop-loss and trailing stop-loss parameters for your strategy.</li>
-<li>Select markets: Create your static list or use an automatic one based on top traded volumes and/or prices (not available during backtesting). You can also explicitly blacklist markets you don't want to trade.</li>
-<li>Run: Test your strategy with simulated money (Dry-Run mode) or deploy it with real money (Live-Trade mode).</li>
-<li>Control/Monitor: Use Telegram or a WebUI (start/stop the bot, show profit/loss, daily summary, current open trades results, etc.).</li>
-<li>Analyze: Further analysis can be performed on either Backtesting data or Freqtrade trading history (SQL database), including automated standard plots, and methods to load the data into <a href="data-analysis.html">interactive environments</a>.</li>
+<li>key: Price bin - binned at <code>scale</code> intervals</li>
+<li><code>bid_amount</code>: Total volume bought at each price level.</li>
+<li><code>ask_amount</code>: Total volume sold at each price level.</li>
+<li><code>bid</code>: Number of buy orders at each price level.</li>
+<li><code>ask</code>: Number of sell orders at each price level.</li>
+<li><code>delta</code>: Difference between ask and bid volume at each price level.</li>
+<li><code>total_volume</code>: Total volume (ask amount + bid amount) at each price level.</li>
+<li><code>total_trades</code>: Total number of trades (ask + bid) at each price level.</li>
 </ul>
-<h2 id="supported-exchange-marketplaces">Supported exchange marketplaces<a class="headerlink" href="#supported-exchange-marketplaces" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="exchanges.html">exchange specific notes</a> to learn about eventual, special configurations needed for each exchange.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bingx.com/invite/0EM9RX">BingX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitmart.com/">Bitmart</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.htx.com/">HTX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://kraken.com/">Kraken</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">MyOKX</a> (OKX EEA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/ccxt/ccxt/">potentially many others through <img alt="ccxt" width="30px" src="assets/ccxt-logo.svg" /></a>. <em>(We cannot guarantee they will work)</em></li>
-</ul>
-<h3 id="supported-futures-exchanges-experimental">Supported Futures Exchanges (experimental)<a class="headerlink" href="#supported-futures-exchanges-experimental" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-</ul>
-<p>Please make sure to read the <a href="exchanges.html">exchange specific notes</a>, as well as the <a href="leverage.html">trading with leverage</a> documentation before diving in.</p>
-<h3 id="community-tested">Community tested<a class="headerlink" href="#community-tested" title="Permanent link">&para;</a></h3>
-<p>Exchanges confirmed working by the community:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitvavo.com/">Bitvavo</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.kucoin.com/">Kucoin</a></li>
-</ul>
-<h2 id="community-showcase">Community showcase<a class="headerlink" href="#community-showcase" title="Permanent link">&para;</a></h2>
-<p>This section will highlight a few projects from members of the community.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The projects below are for the most part not maintained by the freqtrade , therefore use your own caution before using them.</p>
-</div>
+<p>By leveraging these features, you can gain valuable insights into market sentiment and potential trading opportunities based on order flow analysis.</p>
+<h3 id="raw-trades-data-dataframetrades">Raw trades data (<code>dataframe["trades"]</code>)<a class="headerlink" href="#raw-trades-data-dataframetrades" title="Permanent link">&para;</a></h3>
+<p>List with the individual trades that occurred during the candle. This data can be used for more granular analysis of order flow dynamics.</p>
+<p>Each individual entry contains a dict with the following keys:</p>
 <ul>
-<li><a href="https://github.com/freqtrade/freqtrade-strategies/">Example freqtrade strategies</a></li>
-<li><a href="http://frequenthippo.ddns.net">FrequentHippo - Statistics of dry/live runs and backtests</a> (by hippocritical).</li>
-<li><a href="https://remotepairlist.com/">Online pairlist generator</a> (by Blood4rc).</li>
-<li><a href="https://strat.ninja/">Freqtrade Backtesting Project</a> (by Blood4rc).</li>
-<li><a href="https://github.com/froggleston/freqtrade_analysis_notebook">Freqtrade analysis notebook</a> (by Froggleston).</li>
-<li><a href="https://github.com/froggleston/freqtrade-frogtrade9000">TUI for freqtrade</a> (by Froggleston).</li>
-<li><a href="https://botacademy.ddns.net/">Bot Academy</a> (by stash86) - Blog about crypto bot projects.</li>
+<li><code>timestamp</code>: Timestamp of the trade.</li>
+<li><code>date</code>: Date of the trade.</li>
+<li><code>price</code>: Price of the trade.</li>
+<li><code>amount</code>: Volume of the trade.</li>
+<li><code>side</code>: Buy or sell.</li>
+<li><code>id</code>: Unique identifier for the trade.</li>
+<li><code>cost</code>: Total cost of the trade (price * amount).</li>
 </ul>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-requirements">Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h3>
-<p>To run this bot we recommend you a linux cloud instance with a minimum of:</p>
-<ul>
-<li>2GB RAM</li>
-<li>1GB disk space</li>
-<li>2vCPU</li>
-</ul>
-<h3 id="software-requirements">Software requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Docker (Recommended)</li>
-</ul>
-<p>Alternatively</p>
-<ul>
-<li>Python 3.11+</li>
-<li>pip (pip3)</li>
-<li>git</li>
-<li>TA-Lib</li>
-<li>virtualenv (Recommended)</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<h3 id="help-discord">Help / Discord<a class="headerlink" href="#help-discord" title="Permanent link">&para;</a></h3>
-<p>For any questions not covered by the documentation or for further information about the bot, or to simply engage with like-minded individuals, we encourage you to join the Freqtrade <a href="https://discord.gg/p7nuUNVfP7">discord server</a>.</p>
-<h2 id="ready-to-try">Ready to try?<a class="headerlink" href="#ready-to-try" title="Permanent link">&para;</a></h2>
-<p>Begin by reading the installation guide <a href="docker_quickstart.html">for docker</a> (recommended), or for <a href="installation.html">installation without docker</a>.</p>
+<h3 id="imbalances-dataframeimbalances">Imbalances (<code>dataframe["imbalances"]</code>)<a class="headerlink" href="#imbalances-dataframeimbalances" title="Permanent link">&para;</a></h3>
+<p>This column provides a dict with information about imbalances in the order flow. An imbalance occurs when there is a significant difference between the ask and bid volume at a given price level.</p>
+<p>Each row looks as follows - with price as index, and the corresponding bid and ask imbalance values as columns</p>
+<div class="highlight"><pre><span></span><code><span class="go">{</span>
+<span class="go">    &quot;price&quot;: {</span>
+<span class="go">        &quot;bid_imbalance&quot;: False,</span>
+<span class="go">        &quot;ask_imbalance&quot;: False</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</code></pre></div>
 
 
 
@@ -2032,15 +2008,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="advanced-hyperopt.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced Hyperopt">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Advanced Hyperopt
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="docker_quickstart.html" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart with Docker">
+          <a href="producer-consumer.html" class="md-footer__link md-footer__link--next" aria-label="Next: Producer/Consumer mode">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart with Docker
+                Producer/Consumer mode
               </div>
             </div>
             <div class="md-footer__button md-icon">

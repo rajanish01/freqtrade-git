@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://www.freqtrade.io/en/stable/index.html">
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/trade-object.html">
       
       
+        <link rel="prev" href="advanced-setup.html">
       
-        <link rel="next" href="docker_quickstart.html">
+      
+        <link rel="next" href="lookahead-analysis.html">
       
       
       <link rel="icon" href="images/logo.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Freqtrade</title>
+        <title>Trade Object - Freqtrade</title>
       
     
     
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#trade-object" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Trade Object
             
           </span>
         </div>
@@ -274,30 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -308,150 +290,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community tested
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1360,18 +1198,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" checked>
         
           
           <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="0">
@@ -1387,7 +1227,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_22">
             <span class="md-nav__icon md-icon"></span>
             Advanced Topics
@@ -1421,10 +1261,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="trade-object.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Trade Object
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="trade-object.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1435,6 +1297,128 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-available-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trade - Available attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_trades_proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_trades_proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_open_trade_count" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_open_trade_count
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_total_closed_profit" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_total_closed_profit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#total_open_trades_stakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      total_open_trades_stakes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_overall_performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_overall_performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Order Object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Order Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#order-available-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Order - Available attributes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1737,6 +1721,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1745,46 +1731,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#trade" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Trade
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#trade-available-attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+      Trade - Available attributes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
+  <a href="#class-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported exchange marketplaces
+      Class methods
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
+    <nav class="md-nav" aria-label="Class methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
+  <a href="#get_trades_proxy" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
+      get_trades_proxy
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
+  <a href="#get_open_trade_count" class="md-nav__link">
     <span class="md-ellipsis">
-      Community tested
+      get_open_trade_count
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_total_closed_profit" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_total_closed_profit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#total_open_trades_stakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      total_open_trades_stakes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_overall_performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_overall_performance
     </span>
   </a>
   
@@ -1796,37 +1809,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
+  <a href="#order-object" class="md-nav__link">
     <span class="md-ellipsis">
-      Community showcase
+      Order Object
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
+    <nav class="md-nav" aria-label="Order Object">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#order-available-attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
+      Order - Available attributes
     </span>
   </a>
   
@@ -1834,39 +1829,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
   
 </li>
       
@@ -1886,7 +1848,7 @@
 
 
   
-    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/trade-object.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1894,107 +1856,317 @@
   
 
 
-  <h1>Home</h1>
+<h1 id="trade-object">Trade Object<a class="headerlink" href="#trade-object" title="Permanent link">&para;</a></h1>
+<h2 id="trade">Trade<a class="headerlink" href="#trade" title="Permanent link">&para;</a></h2>
+<p>A position freqtrade enters is stored in a <code>Trade</code> object - which is persisted to the database.
+It's a core concept of freqtrade - and something you'll come across in many sections of the documentation, which will most likely point you to this location.</p>
+<p>It will be passed to the strategy in many <a href="strategy-callbacks.html">strategy callbacks</a>. The object passed to the strategy cannot be modified directly. Indirect modifications may occur based on callback results.</p>
+<h2 id="trade-available-attributes">Trade - Available attributes<a class="headerlink" href="#trade-available-attributes" title="Permanent link">&para;</a></h2>
+<p>The following attributes / properties are available for each individual trade - and can be used with <code>trade.&lt;property&gt;</code> (e.g. <code>trade.pair</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>DataType</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pair</code></td>
+<td>string</td>
+<td>Pair of this trade.</td>
+</tr>
+<tr>
+<td><code>is_open</code></td>
+<td>boolean</td>
+<td>Is the trade currently open, or has it been concluded.</td>
+</tr>
+<tr>
+<td><code>open_rate</code></td>
+<td>float</td>
+<td>Rate this trade was entered at (Avg. entry rate in case of trade-adjustments).</td>
+</tr>
+<tr>
+<td><code>close_rate</code></td>
+<td>float</td>
+<td>Close rate - only set when is_open = False.</td>
+</tr>
+<tr>
+<td><code>stake_amount</code></td>
+<td>float</td>
+<td>Amount in Stake (or Quote) currency.</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>float</td>
+<td>Amount in Asset / Base currency that is currently owned. Will be 0.0 until the initial order fills.</td>
+</tr>
+<tr>
+<td><code>open_date</code></td>
+<td>datetime</td>
+<td>Timestamp when trade was opened <strong>use <code>open_date_utc</code> instead</strong></td>
+</tr>
+<tr>
+<td><code>open_date_utc</code></td>
+<td>datetime</td>
+<td>Timestamp when trade was opened - in UTC.</td>
+</tr>
+<tr>
+<td><code>close_date</code></td>
+<td>datetime</td>
+<td>Timestamp when trade was closed <strong>use <code>close_date_utc</code> instead</strong></td>
+</tr>
+<tr>
+<td><code>close_date_utc</code></td>
+<td>datetime</td>
+<td>Timestamp when trade was closed - in UTC.</td>
+</tr>
+<tr>
+<td><code>close_profit</code></td>
+<td>float</td>
+<td>Relative profit at the time of trade closure. <code>0.01</code> == 1%</td>
+</tr>
+<tr>
+<td><code>close_profit_abs</code></td>
+<td>float</td>
+<td>Absolute profit (in stake currency) at the time of trade closure.</td>
+</tr>
+<tr>
+<td><code>realized_profit</code></td>
+<td>float</td>
+<td>Absolute already realized profit (in stake currency) while the trade is still open.</td>
+</tr>
+<tr>
+<td><code>leverage</code></td>
+<td>float</td>
+<td>Leverage used for this trade - defaults to 1.0 in spot markets.</td>
+</tr>
+<tr>
+<td><code>enter_tag</code></td>
+<td>string</td>
+<td>Tag provided on entry via the <code>enter_tag</code> column in the dataframe.</td>
+</tr>
+<tr>
+<td><code>is_short</code></td>
+<td>boolean</td>
+<td>True for short trades, False otherwise.</td>
+</tr>
+<tr>
+<td><code>orders</code></td>
+<td>Order[]</td>
+<td>List of order objects attached to this trade (includes both filled and cancelled orders).</td>
+</tr>
+<tr>
+<td><code>date_last_filled_utc</code></td>
+<td>datetime</td>
+<td>Time of the last filled order.</td>
+</tr>
+<tr>
+<td><code>entry_side</code></td>
+<td>"buy" / "sell"</td>
+<td>Order Side the trade was entered.</td>
+</tr>
+<tr>
+<td><code>exit_side</code></td>
+<td>"buy" / "sell"</td>
+<td>Order Side that will result in a trade exit / position reduction.</td>
+</tr>
+<tr>
+<td><code>trade_direction</code></td>
+<td>"long" / "short"</td>
+<td>Trade direction in text - long or short.</td>
+</tr>
+<tr>
+<td><code>nr_of_successful_entries</code></td>
+<td>int</td>
+<td>Number of successful (filled) entry orders.</td>
+</tr>
+<tr>
+<td><code>nr_of_successful_exits</code></td>
+<td>int</td>
+<td>Number of successful (filled) exit orders.</td>
+</tr>
+<tr>
+<td><code>has_open_orders</code></td>
+<td>boolean</td>
+<td>Has the trade open orders (excluding stoploss orders).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="class-methods">Class methods<a class="headerlink" href="#class-methods" title="Permanent link">&para;</a></h2>
+<p>The following are class methods - which return generic information, and usually result in an explicit query against the database.
+They can be used as <code>Trade.&lt;method&gt;</code> - e.g. <code>open_trades = Trade.get_open_trade_count()</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Backtesting/hyperopt</p>
+<p>Most methods will work in both backtesting / hyperopt and live/dry modes.
+During backtesting, it's limited to usage in <a href="strategy-callbacks.html">strategy callbacks</a>. Usage in <code>populate_*()</code> methods is not supported and will result in wrong results.</p>
+</div>
+<h3 id="get_trades_proxy">get_trades_proxy<a class="headerlink" href="#get_trades_proxy" title="Permanent link">&para;</a></h3>
+<p>When your strategy needs some information on existing (open or close) trades - it's best to use <code>Trade.get_trades_proxy()</code>.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
 
-<p><img alt="freqtrade" src="assets/freqtrade_poweredby.svg" /></p>
-<p><a href="https://github.com/freqtrade/freqtrade/actions/"><img alt="Freqtrade CI" src="https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
-<a href="https://doi.org/10.21105/joss.04864"><img alt="DOI" src="https://joss.theoj.org/papers/10.21105/joss.04864/status.svg" /></a>
-<a href="https://coveralls.io/github/freqtrade/freqtrade?branch=develop"><img alt="Coverage Status" src="https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&amp;service=github" /></a>
-<a href="https://codeclimate.com/github/freqtrade/freqtrade/maintainability"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability" /></a></p>
-<!-- GitHub action buttons -->
-<p><a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25m0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41z"/></svg></span> Star</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/fork"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5m-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg></span> Fork</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/archive/stable.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Download</a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.</p>
-<div class="admonition danger">
-<p class="admonition-title">DISCLAIMER</p>
-<p>This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.</p>
-<p>Always start by running a trading bot in Dry-run and do not engage money before you understand how it works and what profit/loss you should expect.</p>
-<p>We strongly recommend you to have basic coding skills and Python knowledge. Do not hesitate to read the source code and understand the mechanisms of this bot, algorithms and techniques implemented in it.</p>
-</div>
-<p><img alt="freqtrade screenshot" src="assets/freqtrade-screenshot.png" /></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<span class="c1"># ...</span>
+<span class="n">trade_hist</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">get_trades_proxy</span><span class="p">(</span><span class="n">pair</span><span class="o">=</span><span class="s1">&#39;ETH/USDT&#39;</span><span class="p">,</span> <span class="n">is_open</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">open_date</span><span class="o">=</span><span class="n">current_date</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p><code>get_trades_proxy()</code> supports the following keyword arguments. All arguments are optional - calling <code>get_trades_proxy()</code> without arguments will return a list of all trades in the database.</p>
 <ul>
-<li>Develop your Strategy: Write your strategy in python, using <a href="https://pandas.pydata.org/">pandas</a>. Example strategies to inspire you are available in the <a href="https://github.com/freqtrade/freqtrade-strategies">strategy repository</a>.</li>
-<li>Download market data: Download historical data of the exchange and the markets your may want to trade with.</li>
-<li>Backtest: Test your strategy on downloaded historical data.</li>
-<li>Optimize: Find the best parameters for your strategy using hyperoptimization which employs machine learning methods. You can optimize buy, sell, take profit (ROI), stop-loss and trailing stop-loss parameters for your strategy.</li>
-<li>Select markets: Create your static list or use an automatic one based on top traded volumes and/or prices (not available during backtesting). You can also explicitly blacklist markets you don't want to trade.</li>
-<li>Run: Test your strategy with simulated money (Dry-Run mode) or deploy it with real money (Live-Trade mode).</li>
-<li>Control/Monitor: Use Telegram or a WebUI (start/stop the bot, show profit/loss, daily summary, current open trades results, etc.).</li>
-<li>Analyze: Further analysis can be performed on either Backtesting data or Freqtrade trading history (SQL database), including automated standard plots, and methods to load the data into <a href="data-analysis.html">interactive environments</a>.</li>
+<li><code>pair</code> e.g. <code>pair='ETH/USDT'</code></li>
+<li><code>is_open</code> e.g. <code>is_open=False</code></li>
+<li><code>open_date</code> e.g. <code>open_date=current_date - timedelta(days=2)</code></li>
+<li><code>close_date</code> e.g. <code>close_date=current_date - timedelta(days=5)</code></li>
 </ul>
-<h2 id="supported-exchange-marketplaces">Supported exchange marketplaces<a class="headerlink" href="#supported-exchange-marketplaces" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="exchanges.html">exchange specific notes</a> to learn about eventual, special configurations needed for each exchange.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bingx.com/invite/0EM9RX">BingX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitmart.com/">Bitmart</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.htx.com/">HTX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://kraken.com/">Kraken</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">MyOKX</a> (OKX EEA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/ccxt/ccxt/">potentially many others through <img alt="ccxt" width="30px" src="assets/ccxt-logo.svg" /></a>. <em>(We cannot guarantee they will work)</em></li>
-</ul>
-<h3 id="supported-futures-exchanges-experimental">Supported Futures Exchanges (experimental)<a class="headerlink" href="#supported-futures-exchanges-experimental" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-</ul>
-<p>Please make sure to read the <a href="exchanges.html">exchange specific notes</a>, as well as the <a href="leverage.html">trading with leverage</a> documentation before diving in.</p>
-<h3 id="community-tested">Community tested<a class="headerlink" href="#community-tested" title="Permanent link">&para;</a></h3>
-<p>Exchanges confirmed working by the community:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitvavo.com/">Bitvavo</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.kucoin.com/">Kucoin</a></li>
-</ul>
-<h2 id="community-showcase">Community showcase<a class="headerlink" href="#community-showcase" title="Permanent link">&para;</a></h2>
-<p>This section will highlight a few projects from members of the community.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The projects below are for the most part not maintained by the freqtrade , therefore use your own caution before using them.</p>
-</div>
-<ul>
-<li><a href="https://github.com/freqtrade/freqtrade-strategies/">Example freqtrade strategies</a></li>
-<li><a href="http://frequenthippo.ddns.net">FrequentHippo - Statistics of dry/live runs and backtests</a> (by hippocritical).</li>
-<li><a href="https://remotepairlist.com/">Online pairlist generator</a> (by Blood4rc).</li>
-<li><a href="https://strat.ninja/">Freqtrade Backtesting Project</a> (by Blood4rc).</li>
-<li><a href="https://github.com/froggleston/freqtrade_analysis_notebook">Freqtrade analysis notebook</a> (by Froggleston).</li>
-<li><a href="https://github.com/froggleston/freqtrade-frogtrade9000">TUI for freqtrade</a> (by Froggleston).</li>
-<li><a href="https://botacademy.ddns.net/">Bot Academy</a> (by stash86) - Blog about crypto bot projects.</li>
-</ul>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-requirements">Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h3>
-<p>To run this bot we recommend you a linux cloud instance with a minimum of:</p>
-<ul>
-<li>2GB RAM</li>
-<li>1GB disk space</li>
-<li>2vCPU</li>
-</ul>
-<h3 id="software-requirements">Software requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Docker (Recommended)</li>
-</ul>
-<p>Alternatively</p>
-<ul>
-<li>Python 3.11+</li>
-<li>pip (pip3)</li>
-<li>git</li>
-<li>TA-Lib</li>
-<li>virtualenv (Recommended)</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<h3 id="help-discord">Help / Discord<a class="headerlink" href="#help-discord" title="Permanent link">&para;</a></h3>
-<p>For any questions not covered by the documentation or for further information about the bot, or to simply engage with like-minded individuals, we encourage you to join the Freqtrade <a href="https://discord.gg/p7nuUNVfP7">discord server</a>.</p>
-<h2 id="ready-to-try">Ready to try?<a class="headerlink" href="#ready-to-try" title="Permanent link">&para;</a></h2>
-<p>Begin by reading the installation guide <a href="docker_quickstart.html">for docker</a> (recommended), or for <a href="installation.html">installation without docker</a>.</p>
+<h3 id="get_open_trade_count">get_open_trade_count<a class="headerlink" href="#get_open_trade_count" title="Permanent link">&para;</a></h3>
+<p>Get the number of currently open trades</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
+<span class="c1"># ...</span>
+<span class="n">open_trades</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">get_open_trade_count</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="get_total_closed_profit">get_total_closed_profit<a class="headerlink" href="#get_total_closed_profit" title="Permanent link">&para;</a></h3>
+<p>Retrieve the total profit the bot has generated so far.
+Aggregates <code>close_profit_abs</code> for all closed trades.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
+
+<span class="c1"># ...</span>
+<span class="n">profit</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">get_total_closed_profit</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="total_open_trades_stakes">total_open_trades_stakes<a class="headerlink" href="#total_open_trades_stakes" title="Permanent link">&para;</a></h3>
+<p>Retrieve the total stake_amount that's currently in trades.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
+
+<span class="c1"># ...</span>
+<span class="n">profit</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">total_open_trades_stakes</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="get_overall_performance">get_overall_performance<a class="headerlink" href="#get_overall_performance" title="Permanent link">&para;</a></h3>
+<p>Retrieve the overall performance - similar to the <code>/performance</code> telegram command.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.persistence</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trade</span>
+
+<span class="c1"># ...</span>
+<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;runmode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;live&#39;</span><span class="p">,</span> <span class="s1">&#39;dry_run&#39;</span><span class="p">):</span>
+    <span class="n">performance</span> <span class="o">=</span> <span class="n">Trade</span><span class="o">.</span><span class="n">get_overall_performance</span><span class="p">()</span>
+</code></pre></div>
+<p>Sample return value: ETH/BTC had 5 trades, with a total profit of 1.5% (ratio of 0.015).</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;pair&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ETH/BTC&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;profit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.015</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">}</span>
+</code></pre></div>
+<h2 id="order-object">Order Object<a class="headerlink" href="#order-object" title="Permanent link">&para;</a></h2>
+<p>An <code>Order</code> object represents an order on the exchange (or a simulated order in dry-run mode).
+An <code>Order</code> object will always be tied to it's corresponding <a href="#trade-object"><code>Trade</code></a>, and only really makes sense in the context of a trade.</p>
+<h3 id="order-available-attributes">Order - Available attributes<a class="headerlink" href="#order-available-attributes" title="Permanent link">&para;</a></h3>
+<p>an Order object is typically attached to a trade.
+Most properties here can be None as they are dependent on the exchange response.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>DataType</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trade</code></td>
+<td>Trade</td>
+<td>Trade object this order is attached to</td>
+</tr>
+<tr>
+<td><code>ft_pair</code></td>
+<td>string</td>
+<td>Pair this order is for</td>
+</tr>
+<tr>
+<td><code>ft_is_open</code></td>
+<td>boolean</td>
+<td>is the order still open?</td>
+</tr>
+<tr>
+<td><code>order_type</code></td>
+<td>string</td>
+<td>Order type as defined on the exchange - usually market, limit or stoploss</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>Status as defined by <a href="https://docs.ccxt.com/#/README?id=order-structure">ccxt's order structure</a>. Usually open, closed, expired, canceled or rejected</td>
+</tr>
+<tr>
+<td><code>side</code></td>
+<td>string</td>
+<td>buy or sell</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>float</td>
+<td>Price the order was placed at</td>
+</tr>
+<tr>
+<td><code>average</code></td>
+<td>float</td>
+<td>Average price the order filled at</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>float</td>
+<td>Amount in base currency</td>
+</tr>
+<tr>
+<td><code>filled</code></td>
+<td>float</td>
+<td>Filled amount (in base currency) (use <code>safe_filled</code> instead)</td>
+</tr>
+<tr>
+<td><code>safe_filled</code></td>
+<td>float</td>
+<td>Filled amount (in base currency) - guaranteed to not be None</td>
+</tr>
+<tr>
+<td><code>remaining</code></td>
+<td>float</td>
+<td>Remaining amount (use <code>safe_remaining</code> instead)</td>
+</tr>
+<tr>
+<td><code>safe_remaining</code></td>
+<td>float</td>
+<td>Remaining amount - either taken from the exchange or calculated.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td>float</td>
+<td>Cost of the order - usually average * filled (<em>Exchange dependent on futures, may contain the cost with or without leverage and may be in contracts.</em>)</td>
+</tr>
+<tr>
+<td><code>stake_amount</code></td>
+<td>float</td>
+<td>Stake amount used for this order. <em>Added in 2023.7.</em></td>
+</tr>
+<tr>
+<td><code>stake_amount_filled</code></td>
+<td>float</td>
+<td>Filled Stake amount used for this order. <em>Added in 2024.11.</em></td>
+</tr>
+<tr>
+<td><code>order_date</code></td>
+<td>datetime</td>
+<td>Order creation date <strong>use <code>order_date_utc</code> instead</strong></td>
+</tr>
+<tr>
+<td><code>order_date_utc</code></td>
+<td>datetime</td>
+<td>Order creation date (in UTC)</td>
+</tr>
+<tr>
+<td><code>order_fill_date</code></td>
+<td>datetime</td>
+<td>Order fill date <strong>use <code>order_fill_utc</code> instead</strong></td>
+</tr>
+<tr>
+<td><code>order_fill_date_utc</code></td>
+<td>datetime</td>
+<td>Order fill date</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -2032,15 +2204,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="advanced-setup.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced Post-installation Tasks">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Advanced Post-installation Tasks
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="docker_quickstart.html" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart with Docker">
+          <a href="lookahead-analysis.html" class="md-footer__link md-footer__link--next" aria-label="Next: Lookahead analysis">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart with Docker
+                Lookahead analysis
               </div>
             </div>
             <div class="md-footer__button md-icon">

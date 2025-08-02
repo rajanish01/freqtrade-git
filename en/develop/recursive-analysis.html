@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://www.freqtrade.io/en/stable/index.html">
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/recursive-analysis.html">
       
       
+        <link rel="prev" href="lookahead-analysis.html">
       
-        <link rel="next" href="docker_quickstart.html">
+      
+        <link rel="next" href="strategy-advanced.html">
       
       
       <link rel="icon" href="images/logo.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Freqtrade</title>
+        <title>Recursive analysis - Freqtrade</title>
       
     
     
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#recursive-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Recursive analysis
             
           </span>
         </div>
@@ -274,30 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -308,150 +290,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community tested
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1360,18 +1198,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" checked>
         
           
           <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="0">
@@ -1387,7 +1227,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_22">
             <span class="md-nav__icon md-icon"></span>
             Advanced Topics
@@ -1467,10 +1307,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="recursive-analysis.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Recursive analysis
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="recursive-analysis.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1481,6 +1343,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recursive-analysis-command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursive-analysis command reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursive-analysis command reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-are-odd-numbered-default-startup-candles-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why are odd-numbered default startup candles used?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-the-command-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does the command work?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-recursive-analysis-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the recursive-analysis output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caveats
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1737,6 +1670,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1745,46 +1680,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#recursive-analysis-command-reference" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Recursive-analysis command reference
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
+    <nav class="md-nav" aria-label="Recursive-analysis command reference">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
+  <a href="#why-are-odd-numbered-default-startup-candles-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
+      Why are odd-numbered default startup candles used?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
+  <a href="#how-does-the-command-work" class="md-nav__link">
     <span class="md-ellipsis">
-      Community tested
+      How does the command work?
     </span>
   </a>
   
@@ -1796,75 +1713,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
+  <a href="#understanding-the-recursive-analysis-output" class="md-nav__link">
     <span class="md-ellipsis">
-      Community showcase
+      Understanding the recursive-analysis output
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#caveats" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
+      Caveats
     </span>
   </a>
   
@@ -1886,7 +1746,7 @@
 
 
   
-    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/recursive-analysis.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1894,107 +1754,112 @@
   
 
 
-  <h1>Home</h1>
+<h1 id="recursive-analysis">Recursive analysis<a class="headerlink" href="#recursive-analysis" title="Permanent link">&para;</a></h1>
+<p>This page explains how to validate your strategy for inaccuracies due to recursive issues with certain indicators.</p>
+<p>A recursive formula defines any term of a sequence relative to its preceding term(s). An example of a recursive formula is a<sub>n</sub> = a<sub>n-1</sub> + b.</p>
+<p>Why does this matter for Freqtrade? In backtesting, the bot will get full data of the pairs according to the timerange specified. But in a dry/live run, the bot will be limited by the amount of data each exchanges gives.</p>
+<p>For example, to calculate a very basic indicator called <code>steps</code>, the first row's value is always 0, while the following rows' values are equal to the value of the previous row plus 1. If I were to calculate it using the latest 1000 candles, then the <code>steps</code> value of the first row is 0, and the <code>steps</code> value at the last closed candle is 999.</p>
+<p>What happens if the calculation is using only the latest 500 candles? Then instead of 999, the <code>steps</code> value at last closed candle is 499. The difference of the value means your backtest result can differ from your dry/live run result.</p>
+<p>The <code>recursive-analysis</code> command requires historic data to be available. To learn how to get data for the pairs and exchange you're interested in,
+head over to the <a href="data-download.html">Data Downloading</a> section of the documentation.</p>
+<p>This command is built upon preparing different lengths of data and calculates indicators based on them.
+This does not backtest the strategy itself, but rather only calculates the indicators. After calculating the indicators of different startup candle values (<code>startup_candle_count</code>) are done, the values of last rows across all specified <code>startup_candle_count</code> are compared to see how much variance they show compared to the base calculation.</p>
+<p>Command settings:</p>
+<ul>
+<li>Use the <code>-p</code> option to set your desired pair to analyze. Since we are only looking at indicator values, using more than one pair is redundant. Preferably use a pair with a relatively high price and at least moderate volatility, such as BTC or ETH, to avoid rounding issues that can make the results inaccurate. If no pair is set on the command, the pair used for this analysis is the first pair in the whitelist.</li>
+<li>It is recommended to set a long timerange (at least 5000 candles) so that the initial indicators' calculation that is going to be used as a benchmark has very small or no recursive issues itself. For example, for a 5m timeframe, a timerange of 5000 candles would be equal to 18 days.</li>
+<li><code>--cache</code> is forced to "none" to avoid loading previous indicators calculation automatically.</li>
+</ul>
+<p>In addition to the recursive formula check, this command also carries out a simple lookahead bias check on the indicator values only. For a full lookahead check, use <a href="lookahead-analysis.html">Lookahead-analysis</a>.</p>
+<h2 id="recursive-analysis-command-reference">Recursive-analysis command reference<a class="headerlink" href="#recursive-analysis-command-reference" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>usage: freqtrade recursive-analysis [-h] [-v] [--no-color] [--logfile FILE]
+                                    [-V] [-c PATH] [-d PATH] [--userdir PATH]
+                                    [-s NAME] [--strategy-path PATH]
+                                    [--recursive-strategy-search]
+                                    [--freqaimodel NAME]
+                                    [--freqaimodel-path PATH] [-i TIMEFRAME]
+                                    [--timerange TIMERANGE]
+                                    [--data-format-ohlcv {json,jsongz,feather,parquet}]
+                                    [-p PAIRS [PAIRS ...]]
+                                    [--startup-candle STARTUP_CANDLE [STARTUP_CANDLE ...]]
 
-<p><img alt="freqtrade" src="assets/freqtrade_poweredby.svg" /></p>
-<p><a href="https://github.com/freqtrade/freqtrade/actions/"><img alt="Freqtrade CI" src="https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
-<a href="https://doi.org/10.21105/joss.04864"><img alt="DOI" src="https://joss.theoj.org/papers/10.21105/joss.04864/status.svg" /></a>
-<a href="https://coveralls.io/github/freqtrade/freqtrade?branch=develop"><img alt="Coverage Status" src="https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&amp;service=github" /></a>
-<a href="https://codeclimate.com/github/freqtrade/freqtrade/maintainability"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability" /></a></p>
-<!-- GitHub action buttons -->
-<p><a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25m0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41z"/></svg></span> Star</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/fork"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5m-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg></span> Fork</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/archive/stable.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Download</a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.</p>
-<div class="admonition danger">
-<p class="admonition-title">DISCLAIMER</p>
-<p>This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.</p>
-<p>Always start by running a trading bot in Dry-run and do not engage money before you understand how it works and what profit/loss you should expect.</p>
-<p>We strongly recommend you to have basic coding skills and Python knowledge. Do not hesitate to read the source code and understand the mechanisms of this bot, algorithms and techniques implemented in it.</p>
-</div>
-<p><img alt="freqtrade screenshot" src="assets/freqtrade-screenshot.png" /></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+options:
+  -h, --help            show this help message and exit
+  -i TIMEFRAME, --timeframe TIMEFRAME
+                        Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
+  --timerange TIMERANGE
+                        Specify what timerange of data to use.
+  --data-format-ohlcv {json,jsongz,feather,parquet}
+                        Storage format for downloaded candle (OHLCV) data.
+                        (default: `feather`).
+  -p PAIRS [PAIRS ...], --pairs PAIRS [PAIRS ...]
+                        Limit command to these pairs. Pairs are space-
+                        separated.
+  --startup-candle STARTUP_CANDLE [STARTUP_CANDLE ...]
+                        Specify startup candles to be checked (`199`, `499`,
+                        `999`, `1999`).
+
+Common arguments:
+  -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
+  --no-color            Disable colorization of hyperopt results. May be
+                        useful if you are redirecting output to a file.
+  --logfile FILE, --log-file FILE
+                        Log to the file specified. Special values are:
+                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        details.
+  -V, --version         show program&#39;s version number and exit
+  -c PATH, --config PATH
+                        Specify configuration file (default:
+                        `userdir/config.json` or `config.json` whichever
+                        exists). Multiple --config options may be used. Can be
+                        set to `-` to read config from stdin.
+  -d PATH, --datadir PATH, --data-dir PATH
+                        Path to the base directory of the exchange with
+                        historical backtesting data. To see futures data, use
+                        trading-mode additionally.
+  --userdir PATH, --user-data-dir PATH
+                        Path to userdata directory.
+
+Strategy arguments:
+  -s NAME, --strategy NAME
+                        Specify strategy class name which will be used by the
+                        bot.
+  --strategy-path PATH  Specify additional strategy lookup path.
+  --recursive-strategy-search
+                        Recursively search for a strategy in the strategies
+                        folder.
+  --freqaimodel NAME    Specify a custom freqaimodels.
+  --freqaimodel-path PATH
+                        Specify additional lookup path for freqaimodels.
+</code></pre></div>
+<h3 id="why-are-odd-numbered-default-startup-candles-used">Why are odd-numbered default startup candles used?<a class="headerlink" href="#why-are-odd-numbered-default-startup-candles-used" title="Permanent link">&para;</a></h3>
+<p>The default value for startup candles are odd numbers. When the bot fetches candle data from the exchange's API, the last candle is the one being checked by the bot and the rest of the data are the "startup candles".</p>
+<p>For example, Binance allows 1000 candles per API call. When the bot receives 1000 candles, the last candle is the "current candle", and the preceding 999 candles are the "startup candles". By setting the startup candle count as 1000 instead of 999, the bot will try to fetch 1001 candles instead. The exchange API will then send candle data in a paginated form, i.e. in case of the Binance API, this will be two groups- one of length 1000 and another of length 1. This results in the bot thinking the strategy needs 1001 candles of data, and so it will download 2000 candles worth of data instead, which means there will be 1 "current candle" and 1999 "startup candles".</p>
+<p>Furthermore, exchanges limit the number of consecutive bulk API calls, e.g. Binance allows 5 calls. In this case, only 5000 candles can be downloaded from Binance API without hitting the API rate limit, which means the max <code>startup_candle_count</code> you can have is 4999.</p>
+<p>Please note that this candle limit may be changed in the future by the exchanges without any prior notice.</p>
+<h3 id="how-does-the-command-work">How does the command work?<a class="headerlink" href="#how-does-the-command-work" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Develop your Strategy: Write your strategy in python, using <a href="https://pandas.pydata.org/">pandas</a>. Example strategies to inspire you are available in the <a href="https://github.com/freqtrade/freqtrade-strategies">strategy repository</a>.</li>
-<li>Download market data: Download historical data of the exchange and the markets your may want to trade with.</li>
-<li>Backtest: Test your strategy on downloaded historical data.</li>
-<li>Optimize: Find the best parameters for your strategy using hyperoptimization which employs machine learning methods. You can optimize buy, sell, take profit (ROI), stop-loss and trailing stop-loss parameters for your strategy.</li>
-<li>Select markets: Create your static list or use an automatic one based on top traded volumes and/or prices (not available during backtesting). You can also explicitly blacklist markets you don't want to trade.</li>
-<li>Run: Test your strategy with simulated money (Dry-Run mode) or deploy it with real money (Live-Trade mode).</li>
-<li>Control/Monitor: Use Telegram or a WebUI (start/stop the bot, show profit/loss, daily summary, current open trades results, etc.).</li>
-<li>Analyze: Further analysis can be performed on either Backtesting data or Freqtrade trading history (SQL database), including automated standard plots, and methods to load the data into <a href="data-analysis.html">interactive environments</a>.</li>
+<li>Firstly an initial indicator calculation is carried out using the supplied timerange to generate a benchmark for indicator values.</li>
+<li>After setting the benchmark it will then carry out additional runs for each of the different startup candle count values.</li>
+<li>The command will then compare the indicator values at the last candle rows and report the differences in a table.</li>
 </ul>
-<h2 id="supported-exchange-marketplaces">Supported exchange marketplaces<a class="headerlink" href="#supported-exchange-marketplaces" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="exchanges.html">exchange specific notes</a> to learn about eventual, special configurations needed for each exchange.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bingx.com/invite/0EM9RX">BingX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitmart.com/">Bitmart</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.htx.com/">HTX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://kraken.com/">Kraken</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">MyOKX</a> (OKX EEA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/ccxt/ccxt/">potentially many others through <img alt="ccxt" width="30px" src="assets/ccxt-logo.svg" /></a>. <em>(We cannot guarantee they will work)</em></li>
-</ul>
-<h3 id="supported-futures-exchanges-experimental">Supported Futures Exchanges (experimental)<a class="headerlink" href="#supported-futures-exchanges-experimental" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-</ul>
-<p>Please make sure to read the <a href="exchanges.html">exchange specific notes</a>, as well as the <a href="leverage.html">trading with leverage</a> documentation before diving in.</p>
-<h3 id="community-tested">Community tested<a class="headerlink" href="#community-tested" title="Permanent link">&para;</a></h3>
-<p>Exchanges confirmed working by the community:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitvavo.com/">Bitvavo</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.kucoin.com/">Kucoin</a></li>
-</ul>
-<h2 id="community-showcase">Community showcase<a class="headerlink" href="#community-showcase" title="Permanent link">&para;</a></h2>
-<p>This section will highlight a few projects from members of the community.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The projects below are for the most part not maintained by the freqtrade , therefore use your own caution before using them.</p>
-</div>
+<h2 id="understanding-the-recursive-analysis-output">Understanding the recursive-analysis output<a class="headerlink" href="#understanding-the-recursive-analysis-output" title="Permanent link">&para;</a></h2>
+<p>This is an example of an output results table where at least one indicator has a recursive formula issue:</p>
+<div class="highlight"><pre><span></span><code>| indicators   | 20      | 40      | 80     | 100    | 150     | 300     | 999    |
+|--------------+---------+---------+--------+--------+---------+---------+--------|
+| rsi_30       | nan%    | -6.025% | 0.612% | 0.828% | -0.140% | 0.000%  | 0.000% |
+| rsi_14       | 24.141% | -0.876% | 0.070% | 0.007% | -0.000% | -0.000% | -      |
+</code></pre></div>
+<p>The column headers indicate the different <code>startup_candle_count</code> used in the analysis. The values in the table indicate the variance of the calculated indicators compared to the benchmark value.</p>
+<p><code>nan%</code> means the value of that indicator cannot be calculated due to lack of data. In this example, you cannot calculate RSI with length 30 with just 21 candles (1 current candle + 20 startup candles).</p>
+<p>Users should assess the table per indicator to decide if the specified <code>startup_candle_count</code> results in a sufficiently small variance so that the indicator does not have any effect on entries and/or exits.</p>
+<p>As such, aiming for absolute zero variance (shown by <code>-</code> value) might not be the best option, because some indicators might require you to use such a long <code>startup_candle_count</code> to have zero variance.</p>
+<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/freqtrade/freqtrade-strategies/">Example freqtrade strategies</a></li>
-<li><a href="http://frequenthippo.ddns.net">FrequentHippo - Statistics of dry/live runs and backtests</a> (by hippocritical).</li>
-<li><a href="https://remotepairlist.com/">Online pairlist generator</a> (by Blood4rc).</li>
-<li><a href="https://strat.ninja/">Freqtrade Backtesting Project</a> (by Blood4rc).</li>
-<li><a href="https://github.com/froggleston/freqtrade_analysis_notebook">Freqtrade analysis notebook</a> (by Froggleston).</li>
-<li><a href="https://github.com/froggleston/freqtrade-frogtrade9000">TUI for freqtrade</a> (by Froggleston).</li>
-<li><a href="https://botacademy.ddns.net/">Bot Academy</a> (by stash86) - Blog about crypto bot projects.</li>
+<li><code>recursive-analysis</code> will only calculate and compare the indicator values at the last row. The output table reports the percentage differences between the different startup candle count calculations and the original benchmark calculation. Whether it has any actual impact on your entries and exits is not included.</li>
+<li>The ideal scenario is that indicators will have no variance (or at least very close to 0%) despite the startup candle being varied. In reality, indicators such as EMA are using a recursive formula to calculate indicator values, so the goal is not necessarily to have zero percentage variance, but to have the variance low enough (and therefore <code>startup_candle_count</code> high enough) that the recursion inherent in the indicator will not have any real impact on trading decisions.</li>
+<li><code>recursive-analysis</code> will only run calculations on <code>populate_indicators</code> and <code>@informative</code> decorator(s). If you put any indicator calculation on <code>populate_entry_trend</code> or <code>populate_exit_trend</code>, it won't be calculated.</li>
 </ul>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-requirements">Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h3>
-<p>To run this bot we recommend you a linux cloud instance with a minimum of:</p>
-<ul>
-<li>2GB RAM</li>
-<li>1GB disk space</li>
-<li>2vCPU</li>
-</ul>
-<h3 id="software-requirements">Software requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Docker (Recommended)</li>
-</ul>
-<p>Alternatively</p>
-<ul>
-<li>Python 3.11+</li>
-<li>pip (pip3)</li>
-<li>git</li>
-<li>TA-Lib</li>
-<li>virtualenv (Recommended)</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<h3 id="help-discord">Help / Discord<a class="headerlink" href="#help-discord" title="Permanent link">&para;</a></h3>
-<p>For any questions not covered by the documentation or for further information about the bot, or to simply engage with like-minded individuals, we encourage you to join the Freqtrade <a href="https://discord.gg/p7nuUNVfP7">discord server</a>.</p>
-<h2 id="ready-to-try">Ready to try?<a class="headerlink" href="#ready-to-try" title="Permanent link">&para;</a></h2>
-<p>Begin by reading the installation guide <a href="docker_quickstart.html">for docker</a> (recommended), or for <a href="installation.html">installation without docker</a>.</p>
 
 
 
@@ -2032,15 +1897,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="lookahead-analysis.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lookahead analysis">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lookahead analysis
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="docker_quickstart.html" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart with Docker">
+          <a href="strategy-advanced.html" class="md-footer__link md-footer__link--next" aria-label="Next: Advanced Strategy">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart with Docker
+                Advanced Strategy
               </div>
             </div>
             <div class="md-footer__button md-icon">

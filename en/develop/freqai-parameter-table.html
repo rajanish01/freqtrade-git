@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://www.freqtrade.io/en/stable/index.html">
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/freqai-parameter-table.html">
       
       
+        <link rel="prev" href="freqai-configuration.html">
       
-        <link rel="next" href="docker_quickstart.html">
+      
+        <link rel="next" href="freqai-feature-engineering.html">
       
       
       <link rel="icon" href="images/logo.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Freqtrade</title>
+        <title>Parameter table - Freqtrade</title>
       
     
     
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#parameter-table" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Parameter table
             
           </span>
         </div>
@@ -274,30 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -308,150 +290,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community tested
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -952,18 +790,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" checked>
         
           
           <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
@@ -979,7 +819,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
             FreqAI
@@ -1036,10 +876,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="freqai-parameter-table.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Parameter table
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="freqai-parameter-table.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1050,6 +912,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      General configuration parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-split-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data split parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-training-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model training parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reinforcement Learning parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyTorch parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PyTorch parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      general
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trainer_kwargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      trainer_kwargs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional parameters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1737,6 +1706,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1745,46 +1716,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#general-configuration-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      General configuration parameters
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#feature-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+      Feature parameters
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
+  <a href="#data-split-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported exchange marketplaces
+      Data split parameters
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-training-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model training parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reinforcement Learning parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyTorch parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PyTorch parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
+  <a href="#general" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
+      general
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
+  <a href="#trainer_kwargs" class="md-nav__link">
     <span class="md-ellipsis">
-      Community tested
+      trainer_kwargs
     </span>
   </a>
   
@@ -1796,75 +1794,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
+  <a href="#additional-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
+      Additional parameters
     </span>
   </a>
   
@@ -1886,7 +1818,7 @@
 
 
   
-    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/freqai-parameter-table.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1894,107 +1826,378 @@
   
 
 
-  <h1>Home</h1>
-
-<p><img alt="freqtrade" src="assets/freqtrade_poweredby.svg" /></p>
-<p><a href="https://github.com/freqtrade/freqtrade/actions/"><img alt="Freqtrade CI" src="https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
-<a href="https://doi.org/10.21105/joss.04864"><img alt="DOI" src="https://joss.theoj.org/papers/10.21105/joss.04864/status.svg" /></a>
-<a href="https://coveralls.io/github/freqtrade/freqtrade?branch=develop"><img alt="Coverage Status" src="https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&amp;service=github" /></a>
-<a href="https://codeclimate.com/github/freqtrade/freqtrade/maintainability"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability" /></a></p>
-<!-- GitHub action buttons -->
-<p><a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25m0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41z"/></svg></span> Star</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/fork"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5m-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg></span> Fork</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/archive/stable.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Download</a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.</p>
-<div class="admonition danger">
-<p class="admonition-title">DISCLAIMER</p>
-<p>This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.</p>
-<p>Always start by running a trading bot in Dry-run and do not engage money before you understand how it works and what profit/loss you should expect.</p>
-<p>We strongly recommend you to have basic coding skills and Python knowledge. Do not hesitate to read the source code and understand the mechanisms of this bot, algorithms and techniques implemented in it.</p>
-</div>
-<p><img alt="freqtrade screenshot" src="assets/freqtrade-screenshot.png" /></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Develop your Strategy: Write your strategy in python, using <a href="https://pandas.pydata.org/">pandas</a>. Example strategies to inspire you are available in the <a href="https://github.com/freqtrade/freqtrade-strategies">strategy repository</a>.</li>
-<li>Download market data: Download historical data of the exchange and the markets your may want to trade with.</li>
-<li>Backtest: Test your strategy on downloaded historical data.</li>
-<li>Optimize: Find the best parameters for your strategy using hyperoptimization which employs machine learning methods. You can optimize buy, sell, take profit (ROI), stop-loss and trailing stop-loss parameters for your strategy.</li>
-<li>Select markets: Create your static list or use an automatic one based on top traded volumes and/or prices (not available during backtesting). You can also explicitly blacklist markets you don't want to trade.</li>
-<li>Run: Test your strategy with simulated money (Dry-Run mode) or deploy it with real money (Live-Trade mode).</li>
-<li>Control/Monitor: Use Telegram or a WebUI (start/stop the bot, show profit/loss, daily summary, current open trades results, etc.).</li>
-<li>Analyze: Further analysis can be performed on either Backtesting data or Freqtrade trading history (SQL database), including automated standard plots, and methods to load the data into <a href="data-analysis.html">interactive environments</a>.</li>
-</ul>
-<h2 id="supported-exchange-marketplaces">Supported exchange marketplaces<a class="headerlink" href="#supported-exchange-marketplaces" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="exchanges.html">exchange specific notes</a> to learn about eventual, special configurations needed for each exchange.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bingx.com/invite/0EM9RX">BingX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitmart.com/">Bitmart</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.htx.com/">HTX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://kraken.com/">Kraken</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">MyOKX</a> (OKX EEA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/ccxt/ccxt/">potentially many others through <img alt="ccxt" width="30px" src="assets/ccxt-logo.svg" /></a>. <em>(We cannot guarantee they will work)</em></li>
-</ul>
-<h3 id="supported-futures-exchanges-experimental">Supported Futures Exchanges (experimental)<a class="headerlink" href="#supported-futures-exchanges-experimental" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-</ul>
-<p>Please make sure to read the <a href="exchanges.html">exchange specific notes</a>, as well as the <a href="leverage.html">trading with leverage</a> documentation before diving in.</p>
-<h3 id="community-tested">Community tested<a class="headerlink" href="#community-tested" title="Permanent link">&para;</a></h3>
-<p>Exchanges confirmed working by the community:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitvavo.com/">Bitvavo</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.kucoin.com/">Kucoin</a></li>
-</ul>
-<h2 id="community-showcase">Community showcase<a class="headerlink" href="#community-showcase" title="Permanent link">&para;</a></h2>
-<p>This section will highlight a few projects from members of the community.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The projects below are for the most part not maintained by the freqtrade , therefore use your own caution before using them.</p>
-</div>
-<ul>
-<li><a href="https://github.com/freqtrade/freqtrade-strategies/">Example freqtrade strategies</a></li>
-<li><a href="http://frequenthippo.ddns.net">FrequentHippo - Statistics of dry/live runs and backtests</a> (by hippocritical).</li>
-<li><a href="https://remotepairlist.com/">Online pairlist generator</a> (by Blood4rc).</li>
-<li><a href="https://strat.ninja/">Freqtrade Backtesting Project</a> (by Blood4rc).</li>
-<li><a href="https://github.com/froggleston/freqtrade_analysis_notebook">Freqtrade analysis notebook</a> (by Froggleston).</li>
-<li><a href="https://github.com/froggleston/freqtrade-frogtrade9000">TUI for freqtrade</a> (by Froggleston).</li>
-<li><a href="https://botacademy.ddns.net/">Bot Academy</a> (by stash86) - Blog about crypto bot projects.</li>
-</ul>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-requirements">Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h3>
-<p>To run this bot we recommend you a linux cloud instance with a minimum of:</p>
-<ul>
-<li>2GB RAM</li>
-<li>1GB disk space</li>
-<li>2vCPU</li>
-</ul>
-<h3 id="software-requirements">Software requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Docker (Recommended)</li>
-</ul>
-<p>Alternatively</p>
-<ul>
-<li>Python 3.11+</li>
-<li>pip (pip3)</li>
-<li>git</li>
-<li>TA-Lib</li>
-<li>virtualenv (Recommended)</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<h3 id="help-discord">Help / Discord<a class="headerlink" href="#help-discord" title="Permanent link">&para;</a></h3>
-<p>For any questions not covered by the documentation or for further information about the bot, or to simply engage with like-minded individuals, we encourage you to join the Freqtrade <a href="https://discord.gg/p7nuUNVfP7">discord server</a>.</p>
-<h2 id="ready-to-try">Ready to try?<a class="headerlink" href="#ready-to-try" title="Permanent link">&para;</a></h2>
-<p>Begin by reading the installation guide <a href="docker_quickstart.html">for docker</a> (recommended), or for <a href="installation.html">installation without docker</a>.</p>
+<h1 id="parameter-table">Parameter table<a class="headerlink" href="#parameter-table" title="Permanent link">&para;</a></h1>
+<p>The table below will list all configuration parameters available for FreqAI. Some of the parameters are exemplified in <code>config_examples/config_freqai.example.json</code>.</p>
+<p>Mandatory parameters are marked as <strong>Required</strong> and have to be set in one of the suggested ways.</p>
+<h3 id="general-configuration-parameters">General configuration parameters<a class="headerlink" href="#general-configuration-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>General configuration parameters within the <code>config.freqai</code> tree</strong></td>
+</tr>
+<tr>
+<td><code>freqai</code></td>
+<td><strong>Required.</strong> <br> The parent dictionary containing all the parameters for controlling FreqAI. <br> <strong>Datatype:</strong> Dictionary.</td>
+</tr>
+<tr>
+<td><code>train_period_days</code></td>
+<td><strong>Required.</strong> <br> Number of days to use for the training data (width of the sliding window). <br> <strong>Datatype:</strong> Positive integer.</td>
+</tr>
+<tr>
+<td><code>backtest_period_days</code></td>
+<td><strong>Required.</strong> <br> Number of days to inference from the trained model before sliding the <code>train_period_days</code> window defined above, and retraining the model during backtesting (more info <a href="freqai-running.html#backtesting">here</a>). This can be fractional days, but beware that the provided <code>timerange</code> will be divided by this number to yield the number of trainings necessary to complete the backtest. <br> <strong>Datatype:</strong> Float.</td>
+</tr>
+<tr>
+<td><code>identifier</code></td>
+<td><strong>Required.</strong> <br> A unique ID for the current model. If models are saved to disk, the <code>identifier</code> allows for reloading specific pre-trained models/data. <br> <strong>Datatype:</strong> String.</td>
+</tr>
+<tr>
+<td><code>live_retrain_hours</code></td>
+<td>Frequency of retraining during dry/live runs. <br> <strong>Datatype:</strong> Float &gt; 0. <br> Default: <code>0</code> (models retrain as often as possible).</td>
+</tr>
+<tr>
+<td><code>expiration_hours</code></td>
+<td>Avoid making predictions if a model is more than <code>expiration_hours</code> old. <br> <strong>Datatype:</strong> Positive integer. <br> Default: <code>0</code> (models never expire).</td>
+</tr>
+<tr>
+<td><code>purge_old_models</code></td>
+<td>Number of models to keep on disk (not relevant to backtesting). Default is 2, which means that dry/live runs will keep the latest 2 models on disk. Setting to 0 keeps all models. This parameter also accepts a boolean to maintain backwards compatibility. <br> <strong>Datatype:</strong> Integer. <br> Default: <code>2</code>.</td>
+</tr>
+<tr>
+<td><code>save_backtest_models</code></td>
+<td>Save models to disk when running backtesting. Backtesting operates most efficiently by saving the prediction data and reusing them directly for subsequent runs (when you wish to tune entry/exit parameters). Saving backtesting models to disk also allows to use the same model files for starting a dry/live instance with the same model <code>identifier</code>. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code> (no models are saved).</td>
+</tr>
+<tr>
+<td><code>fit_live_predictions_candles</code></td>
+<td>Number of historical candles to use for computing target (label) statistics from prediction data, instead of from the training dataset (more information can be found <a href="freqai-configuration.html#creating-a-dynamic-target-threshold">here</a>). <br> <strong>Datatype:</strong> Positive integer.</td>
+</tr>
+<tr>
+<td><code>continual_learning</code></td>
+<td>Use the final state of the most recently trained model as starting point for the new model, allowing for incremental learning (more information can be found <a href="freqai-running.html#continual-learning">here</a>). Beware that this is currently a naive approach to incremental learning, and it has a high probability of overfitting/getting stuck in local minima while the market moves away from your model. We have the connections here primarily for experimental purposes and so that it is ready for more mature approaches to continual learning in chaotic systems like the crypto market. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code>.</td>
+</tr>
+<tr>
+<td><code>write_metrics_to_disk</code></td>
+<td>Collect train timings, inference timings and cpu usage in json file. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code></td>
+</tr>
+<tr>
+<td><code>data_kitchen_thread_count</code></td>
+<td><br> Designate the number of threads you want to use for data processing (outlier methods, normalization, etc.). This has no impact on the number of threads used for training. If user does not set it (default), FreqAI will use max number of threads - 2 (leaving 1 physical core available for Freqtrade bot and FreqUI) <br> <strong>Datatype:</strong> Positive integer.</td>
+</tr>
+<tr>
+<td><code>activate_tensorboard</code></td>
+<td><br> Indicate whether or not to activate tensorboard for the tensorboard enabled modules (currently Reinforcment Learning, XGBoost, Catboost, and PyTorch). Tensorboard needs Torch installed, which means you will need the torch/RL docker image or you need to answer "yes" to the install question about whether or not you wish to install Torch. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>True</code>.</td>
+</tr>
+<tr>
+<td><code>wait_for_training_iteration_on_reload</code></td>
+<td><br> When using /reload or ctrl-c, wait for the current training iteration to finish before completing graceful shutdown. If set to <code>False</code>, FreqAI will break the current training iteration, allowing you to shutdown gracefully more quickly, but you will lose your current training iteration. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>True</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="feature-parameters">Feature parameters<a class="headerlink" href="#feature-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Feature parameters within the <code>freqai.feature_parameters</code> sub dictionary</strong></td>
+</tr>
+<tr>
+<td><code>feature_parameters</code></td>
+<td>A dictionary containing the parameters used to engineer the feature set. Details and examples are shown <a href="freqai-feature-engineering.html">here</a>. <br> <strong>Datatype:</strong> Dictionary.</td>
+</tr>
+<tr>
+<td><code>include_timeframes</code></td>
+<td>A list of timeframes that all indicators in <code>feature_engineering_expand_*()</code> will be created for. The list is added as features to the base indicators dataset. <br> <strong>Datatype:</strong> List of timeframes (strings).</td>
+</tr>
+<tr>
+<td><code>include_corr_pairlist</code></td>
+<td>A list of correlated coins that FreqAI will add as additional features to all <code>pair_whitelist</code> coins. All indicators set in <code>feature_engineering_expand_*()</code> during feature engineering (see details <a href="freqai-feature-engineering.html">here</a>) will be created for each correlated coin. The correlated coins features are added to the base indicators dataset. <br> <strong>Datatype:</strong> List of assets (strings).</td>
+</tr>
+<tr>
+<td><code>label_period_candles</code></td>
+<td>Number of candles into the future that the labels are created for. This can be used in <code>set_freqai_targets()</code> (see <code>templates/FreqaiExampleStrategy.py</code> for detailed usage). This parameter is not necessarily required, you can create custom labels and choose whether to make use of this parameter or not. Please see <code>templates/FreqaiExampleStrategy.py</code> to see the example usage. <br> <strong>Datatype:</strong> Positive integer.</td>
+</tr>
+<tr>
+<td><code>include_shifted_candles</code></td>
+<td>Add features from previous candles to subsequent candles with the intent of adding historical information. If used, FreqAI will duplicate and shift all features from the <code>include_shifted_candles</code> previous candles so that the information is available for the subsequent candle. <br> <strong>Datatype:</strong> Positive integer.</td>
+</tr>
+<tr>
+<td><code>weight_factor</code></td>
+<td>Weight training data points according to their recency (see details <a href="freqai-feature-engineering.html#weighting-features-for-temporal-importance">here</a>). <br> <strong>Datatype:</strong> Positive float (typically &lt; 1).</td>
+</tr>
+<tr>
+<td><code>indicator_max_period_candles</code></td>
+<td><strong>No longer used (#7325)</strong>. Replaced by <code>startup_candle_count</code> which is set in the <a href="freqai-configuration.html#building-a-freqai-strategy">strategy</a>. <code>startup_candle_count</code> is timeframe independent and defines the maximum <em>period</em> used in <code>feature_engineering_*()</code> for indicator creation. FreqAI uses this parameter together with the maximum timeframe in <code>include_time_frames</code> to calculate how many data points to download such that the first data point does not include a NaN. <br> <strong>Datatype:</strong> Positive integer.</td>
+</tr>
+<tr>
+<td><code>indicator_periods_candles</code></td>
+<td>Time periods to calculate indicators for. The indicators are added to the base indicator dataset. <br> <strong>Datatype:</strong> List of positive integers.</td>
+</tr>
+<tr>
+<td><code>principal_component_analysis</code></td>
+<td>Automatically reduce the dimensionality of the data set using Principal Component Analysis. See details about how it works <a href="freqai-feature-engineering.html#data-dimensionality-reduction-with-principal-component-analysis">here</a> <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code>.</td>
+</tr>
+<tr>
+<td><code>plot_feature_importances</code></td>
+<td>Create a feature importance plot for each model for the top/bottom <code>plot_feature_importances</code> number of features. Plot is stored in <code>user_data/models/&lt;identifier&gt;/sub-train-&lt;COIN&gt;_&lt;timestamp&gt;.html</code>. <br> <strong>Datatype:</strong> Integer. <br> Default: <code>0</code>.</td>
+</tr>
+<tr>
+<td><code>DI_threshold</code></td>
+<td>Activates the use of the Dissimilarity Index for outlier detection when set to &gt; 0. See details about how it works <a href="freqai-feature-engineering.html#identifying-outliers-with-the-dissimilarity-index-di">here</a>. <br> <strong>Datatype:</strong> Positive float (typically &lt; 1).</td>
+</tr>
+<tr>
+<td><code>use_SVM_to_remove_outliers</code></td>
+<td>Train a support vector machine to detect and remove outliers from the training dataset, as well as from incoming data points. See details about how it works <a href="freqai-feature-engineering.html#identifying-outliers-using-a-support-vector-machine-svm">here</a>. <br> <strong>Datatype:</strong> Boolean.</td>
+</tr>
+<tr>
+<td><code>svm_params</code></td>
+<td>All parameters available in Sklearn's <code>SGDOneClassSVM()</code>. See details about some select parameters <a href="freqai-feature-engineering.html#identifying-outliers-using-a-support-vector-machine-svm">here</a>. <br> <strong>Datatype:</strong> Dictionary.</td>
+</tr>
+<tr>
+<td><code>use_DBSCAN_to_remove_outliers</code></td>
+<td>Cluster data using the DBSCAN algorithm to identify and remove outliers from training and prediction data. See details about how it works <a href="freqai-feature-engineering.html#identifying-outliers-with-dbscan">here</a>. <br> <strong>Datatype:</strong> Boolean.</td>
+</tr>
+<tr>
+<td><code>noise_standard_deviation</code></td>
+<td>If set, FreqAI adds noise to the training features with the aim of preventing overfitting. FreqAI generates random deviates from a gaussian distribution with a standard deviation of <code>noise_standard_deviation</code> and adds them to all data points. <code>noise_standard_deviation</code> should be kept relative to the normalized space, i.e., between -1 and 1. In other words, since data in FreqAI is always normalized to be between -1 and 1, <code>noise_standard_deviation: 0.05</code> would result in 32% of the data being randomly increased/decreased by more than 2.5% (i.e., the percent of data falling within the first standard deviation). <br> <strong>Datatype:</strong> Integer. <br> Default: <code>0</code>.</td>
+</tr>
+<tr>
+<td><code>outlier_protection_percentage</code></td>
+<td>Enable to prevent outlier detection methods from discarding too much data. If more than <code>outlier_protection_percentage</code> % of points are detected as outliers by the SVM or DBSCAN, FreqAI will log a warning message and ignore outlier detection, i.e., the original dataset will be kept intact. If the outlier protection is triggered, no predictions will be made based on the training dataset. <br> <strong>Datatype:</strong> Float. <br> Default: <code>30</code>.</td>
+</tr>
+<tr>
+<td><code>reverse_train_test_order</code></td>
+<td>Split the feature dataset (see below) and use the latest data split for training and test on historical split of the data. This allows the model to be trained up to the most recent data point, while avoiding overfitting. However, you should be careful to understand the unorthodox nature of this parameter before employing it. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code> (no reversal).</td>
+</tr>
+<tr>
+<td><code>shuffle_after_split</code></td>
+<td>Split the data into train and test sets, and then shuffle both sets individually. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code>.</td>
+</tr>
+<tr>
+<td><code>buffer_train_data_candles</code></td>
+<td>Cut <code>buffer_train_data_candles</code> off the beginning and end of the training data <em>after</em> the indicators were populated. The main example use is when predicting maxima and minima, the argrelextrema function  cannot know the maxima/minima at the edges of the timerange. To improve model accuracy, it is best to compute argrelextrema on the full timerange and then use this function to cut off the edges (buffer) by the kernel. In another case, if the targets are set to a shifted price movement, this buffer is unnecessary because the shifted candles at the end of the timerange will be NaN and FreqAI will automatically cut those off of the training dataset.<br> <strong>Datatype:</strong> Integer. <br> Default: <code>0</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-split-parameters">Data split parameters<a class="headerlink" href="#data-split-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Data split parameters within the <code>freqai.data_split_parameters</code> sub dictionary</strong></td>
+</tr>
+<tr>
+<td><code>data_split_parameters</code></td>
+<td>Include any additional parameters available from scikit-learn <code>test_train_split()</code>, which are shown <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">here</a> (external website). <br> <strong>Datatype:</strong> Dictionary.</td>
+</tr>
+<tr>
+<td><code>test_size</code></td>
+<td>The fraction of data that should be used for testing instead of training. <br> <strong>Datatype:</strong> Positive float &lt; 1.</td>
+</tr>
+<tr>
+<td><code>shuffle</code></td>
+<td>Shuffle the training data points during training. Typically, to not remove the chronological order of data in time-series forecasting, this is set to <code>False</code>. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="model-training-parameters">Model training parameters<a class="headerlink" href="#model-training-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Model training parameters within the <code>freqai.model_training_parameters</code> sub dictionary</strong></td>
+</tr>
+<tr>
+<td><code>model_training_parameters</code></td>
+<td>A flexible dictionary that includes all parameters available by the selected model library. For example, if you use <code>LightGBMRegressor</code>, this dictionary can contain any parameter available by the <code>LightGBMRegressor</code> <a href="https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html">here</a> (external website). If you select a different model, this dictionary can contain any parameter from that model. A list of the currently available models can be found <a href="freqai-configuration.html#using-different-prediction-models">here</a>.  <br> <strong>Datatype:</strong> Dictionary.</td>
+</tr>
+<tr>
+<td><code>n_estimators</code></td>
+<td>The number of boosted trees to fit in the training of the model. <br> <strong>Datatype:</strong> Integer.</td>
+</tr>
+<tr>
+<td><code>learning_rate</code></td>
+<td>Boosting learning rate during training of the model. <br> <strong>Datatype:</strong> Float.</td>
+</tr>
+<tr>
+<td><code>n_jobs</code>, <code>thread_count</code>, <code>task_type</code></td>
+<td>Set the number of threads for parallel processing and the <code>task_type</code> (<code>gpu</code> or <code>cpu</code>). Different model libraries use different parameter names. <br> <strong>Datatype:</strong> Float.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reinforcement-learning-parameters">Reinforcement Learning parameters<a class="headerlink" href="#reinforcement-learning-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Reinforcement Learning Parameters within the <code>freqai.rl_config</code> sub dictionary</strong></td>
+</tr>
+<tr>
+<td><code>rl_config</code></td>
+<td>A dictionary containing the control parameters for a Reinforcement Learning model. <br> <strong>Datatype:</strong> Dictionary.</td>
+</tr>
+<tr>
+<td><code>train_cycles</code></td>
+<td>Training time steps will be set based on the `train_cycles * number of training data points. <br> <strong>Datatype:</strong> Integer.</td>
+</tr>
+<tr>
+<td><code>max_trade_duration_candles</code></td>
+<td>Guides the agent training to keep trades below desired length. Example usage shown in <code>prediction_models/ReinforcementLearner.py</code> within the customizable <code>calculate_reward()</code> function. <br> <strong>Datatype:</strong> int.</td>
+</tr>
+<tr>
+<td><code>model_type</code></td>
+<td>Model string from stable_baselines3 or SBcontrib. Available strings include: <code>'TRPO', 'ARS', 'RecurrentPPO', 'MaskablePPO', 'PPO', 'A2C', 'DQN'</code>. User should ensure that <code>model_training_parameters</code> match those available to the corresponding stable_baselines3 model by visiting their documentation. <a href="https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html">PPO doc</a> (external website) <br> <strong>Datatype:</strong> string.</td>
+</tr>
+<tr>
+<td><code>policy_type</code></td>
+<td>One of the available policy types from stable_baselines3 <br> <strong>Datatype:</strong> string.</td>
+</tr>
+<tr>
+<td><code>max_training_drawdown_pct</code></td>
+<td>The maximum drawdown that the agent is allowed to experience during training. <br> <strong>Datatype:</strong> float. <br> Default: 0.8</td>
+</tr>
+<tr>
+<td><code>cpu_count</code></td>
+<td>Number of threads/cpus to dedicate to the Reinforcement Learning training process (depending on if <code>ReinforcementLearning_multiproc</code> is selected or not). Recommended to leave this untouched, by default, this value is set to the total number of physical cores minus 1. <br> <strong>Datatype:</strong> int.</td>
+</tr>
+<tr>
+<td><code>model_reward_parameters</code></td>
+<td>Parameters used inside the customizable <code>calculate_reward()</code> function in <code>ReinforcementLearner.py</code> <br> <strong>Datatype:</strong> int.</td>
+</tr>
+<tr>
+<td><code>add_state_info</code></td>
+<td>Tell FreqAI to include state information in the feature set for training and inferencing. The current state variables include trade duration, current profit, trade position. This is only available in dry/live runs, and is automatically switched to false for backtesting. <br> <strong>Datatype:</strong> bool. <br> Default: <code>False</code>.</td>
+</tr>
+<tr>
+<td><code>net_arch</code></td>
+<td>Network architecture which is well described in <a href="https://stable-baselines3.readthedocs.io/en/master/guide/custom_policy.html#examples"><code>stable_baselines3</code> doc</a>. In summary: <code>[&lt;shared layers&gt;, dict(vf=[&lt;non-shared value network layers&gt;], pi=[&lt;non-shared policy network layers&gt;])]</code>. By default this is set to <code>[128, 128]</code>, which defines 2 shared hidden layers with 128 units each.</td>
+</tr>
+<tr>
+<td><code>randomize_starting_position</code></td>
+<td>Randomize the starting point of each episode to avoid overfitting. <br> <strong>Datatype:</strong> bool. <br> Default: <code>False</code>.</td>
+</tr>
+<tr>
+<td><code>drop_ohlc_from_features</code></td>
+<td>Do not include the normalized ohlc data in the feature set passed to the agent during training (ohlc will still be used for driving the environment in all cases) <br> <strong>Datatype:</strong> Boolean. <br> <strong>Default:</strong> <code>False</code></td>
+</tr>
+<tr>
+<td><code>progress_bar</code></td>
+<td>Display a progress bar with the current progress, elapsed time and estimated remaining time. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pytorch-parameters">PyTorch parameters<a class="headerlink" href="#pytorch-parameters" title="Permanent link">&para;</a></h3>
+<h4 id="general">general<a class="headerlink" href="#general" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Model training parameters within the <code>freqai.model_training_parameters</code> sub dictionary</strong></td>
+</tr>
+<tr>
+<td><code>learning_rate</code></td>
+<td>Learning rate to be passed to the optimizer. <br> <strong>Datatype:</strong> float. <br> Default: <code>3e-4</code>.</td>
+</tr>
+<tr>
+<td><code>model_kwargs</code></td>
+<td>Parameters to be passed to the model class. <br> <strong>Datatype:</strong> dict. <br> Default: <code>{}</code>.</td>
+</tr>
+<tr>
+<td><code>trainer_kwargs</code></td>
+<td>Parameters to be passed to the trainer class. <br> <strong>Datatype:</strong> dict. <br> Default: <code>{}</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="trainer_kwargs">trainer_kwargs<a class="headerlink" href="#trainer_kwargs" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Model training parameters within the <code>freqai.model_training_parameters.model_kwargs</code> sub dictionary</strong></td>
+</tr>
+<tr>
+<td><code>n_epochs</code></td>
+<td>The <code>n_epochs</code> parameter is a crucial setting in the PyTorch training loop that determines the number of times the entire training dataset will be used to update the model's parameters. An epoch represents one full pass through the entire training dataset. Overrides <code>n_steps</code>. Either <code>n_epochs</code> or <code>n_steps</code> must be set. <br><br> <strong>Datatype:</strong> int. optional. <br> Default: <code>10</code>.</td>
+</tr>
+<tr>
+<td><code>n_steps</code></td>
+<td>An alternative way of setting <code>n_epochs</code> -  the number of training iterations to run. Iteration here refer to the number of times we call <code>optimizer.step()</code>. Ignored if <code>n_epochs</code> is set. A simplified version of the function: <br><br> n_epochs = n_steps / (n_obs / batch_size) <br><br> The motivation here is that <code>n_steps</code> is easier to optimize and keep stable across different n_obs - the number of data points.  <br> <br> <strong>Datatype:</strong> int. optional. <br> Default: <code>None</code>.</td>
+</tr>
+<tr>
+<td><code>batch_size</code></td>
+<td>The size of the batches to use during training. <br><br> <strong>Datatype:</strong> int. <br> Default: <code>64</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="additional-parameters">Additional parameters<a class="headerlink" href="#additional-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Extraneous parameters</strong></td>
+</tr>
+<tr>
+<td><code>freqai.keras</code></td>
+<td>If the selected model makes use of Keras (typical for TensorFlow-based prediction models), this flag needs to be activated so that the model save/loading follows Keras standards. <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code>.</td>
+</tr>
+<tr>
+<td><code>freqai.conv_width</code></td>
+<td>The width of a neural network input tensor. This replaces the need for shifting candles (<code>include_shifted_candles</code>) by feeding in historical data points as the second dimension of the tensor. Technically, this parameter can also be used for regressors, but it only adds computational overhead and does not change the model training/prediction. <br> <strong>Datatype:</strong> Integer. <br> Default: <code>2</code>.</td>
+</tr>
+<tr>
+<td><code>freqai.reduce_df_footprint</code></td>
+<td>Recast all numeric columns to float32/int32, with the objective of reducing ram/disk usage and decreasing train/inference timing. This parameter is set in the main level of the Freqtrade configuration file (not inside FreqAI). <br> <strong>Datatype:</strong> Boolean. <br> Default: <code>False</code>.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -2032,15 +2235,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="freqai-configuration.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configuration
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="docker_quickstart.html" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart with Docker">
+          <a href="freqai-feature-engineering.html" class="md-footer__link md-footer__link--next" aria-label="Next: Feature engineering">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart with Docker
+                Feature engineering
               </div>
             </div>
             <div class="md-footer__button md-icon">

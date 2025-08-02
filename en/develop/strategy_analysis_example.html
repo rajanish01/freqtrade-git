@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://www.freqtrade.io/en/stable/index.html">
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/strategy_analysis_example.html">
       
       
+        <link rel="prev" href="data-analysis.html">
       
-        <link rel="next" href="docker_quickstart.html">
+      
+        <link rel="next" href="advanced-backtesting.html">
       
       
       <link rel="icon" href="images/logo.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Freqtrade</title>
+        <title>Strategy analysis - Freqtrade</title>
       
     
     
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#strategy-analysis-example" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Strategy analysis
             
           </span>
         </div>
@@ -274,30 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -308,150 +290,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community tested
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1246,18 +1084,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" checked>
         
           
           <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
@@ -1273,7 +1113,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_21">
             <span class="md-nav__icon md-icon"></span>
             Data Analysis
@@ -1307,10 +1147,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="strategy_analysis_example.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Strategy analysis
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="strategy_analysis_example.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1321,6 +1183,158 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-working-directory-to-repository-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Working directory to repository root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-freqtrade-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Freqtrade environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-and-run-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load and run strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load and run strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#display-the-trade-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display the trade details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-existing-objects-into-a-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load existing objects into a Jupyter notebook
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load existing objects into a Jupyter notebook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-backtest-results-to-pandas-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load backtest results to pandas dataframe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotting-daily-profit-equity-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plotting daily profit / equity line
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plotting daily profit / equity line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-live-trading-results-into-a-pandas-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load live trading results into a pandas dataframe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyze-the-loaded-trades-for-trade-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analyze the loaded trades for trade parallelism
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plot results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-average-profit-per-trade-as-distribution-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plot average profit per trade as distribution graph
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1737,6 +1751,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1745,46 +1761,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Setup
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
+    <nav class="md-nav" aria-label="Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
+  <a href="#change-working-directory-to-repository-root" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
+      Change Working directory to repository root
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
+  <a href="#configure-freqtrade-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Community tested
+      Configure Freqtrade environment
     </span>
   </a>
   
@@ -1796,37 +1794,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
+  <a href="#load-and-run-strategy" class="md-nav__link">
     <span class="md-ellipsis">
-      Community showcase
+      Load and run strategy
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
+    <nav class="md-nav" aria-label="Load and run strategy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#display-the-trade-details" class="md-nav__link">
     <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
+      Display the trade details
     </span>
   </a>
   
@@ -1838,19 +1818,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#load-existing-objects-into-a-jupyter-notebook" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Load existing objects into a Jupyter notebook
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Support">
+    <nav class="md-nav" aria-label="Load existing objects into a Jupyter notebook">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
+  <a href="#load-backtest-results-to-pandas-dataframe" class="md-nav__link">
     <span class="md-ellipsis">
-      Help / Discord
+      Load backtest results to pandas dataframe
     </span>
   </a>
   
@@ -1862,9 +1842,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
+  <a href="#plotting-daily-profit-equity-line" class="md-nav__link">
     <span class="md-ellipsis">
-      Ready to try?
+      Plotting daily profit / equity line
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plotting daily profit / equity line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-live-trading-results-into-a-pandas-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load live trading results into a pandas dataframe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyze-the-loaded-trades-for-trade-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analyze the loaded trades for trade parallelism
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plot results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-average-profit-per-trade-as-distribution-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plot average profit per trade as distribution graph
     </span>
   </a>
   
@@ -1886,7 +1908,7 @@
 
 
   
-    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/strategy_analysis_example.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1894,107 +1916,228 @@
   
 
 
-  <h1>Home</h1>
+<h1 id="strategy-analysis-example">Strategy analysis example<a class="headerlink" href="#strategy-analysis-example" title="Permanent link">&para;</a></h1>
+<p>Debugging a strategy can be time-consuming. Freqtrade offers helper functions to visualize raw data.
+The following assumes you work with SampleStrategy, data for 5m timeframe from Binance and have downloaded them into the data directory in the default location.
+Please follow the <a href="https://www.freqtrade.io/en/stable/data-download/">documentation</a> for more details.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<h3 id="change-working-directory-to-repository-root">Change Working directory to repository root<a class="headerlink" href="#change-working-directory-to-repository-root" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<p><img alt="freqtrade" src="assets/freqtrade_poweredby.svg" /></p>
-<p><a href="https://github.com/freqtrade/freqtrade/actions/"><img alt="Freqtrade CI" src="https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
-<a href="https://doi.org/10.21105/joss.04864"><img alt="DOI" src="https://joss.theoj.org/papers/10.21105/joss.04864/status.svg" /></a>
-<a href="https://coveralls.io/github/freqtrade/freqtrade?branch=develop"><img alt="Coverage Status" src="https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&amp;service=github" /></a>
-<a href="https://codeclimate.com/github/freqtrade/freqtrade/maintainability"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability" /></a></p>
-<!-- GitHub action buttons -->
-<p><a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25m0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41z"/></svg></span> Star</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/fork"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5m-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg></span> Fork</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/archive/stable.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Download</a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.</p>
-<div class="admonition danger">
-<p class="admonition-title">DISCLAIMER</p>
-<p>This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.</p>
-<p>Always start by running a trading bot in Dry-run and do not engage money before you understand how it works and what profit/loss you should expect.</p>
-<p>We strongly recommend you to have basic coding skills and Python knowledge. Do not hesitate to read the source code and understand the mechanisms of this bot, algorithms and techniques implemented in it.</p>
-</div>
-<p><img alt="freqtrade screenshot" src="assets/freqtrade-screenshot.png" /></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+
+<span class="c1"># Change directory</span>
+<span class="c1"># Modify this cell to insure that the output shows the correct path.</span>
+<span class="c1"># Define all paths relative to the project root shown in the cell output</span>
+<span class="n">project_root</span> <span class="o">=</span> <span class="s2">&quot;somedir/freqtrade&quot;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">project_root</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;LICENSE&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;LICENSE&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="s2">&quot;../&quot;</span><span class="p">))</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">project_root</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please define the project root relative to the current directory&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+</code></pre></div>
+<h3 id="configure-freqtrade-environment">Configure Freqtrade environment<a class="headerlink" href="#configure-freqtrade-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.configuration</span><span class="w"> </span><span class="kn">import</span> <span class="n">Configuration</span>
+
+
+<span class="c1"># Customize these according to your needs.</span>
+
+<span class="c1"># Initialize empty configuration object</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">from_files</span><span class="p">([])</span>
+<span class="c1"># Optionally (recommended), use existing configuration file</span>
+<span class="c1"># config = Configuration.from_files([&quot;user_data/config.json&quot;])</span>
+
+<span class="c1"># Define some constants</span>
+<span class="n">config</span><span class="p">[</span><span class="s2">&quot;timeframe&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;5m&quot;</span>
+<span class="c1"># Name of the strategy class</span>
+<span class="n">config</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;SampleStrategy&quot;</span>
+<span class="c1"># Location of the data</span>
+<span class="n">data_location</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;datadir&quot;</span><span class="p">]</span>
+<span class="c1"># Pair to analyze - Only use one pair here</span>
+<span class="n">pair</span> <span class="o">=</span> <span class="s2">&quot;BTC/USDT&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load data using values set above</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.data.history</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_pair_history</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">CandleType</span>
+
+
+<span class="n">candles</span> <span class="o">=</span> <span class="n">load_pair_history</span><span class="p">(</span>
+    <span class="n">datadir</span><span class="o">=</span><span class="n">data_location</span><span class="p">,</span>
+    <span class="n">timeframe</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;timeframe&quot;</span><span class="p">],</span>
+    <span class="n">pair</span><span class="o">=</span><span class="n">pair</span><span class="p">,</span>
+    <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">,</span>  <span class="c1"># Make sure to update this to your data</span>
+    <span class="n">candle_type</span><span class="o">=</span><span class="n">CandleType</span><span class="o">.</span><span class="n">SPOT</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Confirm success</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">candles</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of data for </span><span class="si">{</span><span class="n">pair</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">data_location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">candles</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="load-and-run-strategy">Load and run strategy<a class="headerlink" href="#load-and-run-strategy" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Develop your Strategy: Write your strategy in python, using <a href="https://pandas.pydata.org/">pandas</a>. Example strategies to inspire you are available in the <a href="https://github.com/freqtrade/freqtrade-strategies">strategy repository</a>.</li>
-<li>Download market data: Download historical data of the exchange and the markets your may want to trade with.</li>
-<li>Backtest: Test your strategy on downloaded historical data.</li>
-<li>Optimize: Find the best parameters for your strategy using hyperoptimization which employs machine learning methods. You can optimize buy, sell, take profit (ROI), stop-loss and trailing stop-loss parameters for your strategy.</li>
-<li>Select markets: Create your static list or use an automatic one based on top traded volumes and/or prices (not available during backtesting). You can also explicitly blacklist markets you don't want to trade.</li>
-<li>Run: Test your strategy with simulated money (Dry-Run mode) or deploy it with real money (Live-Trade mode).</li>
-<li>Control/Monitor: Use Telegram or a WebUI (start/stop the bot, show profit/loss, daily summary, current open trades results, etc.).</li>
-<li>Analyze: Further analysis can be performed on either Backtesting data or Freqtrade trading history (SQL database), including automated standard plots, and methods to load the data into <a href="data-analysis.html">interactive environments</a>.</li>
+<li>Rerun each time the strategy file is changed</li>
 </ul>
-<h2 id="supported-exchange-marketplaces">Supported exchange marketplaces<a class="headerlink" href="#supported-exchange-marketplaces" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="exchanges.html">exchange specific notes</a> to learn about eventual, special configurations needed for each exchange.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bingx.com/invite/0EM9RX">BingX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitmart.com/">Bitmart</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.htx.com/">HTX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://kraken.com/">Kraken</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">MyOKX</a> (OKX EEA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/ccxt/ccxt/">potentially many others through <img alt="ccxt" width="30px" src="assets/ccxt-logo.svg" /></a>. <em>(We cannot guarantee they will work)</em></li>
-</ul>
-<h3 id="supported-futures-exchanges-experimental">Supported Futures Exchanges (experimental)<a class="headerlink" href="#supported-futures-exchanges-experimental" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-</ul>
-<p>Please make sure to read the <a href="exchanges.html">exchange specific notes</a>, as well as the <a href="leverage.html">trading with leverage</a> documentation before diving in.</p>
-<h3 id="community-tested">Community tested<a class="headerlink" href="#community-tested" title="Permanent link">&para;</a></h3>
-<p>Exchanges confirmed working by the community:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitvavo.com/">Bitvavo</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.kucoin.com/">Kucoin</a></li>
-</ul>
-<h2 id="community-showcase">Community showcase<a class="headerlink" href="#community-showcase" title="Permanent link">&para;</a></h2>
-<p>This section will highlight a few projects from members of the community.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The projects below are for the most part not maintained by the freqtrade , therefore use your own caution before using them.</p>
-</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load strategy using values set above</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.data.dataprovider</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.resolvers</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrategyResolver</span>
+
+
+<span class="n">strategy</span> <span class="o">=</span> <span class="n">StrategyResolver</span><span class="o">.</span><span class="n">load_strategy</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">dp</span> <span class="o">=</span> <span class="n">DataProvider</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">ft_bot_start</span><span class="p">()</span>
+
+<span class="c1"># Generate buy/sell signals using strategy</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="n">analyze_ticker</span><span class="p">(</span><span class="n">candles</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;pair&quot;</span><span class="p">:</span> <span class="n">pair</span><span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="display-the-trade-details">Display the trade details<a class="headerlink" href="#display-the-trade-details" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://github.com/freqtrade/freqtrade-strategies/">Example freqtrade strategies</a></li>
-<li><a href="http://frequenthippo.ddns.net">FrequentHippo - Statistics of dry/live runs and backtests</a> (by hippocritical).</li>
-<li><a href="https://remotepairlist.com/">Online pairlist generator</a> (by Blood4rc).</li>
-<li><a href="https://strat.ninja/">Freqtrade Backtesting Project</a> (by Blood4rc).</li>
-<li><a href="https://github.com/froggleston/freqtrade_analysis_notebook">Freqtrade analysis notebook</a> (by Froggleston).</li>
-<li><a href="https://github.com/froggleston/freqtrade-frogtrade9000">TUI for freqtrade</a> (by Froggleston).</li>
-<li><a href="https://botacademy.ddns.net/">Bot Academy</a> (by stash86) - Blog about crypto bot projects.</li>
+<li>Note that using <code>data.head()</code> would also work, however most indicators have some "startup" data at the top of the dataframe.</li>
+<li>Some possible problems
+    * Columns with NaN values at the end of the dataframe
+    * Columns used in <code>crossed*()</code> functions with completely different units</li>
+<li>Comparison with full backtest
+    * having 200 buy signals as output for one pair from <code>analyze_ticker()</code> does not necessarily mean that 200 trades will be made during backtesting.
+    * Assuming you use only one condition such as, <code>df['rsi'] &lt; 30</code> as buy condition, this will generate multiple "buy" signals for each pair in sequence (until rsi returns &gt; 29). The bot will only buy on the first of these signals (and also only if a trade-slot ("max_open_trades") is still available), or on one of the middle signals, as soon as a "slot" becomes available.  </li>
 </ul>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-requirements">Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h3>
-<p>To run this bot we recommend you a linux cloud instance with a minimum of:</p>
-<ul>
-<li>2GB RAM</li>
-<li>1GB disk space</li>
-<li>2vCPU</li>
-</ul>
-<h3 id="software-requirements">Software requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Docker (Recommended)</li>
-</ul>
-<p>Alternatively</p>
-<ul>
-<li>Python 3.11+</li>
-<li>pip (pip3)</li>
-<li>git</li>
-<li>TA-Lib</li>
-<li>virtualenv (Recommended)</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<h3 id="help-discord">Help / Discord<a class="headerlink" href="#help-discord" title="Permanent link">&para;</a></h3>
-<p>For any questions not covered by the documentation or for further information about the bot, or to simply engage with like-minded individuals, we encourage you to join the Freqtrade <a href="https://discord.gg/p7nuUNVfP7">discord server</a>.</p>
-<h2 id="ready-to-try">Ready to try?<a class="headerlink" href="#ready-to-try" title="Permanent link">&para;</a></h2>
-<p>Begin by reading the installation guide <a href="docker_quickstart.html">for docker</a> (recommended), or for <a href="installation.html">installation without docker</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Report results</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;enter_long&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> entry signals&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="load-existing-objects-into-a-jupyter-notebook">Load existing objects into a Jupyter notebook<a class="headerlink" href="#load-existing-objects-into-a-jupyter-notebook" title="Permanent link">&para;</a></h2>
+<p>The following cells assume that you have already generated data using the cli.<br />
+They will allow you to drill deeper into your results, and perform analysis which otherwise would make the output very difficult to digest due to information overload.</p>
+<h3 id="load-backtest-results-to-pandas-dataframe">Load backtest results to pandas dataframe<a class="headerlink" href="#load-backtest-results-to-pandas-dataframe" title="Permanent link">&para;</a></h3>
+<p>Analyze a trades dataframe (also used below for plotting)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.data.btanalysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_backtest_data</span><span class="p">,</span> <span class="n">load_backtest_stats</span>
+
+
+<span class="c1"># if backtest_dir points to a directory, it&#39;ll automatically load the last backtest file.</span>
+<span class="n">backtest_dir</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;user_data_dir&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="s2">&quot;backtest_results&quot;</span>
+<span class="c1"># backtest_dir can also point to a specific file</span>
+<span class="c1"># backtest_dir = (</span>
+<span class="c1">#   config[&quot;user_data_dir&quot;] / &quot;backtest_results/backtest-result-2020-07-01_20-04-22.json&quot;</span>
+<span class="c1"># )</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># You can get the full backtest statistics by using the following command.</span>
+<span class="c1"># This contains all information used to generate the backtest result.</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="n">load_backtest_stats</span><span class="p">(</span><span class="n">backtest_dir</span><span class="p">)</span>
+
+<span class="n">strategy</span> <span class="o">=</span> <span class="s2">&quot;SampleStrategy&quot;</span>
+<span class="c1"># All statistics are available per strategy, so if `--strategy-list` was used during backtest,</span>
+<span class="c1"># this will be reflected here as well.</span>
+<span class="c1"># Example usages:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">][</span><span class="n">strategy</span><span class="p">][</span><span class="s2">&quot;results_per_pair&quot;</span><span class="p">])</span>
+<span class="c1"># Get pairlist used for this backtest</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">][</span><span class="n">strategy</span><span class="p">][</span><span class="s2">&quot;pairlist&quot;</span><span class="p">])</span>
+<span class="c1"># Get market change (average change of all pairs from start to end of the backtest period)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">][</span><span class="n">strategy</span><span class="p">][</span><span class="s2">&quot;market_change&quot;</span><span class="p">])</span>
+<span class="c1"># Maximum drawdown ()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">][</span><span class="n">strategy</span><span class="p">][</span><span class="s2">&quot;max_drawdown_abs&quot;</span><span class="p">])</span>
+<span class="c1"># Maximum drawdown start and end</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">][</span><span class="n">strategy</span><span class="p">][</span><span class="s2">&quot;drawdown_start&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">][</span><span class="n">strategy</span><span class="p">][</span><span class="s2">&quot;drawdown_end&quot;</span><span class="p">])</span>
+
+
+<span class="c1"># Get strategy comparison (only relevant if multiple strategies were compared)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy_comparison&quot;</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load backtested trades as dataframe</span>
+<span class="n">trades</span> <span class="o">=</span> <span class="n">load_backtest_data</span><span class="p">(</span><span class="n">backtest_dir</span><span class="p">)</span>
+
+<span class="c1"># Show value-counts per pair</span>
+<span class="n">trades</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;pair&quot;</span><span class="p">)[</span><span class="s2">&quot;exit_reason&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="plotting-daily-profit-equity-line">Plotting daily profit / equity line<a class="headerlink" href="#plotting-daily-profit-equity-line" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Plotting equity line (starting with 0 on day 1 and adding daily profit for each backtested day)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.configuration</span><span class="w"> </span><span class="kn">import</span> <span class="n">Configuration</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.data.btanalysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_backtest_stats</span>
+
+
+<span class="c1"># strategy = &#39;SampleStrategy&#39;</span>
+<span class="c1"># config = Configuration.from_files([&quot;user_data/config.json&quot;])</span>
+<span class="c1"># backtest_dir = config[&quot;user_data_dir&quot;] / &quot;backtest_results&quot;</span>
+
+<span class="n">stats</span> <span class="o">=</span> <span class="n">load_backtest_stats</span><span class="p">(</span><span class="n">backtest_dir</span><span class="p">)</span>
+<span class="n">strategy_stats</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s2">&quot;strategy&quot;</span><span class="p">][</span><span class="n">strategy</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span> <span class="s2">&quot;equity&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">strategy_stats</span><span class="p">[</span><span class="s2">&quot;daily_profit&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;equity_daily&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;equity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;equity_daily&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="load-live-trading-results-into-a-pandas-dataframe">Load live trading results into a pandas dataframe<a class="headerlink" href="#load-live-trading-results-into-a-pandas-dataframe" title="Permanent link">&para;</a></h3>
+<p>In case you did already some trading and want to analyze your performance</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.data.btanalysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_trades_from_db</span>
+
+
+<span class="c1"># Fetch trades from database</span>
+<span class="n">trades</span> <span class="o">=</span> <span class="n">load_trades_from_db</span><span class="p">(</span><span class="s2">&quot;sqlite:///tradesv3.sqlite&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="n">trades</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;pair&quot;</span><span class="p">)[</span><span class="s2">&quot;exit_reason&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="analyze-the-loaded-trades-for-trade-parallelism">Analyze the loaded trades for trade parallelism<a class="headerlink" href="#analyze-the-loaded-trades-for-trade-parallelism" title="Permanent link">&para;</a></h2>
+<p>This can be useful to find the best <code>max_open_trades</code> parameter, when used with backtesting in conjunction with a very high <code>max_open_trades</code> setting.</p>
+<p><code>analyze_trade_parallelism()</code> returns a timeseries dataframe with an "open_trades" column, specifying the number of open trades for each candle.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.data.btanalysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">analyze_trade_parallelism</span>
+
+
+<span class="c1"># Analyze the above</span>
+<span class="n">parallel_trades</span> <span class="o">=</span> <span class="n">analyze_trade_parallelism</span><span class="p">(</span><span class="n">trades</span><span class="p">,</span> <span class="s2">&quot;5m&quot;</span><span class="p">)</span>
+
+<span class="n">parallel_trades</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="plot-results">Plot results<a class="headerlink" href="#plot-results" title="Permanent link">&para;</a></h2>
+<p>Freqtrade offers interactive plotting capabilities based on plotly.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.plot.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_candlestick_graph</span>
+
+
+<span class="c1"># Limit graph period to keep plotly quick and reactive</span>
+
+<span class="c1"># Filter trades to one pair</span>
+<span class="n">trades_red</span> <span class="o">=</span> <span class="n">trades</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">trades</span><span class="p">[</span><span class="s2">&quot;pair&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pair</span><span class="p">]</span>
+
+<span class="n">data_red</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;2019-06-01&quot;</span><span class="p">:</span><span class="s2">&quot;2019-06-10&quot;</span><span class="p">]</span>
+<span class="c1"># Generate candlestick graph</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">generate_candlestick_graph</span><span class="p">(</span>
+    <span class="n">pair</span><span class="o">=</span><span class="n">pair</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data_red</span><span class="p">,</span>
+    <span class="n">trades</span><span class="o">=</span><span class="n">trades_red</span><span class="p">,</span>
+    <span class="n">indicators1</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sma20&quot;</span><span class="p">,</span> <span class="s2">&quot;ema50&quot;</span><span class="p">,</span> <span class="s2">&quot;ema55&quot;</span><span class="p">],</span>
+    <span class="n">indicators2</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rsi&quot;</span><span class="p">,</span> <span class="s2">&quot;macd&quot;</span><span class="p">,</span> <span class="s2">&quot;macdsignal&quot;</span><span class="p">,</span> <span class="s2">&quot;macdhist&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show graph inline</span>
+<span class="c1"># graph.show()</span>
+
+<span class="c1"># Render graph in a separate window</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s2">&quot;browser&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="plot-average-profit-per-trade-as-distribution-graph">Plot average profit per trade as distribution graph<a class="headerlink" href="#plot-average-profit-per-trade-as-distribution-graph" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.figure_factory</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ff</span>
+
+
+<span class="n">hist_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trades</span><span class="o">.</span><span class="n">profit_ratio</span><span class="p">]</span>
+<span class="n">group_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;profit_ratio&quot;</span><span class="p">]</span>  <span class="c1"># name of the dataset</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">(</span><span class="n">hist_data</span><span class="p">,</span> <span class="n">group_labels</span><span class="p">,</span> <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>Feel free to submit an issue or Pull Request enhancing this document if you would like to share ideas on how to best analyze the data.</p>
 
 
 
@@ -2032,15 +2175,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="data-analysis.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Jupyter Notebooks">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Jupyter Notebooks
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="docker_quickstart.html" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart with Docker">
+          <a href="advanced-backtesting.html" class="md-footer__link md-footer__link--next" aria-label="Next: Backtest analysis">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart with Docker
+                Backtest analysis
               </div>
             </div>
             <div class="md-footer__button md-icon">
