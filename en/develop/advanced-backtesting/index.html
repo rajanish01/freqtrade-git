@@ -10,26 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://www.freqtrade.io/en/stable/">
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/advanced-backtesting/">
       
       
+        <link rel="prev" href="../strategy_analysis_example/">
       
-        <link rel="next" href="docker_quickstart/">
+      
+        <link rel="next" href="../advanced-setup/">
       
       
-      <link rel="icon" href="images/logo.png">
+      <link rel="icon" href="../images/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Freqtrade</title>
+        <title>Backtest analysis - Freqtrade</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/ft.extra.css">
+      <link rel="stylesheet" href="../stylesheets/ft.extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#advanced-backtesting-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -106,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Backtest analysis
             
           </span>
         </div>
@@ -248,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     Freqtrade
@@ -274,30 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -308,150 +290,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community tested
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware requirements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Software requirements
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -463,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker_quickstart/" class="md-nav__link">
+      <a href="../docker_quickstart/" class="md-nav__link">
         
   
   
@@ -523,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -546,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="windows_installation/" class="md-nav__link">
+      <a href="../windows_installation/" class="md-nav__link">
         
   
   
@@ -576,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="bot-basics/" class="md-nav__link">
+      <a href="../bot-basics/" class="md-nav__link">
         
   
   
@@ -598,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -620,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="strategy-101/" class="md-nav__link">
+      <a href="../strategy-101/" class="md-nav__link">
         
   
   
@@ -642,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="strategy-customization/" class="md-nav__link">
+      <a href="../strategy-customization/" class="md-nav__link">
         
   
   
@@ -664,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="strategy-callbacks/" class="md-nav__link">
+      <a href="../strategy-callbacks/" class="md-nav__link">
         
   
   
@@ -686,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="stoploss/" class="md-nav__link">
+      <a href="../stoploss/" class="md-nav__link">
         
   
   
@@ -708,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="plugins/" class="md-nav__link">
+      <a href="../plugins/" class="md-nav__link">
         
   
   
@@ -730,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="bot-usage/" class="md-nav__link">
+      <a href="../bot-usage/" class="md-nav__link">
         
   
   
@@ -790,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="telegram-usage/" class="md-nav__link">
+      <a href="../telegram-usage/" class="md-nav__link">
         
   
   
@@ -813,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freq-ui/" class="md-nav__link">
+      <a href="../freq-ui/" class="md-nav__link">
         
   
   
@@ -836,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rest-api/" class="md-nav__link">
+      <a href="../rest-api/" class="md-nav__link">
         
   
   
@@ -859,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="webhook-config/" class="md-nav__link">
+      <a href="../webhook-config/" class="md-nav__link">
         
   
   
@@ -889,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data-download/" class="md-nav__link">
+      <a href="../data-download/" class="md-nav__link">
         
   
   
@@ -911,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backtesting/" class="md-nav__link">
+      <a href="../backtesting/" class="md-nav__link">
         
   
   
@@ -933,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hyperopt/" class="md-nav__link">
+      <a href="../hyperopt/" class="md-nav__link">
         
   
   
@@ -993,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freqai/" class="md-nav__link">
+      <a href="../freqai/" class="md-nav__link">
         
   
   
@@ -1016,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freqai-configuration/" class="md-nav__link">
+      <a href="../freqai-configuration/" class="md-nav__link">
         
   
   
@@ -1039,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freqai-parameter-table/" class="md-nav__link">
+      <a href="../freqai-parameter-table/" class="md-nav__link">
         
   
   
@@ -1062,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freqai-feature-engineering/" class="md-nav__link">
+      <a href="../freqai-feature-engineering/" class="md-nav__link">
         
   
   
@@ -1085,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freqai-running/" class="md-nav__link">
+      <a href="../freqai-running/" class="md-nav__link">
         
   
   
@@ -1108,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freqai-reinforcement-learning/" class="md-nav__link">
+      <a href="../freqai-reinforcement-learning/" class="md-nav__link">
         
   
   
@@ -1131,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="freqai-developers/" class="md-nav__link">
+      <a href="../freqai-developers/" class="md-nav__link">
         
   
   
@@ -1161,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="leverage/" class="md-nav__link">
+      <a href="../leverage/" class="md-nav__link">
         
   
   
@@ -1183,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="utils/" class="md-nav__link">
+      <a href="../utils/" class="md-nav__link">
         
   
   
@@ -1205,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="plotting/" class="md-nav__link">
+      <a href="../plotting/" class="md-nav__link">
         
   
   
@@ -1227,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="exchanges/" class="md-nav__link">
+      <a href="../exchanges/" class="md-nav__link">
         
   
   
@@ -1246,18 +1084,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" checked>
         
           
           <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
@@ -1273,7 +1113,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_21">
             <span class="md-nav__icon md-icon"></span>
             Data Analysis
@@ -1287,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data-analysis/" class="md-nav__link">
+      <a href="../data-analysis/" class="md-nav__link">
         
   
   
@@ -1310,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="strategy_analysis_example/" class="md-nav__link">
+      <a href="../strategy_analysis_example/" class="md-nav__link">
         
   
   
@@ -1330,10 +1170,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="advanced-backtesting/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Backtest analysis
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1344,6 +1206,119 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analyze-the-buyentry-and-sellexit-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analyze the buy/entry and sell/exit tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analyze the buy/entry and sell/exit tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-export-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using export-filename
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-the-buy-tags-and-sell-tags-to-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuning the buy tags and sell tags to display
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputting-signal-candle-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputting signal candle indicators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputting signal candle indicators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-output-for-indicator-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Output for Indicator Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-indicators-based-on-entry-or-exit-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering Indicators Based on Entry or Exit Signals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-the-trade-output-by-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering the trade output by date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#printing-out-rejected-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Printing out rejected signals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-tables-to-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing tables to CSV
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1401,7 +1376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced-setup/" class="md-nav__link">
+      <a href="../advanced-setup/" class="md-nav__link">
         
   
   
@@ -1424,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="trade-object/" class="md-nav__link">
+      <a href="../trade-object/" class="md-nav__link">
         
   
   
@@ -1447,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lookahead-analysis/" class="md-nav__link">
+      <a href="../lookahead-analysis/" class="md-nav__link">
         
   
   
@@ -1470,7 +1445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recursive-analysis/" class="md-nav__link">
+      <a href="../recursive-analysis/" class="md-nav__link">
         
   
   
@@ -1493,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="strategy-advanced/" class="md-nav__link">
+      <a href="../strategy-advanced/" class="md-nav__link">
         
   
   
@@ -1516,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced-hyperopt/" class="md-nav__link">
+      <a href="../advanced-hyperopt/" class="md-nav__link">
         
   
   
@@ -1539,7 +1514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced-orderflow/" class="md-nav__link">
+      <a href="../advanced-orderflow/" class="md-nav__link">
         
   
   
@@ -1562,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="producer-consumer/" class="md-nav__link">
+      <a href="../producer-consumer/" class="md-nav__link">
         
   
   
@@ -1585,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sql_cheatsheet/" class="md-nav__link">
+      <a href="../sql_cheatsheet/" class="md-nav__link">
         
   
   
@@ -1615,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   
@@ -1637,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="strategy_migration/" class="md-nav__link">
+      <a href="../strategy_migration/" class="md-nav__link">
         
   
   
@@ -1659,7 +1634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="updating/" class="md-nav__link">
+      <a href="../updating/" class="md-nav__link">
         
   
   
@@ -1681,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deprecated/" class="md-nav__link">
+      <a href="../deprecated/" class="md-nav__link">
         
   
   
@@ -1703,7 +1678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="developer/" class="md-nav__link">
+      <a href="../developer/" class="md-nav__link">
         
   
   
@@ -1737,6 +1712,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1745,46 +1722,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#analyze-the-buyentry-and-sellexit-tags" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Analyze the buy/entry and sell/exit tags
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-exchange-marketplaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported exchange marketplaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported exchange marketplaces">
+    <nav class="md-nav" aria-label="Analyze the buy/entry and sell/exit tags">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-futures-exchanges-experimental" class="md-nav__link">
+  <a href="#using-export-filename" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Futures Exchanges (experimental)
+      Using export-filename
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#community-tested" class="md-nav__link">
+  <a href="#tuning-the-buy-tags-and-sell-tags-to-display" class="md-nav__link">
     <span class="md-ellipsis">
-      Community tested
+      Tuning the buy tags and sell tags to display
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputting-signal-candle-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outputting signal candle indicators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputting signal candle indicators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-output-for-indicator-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Output for Indicator Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-indicators-based-on-entry-or-exit-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering Indicators Based on Entry or Exit Signals
     </span>
   </a>
   
@@ -1794,39 +1781,29 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#community-showcase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community showcase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#filtering-the-trade-output-by-date" class="md-nav__link">
     <span class="md-ellipsis">
-      Hardware requirements
+      Filtering the trade output by date
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
+  <a href="#printing-out-rejected-signals" class="md-nav__link">
     <span class="md-ellipsis">
-      Software requirements
+      Printing out rejected signals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-tables-to-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing tables to CSV
     </span>
   </a>
   
@@ -1834,39 +1811,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#help-discord" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help / Discord
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ready-to-try" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ready to try?
-    </span>
-  </a>
   
 </li>
       
@@ -1886,7 +1830,7 @@
 
 
   
-    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/advanced-backtesting.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1894,107 +1838,189 @@
   
 
 
-  <h1>Home</h1>
-
-<p><img alt="freqtrade" src="assets/freqtrade_poweredby.svg" /></p>
-<p><a href="https://github.com/freqtrade/freqtrade/actions/"><img alt="Freqtrade CI" src="https://github.com/freqtrade/freqtrade/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
-<a href="https://doi.org/10.21105/joss.04864"><img alt="DOI" src="https://joss.theoj.org/papers/10.21105/joss.04864/status.svg" /></a>
-<a href="https://coveralls.io/github/freqtrade/freqtrade?branch=develop"><img alt="Coverage Status" src="https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&amp;service=github" /></a>
-<a href="https://codeclimate.com/github/freqtrade/freqtrade/maintainability"><img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability" /></a></p>
-<!-- GitHub action buttons -->
-<p><a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25m0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41z"/></svg></span> Star</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/fork"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5m-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg></span> Fork</a>
-<a class="md-button md-button--sm" href="https://github.com/freqtrade/freqtrade/archive/stable.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Download</a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.</p>
-<div class="admonition danger">
-<p class="admonition-title">DISCLAIMER</p>
-<p>This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.</p>
-<p>Always start by running a trading bot in Dry-run and do not engage money before you understand how it works and what profit/loss you should expect.</p>
-<p>We strongly recommend you to have basic coding skills and Python knowledge. Do not hesitate to read the source code and understand the mechanisms of this bot, algorithms and techniques implemented in it.</p>
-</div>
-<p><img alt="freqtrade screenshot" src="assets/freqtrade-screenshot.png" /></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Develop your Strategy: Write your strategy in python, using <a href="https://pandas.pydata.org/">pandas</a>. Example strategies to inspire you are available in the <a href="https://github.com/freqtrade/freqtrade-strategies">strategy repository</a>.</li>
-<li>Download market data: Download historical data of the exchange and the markets your may want to trade with.</li>
-<li>Backtest: Test your strategy on downloaded historical data.</li>
-<li>Optimize: Find the best parameters for your strategy using hyperoptimization which employs machine learning methods. You can optimize buy, sell, take profit (ROI), stop-loss and trailing stop-loss parameters for your strategy.</li>
-<li>Select markets: Create your static list or use an automatic one based on top traded volumes and/or prices (not available during backtesting). You can also explicitly blacklist markets you don't want to trade.</li>
-<li>Run: Test your strategy with simulated money (Dry-Run mode) or deploy it with real money (Live-Trade mode).</li>
-<li>Control/Monitor: Use Telegram or a WebUI (start/stop the bot, show profit/loss, daily summary, current open trades results, etc.).</li>
-<li>Analyze: Further analysis can be performed on either Backtesting data or Freqtrade trading history (SQL database), including automated standard plots, and methods to load the data into <a href="data-analysis/">interactive environments</a>.</li>
-</ul>
-<h2 id="supported-exchange-marketplaces">Supported exchange marketplaces<a class="headerlink" href="#supported-exchange-marketplaces" title="Permanent link">&para;</a></h2>
-<p>Please read the <a href="exchanges/">exchange specific notes</a> to learn about eventual, special configurations needed for each exchange.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bingx.com/invite/0EM9RX">BingX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitmart.com/">Bitmart</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.htx.com/">HTX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://kraken.com/">Kraken</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">MyOKX</a> (OKX EEA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/ccxt/ccxt/">potentially many others through <img alt="ccxt" width="30px" src="assets/ccxt-logo.svg" /></a>. <em>(We cannot guarantee they will work)</em></li>
-</ul>
-<h3 id="supported-futures-exchanges-experimental">Supported Futures Exchanges (experimental)<a class="headerlink" href="#supported-futures-exchanges-experimental" title="Permanent link">&para;</a></h3>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.binance.com/">Binance</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bybit.com/">Bybit</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.gate.io/ref/6266643">Gate.io</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://hyperliquid.xyz/">Hyperliquid</a> (A decentralized exchange, or DEX)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://okx.com/">OKX</a></li>
-</ul>
-<p>Please make sure to read the <a href="exchanges/">exchange specific notes</a>, as well as the <a href="leverage/">trading with leverage</a> documentation before diving in.</p>
-<h3 id="community-tested">Community tested<a class="headerlink" href="#community-tested" title="Permanent link">&para;</a></h3>
-<p>Exchanges confirmed working by the community:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://bitvavo.com/">Bitvavo</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://www.kucoin.com/">Kucoin</a></li>
-</ul>
-<h2 id="community-showcase">Community showcase<a class="headerlink" href="#community-showcase" title="Permanent link">&para;</a></h2>
-<p>This section will highlight a few projects from members of the community.</p>
+<h1 id="advanced-backtesting-analysis">Advanced Backtesting Analysis<a class="headerlink" href="#advanced-backtesting-analysis" title="Permanent link">&para;</a></h1>
+<h2 id="analyze-the-buyentry-and-sellexit-tags">Analyze the buy/entry and sell/exit tags<a class="headerlink" href="#analyze-the-buyentry-and-sellexit-tags" title="Permanent link">&para;</a></h2>
+<p>It can be helpful to understand how a strategy behaves according to the buy/entry tags used to
+mark up different buy conditions. You might want to see more complex statistics about each buy and
+sell condition above those provided by the default backtesting output. You may also want to
+determine indicator values on the signal candle that resulted in a trade opening.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The projects below are for the most part not maintained by the freqtrade , therefore use your own caution before using them.</p>
+<p>The following buy reason analysis is only available for backtesting, <em>not hyperopt</em>.</p>
 </div>
+<p>We need to run backtesting with the <code>--export</code> option set to <code>signals</code> to enable the exporting of
+signals <strong>and</strong> trades:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--timeframe<span class="w"> </span>&lt;tf&gt;<span class="w"> </span>--strategy<span class="w"> </span>&lt;strategy_name&gt;<span class="w"> </span>--timerange<span class="o">=</span>&lt;timerange&gt;<span class="w"> </span>--export<span class="o">=</span>signals
+</code></pre></div>
+<p>This will tell freqtrade to output a pickled dictionary of strategy, pairs and corresponding
+DataFrame of the candles that resulted in entry and exit signals.
+Depending on how many entries your strategy makes, this file may get quite large, so periodically check your <code>user_data/backtest_results</code> folder to delete old exports.</p>
+<p>Before running your next backtest, make sure you either delete your old backtest results or run
+backtesting with the <code>--cache none</code> option to make sure no cached results are used.</p>
+<p>If all goes well, you should now see a <code>backtest-result-{timestamp}_signals.pkl</code> and <code>backtest-result-{timestamp}_exited.pkl</code> files in the <code>user_data/backtest_results</code> folder.</p>
+<p>To analyze the entry/exit tags, we now need to use the <code>freqtrade backtesting-analysis</code> command
+with <code>--analysis-groups</code> option provided with space-separated arguments:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--analysis-groups<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<p>This command will read from the last backtesting results. The <code>--analysis-groups</code> option is
+used to specify the various tabular outputs showing the profit of each group or trade,
+ranging from the simplest (0) to the most detailed per pair, per buy and per sell tag (4):</p>
 <ul>
-<li><a href="https://github.com/freqtrade/freqtrade-strategies/">Example freqtrade strategies</a></li>
-<li><a href="http://frequenthippo.ddns.net">FrequentHippo - Statistics of dry/live runs and backtests</a> (by hippocritical).</li>
-<li><a href="https://remotepairlist.com/">Online pairlist generator</a> (by Blood4rc).</li>
-<li><a href="https://strat.ninja/">Freqtrade Backtesting Project</a> (by Blood4rc).</li>
-<li><a href="https://github.com/froggleston/freqtrade_analysis_notebook">Freqtrade analysis notebook</a> (by Froggleston).</li>
-<li><a href="https://github.com/froggleston/freqtrade-frogtrade9000">TUI for freqtrade</a> (by Froggleston).</li>
-<li><a href="https://botacademy.ddns.net/">Bot Academy</a> (by stash86) - Blog about crypto bot projects.</li>
+<li>0: overall winrate and profit summary by enter_tag</li>
+<li>1: profit summaries grouped by enter_tag</li>
+<li>2: profit summaries grouped by enter_tag and exit_tag</li>
+<li>3: profit summaries grouped by pair and enter_tag</li>
+<li>4: profit summaries grouped by pair, enter_ and exit_tag (this can get quite large)</li>
+<li>5: profit summaries grouped by exit_tag</li>
 </ul>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-requirements">Hardware requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h3>
-<p>To run this bot we recommend you a linux cloud instance with a minimum of:</p>
+<p>More options are available by running with the <code>-h</code> option.</p>
+<h3 id="using-export-filename">Using export-filename<a class="headerlink" href="#using-export-filename" title="Permanent link">&para;</a></h3>
+<p>Normally, <code>backtesting-analysis</code> uses the latest backtest results, but if you wanted to go
+back to a previous backtest output, you need to supply the <code>--export-filename</code> option.
+You can supply the same parameter to <code>backtest-analysis</code> with the name of the final backtest
+output file. This allows you to keep historical versions of backtest results and re-analyse
+them at a later date:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--timeframe<span class="w"> </span>&lt;tf&gt;<span class="w"> </span>--strategy<span class="w"> </span>&lt;strategy_name&gt;<span class="w"> </span>--timerange<span class="o">=</span>&lt;timerange&gt;<span class="w"> </span>--export<span class="o">=</span>signals<span class="w"> </span>--export-filename<span class="o">=</span>/tmp/mystrat_backtest.json
+</code></pre></div>
+<p>You should see some output similar to below in the logs with the name of the timestamped
+filename that was exported:</p>
+<div class="highlight"><pre><span></span><code>2022-06-14 16:28:32,698 - freqtrade.misc - INFO - dumping json to &quot;/tmp/mystrat_backtest-2022-06-14_16-28-32.json&quot;
+</code></pre></div>
+<p>You can then use that filename in <code>backtesting-analysis</code>:</p>
+<div class="highlight"><pre><span></span><code>freqtrade backtesting-analysis -c &lt;config.json&gt; --export-filename=/tmp/mystrat_backtest-2022-06-14_16-28-32.json
+</code></pre></div>
+<h3 id="tuning-the-buy-tags-and-sell-tags-to-display">Tuning the buy tags and sell tags to display<a class="headerlink" href="#tuning-the-buy-tags-and-sell-tags-to-display" title="Permanent link">&para;</a></h3>
+<p>To show only certain buy and sell tags in the displayed output, use the following two options:</p>
+<div class="highlight"><pre><span></span><code>--enter-reason-list : Space-separated list of enter signals to analyse. Default: &quot;all&quot;
+--exit-reason-list : Space-separated list of exit signals to analyse. Default: &quot;all&quot;
+</code></pre></div>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--analysis-groups<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>--enter-reason-list<span class="w"> </span>enter_tag_a<span class="w"> </span>enter_tag_b<span class="w"> </span>--exit-reason-list<span class="w"> </span>roi<span class="w"> </span>custom_exit_tag_a<span class="w"> </span>stop_loss
+</code></pre></div>
+<h3 id="outputting-signal-candle-indicators">Outputting signal candle indicators<a class="headerlink" href="#outputting-signal-candle-indicators" title="Permanent link">&para;</a></h3>
+<p>The real power of <code>freqtrade backtesting-analysis</code> comes from the ability to print out the indicator
+values present on signal candles to allow fine-grained investigation and tuning of buy signal
+indicators. To print out a column for a given set of indicators, use the <code>--indicator-list</code>
+option:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--analysis-groups<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>--enter-reason-list<span class="w"> </span>enter_tag_a<span class="w"> </span>enter_tag_b<span class="w"> </span>--exit-reason-list<span class="w"> </span>roi<span class="w"> </span>custom_exit_tag_a<span class="w"> </span>stop_loss<span class="w"> </span>--indicator-list<span class="w"> </span>rsi<span class="w"> </span>rsi_1h<span class="w"> </span>bb_lowerband<span class="w"> </span>ema_9<span class="w"> </span>macd<span class="w"> </span>macdsignal
+</code></pre></div>
+<p>The indicators have to be present in your strategy's main DataFrame (either for your main
+timeframe or for informative timeframes) otherwise they will simply be ignored in the script
+output.</p>
+<div class="admonition note">
+<p class="admonition-title">Indicator List</p>
+<p>The indicator values will be displayed for both entry and exit points. If <code>--indicator-list all</code> is specified, 
+only the indicators at the entry point will be shown to avoid excessively large lists, which could occur depending on the strategy.</p>
+</div>
+<p>There are a range of candle and trade-related fields that are included in the analysis so are 
+automatically accessible by including them on the indicator-list, and these include:</p>
 <ul>
-<li>2GB RAM</li>
-<li>1GB disk space</li>
-<li>2vCPU</li>
+<li><strong>open_date     :</strong> trade open datetime</li>
+<li><strong>close_date    :</strong> trade close datetime</li>
+<li><strong>min_rate      :</strong> minimum price seen throughout the position</li>
+<li><strong>max_rate      :</strong> maximum price seen throughout the position</li>
+<li><strong>open          :</strong> signal candle open price</li>
+<li><strong>close         :</strong> signal candle close price</li>
+<li><strong>high          :</strong> signal candle high price</li>
+<li><strong>low           :</strong> signal candle low price</li>
+<li><strong>volume        :</strong> signal candle volume</li>
+<li><strong>profit_ratio  :</strong> trade profit ratio</li>
+<li><strong>profit_abs    :</strong> absolute profit return of the trade </li>
 </ul>
-<h3 id="software-requirements">Software requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
+<h4 id="sample-output-for-indicator-values">Sample Output for Indicator Values<a class="headerlink" href="#sample-output-for-indicator-values" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>user_data/config.json<span class="w"> </span>--analysis-groups<span class="w"> </span><span class="m">0</span><span class="w"> </span>--indicator-list<span class="w"> </span>chikou_span<span class="w"> </span>tenkan_sen<span class="w"> </span>
+</code></pre></div>
+<p>In this example,
+we aim to display the <code>chikou_span</code> and <code>tenkan_sen</code> indicator values at both the entry and exit points of trades.</p>
+<p>A sample output for indicators might look like this:</p>
+<table>
+<thead>
+<tr>
+<th>pair</th>
+<th>open_date</th>
+<th>enter_reason</th>
+<th>exit_reason</th>
+<th>chikou_span (entry)</th>
+<th>tenkan_sen (entry)</th>
+<th>chikou_span (exit)</th>
+<th>tenkan_sen (exit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOGE/USDT</td>
+<td>2024-07-06 00:35:00+00:00</td>
+<td></td>
+<td>exit_signal</td>
+<td>0.105</td>
+<td>0.106</td>
+<td>0.105</td>
+<td>0.107</td>
+</tr>
+<tr>
+<td>BTC/USDT</td>
+<td>2024-08-05 14:20:00+00:00</td>
+<td></td>
+<td>roi</td>
+<td>54643.440</td>
+<td>51696.400</td>
+<td>54386.000</td>
+<td>52072.010</td>
+</tr>
+</tbody>
+</table>
+<p>As shown in the table, <code>chikou_span (entry)</code> represents the indicator value at the time of trade entry, 
+while <code>chikou_span (exit)</code> reflects its value at the time of exit. 
+This detailed view of indicator values enhances the analysis.</p>
+<p>The <code>(entry)</code> and <code>(exit)</code> suffixes are added to indicators
+to distinguish the values at the entry and exit points of the trade.</p>
+<div class="admonition note">
+<p class="admonition-title">Trade-wide Indicators</p>
+<p>Certain trade-wide indicators do not have the <code>(entry)</code> or <code>(exit)</code> suffix. These indicators include: <code>pair</code>, <code>stake_amount</code>, 
+<code>max_stake_amount</code>, <code>amount</code>, <code>open_date</code>, <code>close_date</code>, <code>open_rate</code>, <code>close_rate</code>, <code>fee_open</code>, <code>fee_close</code>, <code>trade_duration</code>, 
+<code>profit_ratio</code>, <code>profit_abs</code>, <code>exit_reason</code>,<code>initial_stop_loss_abs</code>, <code>initial_stop_loss_ratio</code>, <code>stop_loss_abs</code>, <code>stop_loss_ratio</code>, 
+<code>min_rate</code>, <code>max_rate</code>, <code>is_open</code>, <code>enter_tag</code>, <code>leverage</code>, <code>is_short</code>, <code>open_timestamp</code>, <code>close_timestamp</code> and <code>orders</code></p>
+</div>
+<h4 id="filtering-indicators-based-on-entry-or-exit-signals">Filtering Indicators Based on Entry or Exit Signals<a class="headerlink" href="#filtering-indicators-based-on-entry-or-exit-signals" title="Permanent link">&para;</a></h4>
+<p>The <code>--indicator-list</code> option, by default, displays indicator values for both entry and exit signals. To filter the indicator values exclusively for entry signals, you can use the <code>--entry-only</code> argument. Similarly, to display indicator values only at exit signals, use the <code>--exit-only</code> argument.</p>
+<p>Example: Display indicator values at entry signals:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>user_data/config.json<span class="w"> </span>--analysis-groups<span class="w"> </span><span class="m">0</span><span class="w"> </span>--indicator-list<span class="w"> </span>chikou_span<span class="w"> </span>tenkan_sen<span class="w"> </span>--entry-only
+</code></pre></div>
+<p>Example: Display indicator values at exit signals:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>user_data/config.json<span class="w"> </span>--analysis-groups<span class="w"> </span><span class="m">0</span><span class="w"> </span>--indicator-list<span class="w"> </span>chikou_span<span class="w"> </span>tenkan_sen<span class="w"> </span>--exit-only
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using these filters, the indicator names will not be suffixed with <code>(entry)</code> or <code>(exit)</code>.</p>
+</div>
+<h3 id="filtering-the-trade-output-by-date">Filtering the trade output by date<a class="headerlink" href="#filtering-the-trade-output-by-date" title="Permanent link">&para;</a></h3>
+<p>To show only trades between dates within your backtested timerange, supply the usual <code>timerange</code> option in <code>YYYYMMDD-[YYYYMMDD]</code> format:</p>
+<div class="highlight"><pre><span></span><code>--timerange : Timerange to filter output trades, start date inclusive, end date exclusive. e.g. 20220101-20221231
+</code></pre></div>
+<p>For example, if your backtest timerange was <code>20220101-20221231</code> but you only want to output trades in January:</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--timerange<span class="w"> </span><span class="m">20220101</span>-20220201
+</code></pre></div>
+<h3 id="printing-out-rejected-signals">Printing out rejected signals<a class="headerlink" href="#printing-out-rejected-signals" title="Permanent link">&para;</a></h3>
+<p>Use the <code>--rejected-signals</code> option to print out rejected signals.</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--rejected-signals
+</code></pre></div>
+<h3 id="writing-tables-to-csv">Writing tables to CSV<a class="headerlink" href="#writing-tables-to-csv" title="Permanent link">&para;</a></h3>
+<p>Some of the tabular outputs can become large, so printing them out to the terminal is not preferable.
+Use the <code>--analysis-to-csv</code> option to disable printing out of tables to standard out and write them to CSV files.</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--analysis-to-csv
+</code></pre></div>
+<p>By default this will write one file per output table you specified in the <code>backtesting-analysis</code> command, e.g.</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--analysis-to-csv<span class="w"> </span>--rejected-signals<span class="w"> </span>--analysis-groups<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<p>This will write to <code>user_data/backtest_results</code>:</p>
 <ul>
-<li>Docker (Recommended)</li>
+<li>rejected_signals.csv</li>
+<li>group_0.csv</li>
+<li>group_1.csv</li>
 </ul>
-<p>Alternatively</p>
-<ul>
-<li>Python 3.11+</li>
-<li>pip (pip3)</li>
-<li>git</li>
-<li>TA-Lib</li>
-<li>virtualenv (Recommended)</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<h3 id="help-discord">Help / Discord<a class="headerlink" href="#help-discord" title="Permanent link">&para;</a></h3>
-<p>For any questions not covered by the documentation or for further information about the bot, or to simply engage with like-minded individuals, we encourage you to join the Freqtrade <a href="https://discord.gg/p7nuUNVfP7">discord server</a>.</p>
-<h2 id="ready-to-try">Ready to try?<a class="headerlink" href="#ready-to-try" title="Permanent link">&para;</a></h2>
-<p>Begin by reading the installation guide <a href="docker_quickstart/">for docker</a> (recommended), or for <a href="installation/">installation without docker</a>.</p>
+<p>To override where the files will be written, also specify the <code>--analysis-csv-path</code> option.</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting-analysis<span class="w"> </span>-c<span class="w"> </span>&lt;config.json&gt;<span class="w"> </span>--analysis-to-csv<span class="w"> </span>--analysis-csv-path<span class="w"> </span>another/data/path/
+</code></pre></div>
 
 
 
@@ -2032,15 +2058,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../strategy_analysis_example/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Strategy analysis">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Strategy analysis
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="docker_quickstart/" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart with Docker">
+          <a href="../advanced-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Advanced Post-installation Tasks">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart with Docker
+                Advanced Post-installation Tasks
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2082,12 +2124,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
       
-        <script src="javascripts/config.js"></script>
+        <script src="../javascripts/config.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

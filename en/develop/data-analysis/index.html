@@ -10,22 +10,28 @@
       
       
       
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/data-analysis/">
       
       
+        <link rel="prev" href="../exchanges/">
       
-      <link rel="icon" href="/en/stable/images/logo.png">
+      
+        <link rel="next" href="../strategy_analysis_example/">
+      
+      
+      <link rel="icon" href="../images/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Freqtrade</title>
+        <title>Jupyter Notebooks - Freqtrade</title>
       
     
     
-      <link rel="stylesheet" href="/en/stable/assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="/en/stable/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="/en/stable/stylesheets/ft.extra.css">
+      <link rel="stylesheet" href="../stylesheets/ft.extra.css">
     
-    <script>__md_scope=new URL("/en/stable",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -81,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#analyzing-bot-data-with-jupyter-notebooks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/en/stable/." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="/en/stable/images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -116,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Jupyter Notebooks
             
           </span>
         </div>
@@ -239,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/en/stable/." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="/en/stable/images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     Freqtrade
@@ -268,7 +279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -290,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/docker_quickstart/" class="md-nav__link">
+      <a href="../docker_quickstart/" class="md-nav__link">
         
   
   
@@ -350,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -373,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/windows_installation/" class="md-nav__link">
+      <a href="../windows_installation/" class="md-nav__link">
         
   
   
@@ -403,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/bot-basics/" class="md-nav__link">
+      <a href="../bot-basics/" class="md-nav__link">
         
   
   
@@ -425,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -447,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-101/" class="md-nav__link">
+      <a href="../strategy-101/" class="md-nav__link">
         
   
   
@@ -469,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-customization/" class="md-nav__link">
+      <a href="../strategy-customization/" class="md-nav__link">
         
   
   
@@ -491,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-callbacks/" class="md-nav__link">
+      <a href="../strategy-callbacks/" class="md-nav__link">
         
   
   
@@ -513,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/stoploss/" class="md-nav__link">
+      <a href="../stoploss/" class="md-nav__link">
         
   
   
@@ -535,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/plugins/" class="md-nav__link">
+      <a href="../plugins/" class="md-nav__link">
         
   
   
@@ -557,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/bot-usage/" class="md-nav__link">
+      <a href="../bot-usage/" class="md-nav__link">
         
   
   
@@ -617,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/telegram-usage/" class="md-nav__link">
+      <a href="../telegram-usage/" class="md-nav__link">
         
   
   
@@ -640,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freq-ui/" class="md-nav__link">
+      <a href="../freq-ui/" class="md-nav__link">
         
   
   
@@ -663,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/rest-api/" class="md-nav__link">
+      <a href="../rest-api/" class="md-nav__link">
         
   
   
@@ -686,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/webhook-config/" class="md-nav__link">
+      <a href="../webhook-config/" class="md-nav__link">
         
   
   
@@ -716,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/data-download/" class="md-nav__link">
+      <a href="../data-download/" class="md-nav__link">
         
   
   
@@ -738,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/backtesting/" class="md-nav__link">
+      <a href="../backtesting/" class="md-nav__link">
         
   
   
@@ -760,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/hyperopt/" class="md-nav__link">
+      <a href="../hyperopt/" class="md-nav__link">
         
   
   
@@ -820,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai/" class="md-nav__link">
+      <a href="../freqai/" class="md-nav__link">
         
   
   
@@ -843,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-configuration/" class="md-nav__link">
+      <a href="../freqai-configuration/" class="md-nav__link">
         
   
   
@@ -866,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-parameter-table/" class="md-nav__link">
+      <a href="../freqai-parameter-table/" class="md-nav__link">
         
   
   
@@ -889,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-feature-engineering/" class="md-nav__link">
+      <a href="../freqai-feature-engineering/" class="md-nav__link">
         
   
   
@@ -912,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-running/" class="md-nav__link">
+      <a href="../freqai-running/" class="md-nav__link">
         
   
   
@@ -935,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-reinforcement-learning/" class="md-nav__link">
+      <a href="../freqai-reinforcement-learning/" class="md-nav__link">
         
   
   
@@ -958,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-developers/" class="md-nav__link">
+      <a href="../freqai-developers/" class="md-nav__link">
         
   
   
@@ -988,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/leverage/" class="md-nav__link">
+      <a href="../leverage/" class="md-nav__link">
         
   
   
@@ -1010,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/utils/" class="md-nav__link">
+      <a href="../utils/" class="md-nav__link">
         
   
   
@@ -1032,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/plotting/" class="md-nav__link">
+      <a href="../plotting/" class="md-nav__link">
         
   
   
@@ -1054,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/exchanges/" class="md-nav__link">
+      <a href="../exchanges/" class="md-nav__link">
         
   
   
@@ -1073,18 +1084,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" checked>
         
           
           <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
@@ -1100,7 +1113,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_21">
             <span class="md-nav__icon md-icon"></span>
             Data Analysis
@@ -1111,10 +1124,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/en/stable/data-analysis/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Jupyter Notebooks
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1125,6 +1160,110 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start with docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start with docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pro-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pro tips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-virtual-environment-with-system-wide-jupyter-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using virtual environment with system-wide Jupyter installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-utility-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example utility snippets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example utility snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-directory-to-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change directory to root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-multiple-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load multiple configuration files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-data-analysis-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Data analysis documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1137,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy_analysis_example/" class="md-nav__link">
+      <a href="../strategy_analysis_example/" class="md-nav__link">
         
   
   
@@ -1160,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-backtesting/" class="md-nav__link">
+      <a href="../advanced-backtesting/" class="md-nav__link">
         
   
   
@@ -1228,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-setup/" class="md-nav__link">
+      <a href="../advanced-setup/" class="md-nav__link">
         
   
   
@@ -1251,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/trade-object/" class="md-nav__link">
+      <a href="../trade-object/" class="md-nav__link">
         
   
   
@@ -1274,7 +1413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/lookahead-analysis/" class="md-nav__link">
+      <a href="../lookahead-analysis/" class="md-nav__link">
         
   
   
@@ -1297,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/recursive-analysis/" class="md-nav__link">
+      <a href="../recursive-analysis/" class="md-nav__link">
         
   
   
@@ -1320,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-advanced/" class="md-nav__link">
+      <a href="../strategy-advanced/" class="md-nav__link">
         
   
   
@@ -1343,7 +1482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-hyperopt/" class="md-nav__link">
+      <a href="../advanced-hyperopt/" class="md-nav__link">
         
   
   
@@ -1366,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-orderflow/" class="md-nav__link">
+      <a href="../advanced-orderflow/" class="md-nav__link">
         
   
   
@@ -1389,7 +1528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/producer-consumer/" class="md-nav__link">
+      <a href="../producer-consumer/" class="md-nav__link">
         
   
   
@@ -1412,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/sql_cheatsheet/" class="md-nav__link">
+      <a href="../sql_cheatsheet/" class="md-nav__link">
         
   
   
@@ -1442,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   
@@ -1464,7 +1603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy_migration/" class="md-nav__link">
+      <a href="../strategy_migration/" class="md-nav__link">
         
   
   
@@ -1486,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/updating/" class="md-nav__link">
+      <a href="../updating/" class="md-nav__link">
         
   
   
@@ -1508,7 +1647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/deprecated/" class="md-nav__link">
+      <a href="../deprecated/" class="md-nav__link">
         
   
   
@@ -1530,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/developer/" class="md-nav__link">
+      <a href="../developer/" class="md-nav__link">
         
   
   
@@ -1554,13 +1693,271 @@
 
   <!-- Table of contents -->
   
+  
+  <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+    <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start with docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start with docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pro-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pro tips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-virtual-environment-with-system-wide-jupyter-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using virtual environment with system-wide Jupyter installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-utility-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example utility snippets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example utility snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-directory-to-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change directory to root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-multiple-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load multiple configuration files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-data-analysis-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Data analysis documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      </div>
+    </div>
+  </div>
+  
 
           
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/data-analysis.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="analyzing-bot-data-with-jupyter-notebooks">Analyzing bot data with Jupyter notebooks<a class="headerlink" href="#analyzing-bot-data-with-jupyter-notebooks" title="Permanent link">&para;</a></h1>
+<p>You can analyze the results of backtests and trading history easily using Jupyter notebooks. Sample notebooks are located at <code>user_data/notebooks/</code> after initializing the user directory with <code>freqtrade create-userdir --userdir user_data</code>.</p>
+<h2 id="quick-start-with-docker">Quick start with docker<a class="headerlink" href="#quick-start-with-docker" title="Permanent link">&para;</a></h2>
+<p>Freqtrade provides a docker-compose file which starts up a jupyter lab server.
+You can run this server using the following command: <code>docker compose -f docker/docker-compose-jupyter.yml up</code></p>
+<p>This will create a dockercontainer running jupyter lab, which will be accessible using <code>https://127.0.0.1:8888/lab</code>.
+Please use the link that's printed in the console after startup for simplified login.</p>
+<p>For more information, Please visit the <a href="../docker_quickstart/#data-analysis-using-docker-compose">Data analysis with Docker</a> section.</p>
+<h3 id="pro-tips">Pro tips<a class="headerlink" href="#pro-tips" title="Permanent link">&para;</a></h3>
+<ul>
+<li>See <a href="https://jupyter.org/documentation">jupyter.org</a> for usage instructions.</li>
+<li>Don't forget to start a Jupyter notebook server from within your conda or venv environment or use <a href="https://github.com/Anaconda-Platform/nb_conda_kernels">nb_conda_kernels</a>*</li>
+<li>Copy the example notebook before use so your changes don't get overwritten with the next freqtrade update.</li>
+</ul>
+<h3 id="using-virtual-environment-with-system-wide-jupyter-installation">Using virtual environment with system-wide Jupyter installation<a class="headerlink" href="#using-virtual-environment-with-system-wide-jupyter-installation" title="Permanent link">&para;</a></h3>
+<p>Sometimes it can be desired to use a system-wide installation of Jupyter notebook, and use a jupyter kernel from the virtual environment.
+This prevents you from installing the full jupyter suite multiple times per system, and provides an easy way to switch between tasks (freqtrade / other analytics tasks).</p>
+<p>For this to work, first activate your virtual environment and run the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Activate virtual environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+pip<span class="w"> </span>install<span class="w"> </span>ipykernel
+ipython<span class="w"> </span>kernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="o">=</span>freqtrade
+<span class="c1"># Restart jupyter (lab / notebook)</span>
+<span class="c1"># select kernel &quot;freqtrade&quot; in the notebook</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is provided for completeness, the Freqtrade Team won't provide full support for problems with this setup and will recommend to install Jupyter in the virtual environment directly, as that is the easiest way to get jupyter notebooks up and running. For help with this setup please refer to the <a href="https://jupyter.org/">Project Jupyter</a> <a href="https://jupyter.org/documentation">documentation</a> or <a href="https://jupyter.org/community">help channels</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some tasks don't work especially well in notebooks. For example, anything using asynchronous execution is a problem for Jupyter. Also, freqtrade's primary entry point is the shell cli, so using pure python in a notebook bypasses arguments that provide required objects and parameters to helper functions. You may need to set those values or create expected objects manually.</p>
+</div>
+<h2 id="recommended-workflow">Recommended workflow<a class="headerlink" href="#recommended-workflow" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bot operations</td>
+<td>CLI</td>
+</tr>
+<tr>
+<td>Repetitive tasks</td>
+<td>Shell scripts</td>
+</tr>
+<tr>
+<td>Data analysis &amp; visualization</td>
+<td>Notebook</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Use the CLI to</p>
+<p>* download historical data
+  * run a backtest
+  * run with real-time data
+  * export results</p>
+</li>
+<li>
+<p>Collect these actions in shell scripts</p>
+<p>* save complicated commands with arguments
+  * execute multi-step operations
+  * automate testing strategies and preparing data for analysis</p>
+</li>
+<li>
+<p>Use a notebook to</p>
+<p>* visualize data
+  * mangle and plot to generate insights</p>
+</li>
+</ol>
+<h2 id="example-utility-snippets">Example utility snippets<a class="headerlink" href="#example-utility-snippets" title="Permanent link">&para;</a></h2>
+<h3 id="change-directory-to-root">Change directory to root<a class="headerlink" href="#change-directory-to-root" title="Permanent link">&para;</a></h3>
+<p>Jupyter notebooks execute from the notebook directory. The following snippet searches for the project root, so relative paths remain consistent.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Change directory</span>
+<span class="c1"># Modify this cell to insure that the output shows the correct path.</span>
+<span class="c1"># Define all paths relative to the project root shown in the cell output</span>
+<span class="n">project_root</span> <span class="o">=</span> <span class="s2">&quot;somedir/freqtrade&quot;</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">project_root</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;LICENSE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;LICENSE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="s1">&#39;../&#39;</span><span class="p">))</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">project_root</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+</code></pre></div>
+<h3 id="load-multiple-configuration-files">Load multiple configuration files<a class="headerlink" href="#load-multiple-configuration-files" title="Permanent link">&para;</a></h3>
+<p>This option can be useful to inspect the results of passing in multiple configs.
+This will also run through the whole Configuration initialization, so the configuration is completely initialized to be passed to other methods.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.configuration</span><span class="w"> </span><span class="kn">import</span> <span class="n">Configuration</span>
+
+<span class="c1"># Load config from multiple files</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">from_files</span><span class="p">([</span><span class="s2">&quot;config1.json&quot;</span><span class="p">,</span> <span class="s2">&quot;config2.json&quot;</span><span class="p">])</span>
+
+<span class="c1"># Show the config in memory</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;original_config&#39;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p>For Interactive environments, have an additional configuration specifying <code>user_data_dir</code> and pass this in last, so you don't have to change directories while running the bot.
+Best avoid relative paths, since this starts at the storage location of the jupyter notebook, unless the directory is changed.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;user_data_dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;~/.freqtrade/&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="further-data-analysis-documentation">Further Data analysis documentation<a class="headerlink" href="#further-data-analysis-documentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../strategy_analysis_example/">Strategy debugging</a> - also available as Jupyter notebook (<code>user_data/notebooks/strategy_analysis_example.ipynb</code>)</li>
+<li><a href="../plotting/">Plotting</a></li>
+<li><a href="../advanced-backtesting/">Tag Analysis</a></li>
+</ul>
+<p>Feel free to submit an issue or Pull Request enhancing this document if you would like to share ideas on how to best analyze the data.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
               </article>
             </div>
           
@@ -1579,6 +1976,44 @@
     
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../exchanges/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exchange-specific Notes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Exchange-specific Notes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../strategy_analysis_example/" class="md-footer__link md-footer__link--next" aria-label="Next: Strategy analysis">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Strategy analysis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1611,12 +2046,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/en/stable", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "/en/stable/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="/en/stable/assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
       
-        <script src="/en/stable/javascripts/config.js"></script>
+        <script src="../javascripts/config.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

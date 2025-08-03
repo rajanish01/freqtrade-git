@@ -10,22 +10,28 @@
       
       
       
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/advanced-orderflow/">
       
       
+        <link rel="prev" href="../advanced-hyperopt/">
       
-      <link rel="icon" href="/en/stable/images/logo.png">
+      
+        <link rel="next" href="../producer-consumer/">
+      
+      
+      <link rel="icon" href="../images/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Freqtrade</title>
+        <title>Orderflow - Freqtrade</title>
       
     
     
-      <link rel="stylesheet" href="/en/stable/assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="/en/stable/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="/en/stable/stylesheets/ft.extra.css">
+      <link rel="stylesheet" href="../stylesheets/ft.extra.css">
     
-    <script>__md_scope=new URL("/en/stable",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -81,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#orderflow-data" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/en/stable/." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="/en/stable/images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -116,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Orderflow
             
           </span>
         </div>
@@ -239,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/en/stable/." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="/en/stable/images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     Freqtrade
@@ -268,7 +279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -290,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/docker_quickstart/" class="md-nav__link">
+      <a href="../docker_quickstart/" class="md-nav__link">
         
   
   
@@ -350,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -373,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/windows_installation/" class="md-nav__link">
+      <a href="../windows_installation/" class="md-nav__link">
         
   
   
@@ -403,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/bot-basics/" class="md-nav__link">
+      <a href="../bot-basics/" class="md-nav__link">
         
   
   
@@ -425,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -447,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-101/" class="md-nav__link">
+      <a href="../strategy-101/" class="md-nav__link">
         
   
   
@@ -469,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-customization/" class="md-nav__link">
+      <a href="../strategy-customization/" class="md-nav__link">
         
   
   
@@ -491,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-callbacks/" class="md-nav__link">
+      <a href="../strategy-callbacks/" class="md-nav__link">
         
   
   
@@ -513,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/stoploss/" class="md-nav__link">
+      <a href="../stoploss/" class="md-nav__link">
         
   
   
@@ -535,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/plugins/" class="md-nav__link">
+      <a href="../plugins/" class="md-nav__link">
         
   
   
@@ -557,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/bot-usage/" class="md-nav__link">
+      <a href="../bot-usage/" class="md-nav__link">
         
   
   
@@ -617,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/telegram-usage/" class="md-nav__link">
+      <a href="../telegram-usage/" class="md-nav__link">
         
   
   
@@ -640,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freq-ui/" class="md-nav__link">
+      <a href="../freq-ui/" class="md-nav__link">
         
   
   
@@ -663,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/rest-api/" class="md-nav__link">
+      <a href="../rest-api/" class="md-nav__link">
         
   
   
@@ -686,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/webhook-config/" class="md-nav__link">
+      <a href="../webhook-config/" class="md-nav__link">
         
   
   
@@ -716,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/data-download/" class="md-nav__link">
+      <a href="../data-download/" class="md-nav__link">
         
   
   
@@ -738,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/backtesting/" class="md-nav__link">
+      <a href="../backtesting/" class="md-nav__link">
         
   
   
@@ -760,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/hyperopt/" class="md-nav__link">
+      <a href="../hyperopt/" class="md-nav__link">
         
   
   
@@ -820,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai/" class="md-nav__link">
+      <a href="../freqai/" class="md-nav__link">
         
   
   
@@ -843,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-configuration/" class="md-nav__link">
+      <a href="../freqai-configuration/" class="md-nav__link">
         
   
   
@@ -866,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-parameter-table/" class="md-nav__link">
+      <a href="../freqai-parameter-table/" class="md-nav__link">
         
   
   
@@ -889,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-feature-engineering/" class="md-nav__link">
+      <a href="../freqai-feature-engineering/" class="md-nav__link">
         
   
   
@@ -912,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-running/" class="md-nav__link">
+      <a href="../freqai-running/" class="md-nav__link">
         
   
   
@@ -935,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-reinforcement-learning/" class="md-nav__link">
+      <a href="../freqai-reinforcement-learning/" class="md-nav__link">
         
   
   
@@ -958,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-developers/" class="md-nav__link">
+      <a href="../freqai-developers/" class="md-nav__link">
         
   
   
@@ -988,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/leverage/" class="md-nav__link">
+      <a href="../leverage/" class="md-nav__link">
         
   
   
@@ -1010,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/utils/" class="md-nav__link">
+      <a href="../utils/" class="md-nav__link">
         
   
   
@@ -1032,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/plotting/" class="md-nav__link">
+      <a href="../plotting/" class="md-nav__link">
         
   
   
@@ -1054,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/exchanges/" class="md-nav__link">
+      <a href="../exchanges/" class="md-nav__link">
         
   
   
@@ -1114,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/data-analysis/" class="md-nav__link">
+      <a href="../data-analysis/" class="md-nav__link">
         
   
   
@@ -1137,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy_analysis_example/" class="md-nav__link">
+      <a href="../strategy_analysis_example/" class="md-nav__link">
         
   
   
@@ -1160,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-backtesting/" class="md-nav__link">
+      <a href="../advanced-backtesting/" class="md-nav__link">
         
   
   
@@ -1187,18 +1198,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" checked>
         
           
           <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="0">
@@ -1214,7 +1227,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_22">
             <span class="md-nav__icon md-icon"></span>
             Advanced Topics
@@ -1228,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-setup/" class="md-nav__link">
+      <a href="../advanced-setup/" class="md-nav__link">
         
   
   
@@ -1251,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/trade-object/" class="md-nav__link">
+      <a href="../trade-object/" class="md-nav__link">
         
   
   
@@ -1274,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/lookahead-analysis/" class="md-nav__link">
+      <a href="../lookahead-analysis/" class="md-nav__link">
         
   
   
@@ -1297,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/recursive-analysis/" class="md-nav__link">
+      <a href="../recursive-analysis/" class="md-nav__link">
         
   
   
@@ -1320,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-advanced/" class="md-nav__link">
+      <a href="../strategy-advanced/" class="md-nav__link">
         
   
   
@@ -1343,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-hyperopt/" class="md-nav__link">
+      <a href="../advanced-hyperopt/" class="md-nav__link">
         
   
   
@@ -1363,10 +1376,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/en/stable/advanced-orderflow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Orderflow
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1377,6 +1412,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-public-trades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Public Trades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-orderflow-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Orderflow Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-trade-data-for-backtesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading Trade Data for Backtesting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-orderflow-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Orderflow Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Orderflow Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#footprint-chart-dataframeorderflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Footprint chart (dataframe["orderflow"])
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Footprint chart (dataframe[&#34;orderflow&#34;])">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orderflow-column-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orderflow column explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-trades-data-dataframetrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw trades data (dataframe["trades"])
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imbalances-dataframeimbalances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imbalances (dataframe["imbalances"])
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1389,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/producer-consumer/" class="md-nav__link">
+      <a href="../producer-consumer/" class="md-nav__link">
         
   
   
@@ -1412,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/sql_cheatsheet/" class="md-nav__link">
+      <a href="../sql_cheatsheet/" class="md-nav__link">
         
   
   
@@ -1442,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   
@@ -1464,7 +1618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy_migration/" class="md-nav__link">
+      <a href="../strategy_migration/" class="md-nav__link">
         
   
   
@@ -1486,7 +1640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/updating/" class="md-nav__link">
+      <a href="../updating/" class="md-nav__link">
         
   
   
@@ -1508,7 +1662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/deprecated/" class="md-nav__link">
+      <a href="../deprecated/" class="md-nav__link">
         
   
   
@@ -1530,7 +1684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/developer/" class="md-nav__link">
+      <a href="../developer/" class="md-nav__link">
         
   
   
@@ -1554,13 +1708,284 @@
 
   <!-- Table of contents -->
   
+  
+  <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+    <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-public-trades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Public Trades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-orderflow-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Orderflow Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-trade-data-for-backtesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading Trade Data for Backtesting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-orderflow-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Orderflow Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Orderflow Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#footprint-chart-dataframeorderflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Footprint chart (dataframe["orderflow"])
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Footprint chart (dataframe[&#34;orderflow&#34;])">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orderflow-column-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orderflow column explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-trades-data-dataframetrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw trades data (dataframe["trades"])
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imbalances-dataframeimbalances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imbalances (dataframe["imbalances"])
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      </div>
+    </div>
+  </div>
+  
 
           
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/advanced-orderflow.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="orderflow-data">Orderflow data<a class="headerlink" href="#orderflow-data" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through utilizing public trade data for advanced orderflow analysis in Freqtrade.</p>
+<div class="admonition warning">
+<p class="admonition-title">Experimental Feature</p>
+<p>The orderflow feature is currently in beta and may be subject to changes in future releases. Please report any issues or feedback on the <a href="https://github.com/freqtrade/freqtrade/issues">Freqtrade GitHub repository</a>.
+It's also currently not been tested with freqAI - and combining these two features is considered out of scope at this point.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Performance</p>
+<p>Orderflow requires raw trades data. This data is rather large, and can cause a slow initial startup, when freqtrade needs to download the trades data for the last X candles. Additionally, enabling this feature will cause increased memory usage. Please ensure to have sufficient resources available.</p>
+</div>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="enable-public-trades">Enable Public Trades<a class="headerlink" href="#enable-public-trades" title="Permanent link">&para;</a></h3>
+<p>In your <code>config.json</code> file, set the <code>use_public_trades</code> option to true under the <code>exchange</code> section.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;exchange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="err">...</span>
+<span class="w">   </span><span class="nt">&quot;use_public_trades&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="configure-orderflow-processing">Configure Orderflow Processing<a class="headerlink" href="#configure-orderflow-processing" title="Permanent link">&para;</a></h3>
+<p>Define your desired settings for orderflow processing within the orderflow section of config.json. Here, you can adjust factors like:</p>
+<ul>
+<li><code>cache_size</code>: How many previous orderflow candles are saved into cache instead of calculated every new candle</li>
+<li><code>max_candles</code>: Filter how many candles would you like to get trades data for.</li>
+<li><code>scale</code>: This controls the price bin size for the footprint chart.</li>
+<li><code>stacked_imbalance_range</code>: Defines the minimum consecutive imbalanced price levels required for consideration.</li>
+<li><code>imbalance_volume</code>: Filters out imbalances with volume below this threshold.</li>
+<li><code>imbalance_ratio</code>: Filters out imbalances with a ratio (difference between ask and bid volume) lower than this value.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;orderflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;cache_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;max_candles&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;scale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;stacked_imbalance_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">//  needs at least this amount of imbalance next to each other</span>
+<span class="w">    </span><span class="nt">&quot;imbalance_volume&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//  filters out below</span>
+<span class="w">    </span><span class="nt">&quot;imbalance_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1">//  filters out ratio lower than</span>
+<span class="w">  </span><span class="p">},</span>
+</code></pre></div>
+<h2 id="downloading-trade-data-for-backtesting">Downloading Trade Data for Backtesting<a class="headerlink" href="#downloading-trade-data-for-backtesting" title="Permanent link">&para;</a></h2>
+<p>To download historical trade data for backtesting, use the --dl-trades flag with the freqtrade download-data command.</p>
+<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>download-data<span class="w"> </span>-p<span class="w"> </span>BTC/USDT:USDT<span class="w"> </span>--timerange<span class="w"> </span><span class="m">20230101</span>-<span class="w"> </span>--trading-mode<span class="w"> </span>futures<span class="w"> </span>--timeframes<span class="w"> </span>5m<span class="w"> </span>--dl-trades
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Data availability</p>
+<p>Not all exchanges provide public trade data. For supported exchanges, freqtrade will warn you if public trade data is not available if you start downloading data with the <code>--dl-trades</code> flag.</p>
+</div>
+<h2 id="accessing-orderflow-data">Accessing Orderflow Data<a class="headerlink" href="#accessing-orderflow-data" title="Permanent link">&para;</a></h2>
+<p>Once activated, several new columns become available in your dataframe:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;trades&quot;</span><span class="p">]</span> <span class="c1"># Contains information about each individual trade.</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;orderflow&quot;</span><span class="p">]</span> <span class="c1"># Represents a footprint chart dict (see below)</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;imbalances&quot;</span><span class="p">]</span> <span class="c1"># Contains information about imbalances in the order flow.</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;bid&quot;</span><span class="p">]</span> <span class="c1"># Total bid volume </span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;ask&quot;</span><span class="p">]</span> <span class="c1"># Total ask volume</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">]</span> <span class="c1"># Difference between ask and bid volume.</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;min_delta&quot;</span><span class="p">]</span> <span class="c1"># Minimum delta within the candle</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;max_delta&quot;</span><span class="p">]</span> <span class="c1"># Maximum delta within the candle</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;total_trades&quot;</span><span class="p">]</span> <span class="c1"># Total number of trades</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_bid&quot;</span><span class="p">]</span> <span class="c1"># List of price levels of stacked bid imbalance range beginnings</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;stacked_imbalances_ask&quot;</span><span class="p">]</span> <span class="c1"># List of price levels of stacked ask imbalance range beginnings</span>
+</code></pre></div>
+<p>You can access these columns in your strategy code for further analysis. Here's an example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">populate_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="c1"># Calculating cumulative delta</span>
+    <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;cum_delta&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumulative_delta</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">])</span>
+    <span class="c1"># Accessing total trades</span>
+    <span class="n">total_trades</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;total_trades&quot;</span><span class="p">]</span>
+    <span class="o">...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cumulative_delta</span><span class="p">(</span><span class="n">delta</span><span class="p">:</span> <span class="n">Series</span><span class="p">):</span>
+    <span class="n">cumdelta</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cumdelta</span>
+</code></pre></div>
+<h3 id="footprint-chart-dataframeorderflow">Footprint chart (<code>dataframe["orderflow"]</code>)<a class="headerlink" href="#footprint-chart-dataframeorderflow" title="Permanent link">&para;</a></h3>
+<p>This column provides a detailed breakdown of buy and sell orders at different price levels, offering valuable insights into order flow dynamics. The <code>scale</code> parameter in your configuration determines the price bin size for this representation</p>
+<p>The <code>orderflow</code> column contains a dict with the following structure:</p>
+<div class="highlight"><pre><span></span><code><span class="go">{</span>
+<span class="go">    &quot;price&quot;: {</span>
+<span class="go">        &quot;bid_amount&quot;: 0.0,</span>
+<span class="go">        &quot;ask_amount&quot;: 0.0,</span>
+<span class="go">        &quot;bid&quot;: 0,</span>
+<span class="go">        &quot;ask&quot;: 0,</span>
+<span class="go">        &quot;delta&quot;: 0.0,</span>
+<span class="go">        &quot;total_volume&quot;: 0.0,</span>
+<span class="go">        &quot;total_trades&quot;: 0</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</code></pre></div>
+<h4 id="orderflow-column-explanation">Orderflow column explanation<a class="headerlink" href="#orderflow-column-explanation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>key: Price bin - binned at <code>scale</code> intervals</li>
+<li><code>bid_amount</code>: Total volume bought at each price level.</li>
+<li><code>ask_amount</code>: Total volume sold at each price level.</li>
+<li><code>bid</code>: Number of buy orders at each price level.</li>
+<li><code>ask</code>: Number of sell orders at each price level.</li>
+<li><code>delta</code>: Difference between ask and bid volume at each price level.</li>
+<li><code>total_volume</code>: Total volume (ask amount + bid amount) at each price level.</li>
+<li><code>total_trades</code>: Total number of trades (ask + bid) at each price level.</li>
+</ul>
+<p>By leveraging these features, you can gain valuable insights into market sentiment and potential trading opportunities based on order flow analysis.</p>
+<h3 id="raw-trades-data-dataframetrades">Raw trades data (<code>dataframe["trades"]</code>)<a class="headerlink" href="#raw-trades-data-dataframetrades" title="Permanent link">&para;</a></h3>
+<p>List with the individual trades that occurred during the candle. This data can be used for more granular analysis of order flow dynamics.</p>
+<p>Each individual entry contains a dict with the following keys:</p>
+<ul>
+<li><code>timestamp</code>: Timestamp of the trade.</li>
+<li><code>date</code>: Date of the trade.</li>
+<li><code>price</code>: Price of the trade.</li>
+<li><code>amount</code>: Volume of the trade.</li>
+<li><code>side</code>: Buy or sell.</li>
+<li><code>id</code>: Unique identifier for the trade.</li>
+<li><code>cost</code>: Total cost of the trade (price * amount).</li>
+</ul>
+<h3 id="imbalances-dataframeimbalances">Imbalances (<code>dataframe["imbalances"]</code>)<a class="headerlink" href="#imbalances-dataframeimbalances" title="Permanent link">&para;</a></h3>
+<p>This column provides a dict with information about imbalances in the order flow. An imbalance occurs when there is a significant difference between the ask and bid volume at a given price level.</p>
+<p>Each row looks as follows - with price as index, and the corresponding bid and ask imbalance values as columns</p>
+<div class="highlight"><pre><span></span><code><span class="go">{</span>
+<span class="go">    &quot;price&quot;: {</span>
+<span class="go">        &quot;bid_imbalance&quot;: False,</span>
+<span class="go">        &quot;ask_imbalance&quot;: False</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
               </article>
             </div>
           
@@ -1579,6 +2004,44 @@
     
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../advanced-hyperopt/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced Hyperopt">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Advanced Hyperopt
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../producer-consumer/" class="md-footer__link md-footer__link--next" aria-label="Next: Producer/Consumer mode">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Producer/Consumer mode
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1611,12 +2074,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/en/stable", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "/en/stable/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="/en/stable/assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
       
-        <script src="/en/stable/javascripts/config.js"></script>
+        <script src="../javascripts/config.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

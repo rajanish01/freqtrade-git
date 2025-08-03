@@ -10,22 +10,28 @@
       
       
       
+        <link rel="canonical" href="https://www.freqtrade.io/en/stable/freqai-developers/">
       
       
+        <link rel="prev" href="../freqai-reinforcement-learning/">
       
-      <link rel="icon" href="/en/stable/images/logo.png">
+      
+        <link rel="next" href="../leverage/">
+      
+      
+      <link rel="icon" href="../images/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Freqtrade</title>
+        <title>Developer guide - Freqtrade</title>
       
     
     
-      <link rel="stylesheet" href="/en/stable/assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="/en/stable/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="/en/stable/stylesheets/ft.extra.css">
+      <link rel="stylesheet" href="../stylesheets/ft.extra.css">
     
-    <script>__md_scope=new URL("/en/stable",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -81,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#development" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/en/stable/." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-header__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="/en/stable/images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -116,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Developer guide
             
           </span>
         </div>
@@ -239,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/en/stable/." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
+    <a href=".." title="Freqtrade" class="md-nav__button md-logo" aria-label="Freqtrade" data-md-component="logo">
       
-  <img src="/en/stable/images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     Freqtrade
@@ -268,7 +279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -290,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/docker_quickstart/" class="md-nav__link">
+      <a href="../docker_quickstart/" class="md-nav__link">
         
   
   
@@ -350,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -373,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/windows_installation/" class="md-nav__link">
+      <a href="../windows_installation/" class="md-nav__link">
         
   
   
@@ -403,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/bot-basics/" class="md-nav__link">
+      <a href="../bot-basics/" class="md-nav__link">
         
   
   
@@ -425,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -447,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-101/" class="md-nav__link">
+      <a href="../strategy-101/" class="md-nav__link">
         
   
   
@@ -469,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-customization/" class="md-nav__link">
+      <a href="../strategy-customization/" class="md-nav__link">
         
   
   
@@ -491,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-callbacks/" class="md-nav__link">
+      <a href="../strategy-callbacks/" class="md-nav__link">
         
   
   
@@ -513,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/stoploss/" class="md-nav__link">
+      <a href="../stoploss/" class="md-nav__link">
         
   
   
@@ -535,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/plugins/" class="md-nav__link">
+      <a href="../plugins/" class="md-nav__link">
         
   
   
@@ -557,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/bot-usage/" class="md-nav__link">
+      <a href="../bot-usage/" class="md-nav__link">
         
   
   
@@ -617,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/telegram-usage/" class="md-nav__link">
+      <a href="../telegram-usage/" class="md-nav__link">
         
   
   
@@ -640,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freq-ui/" class="md-nav__link">
+      <a href="../freq-ui/" class="md-nav__link">
         
   
   
@@ -663,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/rest-api/" class="md-nav__link">
+      <a href="../rest-api/" class="md-nav__link">
         
   
   
@@ -686,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/webhook-config/" class="md-nav__link">
+      <a href="../webhook-config/" class="md-nav__link">
         
   
   
@@ -716,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/data-download/" class="md-nav__link">
+      <a href="../data-download/" class="md-nav__link">
         
   
   
@@ -738,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/backtesting/" class="md-nav__link">
+      <a href="../backtesting/" class="md-nav__link">
         
   
   
@@ -760,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/hyperopt/" class="md-nav__link">
+      <a href="../hyperopt/" class="md-nav__link">
         
   
   
@@ -779,18 +790,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" checked>
         
           
           <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
@@ -806,7 +819,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
             FreqAI
@@ -820,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai/" class="md-nav__link">
+      <a href="../freqai/" class="md-nav__link">
         
   
   
@@ -843,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-configuration/" class="md-nav__link">
+      <a href="../freqai-configuration/" class="md-nav__link">
         
   
   
@@ -866,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-parameter-table/" class="md-nav__link">
+      <a href="../freqai-parameter-table/" class="md-nav__link">
         
   
   
@@ -889,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-feature-engineering/" class="md-nav__link">
+      <a href="../freqai-feature-engineering/" class="md-nav__link">
         
   
   
@@ -912,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-running/" class="md-nav__link">
+      <a href="../freqai-running/" class="md-nav__link">
         
   
   
@@ -935,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/freqai-reinforcement-learning/" class="md-nav__link">
+      <a href="../freqai-reinforcement-learning/" class="md-nav__link">
         
   
   
@@ -955,10 +968,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/en/stable/freqai-developers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Developer guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -969,6 +1004,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -988,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/leverage/" class="md-nav__link">
+      <a href="../leverage/" class="md-nav__link">
         
   
   
@@ -1010,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/utils/" class="md-nav__link">
+      <a href="../utils/" class="md-nav__link">
         
   
   
@@ -1032,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/plotting/" class="md-nav__link">
+      <a href="../plotting/" class="md-nav__link">
         
   
   
@@ -1054,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/exchanges/" class="md-nav__link">
+      <a href="../exchanges/" class="md-nav__link">
         
   
   
@@ -1114,7 +1202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/data-analysis/" class="md-nav__link">
+      <a href="../data-analysis/" class="md-nav__link">
         
   
   
@@ -1137,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy_analysis_example/" class="md-nav__link">
+      <a href="../strategy_analysis_example/" class="md-nav__link">
         
   
   
@@ -1160,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-backtesting/" class="md-nav__link">
+      <a href="../advanced-backtesting/" class="md-nav__link">
         
   
   
@@ -1228,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-setup/" class="md-nav__link">
+      <a href="../advanced-setup/" class="md-nav__link">
         
   
   
@@ -1251,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/trade-object/" class="md-nav__link">
+      <a href="../trade-object/" class="md-nav__link">
         
   
   
@@ -1274,7 +1362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/lookahead-analysis/" class="md-nav__link">
+      <a href="../lookahead-analysis/" class="md-nav__link">
         
   
   
@@ -1297,7 +1385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/recursive-analysis/" class="md-nav__link">
+      <a href="../recursive-analysis/" class="md-nav__link">
         
   
   
@@ -1320,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy-advanced/" class="md-nav__link">
+      <a href="../strategy-advanced/" class="md-nav__link">
         
   
   
@@ -1343,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-hyperopt/" class="md-nav__link">
+      <a href="../advanced-hyperopt/" class="md-nav__link">
         
   
   
@@ -1366,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/advanced-orderflow/" class="md-nav__link">
+      <a href="../advanced-orderflow/" class="md-nav__link">
         
   
   
@@ -1389,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/producer-consumer/" class="md-nav__link">
+      <a href="../producer-consumer/" class="md-nav__link">
         
   
   
@@ -1412,7 +1500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/sql_cheatsheet/" class="md-nav__link">
+      <a href="../sql_cheatsheet/" class="md-nav__link">
         
   
   
@@ -1442,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   
@@ -1464,7 +1552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/strategy_migration/" class="md-nav__link">
+      <a href="../strategy_migration/" class="md-nav__link">
         
   
   
@@ -1486,7 +1574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/updating/" class="md-nav__link">
+      <a href="../updating/" class="md-nav__link">
         
   
   
@@ -1508,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/deprecated/" class="md-nav__link">
+      <a href="../deprecated/" class="md-nav__link">
         
   
   
@@ -1530,7 +1618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/stable/developer/" class="md-nav__link">
+      <a href="../developer/" class="md-nav__link">
         
   
   
@@ -1554,13 +1642,199 @@
 
   <!-- Table of contents -->
   
+  
+  <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+    <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      </div>
+    </div>
+  </div>
+  
 
           
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/freqtrade/freqtrade/edit/develop/docs/freqai-developers.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h1>
+<h2 id="project-architecture">Project architecture<a class="headerlink" href="#project-architecture" title="Permanent link">&para;</a></h2>
+<p>The architecture and functions of FreqAI are generalized to encourages development of unique features, functions, models, etc.</p>
+<p>The class structure and a detailed algorithmic overview is depicted in the following diagram:</p>
+<p><img alt="image" src="../assets/freqai_algorithm-diagram.jpg" /></p>
+<p>As shown, there are three distinct objects comprising FreqAI:</p>
+<ul>
+<li><strong>IFreqaiModel</strong> - A singular persistent object containing all the necessary logic to collect, store, and process data, engineer features, run training, and inference models.</li>
+<li><strong>FreqaiDataKitchen</strong> - A non-persistent object which is created uniquely for each unique asset/model. Beyond metadata, it also contains a variety of data processing tools.</li>
+<li><strong>FreqaiDataDrawer</strong> - A singular persistent object containing all the historical predictions, models, and save/load methods.</li>
+</ul>
+<p>There are a variety of built-in <a href="../freqai-configuration/#using-different-prediction-models">prediction models</a> which inherit directly from <code>IFreqaiModel</code>. Each of these models have full access to all methods in <code>IFreqaiModel</code> and can therefore override any of those functions at will. However, advanced users will likely stick to overriding <code>fit()</code>, <code>train()</code>, <code>predict()</code>, and <code>data_cleaning_train/predict()</code>.</p>
+<h2 id="data-handling">Data handling<a class="headerlink" href="#data-handling" title="Permanent link">&para;</a></h2>
+<p>FreqAI aims to organize model files, prediction data, and meta data in a way that simplifies post-processing and enhances crash resilience by automatic data reloading. The data is saved in a file structure,<code>user_data_dir/models/</code>, which contains all the data associated with the trainings and backtests. The <code>FreqaiDataKitchen()</code> relies heavily on the file structure for proper training and inferencing and should therefore not be manually modified.</p>
+<h3 id="file-structure">File structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h3>
+<p>The file structure is automatically generated based on the model <code>identifier</code> set in the <a href="../freqai-configuration/#setting-up-the-configuration-file">config</a>. The following structure shows where the data is stored for post processing:</p>
+<table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config_*.json</code></td>
+<td>A copy of the model specific configuration file.</td>
+</tr>
+<tr>
+<td><code>historic_predictions.pkl</code></td>
+<td>A file containing all historic predictions generated during the lifetime of the <code>identifier</code> model during live deployment. <code>historic_predictions.pkl</code> is used to reload the model after a crash or a config change. A backup file is always held in case of corruption on the main file. FreqAI <strong>automatically</strong> detects corruption and replaces the corrupted file with the backup.</td>
+</tr>
+<tr>
+<td><code>pair_dictionary.json</code></td>
+<td>A file containing the training queue as well as the on disk location of the most recently trained model.</td>
+</tr>
+<tr>
+<td><code>sub-train-*_TIMESTAMP</code></td>
+<td>A folder containing all the files associated with a single model, such as: <br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>*_metadata.json</code> - Metadata for the model, such as normalization max/min, expected training feature list, etc. <br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>*_model.*</code> - The model file saved to disk for reloading from a crash. Can be <code>joblib</code> (typical boosting libs), <code>zip</code> (stable_baselines), <code>hd5</code> (keras type), etc. <br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>*_pca_object.pkl</code> - The <a href="../freqai-feature-engineering/#data-dimensionality-reduction-with-principal-component-analysis">Principal component analysis (PCA)</a> transform (if <code>principal_component_analysis: True</code> is set in the config) which will be used to transform unseen prediction features. <br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>*_svm_model.pkl</code> - The <a href="../freqai-feature-engineering/#identifying-outliers-using-a-support-vector-machine-svm">Support Vector Machine (SVM)</a> model (if <code>use_SVM_to_remove_outliers: True</code> is set in the config) which is used to detect outliers in unseen prediction features. <br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>*_trained_df.pkl</code> - The dataframe containing all the training features used to train the <code>identifier</code> model. This is used for computing the <a href="../freqai-feature-engineering/#identifying-outliers-with-the-dissimilarity-index-di">Dissimilarity Index (DI)</a> and can also be used for post-processing. <br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>*_trained_dates.df.pkl</code> - The dates associated with the <code>trained_df.pkl</code>, which is useful for post-processing.</td>
+</tr>
+</tbody>
+</table>
+<p>The example file structure would look like this:</p>
+<div class="highlight"><pre><span></span><code>├── models
+│   └── unique-id
+│       ├── config_freqai.example.json
+│       ├── historic_predictions.backup.pkl
+│       ├── historic_predictions.pkl
+│       ├── pair_dictionary.json
+│       ├── sub-train-1INCH_1662821319
+│       │   ├── cb_1inch_1662821319_metadata.json
+│       │   ├── cb_1inch_1662821319_model.joblib
+│       │   ├── cb_1inch_1662821319_pca_object.pkl
+│       │   ├── cb_1inch_1662821319_svm_model.joblib
+│       │   ├── cb_1inch_1662821319_trained_dates_df.pkl
+│       │   └── cb_1inch_1662821319_trained_df.pkl
+│       ├── sub-train-1INCH_1662821371
+│       │   ├── cb_1inch_1662821371_metadata.json
+│       │   ├── cb_1inch_1662821371_model.joblib
+│       │   ├── cb_1inch_1662821371_pca_object.pkl
+│       │   ├── cb_1inch_1662821371_svm_model.joblib
+│       │   ├── cb_1inch_1662821371_trained_dates_df.pkl
+│       │   └── cb_1inch_1662821371_trained_df.pkl
+│       ├── sub-train-ADA_1662821344
+│       │   ├── cb_ada_1662821344_metadata.json
+│       │   ├── cb_ada_1662821344_model.joblib
+│       │   ├── cb_ada_1662821344_pca_object.pkl
+│       │   ├── cb_ada_1662821344_svm_model.joblib
+│       │   ├── cb_ada_1662821344_trained_dates_df.pkl
+│       │   └── cb_ada_1662821344_trained_df.pkl
+│       └── sub-train-ADA_1662821399
+│           ├── cb_ada_1662821399_metadata.json
+│           ├── cb_ada_1662821399_model.joblib
+│           ├── cb_ada_1662821399_pca_object.pkl
+│           ├── cb_ada_1662821399_svm_model.joblib
+│           ├── cb_ada_1662821399_trained_dates_df.pkl
+│           └── cb_ada_1662821399_trained_df.pkl
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
               </article>
             </div>
           
@@ -1579,6 +1853,44 @@
     
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../freqai-reinforcement-learning/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reinforcement Learning">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Reinforcement Learning
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../leverage/" class="md-footer__link md-footer__link--next" aria-label="Next: Short / Leverage">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Short / Leverage
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1611,12 +1923,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/en/stable", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "/en/stable/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "search.share", "content.code.copy", "content.action.edit", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="/en/stable/assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
       
-        <script src="/en/stable/javascripts/config.js"></script>
+        <script src="../javascripts/config.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
