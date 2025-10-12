@@ -1,27 +1,39 @@
 # Freqtrade rules
-config*.json
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
 logfile.txt
-user_data/*
-!user_data/strategy/sample_strategy.py
-!user_data/notebooks
-!user_data/models
-!user_data/freqaimodels
-user_data/freqaimodels/*
-user_data/models/*
-user_data/notebooks/*
 freqtrade-plot.html
 freqtrade-profit-plot.html
 freqtrade/rpc/api_server/ui/*
 build_helpers/ta-lib/*
 
+# User data folder exclusions (ignore everything except config.json and strategies)
+user_data/*
+user_data/strategies/*/*.json
+!user_data/config.json
+!user_data/strategies/
+user_data/strategies/*
+!user_data/strategies/*.py
+!user_data/strategies/*/
+!user_data/strategies/*/*.py
+!user_data/strategies/*/README.md
+!user_data/strategies/README.md
+# Ignore raw output files in strategy folders
+user_data/strategies/*/*_raw_output.txt
+
+# Market intelligence system generated files
+user_data/production_configs/
+user_data/market_analysis_reports/
+
+# Temporary testing directory
+/tmp/freqtrade_tests/
+
 # Macos related
 .DS_Store
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
+_pycache_/
 *.py[cod]
 *$py.class
 
@@ -114,5 +126,3 @@ target/
 !config_examples/config_full.example.json
 !config_examples/config_kraken.example.json
 !config_examples/config_freqai.example.json
-
-docker-compose-*.yml
