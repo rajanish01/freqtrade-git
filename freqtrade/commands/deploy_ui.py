@@ -1,8 +1,15 @@
+import json
 import logging
+import sys
 from pathlib import Path
 
 import requests
 
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+# Define FREQTRADE_DIR locally
+FREQTRADE_DIR = Path(__file__).parent.parent
 
 logger = logging.getLogger(__name__)
 
@@ -52,17 +59,28 @@ def download_and_install_ui(dest_folder: Path, dl_url: str, version: str):
 
 
 def get_ui_download_url(version: str | None, prerelease: bool) -> tuple[str, str]:
-    base_url = "https://api.github.com/repos/freqtrade/frequi/"
-    # Get base UI Repo path
-
-    resp = requests.get(f"{base_url}releases", timeout=req_timeout)
-    resp.raise_for_status()
-    r = resp.json()
+    """
+    Get the download URL for the UI.
+    :param version: Version to download
+    :param prerelease: Allow prerelease versions
+    :return: Download URL and version string
+    """
+    # base_url = "https://api.github.com/repos/freqtrade/frequi/"
+    # # Get base UI Repo path
+    # try:
+    #     resp = requests.get(f"{base_url}releases", timeout=REQ_TIMEOUT)
+    #     resp.raise_for_status()
+    #     releases = resp.json()
+    # except (requests.exceptions.RequestException, ValueError) as e:
+    #     logger.warning("Could not fetch releases from github: %s. Fallback to ui_versions.json", e)
+    fallback_file = FREQTRADE_DIR / 'commands' / 'ui_versions.json'
+    with fallback_file.open() as f:
+        releases = json.load(f)
 
     if version:
-        tmp = [x for x in r if x["name"] == version]
+        tmp = [x for x in releases if x["name"] == version]
     else:
-        tmp = [x for x in r if prerelease or not x.get("prerelease")]
+        tmp = [x for x in releases if prerelease or not x.get("prerelease")]
 
     if tmp:
         # Ensure we have the latest version
@@ -78,10 +96,16 @@ def get_ui_download_url(version: str | None, prerelease: bool) -> tuple[str, str
         dl_url = assets[0]["browser_download_url"]
 
     # URL not found - try assets url
-    if not dl_url:
-        assets = r[0]["assets_url"]
-        resp = requests.get(assets, timeout=req_timeout)
-        r = resp.json()
-        dl_url = r[0]["browser_download_url"]
+    if not dl_url and tmp:
+        assets_url = tmp[0].get("assets_url")
+        if assets_url:
+            try:
+                resp = requests.get(assets_url, timeout=req_timeout)
+                resp.raise_for_status()
+                assets = resp.json()
+                if assets and len(assets) > 0:
+                    dl_url = assets[0]["browser_download_url"]
+            except (requests.exceptions.RequestException, ValueError) as e:
+                logger.warning("Could not fetch assets from github: %s. No download URL found.", e)
 
     return dl_url, latest_version

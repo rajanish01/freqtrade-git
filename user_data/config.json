@@ -1,0 +1,147 @@
+{
+  "$schema": "https://schema.freqtrade.io/schema.json",
+  "stake_currency": "USDT",
+  "stake_amount": "unlimited",
+  "tradable_balance_ratio": 0.99,
+  "dry_run": true,
+  "dry_run_wallet": 1000,
+  "cancel_open_orders_on_exit": false,
+  "trading_mode": "spot",
+  "margin_mode": "",
+  "custom_price_max_distance_ratio": 0.02,
+  "unfilledtimeout": {
+    "entry": 180,
+    "exit": 45,
+    "exit_timeout_count": 0,
+    "unit": "minutes"
+  },
+  "order_types": {
+    "entry": "limit",
+    "exit": "market",
+    "emergency_exit": "market",
+    "stoploss": "market",
+    "stoploss_on_exchange": false,
+    "stoploss_on_exchange_interval": 15,
+    "stoploss_price_type": "last",
+    "stoploss_on_exchange_limit_ratio": 0.99
+  },
+  "entry_pricing": {
+    "price_side": "ask",
+    "use_order_book": false,
+    "order_book_top": 1,
+    "price_last_balance": 0.0,
+    "check_depth_of_market": {
+      "enabled": false,
+      "bids_to_ask_delta": 1
+    }
+  },
+  "exit_pricing": {
+    "price_side": "bid",
+    "use_order_book": false,
+    "order_book_top": 1
+  },
+  "exchange": {
+    "name": "binance",
+    "key": "",
+    "secret": "",
+    "ccxt_async_config": {
+    },
+    "ccxt_config": {
+    },
+    "pair_whitelist": [
+      "1INCH/USDT",
+      "AAVE/USDT",
+      "ADA/USDT",
+      "ALGO/USDT",
+      "ANKR/USDT",
+      "APE/USDT",
+      "ARB/USDT",
+      "ATOM/USDT",
+      "AVAX/USDT",
+      "AXS/USDT",
+      "BCH/USDT",
+      "BNB/USDT",
+      "CAKE/USDT",
+      "CHZ/USDT",
+      "COMP/USDT",
+      "CRV/USDT",
+      "DIA/USDT",
+      "DOGE/USDT",
+      "DYDX/USDT",
+      "EGLD/USDT",
+      "ENA/USDT",
+      "ENJ/USDT",
+      "ENS/USDT",
+      "ETH/USDT",
+      "ETC/USDT",
+      "FET/USDT",
+      "FIL/USDT",
+      "FLOKI/USDT",
+      "GALA/USDT",
+      "GRT/USDT",
+      "HBAR/USDT",
+      "HOT/USDT",
+      "ICP/USDT",
+      "IOTA/USDT",
+      "JASMY/USDT",
+      "LINK/USDT",
+      "LTC/USDT",
+      "MASK/USDT",
+      "NEAR/USDT",
+      "OCEAN/USDT",
+      "POL/USDT",
+      "QNT/USDT",
+      "RENDER/USDT",
+      "RUNE/USDT",
+      "SAND/USDT",
+      "SHIB/USDT",
+      "SUI/USDT",
+      "SNX/USDT",
+      "SOL/USDT",
+      "SUSHI/USDT",
+      "THETA/USDT",
+      "TRX/USDT",
+      "UMA/USDT",
+      "UNI/USDT",
+      "VET/USDT",
+      "XAI/USDT",
+      "XLM/USDT",
+      "XRP/USDT",
+      "YFI/USDT",
+      "ZIL/USDT",
+      "ZRX/USDT"
+    ],
+    "pair_blacklist": [
+    ]
+  },
+  "pairlists": [
+    {
+      "method": "StaticPairList"
+    }
+  ],
+  "telegram": {
+    "enabled": false,
+    "token": "",
+    "chat_id": ""
+  },
+  "api_server": {
+    "enabled": true,
+    "listen_ip_address": "0.0.0.0",
+    "listen_port": 8080,
+    "verbosity": "error",
+    "enable_openapi": false,
+    "jwt_secret_key": "",
+    "ws_token": "",
+    "CORS_origins": [],
+    "username": "btcking",
+    "password": "admin123"
+  },
+  "bot_name": "freqtrade",
+  "initial_state": "running",
+  "force_entry_enable": false,
+  "internals": {
+    "process_throttle_secs": 5
+  },
+  "strategy_path": "user_data/strategies/",
+  "recursive_strategy_search": true
+}

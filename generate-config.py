@@ -205,7 +205,7 @@ config = {
     "initial_state": "running",
     "force_entry_enable": False,
     "db_url": os.getenv("DATABASE_URL", "sqlite:///tradesv3.sqlite"),
-    "strategy": "DonchianATRTrendV21",
+    "strategy": "DonchianATRTrend",
     "strategy_path": "user_data/strategies/",
     "recursive_strategy_search": True
 }
