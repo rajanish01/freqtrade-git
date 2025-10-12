@@ -20,6 +20,14 @@ RUN mkdir /freqtrade \
 
 WORKDIR /freqtrade
 
+# Copy scripts and set permissions before switching to ftuser
+COPY generate-config.py /freqtrade/generate-config.py
+COPY entrypoint.sh /freqtrade/entrypoint.sh
+
+RUN chmod +x /freqtrade/entrypoint.sh && \
+    mkdir -p /freqtrade/user_data && \
+    chown -R ftuser:ftuser /freqtrade/user_data
+
 # Install dependencies
 FROM base AS python-deps
 RUN  apt-get update \
@@ -40,6 +48,10 @@ COPY --from=python-deps /usr/local/lib /usr/local/lib
 ENV LD_LIBRARY_PATH=/usr/local/lib
 
 COPY --from=python-deps --chown=ftuser:ftuser /home/ftuser/.local /home/ftuser/.local
+
+# Copy scripts from base stage
+COPY --from=base /freqtrade/generate-config.py /freqtrade/generate-config.py
+COPY --from=base /freqtrade/entrypoint.sh /freqtrade/entrypoint.sh
 
 USER ftuser
 # Install and execute
