@@ -175,13 +175,6 @@ class DonchianATRTrendV22(IStrategy):
     @property
     def protections(self):
         return [
-            {
-                "method": "MaxDrawdown",
-                "lookback_period_candles": 24,
-                "trade_limit": 6,
-                "stop_duration_candles": 3,
-                "max_allowed_drawdown": 0.05
-            },
             {"method": "CooldownPeriod", "stop_duration_candles": 3},
         ]
 
