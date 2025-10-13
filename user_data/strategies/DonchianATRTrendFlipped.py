@@ -90,7 +90,7 @@ def compute_supertrend(df: DataFrame, atr_period: int, multiplier: float) -> Dat
     return out
 
 
-class DonchianATRTrend(IStrategy):
+class DonchianATRTrendFlipped(IStrategy):
     # Core settings
     timeframe = "1h"
     can_short = True
@@ -229,12 +229,12 @@ class DonchianATRTrend(IStrategy):
         short_cond.append(df["volume"] > 0)
 
         if long_cond:
-            df.loc[reduce(lambda a, b: a & b, long_cond), "enter_long"] = 1
-            df.loc[df["enter_long"] == 1, "enter_tag"] = "DC_ST_breakout_long"
+            df.loc[reduce(lambda a, b: a & b, long_cond), "enter_short"] = 1
+            df.loc[df["enter_short"] == 1, "enter_tag"] = "DC_ST_breakout_short"
 
         if short_cond:
-            df.loc[reduce(lambda a, b: a & b, short_cond), "enter_short"] = 1
-            df.loc[df["enter_short"] == 1, "enter_tag"] = "DC_ST_breakout_short"
+            df.loc[reduce(lambda a, b: a & b, short_cond), "enter_long"] = 1
+            df.loc[df["enter_long"] == 1, "enter_tag"] = "DC_ST_breakout_long"
 
         return df
 
