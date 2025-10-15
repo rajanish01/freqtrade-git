@@ -90,18 +90,18 @@ def compute_supertrend(df: DataFrame, atr_period: int, multiplier: float) -> Dat
     return out
 
 
-class DonchianATRTrendFlipped(IStrategy):
+class DonchianATRTrendV2(IStrategy):
     # Core settings
     timeframe = "1h"
     can_short = True
     startup_candle_count = 320
     process_only_new_candles = True
 
+    use_custom_roi = True
     stoploss = -0.03
-    minimal_roi = {"0": 0.03}
     max_open_trades = 3
     trailing_stop = True
-    trailing_stop_positive = 0.01
+    trailing_stop_positive = 0.005
     trailing_only_offset_is_reached = True
     trailing_stop_positive_offset = 0.015
 
@@ -112,12 +112,15 @@ class DonchianATRTrendFlipped(IStrategy):
     st_period = IntParameter(7, 21, default=10, space="buy", optimize=True)
     st_mult = DecimalParameter(1.5, 4.0, decimals=2, default=3.0, space="buy", optimize=True)
 
-    slip_off = DecimalParameter(0.0, 0.5, decimals=2, default=0.10, space="buy", optimize=True)
     # Risk & size
-    risk_per_trade = DecimalParameter(0.01, 0.018, decimals=3, default=0.015, space="buy")
-    min_stake_usd = DecimalParameter(20, 200, decimals=0, default=60, space="buy")
+    risk_per_trade = DecimalParameter(0.01, 0.018, decimals=3, default=0.015, space="buy", optimize=False)
+    min_stake_usd = DecimalParameter(20, 200, decimals=0, default=60, space="buy", optimize=False)
     stake_cap_pct = DecimalParameter(0.10, 0.30, decimals=2, default=0.30, space="buy", optimize=False)
-    initial_atr_mult = DecimalParameter(1.4, 3.8, decimals=2, default=2.3, space="sell")
+    initial_atr_mult = DecimalParameter(1.4, 3.8, decimals=2, default=2.3, space="sell", optimize=False)
+
+    roi_atr_mult = DecimalParameter(0.50, 8.00, decimals=2, default=2.00, space="sell", optimize=True)
+    roi_cap_pct = DecimalParameter(0.05, 0.35, decimals=3, default=0.20, space="sell", optimize=True)
+    roi_use_current_atr = BooleanParameter(default=False, space="sell", optimize=True)
 
     custom_exit_flag = BooleanParameter(default=False, space="sell", optimize=True)
 
@@ -126,13 +129,15 @@ class DonchianATRTrendFlipped(IStrategy):
         "buy_dc_period": 12,
         "min_stake_usd": 39.0,
         "risk_per_trade": 0.015,
-        "slip_off": 0.01,
         "st_mult": 1.97,
         "st_period": 10
     }
 
     sell_params = {
         "custom_exit_flag": False,
+        "roi_atr_mult": 0.57,
+        "roi_cap_pct": 0.222,
+        "roi_use_current_atr": True,
         "initial_atr_mult": 3.71
     }
 
@@ -229,12 +234,12 @@ class DonchianATRTrendFlipped(IStrategy):
         short_cond.append(df["volume"] > 0)
 
         if long_cond:
-            df.loc[reduce(lambda a, b: a & b, long_cond), "enter_short"] = 1
-            df.loc[df["enter_short"] == 1, "enter_tag"] = "DC_ST_breakout_short"
+            df.loc[reduce(lambda a, b: a & b, long_cond), "enter_long"] = 1
+            df.loc[df["enter_long"] == 1, "enter_tag"] = "DC_ST_breakout_long"
 
         if short_cond:
-            df.loc[reduce(lambda a, b: a & b, short_cond), "enter_long"] = 1
-            df.loc[df["enter_long"] == 1, "enter_tag"] = "DC_ST_breakout_long"
+            df.loc[reduce(lambda a, b: a & b, short_cond), "enter_short"] = 1
+            df.loc[df["enter_short"] == 1, "enter_tag"] = "DC_ST_breakout_short"
 
         return df
 
@@ -246,14 +251,6 @@ class DonchianATRTrendFlipped(IStrategy):
             df.loc[(df["st_trend"] == 1) | (df["close"] > df["dc_mid"]), "exit_short"] = 1
 
         return df
-
-    def custom_entry_price(self, pair, trade, current_time, proposed_rate, entry_tag, side, **kwargs) -> float:
-        # Offset entry by a fraction of ATR to avoid chasing marginal breaks
-        # Positive offset for long (enter slightly above), negative for short
-        df, _ = self.dp.get_analyzed_dataframe(pair=pair, timeframe=self.timeframe)
-        atr = float(df.iloc[-1]["atr"]) if not df.empty else 0.0
-        off = float(self.slip_off.value) * atr
-        return float(proposed_rate + (off if side == "long" else -off))
 
     def custom_stake_amount(
             self,
@@ -292,6 +289,54 @@ class DonchianATRTrendFlipped(IStrategy):
             return 0.0
 
         return float(stake)
+
+    def custom_roi(
+            self,
+            pair: str,
+            trade,
+            current_time: datetime,
+            trade_duration: int,
+            entry_tag: str | None,
+            side: str,
+            **kwargs,
+    ) -> float | None:
+        floor = 0.03
+
+        # Get analyzed dataframe with 'atr' and 'close' columns
+        df, _ = self.dp.get_analyzed_dataframe(pair=pair, timeframe=self.timeframe)
+        if df is None or df.empty:
+            return floor
+
+        # Reference ATR%: either at entry time or current
+        atr_ref_pct = 0.0
+        try:
+            if bool(self.roi_use_current_atr.value):
+                # Uses helper defined in this strategy
+                atr_ref_pct = self._atr_pct(df)
+            else:
+                # Find candle at or before trade open to lock volatility at entry
+                open_dt = trade.date_entry_fill_utc
+                try:
+                    idx = df.index.get_indexer([open_dt], method="pad")[0]
+                except Exception:
+                    idx = df.index.searchsorted(open_dt) - 1
+                    if idx < 0:
+                        idx = 0
+                atr = float(df["atr"].iloc[idx])
+                close = float(df["close"].iloc[idx])
+                atr_ref_pct = atr / max(1e-9, close)
+        except Exception:
+            # Fallback to current ATR%
+            atr_ref_pct = self._atr_pct(df)
+
+        # Scale ROI by ATR%, apply floor and optional cap
+        k = float(self.roi_atr_mult.value)
+        cap = float(self.roi_cap_pct.value)
+        roi = floor + k * max(0.0, atr_ref_pct)
+        if cap > 0:
+            roi = min(roi, cap)
+
+        return max(floor, roi)
 
     # -----------------------
     # Helpers
