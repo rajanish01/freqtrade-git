@@ -6,7 +6,8 @@ import numpy as np
 import pandas as pd
 from pandas import DataFrame
 
-from freqtrade.strategy import IStrategy, IntParameter, DecimalParameter, CategoricalParameter, merge_informative_pair
+from freqtrade.strategy import IStrategy, IntParameter, DecimalParameter, CategoricalParameter, merge_informative_pair, \
+    BooleanParameter
 
 
 class Pivot(IStrategy):
@@ -57,6 +58,8 @@ class Pivot(IStrategy):
     # Daily PP filter
     use_pp_filter = CategoricalParameter([True, False], default=True, space="buy")
 
+    custom_exit_flag = BooleanParameter(default=False, space="sell", optimize=True)
+
     # Entry modes
     use_bounce = CategoricalParameter([True, False], default=True, space="buy")
     use_breakout = CategoricalParameter([True, False], default=True, space="buy")
@@ -82,6 +85,35 @@ class Pivot(IStrategy):
 
     # Optional leverage (futures)
     leverage_opt = IntParameter(1, 5, default=1, space="buy")
+
+    # Buy hyperspace params:
+    buy_params = {
+        "brk_buffer_dn": 0.008,
+        "brk_buffer_up": 0.009,
+        "ema_period": 175,
+        "leverage_opt": 3,
+        "pivot_left": 3,
+        "pivot_right": 4,
+        "sr_touch_tolerance": 0.001,
+        "use_bounce": True,
+        "use_breakout": True,
+        "use_pp_filter": False,
+    }
+
+    # Sell hyperspace params:
+    sell_params = {
+        "atr_mult_long": 4.0,
+        "atr_mult_short": 3.9,
+        "atr_period": 27,
+        "custom_exit_flag": False,
+        "roi_p1": 0.01,
+        "roi_p2": 0.001,
+        "roi_p3": 0.011,
+        "roi_t1": 33,
+        "roi_t2": 1284,
+        "roi_t3": 1138,
+        "sr_stop_buffer": 0.004,
+    }
 
     plot_config = {
         "main_plot": {
@@ -257,42 +289,43 @@ class Pivot(IStrategy):
     def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         df = dataframe.copy()
 
-        df["exit_long"] = 0
-        df["exit_short"] = 0
-        if "exit_tag" not in df.columns:
-            df["exit_tag"] = ""
+        if self.custom_exit_flag:
+            df["exit_long"] = 0
+            df["exit_short"] = 0
+            if "exit_tag" not in df.columns:
+                df["exit_tag"] = ""
 
-        has_sr = all(c in df.columns for c in ["last_sup", "last_res"])
-        vol_ok = df["volume"] > 0
+            has_sr = all(c in df.columns for c in ["last_sup", "last_res"])
+            vol_ok = df["volume"] > 0
 
-        # Column names for informative pivots with suffix (_1d)
-        r1_col = f"r1_{self.informative_timeframe}"
-        s1_col = f"s1_{self.informative_timeframe}"
+            # Column names for informative pivots with suffix (_1d)
+            r1_col = f"r1_{self.informative_timeframe}"
+            s1_col = f"s1_{self.informative_timeframe}"
 
-        if has_sr:
-            # Long exits: hit resistance, lose support, or reach R1 if available
-            hit_res = df["last_res"].notna() & (df["high"] >= df["last_res"])
-            lose_sup = df["last_sup"].notna() & (df["close"] < df["last_sup"]) & (
-                    df["close"].shift(1) >= df["last_sup"])
-            exit_to_r1 = df[r1_col].notna() & (df["close"] >= df[r1_col])
+            if has_sr:
+                # Long exits: hit resistance, lose support, or reach R1 if available
+                hit_res = df["last_res"].notna() & (df["high"] >= df["last_res"])
+                lose_sup = df["last_sup"].notna() & (df["close"] < df["last_sup"]) & (
+                        df["close"].shift(1) >= df["last_sup"])
+                exit_to_r1 = df[r1_col].notna() & (df["close"] >= df[r1_col])
 
-            long_exit = vol_ok & (hit_res | lose_sup | exit_to_r1)
-            df.loc[vol_ok & hit_res, "exit_tag"] = "hit_resistance"
-            df.loc[vol_ok & lose_sup, "exit_tag"] = "lost_support"
-            df.loc[vol_ok & exit_to_r1, "exit_tag"] = "to_R1"
-            df.loc[long_exit, "exit_long"] = 1
+                long_exit = vol_ok & (hit_res | lose_sup | exit_to_r1)
+                df.loc[vol_ok & hit_res, "exit_tag"] = "hit_resistance"
+                df.loc[vol_ok & lose_sup, "exit_tag"] = "lost_support"
+                df.loc[vol_ok & exit_to_r1, "exit_tag"] = "to_R1"
+                df.loc[long_exit, "exit_long"] = 1
 
-            # Short exits: hit support, reclaim resistance, or reach S1 if available
-            hit_sup = df["last_sup"].notna() & (df["low"] <= df["last_sup"])
-            reclaim_res = df["last_res"].notna() & (df["close"] > df["last_res"]) & (
-                    df["close"].shift(1) <= df["last_res"])
-            exit_to_s1 = df[s1_col].notna() & (df["close"] <= df[s1_col])
+                # Short exits: hit support, reclaim resistance, or reach S1 if available
+                hit_sup = df["last_sup"].notna() & (df["low"] <= df["last_sup"])
+                reclaim_res = df["last_res"].notna() & (df["close"] > df["last_res"]) & (
+                        df["close"].shift(1) <= df["last_res"])
+                exit_to_s1 = df[s1_col].notna() & (df["close"] <= df[s1_col])
 
-            short_exit = vol_ok & (hit_sup | reclaim_res | exit_to_s1)
-            df.loc[vol_ok & hit_sup, "exit_tag"] = "hit_support"
-            df.loc[vol_ok & reclaim_res, "exit_tag"] = "reclaimed_resistance"
-            df.loc[vol_ok & exit_to_s1, "exit_tag"] = "to_S1"
-            df.loc[short_exit, "exit_short"] = 1
+                short_exit = vol_ok & (hit_sup | reclaim_res | exit_to_s1)
+                df.loc[vol_ok & hit_sup, "exit_tag"] = "hit_support"
+                df.loc[vol_ok & reclaim_res, "exit_tag"] = "reclaimed_resistance"
+                df.loc[vol_ok & exit_to_s1, "exit_tag"] = "to_S1"
+                df.loc[short_exit, "exit_short"] = 1
 
         return df
 
