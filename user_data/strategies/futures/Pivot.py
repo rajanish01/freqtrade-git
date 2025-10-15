@@ -289,7 +289,7 @@ class Pivot(IStrategy):
     def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         df = dataframe.copy()
 
-        if self.custom_exit_flag:
+        if self.custom_exit_flag.value:
             df["exit_long"] = 0
             df["exit_short"] = 0
             if "exit_tag" not in df.columns:
