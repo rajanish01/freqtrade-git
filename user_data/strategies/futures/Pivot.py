@@ -36,7 +36,7 @@ class Pivot(IStrategy):
     # ROI/Stoploss framework
     minimal_roi = {}  # use custom ROI below
     use_custom_roi = True
-    stoploss = -0.15  # safety net; dynamic stop via custom_stoploss
+    stoploss = -0.1  # safety net; dynamic stop via custom_stoploss
     use_custom_stoploss = True
 
     # Exit signaling
