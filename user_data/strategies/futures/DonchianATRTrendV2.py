@@ -5,8 +5,7 @@ from typing import Any
 import pandas as pd
 from pandas import DataFrame
 
-from freqtrade.constants import Config
-from freqtrade.strategy import IStrategy, IntParameter, DecimalParameter, BooleanParameter, stoploss_from_absolute
+from freqtrade.strategy import IStrategy, IntParameter, DecimalParameter, BooleanParameter
 
 
 def _rma(series: pd.Series, length: int) -> pd.Series:
@@ -301,7 +300,7 @@ class DonchianATRTrendV2(IStrategy):
             side: str,
             **kwargs,
     ) -> float | None:
-        floor = 0.035
+        floor = 0.03
 
         # Get analyzed dataframe with 'atr' and 'close' columns
         df, _ = self.dp.get_analyzed_dataframe(pair=pair, timeframe=self.timeframe)
@@ -350,4 +349,3 @@ class DonchianATRTrendV2(IStrategy):
         atr_pct = self._atr_pct(df)
         sld = float(self.initial_atr_mult.value) * atr_pct
         return min(sld, 0.08)
-
