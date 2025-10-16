@@ -46,7 +46,7 @@ config = {
         "unit": "minutes"
     },
     "order_types": {
-        "entry": "limit",
+        "entry": "market",
         "exit": "market",
         "emergency_exit": "market",
         "stoploss": "market",
@@ -56,7 +56,7 @@ config = {
         "stoploss_on_exchange_limit_ratio": 0.99
     },
     "entry_pricing": {
-        "price_side": "same",
+        "price_side": "other",
         "use_order_book": True,
         "order_book_top": 1,
         "price_last_balance": 0.0,
@@ -205,7 +205,7 @@ config = {
     "initial_state": "running",
     "force_entry_enable": False,
     "db_url": os.getenv("DATABASE_URL", "sqlite:///tradesv3.sqlite"),
-    "strategy": "DonchianATRTrendV2",
+    "strategy": "Pivot",
     "strategy_path": "user_data/strategies/",
     "recursive_strategy_search": True
 }
