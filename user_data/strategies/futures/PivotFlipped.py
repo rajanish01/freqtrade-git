@@ -10,7 +10,7 @@ from freqtrade.strategy import IStrategy, IntParameter, DecimalParameter, Catego
     BooleanParameter
 
 
-class Pivot(IStrategy):
+class PivotFlipped(IStrategy):
     INTERFACE_VERSION = 3
 
     # Core settings
@@ -23,7 +23,7 @@ class Pivot(IStrategy):
     # ROI/Stoploss framework
     minimal_roi = {}  # use custom ROI below
     use_custom_roi = True
-    stoploss = -0.1  # safety net; dynamic stop via custom_stoploss
+    stoploss = -0.10  # safety net; dynamic stop via custom_stoploss
     use_custom_stoploss = True
 
     max_open_trades = 3
@@ -254,13 +254,13 @@ class Pivot(IStrategy):
             long_cond = vol_ok & trend_long & long_mode
             short_cond = vol_ok & trend_short & short_mode
 
-            df.loc[long_cond, "enter_long"] = 1
-            df.loc[long_cond & long_bounce, "enter_tag"] = "S/R bounce long"
-            df.loc[long_cond & long_breakout, "enter_tag"] = "S/R breakout long"
+            df.loc[long_cond, "enter_short"] = 1
+            df.loc[long_cond & long_bounce, "enter_tag"] = "S/R bounce short"
+            df.loc[long_cond & long_breakout, "enter_tag"] = "S/R breakout short"
 
-            df.loc[short_cond, "enter_short"] = 1
-            df.loc[short_cond & short_bounce, "enter_tag"] = "S/R bounce short"
-            df.loc[short_cond & short_breakdown, "enter_tag"] = "S/R breakdown short"
+            df.loc[short_cond, "enter_long"] = 1
+            df.loc[short_cond & short_bounce, "enter_tag"] = "S/R bounce long"
+            df.loc[short_cond & short_breakdown, "enter_tag"] = "S/R breakdown long"
 
         return df
 
