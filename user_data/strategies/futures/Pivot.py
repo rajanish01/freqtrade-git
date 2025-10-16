@@ -20,30 +20,11 @@ class Pivot(IStrategy):
     process_only_new_candles = True
     startup_candle_count = 400  # warmup for pivots/ATR/EMA
 
-    # Order config
-    order_types = {
-        "entry": "limit",
-        "exit": "limit",
-        "stoploss": "market",
-        "stoploss_on_exchange": False,
-        "stoploss_on_exchange_interval": 60,
-    }
-    order_time_in_force = {
-        "entry": "GTC",
-        "exit": "GTC",
-    }
-
     # ROI/Stoploss framework
     minimal_roi = {}  # use custom ROI below
     use_custom_roi = True
     stoploss = -0.1  # safety net; dynamic stop via custom_stoploss
     use_custom_stoploss = True
-
-    # Exit signaling
-    use_exit_signal = True
-    exit_profit_only = False
-    exit_profit_offset = 0.0
-    ignore_roi_if_entry_signal = False
 
     max_open_trades = 3
 
@@ -128,9 +109,6 @@ class Pivot(IStrategy):
             "ATR": {"atr": {"color": "gray"}},
         },
     }
-
-    def version(self) -> str:
-        return "1.0.0-1h"
 
     def informative_pairs(self):
         # daily informative for each whitelist pair
