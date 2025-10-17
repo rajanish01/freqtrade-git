@@ -23,7 +23,7 @@ class PivotFlipped(IStrategy):
     # ROI/Stoploss framework
     minimal_roi = {}  # use custom ROI below
     use_custom_roi = True
-    stoploss = -0.10  # safety net; dynamic stop via custom_stoploss
+    stoploss = -0.05  # safety net; dynamic stop via custom_stoploss
     use_custom_stoploss = True
 
     max_open_trades = 3
@@ -72,7 +72,7 @@ class PivotFlipped(IStrategy):
         "brk_buffer_dn": 0.008,
         "brk_buffer_up": 0.009,
         "ema_period": 175,
-        "leverage_opt": 3,
+        "leverage_opt": 2,
         "pivot_left": 3,
         "pivot_right": 4,
         "sr_touch_tolerance": 0.001,
@@ -87,12 +87,6 @@ class PivotFlipped(IStrategy):
         "atr_mult_short": 3.9,
         "atr_period": 27,
         "custom_exit_flag": False,
-        "roi_p1": 0.01,
-        "roi_p2": 0.001,
-        "roi_p3": 0.011,
-        "roi_t1": 33,
-        "roi_t2": 1284,
-        "roi_t3": 1138,
         "sr_stop_buffer": 0.004,
     }
 
@@ -109,6 +103,24 @@ class PivotFlipped(IStrategy):
             "ATR": {"atr": {"color": "gray"}},
         },
     }
+
+    @property
+    def protections(self):
+        return [
+            {
+                "method": "CooldownPeriod",
+                "stop_duration_candles": 1
+            },
+            {
+                "method": "StoplossGuard",
+                "lookback_period_candles": 12,  # 24h on 1h timeframe
+                "trade_limit": 2,  # block if >=4 SLs in window
+                "stop_duration_candles": 3,  # pause 6h
+                "required_profit": 0.0,  # consider any losing SL
+                "only_per_pair": False,  # evaluate across all pairs
+                "only_per_side": True  # lock only the losing side
+            },
+        ]
 
     def informative_pairs(self):
         # daily informative for each whitelist pair
