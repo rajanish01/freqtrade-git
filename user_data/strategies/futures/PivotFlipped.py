@@ -56,13 +56,10 @@ class PivotFlipped(IStrategy):
     atr_mult_short = DecimalParameter(1.0, 4.0, decimals=1, default=2.0, space="sell")
     sr_stop_buffer = DecimalParameter(0.000, 0.010, decimals=3, default=0.002, space="sell")
 
-    # ROI staging (minutes and thresholds)
-    roi_t1 = IntParameter(10, 360, default=90, space="sell")
-    roi_t2 = IntParameter(60, 1440, default=360, space="sell")
-    roi_t3 = IntParameter(240, 2880, default=1440, space="sell")
-    roi_p1 = DecimalParameter(0.002, 0.050, decimals=3, default=0.012, space="sell")
-    roi_p2 = DecimalParameter(0.001, 0.030, decimals=3, default=0.008, space="sell")
-    roi_p3 = DecimalParameter(0.000, 0.020, decimals=3, default=0.004, space="sell")
+    # ROI
+    roi_atr_mult = DecimalParameter(0.50, 8.00, decimals=2, default=2.00, space="sell", optimize=True)
+    roi_cap_pct = DecimalParameter(0.05, 0.35, decimals=3, default=0.20, space="sell", optimize=True)
+    roi_use_current_atr = BooleanParameter(default=False, space="sell", optimize=True)
 
     # Optional leverage (futures)
     leverage_opt = IntParameter(1, 5, default=1, space="buy")
@@ -87,6 +84,9 @@ class PivotFlipped(IStrategy):
         "atr_mult_short": 3.9,
         "atr_period": 27,
         "custom_exit_flag": False,
+        "roi_atr_mult": 0.57,
+        "roi_cap_pct": 0.222,
+        "roi_use_current_atr": True,
         "sr_stop_buffer": 0.004,
     }
 
@@ -378,32 +378,47 @@ class PivotFlipped(IStrategy):
             trade,
             current_time: datetime,
             trade_duration: int,
-            entry_tag: str,
-            side,
+            entry_tag: str | None,
+            side: str,
             **kwargs,
-    ) -> Optional[float]:
-        """
-        Time-based ROI ladder:
-          0..t1 -> p1
-          t1..t2 -> p2
-          t2..t3 -> p3
-          >t3 -> 0 (let trailing/stop manage)
-        """
-        t1 = int(self.roi_t1.value)
-        t2 = int(self.roi_t2.value)
-        t3 = int(self.roi_t3.value)
-        p1 = float(self.roi_p1.value)
-        p2 = float(self.roi_p2.value)
-        p3 = float(self.roi_p3.value)
+    ) -> float | None:
+        floor = 0.01
 
-        if trade_duration <= t1:
-            return p1
-        elif trade_duration <= t2:
-            return p2
-        elif trade_duration <= t3:
-            return p3
-        else:
-            return 0.0
+        # Get analyzed dataframe with 'atr' and 'close' columns
+        df, _ = self.dp.get_analyzed_dataframe(pair=pair, timeframe=self.timeframe)
+        if df is None or df.empty:
+            return floor
+
+        # Reference ATR%: either at entry time or current
+        atr_ref_pct = 0.0
+        try:
+            if bool(self.roi_use_current_atr.value):
+                # Uses helper defined in this strategy
+                atr_ref_pct = self._atr_pct(df)
+            else:
+                # Find candle at or before trade open to lock volatility at entry
+                open_dt = trade.date_entry_fill_utc
+                try:
+                    idx = df.index.get_indexer([open_dt], method="pad")[0]
+                except Exception:
+                    idx = df.index.searchsorted(open_dt) - 1
+                    if idx < 0:
+                        idx = 0
+                atr = float(df["atr"].iloc[idx])
+                close = float(df["close"].iloc[idx])
+                atr_ref_pct = atr / max(1e-9, close)
+        except Exception:
+            # Fallback to current ATR%
+            atr_ref_pct = self._atr_pct(df)
+
+        # Scale ROI by ATR%, apply floor and optional cap
+        k = float(self.roi_atr_mult.value)
+        cap = float(self.roi_cap_pct.value)
+        roi = floor + k * max(0.0, atr_ref_pct)
+        if cap > 0:
+            roi = min(roi, cap)
+
+        return max(floor, roi)
 
     # ---------- Leverage (futures) ----------
     def leverage(
@@ -418,3 +433,6 @@ class PivotFlipped(IStrategy):
             **kwargs,
     ) -> float:
         return float(int(self.leverage_opt.value))
+
+    def _atr_pct(self, df: DataFrame) -> float:
+        return float(df["atr"].iat[-1]) / max(1e-9, float(df["close"].iat[-1]))
