@@ -377,39 +377,39 @@ class PivotFlipped(IStrategy):
         except Exception:
             return None
 
-        # ---------- Custom ROI ----------
-        def custom_roi(
-                self,
-                pair: str,
-                trade,
-                current_time: datetime,
-                trade_duration: int,
-                entry_tag: str,
-                side,
-                **kwargs,
-        ) -> Optional[float]:
-            """
-            Time-based ROI ladder:
-              0..t1 -> p1
-              t1..t2 -> p2
-              t2..t3 -> p3
-              >t3 -> 0 (let trailing/stop manage)
-            """
-            t1 = int(self.roi_t1.value)
-            t2 = int(self.roi_t2.value)
-            t3 = int(self.roi_t3.value)
-            p1 = float(self.roi_p1.value)
-            p2 = float(self.roi_p2.value)
-            p3 = float(self.roi_p3.value)
+    # ---------- Custom ROI ----------
+    def custom_roi(
+            self,
+            pair: str,
+            trade,
+            current_time: datetime,
+            trade_duration: int,
+            entry_tag: str,
+            side,
+            **kwargs,
+    ) -> Optional[float]:
+        """
+        Time-based ROI ladder:
+          0..t1 -> p1
+          t1..t2 -> p2
+          t2..t3 -> p3
+          >t3 -> 0 (let trailing/stop manage)
+        """
+        t1 = int(self.roi_t1.value)
+        t2 = int(self.roi_t2.value)
+        t3 = int(self.roi_t3.value)
+        p1 = float(self.roi_p1.value)
+        p2 = float(self.roi_p2.value)
+        p3 = float(self.roi_p3.value)
 
-            if trade_duration <= t1:
-                return p1
-            elif trade_duration <= t2:
-                return p2
-            elif trade_duration <= t3:
-                return p3
-            else:
-                return 0.0
+        if trade_duration <= t1:
+            return p1
+        elif trade_duration <= t2:
+            return p2
+        elif trade_duration <= t3:
+            return p3
+        else:
+            return 0.0
 
     # ---------- Leverage (futures) ----------
     def leverage(
