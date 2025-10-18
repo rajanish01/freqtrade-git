@@ -23,7 +23,7 @@ class Pivot(IStrategy):
     # ROI/Stoploss framework
     minimal_roi = {}  # use custom ROI below
     use_custom_roi = True
-    stoploss = -0.1  # safety net; dynamic stop via custom_stoploss
+    stoploss = -0.05  # safety net; dynamic stop via custom_stoploss
     use_custom_stoploss = True
 
     max_open_trades = 3
@@ -72,7 +72,7 @@ class Pivot(IStrategy):
         "brk_buffer_dn": 0.008,
         "brk_buffer_up": 0.009,
         "ema_period": 175,
-        "leverage_opt": 3,
+        "leverage_opt": 2,
         "pivot_left": 3,
         "pivot_right": 4,
         "sr_touch_tolerance": 0.001,
