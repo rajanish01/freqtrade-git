@@ -28,6 +28,8 @@ class PivotFlipped(IStrategy):
 
     max_open_trades = 3
 
+    ignore_buying_expired_candle_after = 300
+
     # Hyperoptable parameters
     # Pivot detection windows
     pivot_left = IntParameter(2, 7, default=3, space="buy")

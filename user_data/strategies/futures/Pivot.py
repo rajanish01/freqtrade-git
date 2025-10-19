@@ -26,6 +26,8 @@ class Pivot(IStrategy):
     stoploss = -0.05  # safety net; dynamic stop via custom_stoploss
     use_custom_stoploss = True
 
+    ignore_buying_expired_candle_after = 300
+
     max_open_trades = 3
 
     # Hyperoptable parameters
