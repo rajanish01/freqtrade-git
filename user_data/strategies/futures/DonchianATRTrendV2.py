@@ -96,6 +96,7 @@ class DonchianATRTrendV2(IStrategy):
     can_short = True
     startup_candle_count = 320
     process_only_new_candles = True
+    ignore_buying_expired_candle_after = 300
 
     use_custom_roi = True
     stoploss = -0.03
