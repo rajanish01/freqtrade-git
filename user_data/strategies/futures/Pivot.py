@@ -19,14 +19,11 @@ class Pivot(IStrategy):
     can_short = True
     process_only_new_candles = True
     startup_candle_count = 400  # warmup for pivots/ATR/EMA
+    ignore_buying_expired_candle_after = 300
 
     # ROI/Stoploss framework
-    minimal_roi = {}  # use custom ROI below
-    use_custom_roi = True
-    stoploss = -0.05  # safety net; dynamic stop via custom_stoploss
-    use_custom_stoploss = True
-
-    ignore_buying_expired_candle_after = 300
+    minimal_roi = {"0" : 0.01}  # use custom ROI below
+    stoploss = -0.03  # safety net; dynamic stop via custom_stoploss
 
     max_open_trades = 3
 
@@ -58,25 +55,17 @@ class Pivot(IStrategy):
     atr_mult_short = DecimalParameter(1.0, 4.0, decimals=1, default=2.0, space="sell")
     sr_stop_buffer = DecimalParameter(0.000, 0.010, decimals=3, default=0.002, space="sell")
 
-    # ROI staging (minutes and thresholds)
-    roi_t1 = IntParameter(10, 360, default=90, space="sell")
-    roi_t2 = IntParameter(60, 1440, default=360, space="sell")
-    roi_t3 = IntParameter(240, 2880, default=1440, space="sell")
-    roi_p1 = DecimalParameter(0.002, 0.050, decimals=3, default=0.012, space="sell")
-    roi_p2 = DecimalParameter(0.001, 0.030, decimals=3, default=0.008, space="sell")
-    roi_p3 = DecimalParameter(0.000, 0.020, decimals=3, default=0.004, space="sell")
-
     # Optional leverage (futures)
-    leverage_opt = IntParameter(1, 5, default=1, space="buy")
+    leverage_opt = IntParameter(1, 3, default=1, space="buy")
 
     # Buy hyperspace params:
     buy_params = {
-        "brk_buffer_dn": 0.008,
-        "brk_buffer_up": 0.009,
-        "ema_period": 175,
-        "leverage_opt": 2,
-        "pivot_left": 3,
-        "pivot_right": 4,
+        "brk_buffer_dn": 0.007,
+        "brk_buffer_up": 0.013,
+        "ema_period": 204,
+        "leverage_opt": 1,
+        "pivot_left": 7,
+        "pivot_right": 5,
         "sr_touch_tolerance": 0.001,
         "use_bounce": True,
         "use_breakout": True,
@@ -85,17 +74,11 @@ class Pivot(IStrategy):
 
     # Sell hyperspace params:
     sell_params = {
-        "atr_mult_long": 4.0,
-        "atr_mult_short": 3.9,
-        "atr_period": 27,
-        "custom_exit_flag": False,
-        "roi_p1": 0.01,
-        "roi_p2": 0.001,
-        "roi_p3": 0.011,
-        "roi_t1": 33,
-        "roi_t2": 1284,
-        "roi_t3": 1138,
-        "sr_stop_buffer": 0.004,
+        "atr_mult_long": 2.1,
+        "atr_mult_short": 1.7,
+        "atr_period": 18,
+        "custom_exit_flag": True,
+        "sr_stop_buffer": 0.005,
     }
 
     plot_config = {
@@ -111,6 +94,24 @@ class Pivot(IStrategy):
             "ATR": {"atr": {"color": "gray"}},
         },
     }
+
+    @property
+    def protections(self):
+        return [
+            # Short post-exit pause to avoid immediate re-entries into churn
+            {"method": "CooldownPeriod", "stop_duration_candles": 3},
+
+            # Clustered stoploss protector with per-side locking for futures
+            {
+                "method": "StoplossGuard",
+                "lookback_period_candles": 12,  # 12h on 1h timeframe
+                "trade_limit": 2,  # block if >=2 SLs in window
+                "stop_duration_candles": 6,  # pause 6h
+                "required_profit": 0.0,  # consider any losing SL
+                "only_per_pair": False,  # evaluate across all pairs
+                "only_per_side": True  # lock only the losing side
+            }
+        ]
 
     def informative_pairs(self):
         # daily informative for each whitelist pair
@@ -308,92 +309,6 @@ class Pivot(IStrategy):
                 df.loc[short_exit, "exit_short"] = 1
 
         return df
-
-    # ---------- Custom Stoploss ----------
-    def custom_stoploss(
-            self,
-            pair: str,
-            trade,
-            current_time: datetime,
-            current_rate: float,
-            current_profit: float,
-            after_fill: bool,
-            **kwargs,
-    ) -> Optional[float]:
-        """
-        Dynamic stop: min(ATR multiple, pivot-buffer stop).
-        Returns a negative ratio (e.g. -0.03) or None to keep current SL.
-        """
-        try:
-            # Access latest 1h row
-            df = self.dp.get_pair_dataframe(pair=pair, timeframe=self.timeframe)
-            if df is None or df.empty:
-                return None
-            row = df.iloc[-1]
-
-            atr = float(row.get("atr", np.nan))
-            last_sup = float(row.get("last_sup", np.nan))
-            last_res = float(row.get("last_res", np.nan))
-            close = float(row.get("close", current_rate))
-
-            if np.isnan(atr) or np.isnan(last_sup) or np.isnan(last_res):
-                return None
-
-            # ATR stops
-            atr_mult_l = float(self.atr_mult_long.value)
-            atr_mult_s = float(self.atr_mult_short.value)
-            sr_buf = float(self.sr_stop_buffer.value)
-
-            if not trade.is_short:
-                # Long: stop below support or ATR multiple
-                sl_price_pivot = last_sup * (1 - sr_buf)
-                sl_price_atr = close - atr_mult_l * atr
-                sl_price = max(sl_price_pivot, sl_price_atr)  # tighter of the two on the upside
-                sl_ratio = (sl_price / current_rate) - 1.0
-                return max(sl_ratio, self.stoploss)  # cap by hard SL
-            else:
-                # Short: stop above resistance or ATR multiple
-                sl_price_pivot = last_res * (1 + sr_buf)
-                sl_price_atr = close + atr_mult_s * atr
-                sl_price = min(sl_price_pivot, sl_price_atr)
-                sl_ratio = 1.0 - (sl_price / current_rate)
-                return max(-sl_ratio, self.stoploss)
-        except Exception:
-            return None
-
-    # ---------- Custom ROI ----------
-    def custom_roi(
-            self,
-            pair: str,
-            trade,
-            current_time: datetime,
-            trade_duration: int,
-            entry_tag: str,
-            side,
-            **kwargs,
-    ) -> Optional[float]:
-        """
-        Time-based ROI ladder:
-          0..t1 -> p1
-          t1..t2 -> p2
-          t2..t3 -> p3
-          >t3 -> 0 (let trailing/stop manage)
-        """
-        t1 = int(self.roi_t1.value)
-        t2 = int(self.roi_t2.value)
-        t3 = int(self.roi_t3.value)
-        p1 = float(self.roi_p1.value)
-        p2 = float(self.roi_p2.value)
-        p3 = float(self.roi_p3.value)
-
-        if trade_duration <= t1:
-            return p1
-        elif trade_duration <= t2:
-            return p2
-        elif trade_duration <= t3:
-            return p3
-        else:
-            return 0.0
 
     # ---------- Leverage (futures) ----------
     def leverage(
