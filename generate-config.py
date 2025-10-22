@@ -34,7 +34,7 @@ config = {
     "stake_currency": "USDT",
     "stake_amount": "unlimited",
     "tradable_balance_ratio": 0.99,
-    "dry_run": True,
+    "dry_run": False,
     "dry_run_wallet": 1000,
     "cancel_open_orders_on_exit": True,
     "trading_mode": "futures",
@@ -201,7 +201,7 @@ config = {
     "initial_state": "running",
     "force_entry_enable": False,
     "db_url": os.getenv("DATABASE_URL", "sqlite:///tradesv3.sqlite"),
-    "strategy": "DonchianATRTrendV2",
+    "strategy": "Pivot",
     "strategy_path": "user_data/strategies/",
     "recursive_strategy_search": True
 }
