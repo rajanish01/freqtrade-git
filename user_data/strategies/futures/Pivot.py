@@ -77,7 +77,7 @@ class Pivot(IStrategy):
         "atr_mult_long": 2.1,
         "atr_mult_short": 1.7,
         "atr_period": 18,
-        "custom_exit_flag": True,
+        "custom_exit_flag": False,
         "sr_stop_buffer": 0.005,
     }
 
